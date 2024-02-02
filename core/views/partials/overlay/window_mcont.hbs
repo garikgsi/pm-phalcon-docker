@@ -1,0 +1,7 @@
+<div class="elz tplGrItem {{mcont_type}} wrap rows{{mcont_class}}" data-layout="{{mcont_name}}" {{{mcont_data}}}>
+    {{#sec_list}}
+        <div class="elz tplGrItem section {{sec_type}}{{sec_class}}" data-layout="{{sec_name}}" {{{sec_data}}}>
+            {{#sec_html}}{{{sec_html}}}{{/sec_html}}
+            {{^sec_html}}<!%{{sec_name}}%!>{{/sec_html}}</div>
+    {{/sec_list}}
+</div>

@@ -1,0 +1,132 @@
+<?php $unitsList = $units ?? []?>
+<?php $conversionsList = $conversions ?? []?>
+<?php $hasUnits = sizeof($unitsList)?>
+<?php $hasConversions = sizeof($conversionsList)?>
+
+<?php $unitsTypes = $this->view->getVar('unitTypeOptions');?>
+<?php $unitsGroups = $this->view->getVar('unitRatioOptions');?>
+
+<?php $unit_type_id = $unit_type_id ?? 1?>
+<?php $unit_title_full = $unit_title_full ?? ''?>
+<?php $unit_lock = $unit_lock ?? 0?>
+<?php $conversion_options = $conversion_options ?? []?>
+<li class="unitItem elz uExpItem" data-id="<?=$unit_id?>">
+    <div class="unitWrap elz uExpWrap d-block r3 bg bg-primary bgL5 bgHovL7 bsh-default1 showSelOut5 hideSelOut5">
+        <div class="elz d-flex f-wrap a-H gap8 p8">
+            <div class="elz p-rel d-flex a-X pR8">
+                <div title="Сортировать" class="sortUnitHandler elz d-flex a-X cur-move opAct07 s36 rRound bgHov bgHov-primary bgHovL-5 fnSel fnSel-ok-t bgSel bgSel-ok">
+                    <div class="mskIcon evNone elz d-block p-rel noShrink mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/move-v.svg');"></div>
+                </div>
+                <div class="elz p-abs p-R h24 borR1 br br-primary-t op025"></div>
+            </div>
+            <div class="elz p-rel d-flex growMax s-S fb200">
+                <div class="unitExpand elz d-flex grow a-H mAL-8 pAL8 cur-pointer opAct07">
+                    <div class="elz d-flex a-X s32">
+                        <div class="mskIcon elz d-block p-rel noShrink mskBef s12 cFillBef bgBef-CC deg180 hideSelIn5" style="--elzMsk: url('/design/icons/arrow2.svg');"></div>
+                        <div class="mskIcon elz d-block p-rel noShrink mskBef s12 cFillBef bgBef-CC showSelIn5" style="--elzMsk: url('/design/icons/arrow2.svg');"></div>
+                    </div>
+                    <div class="unitTitle elz d-block fn16 grow"><?=$unit_title_short?></div>
+                </div>
+                <form class="unitUpdateForm elz p-abs p-H d-flex hide" action="?act=unit_update&id=<?=$unit_id?>" method="post">
+                    <label class="elz p-rel d-grid grPos grTV010 grow fn fn-primary-t fnL20 fnLInvD fnHovL10 fnFow-focus fnFowL0 mR-1">
+                        <input type="text"
+                               name="title_short"
+                               value="<?=$unit_title_short?>"
+                               placeholder="Введине короткое название"
+                               class="elz elzInput d-block grPin grY2 w100p bor1 rL3 h36 pL36 pR16 fn12 ellipsis trns2 invPssSib
+                                      bg bg-primary bgL10 bgLInvD
+                                      br brLInvD br-primary brL-10 brHovL-20 brFoc-focus brFocL0
+                                      fn fn-primary-t">
+                        <span class="elz d-flex a-H grPin grY2 bor1 pH7 z6 evNone">
+                            <span class="elz p-rel d-flex a-X s24 trns2">
+                                <span class="elz p-rel d-block mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/font.svg');"></span>
+                            </span>
+                            <span class="elz p-rel growX d-flex a-PR"></span>
+                        </span>
+                    </label>
+                    <label class="elz p-rel d-grid grPos grTV010 grow fn fn-primary-t fnL20 fnLInvD fnHovL10 fnFow-focus fnFowL0 mR-1">
+                        <input type="text"
+                               name="title_full"
+                               value="<?=$unit_title_full ?? ''?>"
+                               placeholder="Введине полное название"
+                               class="elz elzInput d-block grPin grY2 w100p bor1 h36 pL36 pR16 fn12 ellipsis trns2 invPssSib
+                                      bg bg-primary bgL10 bgLInvD
+                                      br brLInvD br-primary brL-10 brHovL-20 brFoc-focus brFocL0
+                                      fn fn-primary-t">
+                        <span class="elz d-flex a-H grPin grY2 bor1 pH7 z6 evNone">
+                            <span class="elz p-rel d-flex a-X s24 trns2">
+                                <span class="elz p-rel d-block mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/font.svg');"></span>
+                            </span>
+                            <span class="elz p-rel growX d-flex a-PR"></span>
+                        </span>
+                    </label>
+                    <?$this->view->partial('forms/select_base', [
+                        'name' => 'type',
+                        'options' => $unitsTypes,
+                        'value' => $unit_type_id ?? 1,
+                        'class' => 'mR-1',
+                        'inputClass' => 'h36',
+                        'inputClassBG' => 'bg bg-primary bgL10 bgLInvD',
+                        'inputClassBR' => 'br brLInvD br-primary brL-10 brHovL-20 brFoc-focus brFocL0'
+                    ])?>
+                    <div class="elz p-rel d-flex a-X fb320">
+                        <?$this->view->partial('forms/select_base', [
+                            'name' => 'of_unit',
+                            'options' => $unitsGroups,
+                            'value' => $of_unit_id ?? 0,
+                            'border' => 'borAL1',
+                            'class' => ''.($unit_type_id == 1 ? ' evNone' : ''),
+                            'inputClass' => 'unitTypeDisabler  h36'.($unit_type_id == 1 ? ' uDisabled' : ''),
+                            'inputClassBG' => 'bg bg-primary bgL10 bgLInvD',
+                            'inputClassBR' => 'br brLInvD br-primary brL-10 brHovL-20 brFoc-focus brFocL0'
+                        ])?>
+                        <?$this->view->partial('forms/select_base', [
+                            'name' => 'to_unit',
+                            'options' => $unitsGroups,
+                            'value' => $to_unit_id ?? 0,
+                            'border' => 'borAR1',
+                            'class' => ''.($unit_type_id == 1 ? ' evNone' : ''),
+                            'inputClass' => 'unitTypeDisabler h36'.($unit_type_id == 1 ? ' uDisabled' : ''),
+                            'inputClassBG' => 'bg bg-primary bgL10 bgLInvD',
+                            'inputClassBR' => 'br brLInvD br-primary brL-10 brHovL-20 brFoc-focus brFocL0'
+                        ])?>
+                        <div class="unitTypeDisabler elz p-abs d-flex a-X s36 al-center bold<?if($unit_type_id == 1):?> uDisabled<?endif;?>">/</div>
+                    </div>
+                    <button type="submit"
+                            class="elz elzButton d-flex a-X al-center rR3 bor1 s36 wmx100p fn12 lh12 cur-pointer trnsStyle trns mL-1
+                                   bg bg-primary bgL10 bgLInvD
+                                   br brLInvD br-primary brL-10 brHovL-20 brFoc-focus brFocL0
+                                   fn fn-primary-t">
+                        <span class="mskIcon elz d-block p-rel noShrink mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/save.svg');"></span>
+                    </button>
+                </form>
+            </div>
+            <div class="unitTypeLabel success elz d-block pV5 pH8 grow fb120 r3 cur-help al-center fn11 bg bg-ok bgHovL5 fn fn-ok-t<?if($unit_type_id == 1):?> hide<?endif;?>" title="Короткое наименование соотношения единиц измерения">
+                <span class="ofUnit"><?=$to_unit_title_short?></span>/<span class="toUnit"><?=$of_unit_title_short?></span>
+            </div>
+            <div class="unitConversionCount elz d-block pV5 pH8 grow fb30 r3 cur-help al-center fn11 bg bg-purple bgHovL5 fn fn-purple-t" title="Количество конвертаций в другие единицы измерения"><?=$conversion_count ?? 0?></div>
+            <?$titleColor = $unit_title_full ? 'success' : 'danger'?>
+            <div class="unitTitleFull elz d-block pV5 pH8 grow fb180 r3 cur-help al-center fn11 bg bg-<?=$titleColor?> bgHovL5 fn fn-<?=$titleColor?>-t" title="Полное наименование единицы измерения">
+                <?=$unit_title_full ?: 'Нет полного названия'?>
+            </div>
+            <div class="elz d-flex f-wrap gap8">
+                <div title="Редактировать" class="unitLockTarget unitEdit elz d-flex a-X cur-pointer opAct07 s36 rRound bgHov bgHov-primary bgHovL-5 fnSel fnSel-ok-t bgSel bgSel-ok<?if($unit_lock):?> uDisabled<?endif;?>">
+                    <div class="mskIcon evNone elz d-block p-rel noShrink mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/pencil.svg');"></div>
+                </div>
+                <div title="Блокировка" class="unitLock elz d-flex a-X cur-pointer opAct07 s36 rRound bgHov bgHov-primary bgHovL-5 bgSel bgSel-error fnSel fnSel-error-t<?if($unit_lock):?> sel<?endif;?>">
+                    <div class="mskIcon evNone elz d-block p-rel noShrink mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/lock2.svg');"></div>
+                </div>
+                <div title="Удалить" class="unitLockTarget unitDelete elz d-flex a-X cur-pointer opAct07 s36 rRound bgHov bgHov-primary bgHovL-5<?if($unit_lock):?> uDisabled<?endif;?>">
+                    <div class="mskIcon evNone elz d-block p-rel noShrink mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/cross1.svg');"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="elz d-block borT1 br br-primary brL-10 brLInvD brLF5 brFD showSelIn5">
+            <div class="unitConversionsList elz d-flex dir-y pV4 borB1 br br-primary brL-10 brLInvD brLF10 brFD cEmpty"><?foreach($conversionsList as $conversion):?><?$this->view->partial('units/partials/unit_conversion', array_merge($conversion, ['title_short' => $unit_title_short, 'conversion_options' => $conversion_options]))?><?endforeach;?></div>
+            <div class="unitConversionsAdd elz d-flex dir-y pV4 bg bg-primary bgL-3 bgLInvD ">
+                <?$this->view->partial('units/partials/unit_conversion', ['unit_id' => $unit_id, 'title_short' => $unit_title_short, 'conversion_options' => $conversion_options])?>
+            </div>
+        </div>
+    </div>
+</li>

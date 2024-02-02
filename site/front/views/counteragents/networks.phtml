@@ -1,0 +1,15 @@
+<?$networksList = $this->view->getVar('networksList') ?? []?>
+<?$networksListLen = sizeof($networksList)?>
+<div id="networksList" class="elz a-T d-grid grH320 gap8 grow<?if(!$networksListLen) :?> hide<?endif;?>">
+<?for($a = 0; $a < $networksListLen; $a++):?>
+    <?$this->view->partial('counteragents/partials/network_item', $networksList[$a])?>
+<?endfor;?>
+</div>
+<div id="networksListEmpty" class="elz d-flex grow<?if($networksListLen) :?> hide<?endif;?>">
+    <div class="elz d-flex growX r3 bg bg-primary bgL5 bsh-default1">
+        <div class="elz d-flex grow dir-y a-X p16 gap16">
+            <div class="elz p-rel d-block mskBef s120 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/info24-outline.svg');"></div>
+            <div class="elz d-block al-center fn16">Ссылки и файлы не найдены</div>
+        </div>
+    </div>
+</div>

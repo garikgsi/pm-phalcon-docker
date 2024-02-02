@@ -1,0 +1,78 @@
+.elzCLSenginePanel.mainTaskbar .mainTray .tbTool { z-index: 120; }
+
+.elzCLSenginePanel.mainTaskbar .mainTray .trayTools .tbTool:nth-child(9) { z-index: 122; } .winCSSNunit { --elzWinAbove9: 123; }
+.elzCLSenginePanel.mainTaskbar .mainTray .trayTools .tbTool:nth-child(8) { z-index: 124; } .winCSSNunit { --elzWinAbove8: 125; }
+.elzCLSenginePanel.mainTaskbar .mainTray .trayTools .tbTool:nth-child(7) { z-index: 126; } .winCSSNunit { --elzWinAbove7: 127; }
+.elzCLSenginePanel.mainTaskbar .mainTray .trayTools .tbTool:nth-child(6) { z-index: 128; } .winCSSNunit { --elzWinAbove6: 129; }
+.elzCLSenginePanel.mainTaskbar .mainTray .trayTools .tbTool:nth-child(5) { z-index: 130; } .winCSSNunit { --elzWinAbove5: 131; }
+.elzCLSenginePanel.mainTaskbar .mainTray .trayTools .tbTool:nth-child(4) { z-index: 132; } .winCSSNunit { --elzWinAbove4: 133; }
+.elzCLSenginePanel.mainTaskbar .mainTray .trayTools .tbTool:nth-child(3) { z-index: 134; } .winCSSNunit { --elzWinAbove3: 135; }
+.elzCLSenginePanel.mainTaskbar .mainTray .trayTools .tbTool:nth-child(2) { z-index: 136; } .winCSSNunit { --elzWinAbove2: 137; }
+.elzCLSenginePanel.mainTaskbar .mainTray .trayTools .tbTool:nth-child(1) { z-index: 138; } .winCSSNunit { --elzWinAbove1: 139; }
+
+.elzCLSenginePanel.mainTaskbar .mainTray .tbTool.elzCSSNtrayStart {
+    min-width: 60px;
+    z-index: 200;
+}
+
+.elzCSSNui.guest .mainTaskbar .mainTray .tbTool.elzCSSNtrayStart { max-width: 240px; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+/* Action wrap ******************************/
+
+.elzCLSenginePanel.mainTaskbar .toolAction {
+	position: relative;
+	display: block;
+    height: 100%;
+    width: 20px;
+}
+
+/* Action lines */
+
+.elzCLSenginePanel.mainTaskbar .toolAction .lines {
+    position: absolute;
+    width:  16px;
+    height: 18px;
+    top: 50%;
+    margin-top: -9px;
+	transition: 0.4s;
+}
+
+.elzCLSenginePanel.mainTaskbar .toolAction .line {
+    display: block;
+    height: 3px;
+    border-radius: 0 1px 1px 0;
+    background-color: currentColor;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+}
+
+.elzCLSenginePanel.mainTaskbar .toolAction .line + .line { margin-top: 4px; }
+
+.elzCLSenginePanel.mainTaskbar .tbTool.active .toolAction .lines { transform: translateX(-8px); }
+
+/* Light */
+
+.elzCLSenginePanel.mainTaskbar .elzCLStoolbar.light .mainTray .toolAction .lines { color: #d6d6d6; }
+
+.elzCLSenginePanel.mainTaskbar .elzCLStoolbar.light .mainTray .tbTool:hover  .toolAction .lines,
+.elzCLSenginePanel.mainTaskbar .elzCLStoolbar.light .mainTray .tbTool:active .toolAction .lines,
+.elzCLSenginePanel.mainTaskbar .elzCLStoolbar.light .mainTray .tbTool.active .toolAction .lines { color: #ffffff; }
+
+/* Dark */
+
+.elzCLSenginePanel.mainTaskbar .elzCLStoolbar.dark .mainTray .toolAction .lines { color: #444444; }
+
+.elzCLSenginePanel.mainTaskbar .elzCLStoolbar.dark .mainTray .tbTool:hover  .toolAction .lines,
+.elzCLSenginePanel.mainTaskbar .elzCLStoolbar.dark .mainTray .tbTool:active .toolAction .lines,
+.elzCLSenginePanel.mainTaskbar .elzCLStoolbar.dark .mainTray .tbTool.active .toolAction .lines { color: #000000; }
+
+/* end */

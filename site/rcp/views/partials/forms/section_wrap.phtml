@@ -1,0 +1,23 @@
+<?$formTagStart = 'div'?>
+<?$formTagEnd   = 'div'?>
+
+<?if(isset($is_form) && $is_form == 1):?>
+    <?$formTagStart = 'form method="post" action="'.$form_action.'"'?>
+    <?$formTagEnd   = 'form'?>
+<?endif;?>
+
+
+<<?=$formTagStart?> <?=$id ?? ''?> class="elz strCLSitem marLMedium marTMedium grow flexible w100p<?=$classes ?? ''?>"<?=$data ?? ''?>>
+    <div class="elz admCLSwrap flexible shadowed">
+        <div class="elz admHeader admWBordered">
+            <div class="elz admCaption">
+                <h2 class="elz admTitle"><?=$head_title?></h2>
+            </div>
+            <?=$head_html ?? ''?>
+        </div>
+        <div class="elz admBody"><?=$content_html ?? ''?></div>
+<?if(isset($footer_html)):?>
+        <div class="admFooter admWBordered"><?=$footer_html?></div>
+<?endif;?>
+    </div>
+</<?=$formTagEnd?>>

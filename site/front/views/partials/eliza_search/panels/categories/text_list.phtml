@@ -1,0 +1,6 @@
+<?$list = $list ?? []?>
+<ul>
+    <?for($a = 0, $len = sizeof($list); $a < $len; $a++):?>
+        <?$this->view->partial('partials/eliza_search/panels/categories/text', $list[$a])?>
+    <?endfor;?>
+</ul>

@@ -1,0 +1,40 @@
+/* Main */
+
+.bb.section {
+    position: relative;
+    display: block;
+}
+
+/* end */
+
+
+
+
+
+
+
+
+
+/* Color Type 1 - white */
+
+.bb.section.type_1 {
+    overflow: hidden;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.6);
+    -webkit-border-radius: 3px;
+    -moz-border-radius:    3px;
+    border-radius:         3px;
+}
+
+
+
+/* Color Type 2 - grey */
+
+.bb.section.type_2 {
+    overflow: hidden;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.1);
+    -webkit-border-radius: 3px;
+    -moz-border-radius:    3px;
+    border-radius:         3px;
+}

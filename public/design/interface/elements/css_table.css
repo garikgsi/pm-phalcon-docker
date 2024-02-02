@@ -1,0 +1,174 @@
+/* Main elements settings */
+
+.elzCLStableWrap {
+    position: relative;
+    display: block;
+    overflow: auto;
+}
+
+.elzCLStable {
+    display: table;
+    width: 100%;
+    box-sizing: border-box;
+    border-collapse: separate;
+    vertical-align: middle;
+    border-spacing: 0;
+}
+
+.elzCLStable.fixed { table-layout: fixed; }
+
+.elzCLStable > .thead { display: table-header-group; }
+.elzCLStable > .tfoot { display: table-footer-group; }
+.elzCLStable > .tbody { display:    table-row-group; }
+
+.elzCLStable:not([data-br]),
+.elzCLStableWrap:not([data-br]) { border-color: rgba(0, 0, 0, 0.1); }
+
+.elzCLStableWrap,
+.elzCLStable > *,
+.elzCLStable > * > *,
+.elzCLStable > * > * > * {
+    box-sizing: border-box;
+    background-clip: padding-box;
+    border-style: solid;
+}
+
+.elzCLStable > * > * {
+    display: table-row;
+    border-width: 0;
+    visibility: hidden;
+}
+
+.elzCLStable > * > * > * {
+    position: relative;
+    display: table-cell;
+    visibility: visible;
+    border-width: 0;
+}
+
+.elzCLStable > * > .compressed     { height: 1px; }
+.elzCLStable > * > * > .compressed { width:  1px; }
+
+.elzCLStable > * > * > th:not(.bold) { font-weight: normal; }
+
+.elzCLStable > *:not([data-br]), .elzCLStable > * > *:not([data-br]), .elzCLStable > * > * > *:not([data-br]) { border-color:     inherit; }
+.elzCLStable > *:not([data-bg]), .elzCLStable > * > *:not([data-bg]), .elzCLStable > * > * > *:not([data-bg]) { background-color: inherit; }
+.elzCLStable > *:not(.pad),      .elzCLStable > * > *:not(.pad),      .elzCLStable > * > * > *:not(.pad)      { padding:          inherit; } /* Можно ставить только на thead, tbody, tfoot */
+.elzCLStable > *:not(.val),      .elzCLStable > * > *:not(.val),      .elzCLStable > * > * > *:not(.val)      { vertical-align:   inherit; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Border settings */
+
+.elzCLStable > * > * > .br-b, /* solo border */
+
+.elzCLStableWrap.ovbr-h,
+.elzCLStable.br-h > .thead      > * > *,
+.elzCLStable      > .thead.br-h > * > *,
+
+.elzCLStable.ovbr-h > .thead:last-child > *:last-child > *,
+.elzCLStable.ovbr-h > .tbody:last-child > *:last-child > *,
+.elzCLStable.ovbr-h > .tfoot:last-child > *:last-child > * { border-bottom-width: 1px; }
+
+
+
+.elzCLStable > * > * > .br-t, /* solo border */
+
+.elzCLStable.br-h > .tfoot      > * > *, .elzCLStable.br-h > .tbody      > * ~ * > *,
+.elzCLStable      > .tfoot.br-h > * > *, .elzCLStable      > .tbody.br-h > * ~ * > *,
+
+.elzCLStable.br-h > .tbody ~ .tbody > *:first-child > *,
+
+.elzCLStableWrap.ovbr-h,
+.elzCLStable.ovbr-h > .thead:first-child > *:first-child > *,
+.elzCLStable.ovbr-h > .tfoot:first-child > *:first-child > *,
+.elzCLStable.ovbr-h > .tbody:first-child > *:first-child > * { border-top-width: 1px; }
+
+
+
+.elzCLStable  > *  > * > .br-l,
+
+.elzCLStableWrap.ovbr-v,
+.elzCLStable.br-v > *     > * > * ~ *,
+.elzCLStable      > .br-v > * > * ~ *,
+
+.elzCLStable.ovbr-v > * > * > *:first-child { border-left-width:  1px; }
+
+
+
+.elzCLStable  > *  > * > .br-r, /* solo border */
+
+.elzCLStableWrap.ovbr-v,
+.elzCLStable.ovbr-v > * > * > *:last-child  { border-right-width: 1px; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Row */
+
+.elzCLStable > * > * > *:before,
+.elzCLStable > * > * > *:after {
+    content: "";
+    position: absolute;
+    display: block;
+    visibility: hidden;
+    pointer-events: none;
+    top:     0;
+    right:   0;
+    bottom:  0;
+    left:    0;
+    z-index: 0;
+}
+
+.elzCLStable.striped > *        > *:nth-child(even) > *,
+.elzCLStable         > .striped > *:nth-child(even) > * { box-shadow: inset 0 0 0 1024px rgba(0, 0, 0, 0.025); }
+
+.elzCLStable > * > * > .selected:before { visibility: visible; background-color: rgba(0, 0, 0, 0.05); }
+
+.elzCLStable.hovering > *         > *:hover         > *:after,
+.elzCLStable          > .hovering > *:hover         > *:after,
+.elzCLStable          > *         > .hovering:hover > *:after,
+.elzCLStable          > *         > *               > .hovering:hover:after { visibility: visible; background-color: rgba(0, 0, 0, 0.035); }
+
+.elzCLStable > .nohover > * > *:after,
+.elzCLStable > * > .nohover > *:after,
+.elzCLStable > * > * > .nohover:after { display: none; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* JQUERY UI settings */
+
+.elzCLStable > * > .ui-sortable-helper {
+    display: table;
+    border: 0 !important;
+}
+
+.elzCLStable * > .ui-selecting { background-color: #bbdefb; }
+
+/* end */

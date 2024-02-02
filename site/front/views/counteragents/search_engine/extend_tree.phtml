@@ -1,0 +1,32 @@
+<?php $clsId = 'treeNode'.$value?>
+<li class="elz uExpItem">
+    <div class="extendItem elz uExpWrap p-rel d-flex f-wrap gap8 a-H hmn48 pV8 pH16 cur-pointer bgHov bgHov-primary cSelOut<?if($selected):?> sel<?endif;?>" title="<?=$descr?>" data-value="<?=$value?>" data-parent="<?=$parent?>">
+        <div class="elz d-flex grow m-8 p8 a-H f-wrap r3 bgSelIn bgSelIn-ok bgSelInA50 fnSelIn fnSelIn-ok-t">
+            <div class="extendTitle elz d-block grow"><?=$title?></div>
+            <?php $counts = $counts ?? []?>
+            <?for($a = 0, $len = sizeof($counts); $a < $len; $a++):?>
+                <?$count = $counts[$a]?>
+                <div class="elz d-flex f-wrap a-H">
+                    <div class="elz d-flex a-H gap4 p4 r3 fn11 bold bg bg-primary bgL-5 bgSelIn bgSelIn-ok fnSelIn fnSelIn-ok-t" title="<?=$count['title'].$count['count']?>">
+                        <div class="mskIcon elz d-block p-rel noShrink mskBef s12 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/<?=$count['icon']?>.svg');"></div>
+                        <div class="elz d-block"><?=$count['count']?></div>
+                    </div>
+                </div>
+            <?endfor;?>
+        </div>
+    </div>
+<?$list = $list ?? []?>
+<?$map = $map ?? []?>
+<?$listLen = sizeof($list)?>
+<?$hideClass = $listLen ? '' : ' hide'?>
+    <input type="checkbox" class="<?=$clsId.$hideClass?> listLenToggle elz uExpCheck" <?=(!((int)$parent) ? ' checked="checked"' : '')?> />
+    <div class="<?=$clsId.$hideClass?> listLenToggle elz uExpNode medium bg bg-primary bgL10 bgLInvD br br-primary brL-10 brLInvD"></div>
+    <ul class="<?=$clsId.$hideClass?> listLenToggle elz uExpList">
+<?for($a = 0; $a < $listLen; $a++):?>
+        <?$node = $list[$a]?>
+        <?$node['list'] = $map[$node['value']] ?? []?>
+        <?$node['map'] = $map?>
+        <?$this->view->partial('counteragents/search_engine/extend_tree', $node)?>
+<?endfor;?>
+    </ul>
+</li>

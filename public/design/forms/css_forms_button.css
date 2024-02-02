@@ -1,0 +1,79 @@
+/* Main settings */
+
+.elzF.item.button {
+    text-align: center;
+    cursor: pointer;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.elzF.item.button.light, .elzF.item.button.light ~ .elzF-icon:not(:hover), .elzF.item.button.dark  ~ .elzF-icon.status:not([data-fn]):hover { color: #eeeeee; }
+.elzF.item.button.dark,  .elzF.item.button.dark  ~ .elzF-icon:not(:hover), .elzF.item.button.light ~ .elzF-icon.status:not([data-fn]):hover { color: #505050; }
+
+.elzF.item.button.light ~ .elzF-icon.status:not([data-bg]):hover { background-color: #eeeeee; }
+.elzF.item.button.dark  ~ .elzF-icon.status:not([data-bg]):hover { background-color: #505050; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Hover & Active *****************************************************************************************************/
+
+/* Light */
+
+.elzF.item.button.light:hover, .elzF.item.button.light:active,
+.elzF.item.button.light.hover, .elzF.item.button.light.active,
+
+.elzF.parent:hover .elzF.item.button.light, .elzF.parent:active .elzF.item.button.light,
+.elzF.parent.hover .elzF.item.button.light, .elzF.parent.active .elzF.item.button.light,
+
+.elzFT:checked ~ .elzF.item.button.light,
+
+
+.elzF.item.button.light ~ .elzF-icon:not([data-fn]):hover,
+.elzF.item.button.light ~ .elzF-icon:not([data-fn]):active,
+
+.elzF.item.button.light:hover ~ .elzF-icon:not(:hover), .elzF.item.button.light:active ~ .elzF-icon:not(:hover),
+.elzF.item.button.light.hover ~ .elzF-icon:not(:hover), .elzF.item.button.light.active ~ .elzF-icon:not(:hover),
+
+.elzF.parent:hover .elzF.item.button.light ~ .elzF-icon:not(:hover), .elzF.parent:active .elzF.item.button.light ~ .elzF-icon:not(:hover),
+.elzF.parent.hover .elzF.item.button.light ~ .elzF-icon:not(:hover), .elzF.parent.active .elzF.item.button.light ~ .elzF-icon:not(:hover),
+
+.elzFT:checked ~ .elzF.item.button.light ~ .elzF-icon:not(data-fn) { color: #ffffff; }
+
+/* end */
+
+
+
+
+
+/* Dark */
+
+.elzF.item.button.dark:hover, .elzF.item.button.dark:active,
+.elzF.item.button.dark.hover, .elzF.item.button.dark.active,
+
+.elzF.parent:hover .elzF.item.button.dark, .elzF.parent:active .elzF.item.button.dark,
+.elzF.parent.hover .elzF.item.button.dark, .elzF.parent.active .elzF.item.button.dark,
+
+.elzFT:checked ~ .elzF.item.button.dark,
+
+
+.elzF.item.button.dark ~ .elzF-icon:not([data-fn]):hover,
+.elzF.item.button.dark ~ .elzF-icon:not([data-fn]):active,
+
+.elzF.item.button.dark:hover ~ .elzF-icon:not(:hover), .elzF.item.button.dark:active ~ .elzF-icon:not(:hover),
+.elzF.item.button.dark.hover ~ .elzF-icon:not(:hover), .elzF.item.button.dark.active ~ .elzF-icon:not(:hover),
+
+.elzF.parent:hover .elzF.item.button.dark ~ .elzF-icon:not(:hover), .elzF.parent:active .elzF.item.button.dark ~ .elzF-icon:not(:hover),
+.elzF.parent.hover .elzF.item.button.dark ~ .elzF-icon:not(:hover), .elzF.parent.active .elzF.item.button.dark ~ .elzF-icon:not(:hover),
+
+.elzFT:checked ~ .elzF.item.button.dark ~ .elzF-icon:not(data-fn) { color: #000000; }
+
+/* end */

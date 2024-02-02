@@ -1,0 +1,447 @@
+/* Wrapper */
+
+.dp__main,
+.dp__input_wrap,
+.dp__outer_menu_wrap {
+    position: absolute;
+    top:    0;
+    right:  0;
+    bottom: 0;
+    left:   0;
+    pointer-events: none;
+}
+
+.dp__outer_menu_wrap {
+    top:   auto;
+    height: 6px;
+}
+
+.dp__input_wrap input {
+    position: absolute;
+    top:  0;
+    left: 0;
+    width:  100%;
+    height: 100%;
+    font: inherit;
+    opacity: 0;
+    user-select: none;
+    pointer-events: none;
+}
+
+
+
+.dp__menu,
+.dp__overlay {
+    position: absolute;
+    color: hsla(var(--c-primary-t-H, 0), var(--c-primary-t-S, 0%), calc(var(--c-primary-t-L)), 1);
+    pointer-events: auto;
+}
+
+.dp__menu:not(.dp__relative),
+.dp__overlay {
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 1px 10px rgba(0, 0, 0, 0.25);
+    background-clip: padding-box;
+    background-color: hsla(var(--c-primary-H, 0), var(--c-primary-S, 0%), calc(var(--c-primary-L) + 5%), 1);
+    border-radius: 2px;
+    z-index: 100;
+}
+
+.dp__menu:not(.dp__relative) {
+    width: 288px;
+    font-size: 12px;
+}
+
+.dp__relative { position: relative; }
+
+.dp__instance_calendar { position: relative; }
+.dp__instance_calendar svg { fill: currentColor; }
+
+.dp__arrow_top,
+.dp__input_wrap svg { display: none; }
+
+.dp__active_date,
+.dp__overlay_cell_active {
+    background-color: hsla(var(--c-ok-H, 0), var(--c-ok-S, 0%), calc(var(--c-ok-L)), 1);
+    color: hsla(var(--c-ok-t-H, 0), var(--c-ok-t-S, 0%), calc(var(--c-ok-t-L)), 1);
+}
+
+
+
+
+
+
+/* Calendar header */
+/*
+.dp__month_year_row,
+.dp__month_year_wrap,
+.dp__month_year_col_nav,
+.dp__month_year_select {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dp__month_year_row { gap: 8px; }
+
+.dp__month_year_wrap {
+    flex-grow: 1;
+    font-size: 16px;
+    gap: 8px;
+    align-self: stretch;
+}
+
+.dp__month_year_col_nav { flex-shrink: 0; }
+
+
+
+
+.dp__month_year_select {
+    border-radius: 3px;
+    align-self: stretch;
+    padding: 0 16px;
+    cursor: pointer;
+    flex-grow: 1;
+    width: 0;
+}
+*/
+
+
+
+
+
+
+
+.dp__month_year_row,
+.dp__month_year_col_nav,
+.dp__inner_nav,
+.dp__month_year_wrap,
+.dp__month_year_select,
+
+.dp__calendar_header,
+.dp__calendar_row,
+.dp__cell_inner,
+.dp__calendar_item,
+.dp__calendar_header_item,
+
+.dp__button,
+
+.dp__action_row,
+.dp__action_buttons,
+.dp__action,
+
+.dp__overlay,
+.dp__overlay_container,
+.dp__overlay_row,
+
+.dp__time_input,
+.dp__time_col,
+.dp__inc_dec_button,
+.dp__overlay_col,
+.dp__overlay_cell,
+.dp__overlay_cell_pad { display: flex; }
+
+
+
+
+.dp__overlay,
+.dp__overlay_container,
+.dp__time_col { flex-direction: column; }
+
+
+
+.dp__month_year_col_nav,
+.dp__inner_nav,
+.dp__month_year_select,
+
+.dp__calendar_header_item,
+.dp__cell_inner,
+
+.dp__button,
+
+.dp__action_row,
+.dp__action,
+
+.dp__overlay_row,
+
+.dp__time_col,
+.dp__inc_dec_button,
+.dp__overlay_cell,
+.dp__overlay_cell_pad {
+    justify-content: center;
+    align-items:     center;
+}
+
+
+
+.dp__inner_nav,
+.dp__cell_inner,
+
+.dp__inc_dec_button { border-radius: 1024px; }
+
+
+
+.dp__month_year_col_nav,
+.dp__month_year_select,
+
+.dp__calendar_item,
+
+.dp__button,
+
+.dp__action,
+
+.dp__inc_dec_button,
+.dp__time_display,
+.dp__overlay_col { cursor: pointer; }
+
+
+
+.dp__month_year_wrap,
+.dp__month_year_select,
+.dp__calendar_header_item,
+.dp__calendar_item,
+
+.dp__cell_inner,
+
+.dp__selection_preview,
+
+.dp__overlay_col,
+.dp__overlay_cell,
+.dp__overlay_cell_pad { flex-grow: 1; }
+
+
+
+.dp__month_year_col_nav:active,
+.dp__month_year_select:active,
+
+.dp__calendar_item:active .dp__cell_inner,
+
+.dp__button:active,
+
+.dp__action:active,
+
+.dp__inc_dec_button:active,
+.dp__time_display:active,
+.dp__overlay_col:active { opacity: 0.7; }
+
+
+
+/* Colors */
+
+.dp__month_year_row,
+.dp__month_year_col_nav:is(:hover, :active) .dp__inner_nav,
+.dp__month_year_select:is(:hover, :active),
+.dp__calendar_item:is(:hover, :active) .dp__cell_inner,
+.dp__button:is(:hover, :active),
+.dp__action:is(:hover, :active),
+.dp__inc_dec_button:is(:hover, :active),
+.dp__time_display:is(:hover, :active),
+.dp__overlay_cell:is(:hover, :active),
+.dp__overlay_cell_pad:is(:hover, :active),
+
+.elzTheme-light .dp__calendar_item:is(:hover, :active) .dp__cell_inner,
+.elzTheme-light .dp__month_year_row,
+.elzTheme-light .dp__month_year_col_nav:is(:hover, :active) .dp__inner_nav,
+.elzTheme-light .dp__month_year_select:is(:hover, :active),
+.elzTheme-light .dp__button:is(:hover, :active),
+.elzTheme-light .dp__action:is(:hover, :active),
+.elzTheme-light .dp__inc_dec_button:is(:hover, :active),
+.elzTheme-light .dp__time_display:is(:hover, :active),
+.elzTheme-light .dp__overlay_cell:is(:hover, :active),
+.elzTheme-light .dp__overlay_cell_pad:is(:hover, :active) { box-shadow: inset 0 0 0 1024px rgba(0, 0, 0, 0.05); }
+
+.elzTheme-dark .dp__month_year_row,
+.elzTheme-dark .dp__month_year_col_nav:is(:hover, :active) .dp__inner_nav,
+.elzTheme-dark .dp__month_year_select:is(:hover, :active),
+.elzTheme-dark .dp__calendar_item:is(:hover, :active) .dp__cell_inner,
+.elzTheme-dark .dp__button:is(:hover, :active),
+.elzTheme-dark .dp__action:is(:hover, :active),
+.elzTheme-dark .dp__inc_dec_button:is(:hover, :active),
+.elzTheme-dark .dp__time_display:is(:hover, :active),
+.elzTheme-dark .dp__overlay_cell:is(:hover, :active),
+.elzTheme-dark .dp__overlay_cell_pad:is(:hover, :active){ box-shadow: inset 0 0 0 1024px rgba(255, 255, 255, 0.05); }
+
+
+
+
+
+
+
+
+
+
+/* Header */
+
+.dp__month_year_col_nav {
+    width:  48px;
+    height: 48px;
+    flex-shrink: 0;
+}
+
+.dp__inner_nav {
+    width:  32px;
+    height: 32px;
+}
+
+.dp__inner_nav svg {
+    width:  18px;
+    height: 18px;
+}
+
+.dp__month_year_select {
+    height:     32px;
+    flex-basis: 64px;
+    border-radius: 3px;
+    align-self: center;
+    font-size: 16px;
+}
+
+
+
+
+
+/* Calendar wrap */
+
+.dp__calendar_header,
+.dp__calendar_row { gap: 4px; }
+
+.dp__calendar_wrap .dp__calendar_header,
+.dp__calendar_wrap .dp__calendar {
+    padding-left:  8px;
+    padding-right: 8px;
+}
+
+.dp__calendar_wrap .dp__calendar_header {
+    font-weight: bold;
+    padding-top:    4px;
+    padding-bottom: 4px;
+}
+
+.dp__calendar_wrap  .dp__calendar {
+    padding-top:    8px;
+    padding-bottom: 8px;
+}
+
+.dp__calendar_header_separator {
+    border-bottom: 1px solid;
+    opacity: 0.1;
+}
+
+.dp__calendar_header_item,
+.dp__calendar_item {
+    flex-basis: 36px;
+    aspect-ratio: 1/1;
+}
+
+
+
+/* Button */
+
+.dp__button {
+    padding: 8px;
+    flex-shrink: 0;
+}
+
+.dp__button svg {
+    width:  24px;
+    height: 24px;
+}
+
+
+
+/* Action row */
+
+.dp__action_row {
+    padding: 8px;
+    width: auto !important;
+}
+
+.dp__selection_preview { font-weight: bold; }
+
+.dp__action_buttons { gap: 8px; }
+
+.dp__action {
+    position: relative;
+    border-radius: 3px;
+    padding: 0 12px;
+    height: 32px;
+}
+
+.dp__action,
+.elzTheme-light .dp__action { background-color: rgba(0, 0, 0, 0.05); }
+.elzTheme-dark  .dp__action { background-color: rgba(255, 255, 255, 0.05); }
+
+
+
+
+
+
+
+
+
+
+/* Overlay */
+
+.dp__overlay {
+    position: absolute;
+    top:    0;
+    right:  0;
+    bottom: 0;
+    left:   0;
+    margin: 4px;
+}
+
+
+.dp__overlay::-webkit-scrollbar,
+.dp__overlay_container::-webkit-scrollbar,
+.dp__overlay_row::-webkit-scrollbar { width: 0; height: 0; }
+
+.dp__overlay,
+.dp__overlay_container,
+.dp__overlay_row {
+    overflow: auto;
+    -ms-overflow-style: none;
+    scrollbar-width:    none;
+}
+
+.dp__overlay_container,
+.dp__overlay_row {
+    height: 48px;
+    flex-grow: 1;
+}
+
+.dp__overlay_row {
+    flex-shrink: 0;
+    padding: 0 8px;
+}
+
+/* Time */
+
+.dp__time_input {
+    font-size: 32px;
+    gap: 16px;
+}
+
+.dp__inc_dec_button {
+    width:  32px;
+    height: 32px;
+}
+
+.dp__inc_dec_button svg {
+    width:  24px;
+    height: 24px;
+}
+
+.dp__time_col,
+.dp__overlay_container,
+.dp__overlay_row { gap: 8px; }
+
+.dp__time_display { padding: 4px; }
+
+.dp__time_display,
+.dp__overlay_cell,
+.dp__overlay_cell_pad { border-radius: 3px; }
+
+.dp__overlay_col {
+    align-self: stretch;
+    font-size: 16px;
+}

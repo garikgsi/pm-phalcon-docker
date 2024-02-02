@@ -1,0 +1,15 @@
+<div class="elz hxdTxExpand {{expand_class}}">
+{{^expand_disabled}}<input class="elz expandCheck" type="checkbox"  {{{expand_check_data}}}>{{/expand_disabled}}
+{{#expand_title}}
+    <div class="elz expandCaption {{caption_class}}" {{{caption_data}}}>
+        <span class="elz title nowrap">{{expand_title}}</span>
+        {{#expand_count}}<div class="elz value">{{expand_count}}</div>{{/expand_count}}
+        {{{expand_head_html}}}
+    </div>
+{{/expand_title}}
+    <div class="elz expandWrap">
+        <div class="elz hxdLayers {{expand_layers_class}}" {{{expand_layers_data}}}>
+            {{> tools/app_hxd_layers}}
+        </div>
+    </div>
+</div>

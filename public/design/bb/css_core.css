@@ -1,0 +1,101 @@
+/* Main */
+
+.bb.body {
+    display: block;
+    text-align: justify;
+}
+
+/* Main bbcode elements settings */
+
+.bb {
+    margin:  0;
+	padding: 0;
+	border:  0;
+	outline: none;
+	background: transparent;
+	vertical-align: baseline;
+    word-wrap: break-word;
+
+	line-height: 1.6;
+
+    list-style: none;
+
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing:    border-box;
+	box-sizing:         border-box;
+}
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Block elements 1.6 margins */
+
+.bb.p,
+.bb.section,
+.bb.icoblock,
+.bb.list,
+.bb.table,
+.bb.adaptmedia,
+.bb.nav, .bb.nav .navlist {
+    margin-top:    1.6em;
+    margin-bottom: 1.6em;
+}
+
+.bb.p:first-child,
+.bb.section:first-child,
+.bb.icoblock:first-child,
+.bb.list:first-child,
+.bb.table:first-child,
+.bb.adaptmedia:first-child,
+.bb.nav:first-child, .bb.nav .navlist:first-child { margin-top: 0; }
+
+.bb.p:last-child,
+.bb.section:last-child,
+.bb.icoblock:last-child,
+.bb.list:last-child,
+.bb.table:last-child,
+.bb.adaptmedia:last-child,
+.bb.nav:last-child, .bb.nav .navlist:last-child { margin-bottom: 0; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Icons settings */
+
+a.bb:before,
+abbr.bb:before,
+
+.bb.figure > .bb.inner:before,
+.bb.figure > .bb.time:before,
+
+.bb.block > .bb.title > .bb.closer:before,
+.bb.block > .bb.title > .bb.link:before {
+    font-family: 'elizacssn';
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* end */

@@ -1,0 +1,30 @@
+<?php $title = $title ?? 'УКАЖИ ТАЙТЛ';?>
+<?php $id = $id ?? \Core\Builder\MustacheForms::getNextId();?>
+<?php $name = $name ?? 'SET THE NAME';?>
+<?php $value = $value ?? '';?>
+<?php $placeholder = $placeholder ?? '';?>
+<?php $widthTitle = $widthTitle ?? 150;?>
+<?php $widthInput = $widthInput ?? 280;?>
+<div class="elz d-block fb<?=$widthTitle?> grow lh15">
+    <div class="elz d-block bold"><?=$title?>:</div>
+<?if(isset($description)):?>
+    <div class="elz d-block oH ellipsis fn11"><?=$description?></div>
+<?endif;?>
+</div>
+<label class="elizaIForm2 elz d-grid fb<?=$widthInput?> growMax grPos fn fn-primary-t fnL20 fnLInvD fnHovL10 fnFow-focus fnFowL0" for="<?=$id?>">
+    <textarea id="<?=$id?>" name="<?=$name?>" placeholder="<?=$placeholder?>" class="elizaIFormInput elz elzInput res-y d-block grPin grY2 w100p bor1 r3 p16 fn12 ellipsis trns2 trnsStyle invPssSib
+    bg bg-primary bgL10 bgLInvD
+    br brLInvD br-primary brL-10 brHovL-20 brFoc-focus brFocL0
+    fn fn-primary-t lh12"><?=$value?></textarea>
+
+    <span class="elz d-flex grPin grY2 a-X pH8 evNone z5">
+        <span class="elizaIFormIconRWrap elz p-rel growZ d-flex a-PR invisible">
+            <span class="elizaIFormIconRStatus elz p-rel d-flex a-X r2 trns2 cur-help opHovOut bgHov bgHov-error fn fn-error fnHov-error-t">
+                <span class="elizaIFormIconRText elz fn11 bold al-right pH8 op0 opHovIn10 trns2 trnsVis oH ellipsis"></span>
+                <span class="elz p-rel d-flex a-X s24 r2 evAuto">
+                    <span class="elizaIFormIconR elz p-rel d-block mskBef s16 cFillBef bgBef-CC" style=""></span>
+                </span>
+            </span>
+        </span>
+    </span>
+</label>

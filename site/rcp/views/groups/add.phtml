@@ -1,0 +1,43 @@
+<?$parentId = (int)$this->view->getVar('group_parent_id')?>
+
+<div class="elz strCLSitem wrap flexible padBMedium padRMedium">
+    <?$this->view->partial('partials/forms/forms_section', [
+        'title'  => $t->_('rcp_groups_meta_label1'),
+        'formId' => 'rcpGroupAdd',
+        'formAction' => '/groups/api/add',
+        'submitTitle' => $t->_('rcp_groups_add'),
+        'langed' => ['list' => [[1, 'RU'], [2, 'EN']], 'id' => '', 'name' => 'lang', 'class' => ''],
+        'fieldList' => [
+            [
+                'field'  => 'input',
+                'ftitle' => $t->_('rcp_groups_meta_name'),
+                'fdescr' => $t->_('rcp_groups_meta_name_d'),
+                'wtitle' => 'wmn280',
+                'type'   => 'text',
+                'placeholder' => $t->_('rcp_groups_meta_name_p'),
+                'value' => '',
+                'name'  => 'name'
+            ],
+            [
+                'field'  => 'select',
+                'ftitle' => $t->_('rcp_groups_meta_parent'),
+                'fdescr' => $t->_('rcp_groups_meta_parent_d'),
+                'wtitle' => 'wmn280',
+                'type'   => 'text',
+                'value' => $parentId,
+                'optionList' => $this->view->getVar('selectList'),
+                'name'  => 'parent'
+            ],
+            [
+                'field'  => 'input',
+                'ftitle' => $t->_('rcp_groups_meta_title'),
+                'fdescr' => $t->_('rcp_groups_meta_title_d'),
+                'wtitle' => 'wmn280',
+                'type'   => 'text',
+                'placeholder' => $t->_('rcp_groups_meta_title_p'),
+                'value' => '',
+                'name'  => 'title'
+            ]
+        ]
+    ])?>
+</div>

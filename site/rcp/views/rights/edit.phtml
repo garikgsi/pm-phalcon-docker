@@ -1,0 +1,155 @@
+<?$rightRow = $this->view->getVar('rightRow')?>
+
+<div id="ipRcpEditRightId" class="elz strCLSitem wrap flexible padBMedium padRMedium" data-id="<?=$rightRow['right_id']?>">
+    <?$this->view->partial('partials/forms/forms_section', [
+        'title'  => $t->_('right_edit_label1'),
+        'formId' => 'rcpRightEditForm',
+        'formAction' => '/rights/api/right_edit?right_id='.$rightRow['right_id'],
+        'submitTitle' => $t->_('right_edit_submit'),
+        'langed' => ['list' => [[1, 'RU'], [2, 'EN']], 'id' => 'ipRcpEditRightLang', 'name' => 'lang', 'class' => ''],
+        'fieldList' => [
+            [
+                'field'  => 'input',
+                'ftitle' => $t->_('right_meta_name'),
+                'fdescr' => $t->_('right_meta_name_d'),
+                'wtitle' => 'wmn280',
+                'type'   => 'text',
+                'placeholder' => $t->_('right_meta_name_p'),
+                'value' => $rightRow['right_name'],
+                'name'  => 'name',
+                'readonly' => (int)$rightRow['right_in_use']
+            ],
+            $rightRow['object_type'] == 'none' ?
+            [
+                'field'  => 'select',
+                'ftitle' => $t->_('right_meta_parent'),
+                'fdescr' => $t->_('right_meta_parent_d'),
+                'wtitle' => 'wmn280',
+                'type'   => 'text',
+                'value' => (int)$rightRow['parent_id'],
+                'optionList' => $this->view->getVar('rights_select_list'),
+                'name'  => 'parent'
+            ] : false,
+            [
+                'field'  => 'input',
+                'ftitle' => $t->_('right_meta_title'),
+                'fdescr' => $t->_('right_meta_title_d'),
+                'wtitle' => 'wmn280',
+                'type'   => 'text',
+                'placeholder' => $t->_('right_meta_title_p'),
+                'value' => $rightRow['right_title'],
+                'name'  => 'title'
+            ],
+            [
+                'field'  => 'textarea',
+                'ftitle' => $t->_('right_meta_description'),
+                'fdescr' => $t->_('right_meta_description_d'),
+                'wtitle' => 'wmn280',
+                'placeholder' => $t->_('right_meta_description_p'),
+                'value' => $rightRow['right_description'],
+                'name'  => 'description'
+            ]
+        ]
+    ])?>
+</div>
+
+<?$groupsLinks = $this->view->getVar('rightGroupsList')?>
+<?$membersLinks = $this->view->getVar('rightMembersList')?>
+
+<div class="elz strCLSitem wrap flexible padBMedium padRMedium" id="rcpRightEditLinksList">
+    <div class="elz strCLSitem marLMedium marTMedium wmn320 grow flexible">
+        <div class="elz admCLSwrap flexible shadowed">
+
+            <div class="elz admHeader admWBordered">
+                <div class="elz admCaption">
+                    <h2 class="elz admTitle">Список групп обладающих правом</h2>
+                </div>
+            </div>
+
+            <div class="elz admBody">
+
+                <div class="elz strCLSitem">
+                    <div class="elz elzCLStableWrap padTSmaller">
+                        <table class="elz elzCLStable striped" data-field="group_id">
+                            <tbody class="elz tbody">
+<?for($a = 0, $len = sizeof($groupsLinks); $a < $len; $a++):?>
+    <?$group = $groupsLinks[$a]?>
+                                <tr class="rcpAppEditSiteContainer" >
+                                    <td class="pad padVSmaller elzCbox compressed">
+                                        <div class="elz strCLSitem marLMedium">
+                                            <div class="elz elzCLSlabel small elzPLT" data-fn="black" title="Группа обладающая правом">
+                                                <i class="elz elzIc ic-users"></i>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="pad padVSmaller elzCbox wmn200">
+                                        <div class="elz elzText nowrap"><b class="bb strong"><?=$group['group_title']?></b></div>
+                                    </td>
+                                    <td class="pad padVSmaller padHMedium elzCbox compressed">
+                                        <div class="elz strCLSitem flexible mar-LMedium">
+                                            <div class="elz strCLSitem marLMedium">
+                                                <div class="elz elzCLSlabel small elzPLT link rightUnlinkClick" data-fn="white" data-bg="red" title="Забрать право у группы" data-id="<?=$group['group_id']?>">
+                                                    <i class="elz elzIc ic-cross"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+<?endfor;?>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="elz strCLSitem marLMedium marTMedium wmn320 grow flexible">
+        <div class="elz admCLSwrap flexible shadowed">
+
+            <div class="elz admHeader admWBordered">
+                <div class="elz admCaption">
+                    <h2 class="elz admTitle">Список пользователей обладающих правом</h2>
+                </div>
+            </div>
+
+            <div class="elz admBody">
+
+                <div class="elz strCLSitem">
+                    <div class="elz elzCLStableWrap padTSmaller">
+                        <table class="elz elzCLStable striped" data-field="member_id">
+                            <tbody class="elz tbody">
+<?for($a = 0, $len = sizeof($membersLinks); $a < $len; $a++):?>
+    <?$member = $membersLinks[$a]?>
+                            <tr class="rcpAppEditMemberContainer">
+                                <td class="pad padVSmaller padHMedium elzCbox h24 wmn200">
+                                    <div class="elz strCLSitem flexible middle elzCLSuName <?=$member['member_gender']?>">
+                                        <div class="elz strCLSitem">
+                                            <div class="elz elzIcon smallest rad">
+                                                <i class="elz main smallest elzIc ic-user"></i>
+                                            </div>
+                                        </div>
+                                        <div class="elz strCLSitem marLSmaller grow w0"><?=$member['member_nick']?></div>
+                                    </div>
+                                </td>
+                                <td class="pad padVSmaller padHMedium elzCbox compressed">
+                                    <div class="elz strCLSitem flexible mar-LMedium">
+                                        <div class="elz strCLSitem marLMedium">
+                                            <div class="elz elzCLSlabel small elzPLT link rightUnlinkClick" data-fn="white" data-bg="red" title="Забрать право у пользователя" data-id="<?=$member['member_id']?>">
+                                                <i class="elz elzIc ic-cross"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+<?endfor;?>
+                        </table>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+</div>

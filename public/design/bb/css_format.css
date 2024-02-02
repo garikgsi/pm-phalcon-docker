@@ -1,0 +1,261 @@
+/* Paragraph */
+
+.bb.p { display: block; }
+
+.bb.p:first-child { margin-top:    0; }
+.bb.p:last-child  { margin-bottom: 0; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Text styles */
+
+.bb.bold,        .elz.bold        { font-weight:  bold; }
+.bb.italic,      .elz.italic      { font-style: italic; }
+
+.bb.decnone,     .elz.decnone     { text-decoration:         none; }
+.bb.underline,   .elz.underline   { text-decoration:    underline; }
+.bb.overline,    .elz.overline    { text-decoration:     overline; }
+.bb.linethrough, .elz.linethrough { text-decoration: line-through; }
+
+.bb.capitalize,  .elz.capitalize  { text-transform: capitalize; }
+.bb.lowercase,   .elz.lowercase   { text-transform:  lowercase; }
+.bb.uppercase,   .elz.uppercase   { text-transform:  uppercase; }
+
+.bb.textwrap,    .elz.textwrap    { white-space:   normal; }
+.bb.nowrap,      .elz.nowrap      { white-space:   nowrap; }
+.bb.pre,         .elz.pre         { white-space:      pre; }
+.bb.preline,     .elz.preline     { white-space: pre-line; }
+.bb.prewrap,     .elz.prewrap     { white-space: pre-wrap; }
+
+.bb.wbreak,       .elz.wbreak     { word-wrap: break-word; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Font family */
+
+.bb.fn-roboto,    .elz.fn-roboto    { font-family: "Roboto", Arial, Helvetica, sans-serif; }
+.bb.fn-arial,     .elz.fn-arial     { font-family: Arial, Helvetica, sans-serif; }
+.bb.fn-comic,     .elz.fn-comic     { font-family: "Comic Sans MS", Textile, cursive; }
+.bb.fn-courier,   .elz.fn-courier   { font-family: "Courier New", Courier, monospace; }
+.bb.fn-georgia,   .elz.fn-georgia   { font-family: Georgia, "Times New Roman", Times, serif; }
+.bb.fn-impact,    .elz.fn-impact    { font-family: Impact, Charcoal, sans-serif; }
+.bb.fn-tahoma,    .elz.fn-tahoma    { font-family: Tahoma, Geneva, sans-serif; }
+.bb.fn-times,     .elz.fn-times     { font-family: "Times New Roman", Times, serif; }
+.bb.fn-trebuchet, .elz.fn-trebuchet { font-family: "Trebuchet MS", Helvetica, sans-serif; }
+.bb.fn-verdana,   .elz.fn-verdana   { font-family: Verdana, Geneva, sans-serif; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Cursors */
+
+.bb.cur-move,    .elz.cur-move    { cursor:    move; }
+.bb.cur-pointer, .elz.cur-pointer { cursor: pointer; }
+.bb.cur-help,    .elz.cur-help    { cursor:    help; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Font sizes */
+
+.bb.fn-6,  .elz.fn-6  { font-size:  6pt; }
+.bb.fn-7,  .elz.fn-7  { font-size:  7pt; }
+.bb.fn-8,  .elz.fn-8  { font-size:  8pt; }
+.bb.fn-9,  .elz.fn-9  { font-size:  9pt; }
+.bb.fn-10, .elz.fn-10 { font-size: 10pt; }
+.bb.fn-11, .elz.fn-11 { font-size: 11pt; }
+.bb.fn-12, .elz.fn-12 { font-size: 12pt; }
+.bb.fn-14, .elz.fn-14 { font-size: 14pt; }
+.bb.fn-16, .elz.fn-16 { font-size: 16pt; }
+.bb.fn-18, .elz.fn-18 { font-size: 18pt; }
+.bb.fn-24, .elz.fn-24 { font-size: 24pt; }
+.bb.fn-30, .elz.fn-30 { font-size: 30pt; }
+.bb.fn-32, .elz.fn-32 { font-size: 32pt; }
+.bb.fn-36, .elz.fn-36 { font-size: 36pt; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Line height */
+
+.bb.lh-10, .elz.lh-10 { line-height:   1; }
+.bb.lh-11, .elz.lh-11 { line-height: 1.1; }
+.bb.lh-12, .elz.lh-12 { line-height: 1.2; }
+.bb.lh-13, .elz.lh-13 { line-height: 1.3; }
+.bb.lh-14, .elz.lh-14 { line-height: 1.4; }
+.bb.lh-15, .elz.lh-15 { line-height: 1.5; }
+.bb.lh-16, .elz.lh-16 { line-height: 1.6; }
+.bb.lh-17, .elz.lh-17 { line-height: 1.7; }
+.bb.lh-18, .elz.lh-18 { line-height: 1.8; }
+.bb.lh-19, .elz.lh-19 { line-height: 1.9; }
+.bb.lh-20, .elz.lh-20 { line-height:   2; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Text notes */
+
+.bb.fn-sup { font-size: smaller; vertical-align: super; line-height: 0.5em; }
+.bb.fn-sub { font-size: smaller; vertical-align:   sub; line-height: 0.5em; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Text align */
+
+.bb.al-left,    .elz.al-left    { text-align:    left; }
+.bb.al-center,  .elz.al-center  { text-align:  center; }
+.bb.al-right,   .elz.al-right   { text-align:   right; }
+.bb.al-justify, .elz.al-justify { text-align: justify; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Vertical align */
+
+.bb.val-top,    .elz.val-top    { vertical-align:    top; }
+.bb.val-middle, .elz.val-middle { vertical-align: middle; }
+.bb.val-bottom, .elz.val-bottom { vertical-align: bottom; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Floats */
+
+.bb.float.left  { float:  left; margin-right: 16px; } .bb.float.left.s-full  { margin-right: 0; }
+.bb.float.right { float: right; margin-left:  16px; } .bb.float.right.s-full { margin-left:  0; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Sizes */
+
+.bb.s-smaller { width: 190px; max-width: 100%; }
+.bb.s-smaller { width: 240px; max-width: 100%; }
+.bb.s-small   { width: 320px; max-width: 100%; }
+.bb.s-medium  { width: 490px; max-width: 100%; }
+.bb.s-large   { width: 640px; max-width: 100%; }
+.bb.s-larger  { width: 720px; max-width: 100%; }
+.bb.s-largest { width: 800px; max-width: 100%; }
+.bb.s-full    { width:  100%; }
+.bb.s-auto    { width:  auto; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Borders */
+
+.bb.br-dotted, .elz.br-dotted { border-style: dotted; }
+.bb.br-dashed, .elz.br-dashed { border-style: dashed; }
+.bb.br-solid,  .elz.br-solid  { border-style:  solid; }
+.bb.br-double, .elz.br-double { border-style: double; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+hr.bb {
+    display: block;
+    height: 4px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+}
+
+.bb.indent { display: block; clear: both; } /* вертикальный отступ */

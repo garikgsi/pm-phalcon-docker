@@ -1,0 +1,102 @@
+<?php
+$rightNodeId = $right_node_id;
+$rightsList = $rights_list;
+
+?>
+<?if(isset($rightsList[$rightNodeId]) && is_array($rightsList[$rightNodeId])):?>
+    <?$nodeList = $rightsList[$rightNodeId]?>
+    <?for($a = 0, $len = sizeof($nodeList); $a < $len; $a++):?>
+        <?$node = $nodeList[$a]?>
+        <?$hasChild = isset($rightsList[$node['right_id']]) && is_array($rightsList[$node['right_id']]) && sizeof($rightsList[$node['right_id']])?>
+        <?$title = trim($node['right_title'])?>
+        <?$descr = trim($node['right_description'])?>
+
+<li class="elz expItem parentId<?=$node['parent_id']?>" data-right="<?=$node['right_id']?>" data-parent="<?=$node['parent_id']?>">
+    <div class="elz expInner elzPLT">
+        <div class="elz expSTR icon left">
+            <i class="elz elzIcon medium rad elzPLT" data-fn="grey 600">
+                <i class="elz elzIc main smallest ic-key">
+                    <i class="elz elzIc gspot shD elzPLT ic-plus<?if(!$hasChild):?> elzHide<?endif;?>" data-bg="blue" data-fn="white"></i>
+                </i>
+            </i>
+        </div>
+        <div class="elz expSTR grow">
+            <div class="elz elzText nowrap right<?=$node['right_id']?>"><b class="bb strong"><?=$node['right_name']?></b>&nbsp;&nbsp;&nbsp;&nbsp;<span><?=($title != '' ? '"'.$title.'"' : '')?></span></div>
+        </div>
+        <div class="elz expSTR right marRSmall rightTitle<?=$node['right_id']?><?if($title != ''):?> elzHide<?endif;?>">
+            <div class="elz strCLSitem">
+                <div class="elz elzCLSlabel small elzPLT" data-bg="red" data-fn="white" title="Не введен заголовок">
+                    <i class="elz elzIc ic-font"></i>
+                </div>
+            </div>
+        </div>
+        <div class="elz expSTR right marRSmall rightDescr<?=$node['right_id']?><?if($descr != ''):?> elzHide<?endif;?>">
+            <div class="elz strCLSitem">
+                <div class="elz elzCLSlabel small elzPLT" data-bg="red" data-fn="white" title="Не введено описание">
+                    <i class="elz elzIc ic-file-text"></i>
+                </div>
+            </div>
+        </div>
+
+        <?if($node['right_in_use']):?>
+        <div class="elz expSTR right marRSmall">
+            <div class="elz strCLSitem">
+                <div class="elz elzCLSlabel small elzPLT" data-fn="green" title="Право используется в коде">
+                    <i class="elz elzIc ic-lock"></i>
+                </div>
+            </div>
+        </div>
+        <?else:?>
+            <div class="elz expSTR right marRSmall">
+                <div class="elz strCLSitem">
+                    <div class="elz elzCLSlabel small link rightDelete elzPLT" data-fn="red" title="Удалить право">
+                        <i class="elz elzIc ic-cross"></i>
+                    </div>
+                </div>
+            </div>
+        <?endif;?>
+
+        <div class="elz expSTR right marRSmall rightFormWrap">
+            <div class="elz strCLSitem">
+                <div class="elz elzCLSlabel small elzPLT link rightShowForm" data-bg="blue" data-fn="white" title="Редактировать право">
+                    <i class="elz elzIc ic-pencil"></i>
+                </div>
+                <form class="elz elzCLSoverDescr displayFix vertical bottom right padMedium padTSmaller w280 mar-RSmaller editRightId<?=$node['right_id']?>" method="POST" action="/rights/api/right_edit?right_id=<?=$node['right_id']?>&lang_id=<?=$rights_lang?>" data-action="/rights/api/right_edit?right_id=<?=$node['right_id']?>">
+                    <?=\Core\Builder\MustacheForms::input('text', 'Введите латинское название', 'Системное название', 'ic-file', '', 'name', $node['right_name'])?>
+                    <?=\Core\Builder\MustacheForms::input('text', 'Введите заголовок', 'Заголовок', 'ic-font', '', 'title', $node['right_title'])?>
+                    <?=\Core\Builder\MustacheForms::textArea('Введите описание', 'Описание', '', '', 'description', $node['right_description'])?>
+
+                    <?=\Core\Builder\MustacheForms::submit('', 'Сохранить')?>
+                </form>
+            </div>
+        </div>
+
+        <div class="elz expSTR right marRSmall rightFormWrap">
+            <div class="elz strCLSitem">
+                <div class="elz elzCLSlabel small elzPLT link rightShowForm" data-bg="purple" data-fn="white" title="Добавить дочернее право">
+                    <i class="elz elzIc ic-plus"></i>
+                </div>
+                <form class="elz elzCLSoverDescr displayFix vertical bottom right padMedium padTSmaller w280 mar-RSmaller addRight" method="POST" action="/rights/api/right_add?right_id=<?=$node['right_id']?>&lang_id=<?=$rights_lang?>&<?=$rights_get_param?>" data-action="/rights/api/right_add?right_id=<?=$node['right_id']?>&<?=$rights_get_param?>">
+                    <?=\Core\Builder\MustacheForms::input('text', 'Введите латинское название', 'Системное название', 'ic-file', '', 'name')?>
+                    <?=\Core\Builder\MustacheForms::input('text', 'Введите заголовок', 'Заголовок', 'ic-font', '', 'title')?>
+                    <?=\Core\Builder\MustacheForms::textArea('Введите описание', 'Описание', '', '', 'description')?>
+
+                    <?=\Core\Builder\MustacheForms::submit('', 'Добавить', '', 'success')?>
+                </form>
+            </div>
+        </div>
+    </div>
+    <?$hideOpener = $hasChild ? '' : ' elzHide'?>
+
+    <input class="nodeOpenerToggle<?=$node['right_id']?> elz expNodeChecker<?=$hideOpener?>" type="checkbox" title="Развернуть">
+    <div class="nodeOpenerToggle<?=$node['right_id']?> elz expNode<?=$hideOpener?>"></div>
+
+    <ul class="elz expList" data-right="<?=$node['right_id']?>">
+        <?$this->view->partial('rights/partials/rights_explorer_li', [
+            'right_node_id' => $node['right_id'],
+            'rights_list' => $rightsList
+        ])?>
+    </ul>
+</li>
+    <?endfor;?>
+<?endif;?>

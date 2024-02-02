@@ -1,0 +1,469 @@
+/* Camera */
+
+.hxdCameraEditor {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items:     center;
+    width:  100%;
+    height: 100%;
+    padding: 16px;
+}
+
+.hxdCameraEditor canvas,
+.hxdCameraEditor svg { display: block; }
+
+.hxdCameraEditor:hover  .uniScrollWrap,
+.hxdCameraEditor:active .uniScrollWrap { visibility: visible; }
+
+.hxdCameraEditor > .uniScroll {
+    max-width: 100%;
+    max-height: 100%;
+    background-color: #ffffff;
+    box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.5);
+}
+
+.hxdCameraEditor .uniScrollWrap {
+    position: absolute;
+    top:  0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.hxdCameraStatic {
+    position: sticky;
+    top:    0;
+    right:  0;
+    bottom: 0;
+    left:   0;
+    width:  100%;
+    height: 100%;
+}
+
+.hxdCameraDynamic {
+    position: absolute;
+    display: block;
+    top:  0;
+    left: 0;
+    min-width:  100%;
+    min-height: 100%;
+}
+
+.hxdCameraEditor .workSpaceWrap,
+.hxdCameraEditor .shapesHelper {
+    position: absolute;
+    top:  0;
+    left: 0;
+    display: block;
+}
+
+.hxdCameraWrap { display: block; }
+
+.hxdCameraEditor .hxdCameraStatic .workSpaceWrap {
+    width:  100%;
+    height: 100%;
+}
+
+.hxdCameraEditor .hxdCameraDynamic .workSpaceWrap {
+    width:  auto;
+    height: auto;
+    min-width:  100%;
+    min-height: 100%;
+}
+
+
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+.hxdWorkSpace {
+    position: relative;
+    display: flex;
+    align-items:     center;
+    box-sizing: border-box;
+    min-height: 100%;
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+}
+
+.hxdWorkSpace > .workSpaceWrap.spaceOut { margin: auto; }
+
+.hxdWorkSpace .workSpaceWrap {
+    position: relative;
+    display: block;
+}
+
+.hxdWorkSpace .workSpaceWrap.eventsNone { pointer-events: none; }
+
+.hxdWorkSpace .workSpaceWrap.abs {
+    position: absolute;
+    top:    0;
+    right:  0;
+    bottom: 0;
+    left:   0;
+}
+
+.hxdWorkSpace .workSpaceWrap.noSelection {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select:   none; /* Safari */
+    -moz-user-select:      none; /* Firefox */
+    -ms-user-select:       none; /* Internet Explorer/Edge */
+    user-select:           none; /* Non-prefixed version, currently*/
+}
+
+
+
+
+
+
+
+
+
+
+/* Canvas */
+
+.hxdWorkSpace .workSpaceCanvas { display: block; }
+
+.hxdWorkSpace .workSpaceCanvas.origin { position: relative; }
+
+.hxdWorkSpace .workSpaceCanvas.abs {
+    position: absolute;
+    top:  0;
+    left: 0;
+    width: 100%;
+}
+
+.hxdWorkSpace svg.workSpaceCanvas.abs { height: 100%; }
+
+.hxdWorkSpace img.workSpaceCanvas.abs,
+.hxdWorkSpace canvas.workSpaceCanvas.abs {
+    height: auto;
+}
+
+
+.hxdCanvSpace {
+    position: sticky;
+    display: flex;
+    justify-content: center;
+    align-items:     center;
+    width:  100%;
+    height: 100%;
+    top:  0;
+    left: 0;
+    padding: 16px;
+    box-sizing: border-box;
+}
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Вспомогательные стрелки */
+
+.workSpaceAuxiliaryArrow {
+    position: absolute;
+    display: block;
+    width:  48px;
+    height: 12px;
+    margin-top: -6px;
+    margin-left: -24px;
+    background: url('cur_arrowsline.svg') center center no-repeat;
+    transform-origin: 50% 50%;
+}
+
+.workSpaceAuxiliaryArrow.horizontal { transform: translateY(-8px); }
+.workSpaceAuxiliaryArrow.vertical   { transform: rotate(90deg) translateY(-8px); margin-left: -40px; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Rulers */
+
+.workSpaceRulers { margin: 22px 17px; }
+
+.hxdWorkSpaceRulersWrap {
+    position: absolute;
+    display: block;
+    top:    0;
+    right:  0;
+    bottom: 0;
+    left:   0;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.hxdWorkSpaceRulersWrap > .rulerItem {
+    position: absolute;
+    display: block;
+    border: 1px solid #d6d6d6;
+    background-color: #ffffff;
+    box-sizing: border-box;
+}
+
+.hxdWorkSpaceRulersWrap > .rulerItem.vertical {
+    left:   -17px;
+    top:     -5px;
+    bottom:  -5px;
+    width:   12px;
+    padding: 4px 0 3px 0;
+}
+
+.hxdWorkSpaceRulersWrap > .rulerItem.horizontal {
+    top:   -17px;
+    left:   -5px;
+    right:  -5px;
+    height: 12px;
+    padding: 0 3px 0 4px;
+}
+
+.hxdWorkSpaceRulersWrap > .rulerItem .rulerPattern {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    width:  100%;
+    height: 100%;
+}
+
+.hxdWorkSpaceRulersWrap .rulerHelper {
+    position: absolute;
+    display: block;
+    border-width: 0 1px 1px 0;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.5);
+    top:  -16px;
+    left: -16px;
+    padding-right:  16px;
+    padding-bottom: 16px;
+}
+
+.hxdWorkSpaceRulersWrap .rulerHelper .rulerValues {
+    position: absolute;
+    display: block;
+    top: 100%;
+    right:  0;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 3px;
+    padding:       5px;
+    margin-top:    5px;
+    margin-right:  5px;
+    font-size: 8pt;
+    color: #ffffff;
+}
+
+.hxdWorkSpaceRulersWrap .rulerHelper .rulerValues .item {
+    display: flex;
+    width: 100%;
+    line-height: 14px;
+}
+
+.hxdWorkSpaceRulersWrap .rulerHelper .rulerValues .item .title,
+.hxdWorkSpaceRulersWrap .rulerHelper .rulerValues .item .value {
+    position: relative;
+    display: block
+}
+
+.hxdWorkSpaceRulersWrap .rulerHelper .rulerValues .item .title { width: 16px; }
+
+.hxdWorkSpaceRulersWrap .rulerHelper .rulerValues .item .value {
+    font-weight: bold;
+    text-align: right;
+    flex-grow: 1;
+}
+
+.hxdWorkSpaceRulersWrap .rulerHelper .rulerValues .item .title:after {
+    content: ":";
+    position: absolute;
+    right: 2px;
+}
+
+/* end */
+
+
+
+
+
+
+
+
+
+/* Grid */
+
+.hxdWorkSpace > .workSpaceWrap.spaceOut { padding: 16px; }
+
+.hxdWorkSpace.squareGrid .workSpaceWrap.spaceIn {
+    background-color: #ffffff;
+    box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.5);
+}
+
+.workSpaceZoomer {
+    transition: 0.2s transform;
+    transform-origin: 0 0;
+}
+
+.hxdWorkSpace.squareGrid .workSpaceWrap.grid:after {
+    content: "";
+    position: absolute;
+    display: block;
+    top:     0;
+    right:   0;
+    bottom:  0;
+    left:    0;
+    border: 1px solid #888888;
+}
+
+.hxdWorkSpace .svgGrid {
+    position: absolute;
+    display: block;
+    top:  0;
+    left: 0;
+    width:  100%;
+    height: 100%;
+}
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Text path */
+
+/*.hxdWorkSpace textPath { cursor: move; }*/
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Over canvas add/remove tools */
+
+.hxdWorkSpace .hxdOverSectorTools,
+.hxdOverSectorTools .sectorTool .innerWrap,
+.hxdOverSectorTools .sectorTool .inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hxdWorkSpace .hxdOverSectorTools .sectorTool {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+}
+
+.hxdWorkSpace .hxdOverSectorTools .sectorTool.forHex {
+    align-items: flex-start;
+    height: 66.6666666666%;
+    width:  0;
+}
+
+.hxdWorkSpace .hxdOverSectorTools .sectorTool.forSquare { align-items: center; }
+
+
+.hxdOverSectorTools .sectorTool .innerWrap {
+    position: absolute;
+    width:  0;
+    height: 0;
+}
+
+.hxdOverSectorTools .sectorTool .inner {
+    position: absolute;
+    width:  48px;
+    height: 48px;
+    border-radius: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.hxdOverSectorTools .sectorTool .inner.add    { background-color: #2196f3; color: #ffffff; }
+.hxdOverSectorTools .sectorTool .inner.remove { background-color: #f44336; color: #ffffff; }
+
+.hxdOverSectorTools .sectorTool .inner:hover,
+.hxdOverSectorTools .sectorTool .inner:active {
+    box-shadow: inset 0 0 0 1024px rgba(0, 0, 0, 0.1);
+}
+
+.hxdOverSectorTools .sectorTool.forHex.deg0   { transform: rotate(0deg);   }
+.hxdOverSectorTools .sectorTool.forHex.deg60  { transform: rotate(60deg);  } .hxdOverSectorTools .sectorTool.forHex.deg60  > .innerWrap { transform: rotate(-60deg);  }
+.hxdOverSectorTools .sectorTool.forHex.deg120 { transform: rotate(120deg); } .hxdOverSectorTools .sectorTool.forHex.deg120 > .innerWrap { transform: rotate(-120deg); }
+.hxdOverSectorTools .sectorTool.forHex.deg180 { transform: rotate(180deg); } .hxdOverSectorTools .sectorTool.forHex.deg180 > .innerWrap { transform: rotate(-180deg); }
+.hxdOverSectorTools .sectorTool.forHex.deg240 { transform: rotate(240deg); } .hxdOverSectorTools .sectorTool.forHex.deg240 > .innerWrap { transform: rotate(-240deg); }
+.hxdOverSectorTools .sectorTool.forHex.deg300 { transform: rotate(300deg); } .hxdOverSectorTools .sectorTool.forHex.deg300 > .innerWrap { transform: rotate(-300deg); }
+.hxdOverSectorTools .sectorTool.forHex.middle { align-items: center; }
+
+.hxdOverSectorTools .sectorTool.forSquare.x1 { left: 16.6666666666%; }
+.hxdOverSectorTools .sectorTool.forSquare.x2 { left: 50%; }
+.hxdOverSectorTools .sectorTool.forSquare.x3 { left: 83.3333333333%; }
+.hxdOverSectorTools .sectorTool.forSquare.y1 { top:  16.6666666666%; }
+.hxdOverSectorTools .sectorTool.forSquare.y2 { top:  50%; }
+.hxdOverSectorTools .sectorTool.forSquare.y3 { top:  83.3333333333%; }
+
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Selected Hole */
+
+.hxdSelectedHole {
+    position: absolute;
+    display: grid;
+    top:    0;
+    right:  0;
+    bottom: 0;
+    left:   0;
+}
+
+.hxdSelectedHole .holeIt {
+    background-color: rgba(0, 0, 0, 0.75);
+}
+
+.hxdSelectedHole .hole {
+    background-color: transparent;
+    border: 1px solid rgba(0, 0, 0, 1);
+}
+
+/* end */

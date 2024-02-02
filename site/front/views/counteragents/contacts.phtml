@@ -1,0 +1,147 @@
+<?php $viewModeCards = (int)$this->user->getSetting('counteragent_contacts_view_mode')?>
+<div class="elz d-flex f-wrap gap8 a-T">
+    <style>
+
+
+
+        @media (max-width: 1024px) {
+            .pmContactsListMode { display: none; }
+
+            .pmContactsList {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
+                grid-auto-flow: row;
+            }
+
+            .pmContactsList .pmContactItem {
+                justify-content: center;
+                padding: 16px;
+                flex-direction: column;
+            }
+
+            .pmContactsList .pmContactLine { width: 100%; order: 1; }
+
+            .pmContactsList .pmContactLine.header {
+                flex-direction: column;
+                text-align: center;
+                line-height: 1.2;
+                margin: -16px -16px 0 -16px;
+                padding: 16px;
+                border-bottom-width: 1px;
+                flex-grow: 0;
+            }
+
+            .pmContactsList .pmContactAvatar {
+                width:  120px;
+                height: 120px;
+            }
+
+            .pmContactAvatarPlaceholder { font-size: 24px; }
+
+            .pmContactsList .pmContactLine { flex-basis: auto; }
+
+            .pmContactsList .pmContactLine.body { gap: 16px; align-content: flex-start; }
+
+            .pmContactsList .pmContactLabel.comment { order: 2; }
+
+            .pmContactsList .pmContactName {
+                font-weight: normal;
+                /*color: inherit;*/
+                font-size: 16px;
+                min-height: 40px;
+                order: 1;
+            }
+
+            .pmContactsList .pmContactRole { font-weight: bold; }
+
+            .pmContactsList .pmPinContact {
+                position: absolute;
+                margin: 16px;
+            }
+
+            .pmContactsList .pmContactLine.footer { justify-content: center; }
+        }
+
+        @media (min-width: 1025px) and (max-width: 1112px) {
+            .pmContactLine.footer { flex-basis: 88px; }
+            .pmContactsList .pmContactLabel.comment { min-width: 0; }
+            .pmContactsList .pmCommentText { display: none; }
+        }
+
+
+
+
+        .pmContactsList.contactStateActive .pmContactItem[data-active="0"] {
+            display: none !important;
+        }
+
+        .pmContactsList.contactStateFired .pmContactItem[data-active="1"] {
+            display: none !important;
+        }
+
+
+
+
+
+        .pmContactsList.modeGrid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
+            grid-auto-flow: row;
+        }
+
+        .pmContactsList.modeGrid .pmContactItem {
+            justify-content: center;
+            padding: 16px;
+            flex-direction: column;
+        }
+
+        .pmContactsList.modeGrid .pmContactLine { width: 100%; order: 1; }
+
+        .pmContactsList.modeGrid .pmContactLine.header {
+            flex-direction: column;
+            text-align: center;
+            line-height: 1.2;
+            margin: -16px -16px 0 -16px;
+            padding: 16px;
+            border-bottom-width: 1px;
+            flex-grow: 0;
+        }
+
+        .pmContactsList.modeGrid .pmContactAvatar {
+            width:  120px;
+            height: 120px;
+        }
+
+        .pmContactsList.modeGrid .pmContactAvatarPlaceholder { font-size: 24px; }
+
+        .pmContactsList.modeGrid .pmContactLine { flex-basis: auto; }
+
+        .pmContactsList.modeGrid .pmContactLine.body { gap: 16px; align-content: flex-start; }
+
+        .pmContactsList.modeGrid .pmContactLabel.comment { order: 2; }
+
+        .pmContactsList.modeGrid .pmContactName {
+            font-weight: normal;
+            /*color: inherit;*/
+            font-size: 16px;
+            min-height: 40px;
+            order: 1;
+        }
+
+        .pmContactsList.modeGrid .pmContactRole { font-weight: bold; }
+
+        .pmContactsList.modeGrid .pmPinContact {
+            position: absolute;
+            margin: 16px;
+        }
+
+        .pmContactsList.modeGrid .pmContactLine.footer { justify-content: center; }
+
+    </style>
+    <div id="counterAgentContactsList" class="pmContactsList contactStateActive elz d-flex grow w100p dir-y gap8 lh15<?if($viewModeCards):?> modeGrid<?endif;?>">
+<?$contactsList = $this->view->getVar('contactsList')?>
+<?for($a = 0, $len = sizeof($contactsList); $a < $len; $a++):?>
+        <?$this->view->partial('contacts/partials/contact_item', $contactsList[$a])?>
+<?endfor;?>
+    </div>
+</div>

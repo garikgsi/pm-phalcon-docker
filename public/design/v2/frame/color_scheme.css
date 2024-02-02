@@ -1,0 +1,143 @@
+:root {
+    /* Standard colors */
+
+    --c-red-H:           4; --c-red-S:          90%; --c-red-L:         58%;
+    --c-pink-H:        340; --c-pink-S:         82%; --c-pink-L:        52%;
+    --c-purple-H:      291; --c-purple-S:       64%; --c-purple-L:      42%;
+    --c-deep-purple-H: 262; --c-deep-purple-S:  52%; --c-deep-purple-L: 47%;
+    --c-indigo-H:      231; --c-indigo-S:       48%; --c-indigo-L:      48%;
+    --c-blue-H:        207; --c-blue-S:         90%; --c-blue-L:        54%;
+    --c-light-blue-H:  199; --c-light-blue-S:   98%; --c-light-blue-L:  48%;
+    --c-cyan-H:        187; --c-cyan-S:        100%; --c-cyan-L:        42%;
+    --c-teal-H:        174; --c-teal-S:        100%; --c-teal-L:        29%;
+    --c-green-H:       122; --c-green-S:        39%; --c-green-L:       49%;
+    --c-light-green-H:  88; --c-light-green-S:  50%; --c-light-green-L: 53%;
+    --c-lime-H:         66; --c-lime-S:         70%; --c-lime-L:        54%;
+    --c-yellow-H:       54; --c-yellow-S:      100%; --c-yellow-L:      62%;
+    --c-amber-H:        45; --c-amber-S:       100%; --c-amber-L:       51%;
+    --c-orange-H:       36; --c-orange-S:      100%; --c-orange-L:      50%;
+    --c-deep-orange-H:  14; --c-deep-orange-S: 100%; --c-deep-orange-L: 57%;
+    --c-brown-H:        16; --c-brown-S:        25%; --c-brown-L:       38%;
+    --c-grey-H:          0; --c-grey-S:          0%; --c-grey-L:        50%;
+    --c-blue-grey-H:   200; --c-blue-grey-S:    18%; --c-blue-grey-L:   50%;
+    --c-black-H:         0; --c-black-S:         0%; --c-black-L:        0%;
+    --c-white-H:         0; --c-white-S:         0%; --c-white-L:      100%;
+
+    --c-male-H:    225; --c-male-S:    71%; --c-male-L:   40%;
+    --c-female-H:  300; --c-female-S: 100%; --c-female-L: 37%;
+
+
+
+    /* Engine panel colors */
+
+    --c-EP-H:   0; --c-EP-S:   0%; --c-EP-L:   15%;
+    --c-EP-t-H: 0; --c-EP-t-S: 0%; --c-EP-t-L: 88%;
+
+
+
+    /* Social colors */ /* https://brandcolors.net/ */
+
+    --c-s-fb-H:     221; --c-s-fb-S:       44%; --c-s-fb-L:      41%; /* Facebook */
+    --c-s-inst-H:   340; --c-s-inst-S:     75%; --c-s-inst-L:    65%; /* Instagram */
+    --c-s-tw-H:     203; --c-s-tw-S:       89%; --c-s-tw-L:      53%; /* Twitter */
+    --c-s-tg-H:     200; --c-s-tg-S:      100%; --c-s-tg-L:      40%; /* Telegram */
+    --c-s-ds-H:     227; --c-s-ds-S:       58%; --c-s-ds-L:      65%; /* Discord */
+    --c-s-steam-H:    0; --c-s-steam-S:     0%; --c-s-steam-L:    0%; /* Steam */
+    --c-s-xbox-H:   112; --c-s-xbox-S:     45%; --c-s-xbox-L:    48%; /* XBOX */
+    --c-s-psn-H:    219; --c-s-psn-S:     100%; --c-s-psn-L:     26%; /* Playstation */
+    --c-s-twitch-H: 264; --c-s-twitch-S:  100%; --c-s-twitch-L:  64%; /* Twitch */
+    --c-s-pt-H:       7; --c-s-pt-S:       93%; --c-s-pt-L:      65%; /* Patreon */
+    --c-s-yt-H:       0; --c-s-yt-S:      100%; --c-s-yt-L:      50%; /* Youtube */
+    --c-s-g-H:        7; --c-s-g-S:        71%; --c-s-g-L:       55%; /* Google */
+    --c-s-yh-H:     267; --c-s-yh-S:      100%; --c-s-yh-L:      29%; /* Yahoo */
+    --c-s-fl-H:     213; --c-s-fl-S:      100%; --c-s-fl-L:      43%; /* Flickr */
+    --c-s-fl1-H:    329; --c-s-fl1-S:     100%; --c-s-fl1-L:     50%; /* Flickr color 1 */
+    --c-s-pn-H:     351; --c-s-pn-S:      100%; --c-s-pn-L:      45%; /* Pinterest */
+    --c-s-in-H:     201; --c-s-in-S:      100%; --c-s-in-L:      35%; /* LinkedIn */
+    --c-s-sp-H:     141; --c-s-sp-S:       73%; --c-s-sp-L:      42%; /* Spotify */
+    --c-s-bl-H:      31; --c-s-bl-S:      100%; --c-s-bl-L:      48%; /* Blogger */
+    --c-s-bnet-H:   267; --c-s-bnet-S:     75%; --c-s-bnet-L:    31%; /* BattleNet */
+    --c-s-bnet1-H:  199; --c-s-bnet1-S:    92%; --c-s-bnet1-L:   74%; /* BattleNet color 1 */
+    --c-s-vk-H:     213; --c-s-vk-S:       35%; --c-s-vk-L:      41%; /* VK */
+    --c-s-ok-H:      27; --c-s-ok-S:       84%; --c-s-ok-L:      55%; /* OK */
+    --c-s-mailru-H: 205; --c-s-mailru-S:   82%; --c-s-mailru-L:  49%; /* MailRu */
+    --c-s-mailru1-H: 35; --c-s-mailru1-S: 100%; --c-s-mailru1-L: 59%; /* MailRu color 1 */
+
+
+
+    /* Theme colors */
+
+    --c-primary-H:   0; --c-primary-S:   0%; --c-primary-L:   90%;
+    --c-primary-t-H: 0; --c-primary-t-S: 0%; --c-primary-t-L: 30%;
+
+    --c-primary-inv-H:   0; --c-primary-inv-S:   0%; --c-primary-inv-L:   30%;
+    --c-primary-inv-t-H: 0; --c-primary-inv-t-S: 0%; --c-primary-inv-t-L: 90%;
+
+    --c-secondary-H:   0; --c-secondary-S:   0%; --c-secondary-L:   40%;
+    --c-secondary-t-H: 0; --c-secondary-t-S: 0%; --c-secondary-t-L: 90%;
+
+    --c-secondary-inv-H:   0; --c-secondary-inv-S:   0%; --c-secondary-inv-L:   30%;
+    --c-secondary-inv-t-H: 0; --c-secondary-inv-t-S: 0%; --c-secondary-inv-t-L: 90%;
+
+    --c-brand-H: 227; --c-brand-S:  58%; --c-brand-L:   65%;
+    --c-brand-t-H: 0; --c-brand-t-S: 0%; --c-brand-t-L: 93%;
+
+    --c-ok-H: 207; --c-ok-S:  90%; --c-ok-L:   54%;
+    --c-ok-t-H: 0; --c-ok-t-S: 0%; --c-ok-t-L: 93%;
+
+    --c-success-H: 122; --c-success-S:  39%; --c-success-L:   49%;
+    --c-success-t-H: 0; --c-success-t-S: 0%; --c-success-t-L: 93%;
+
+    --c-warning-H:  54; --c-warning-S:  100%; --c-warning-L:   55%;
+    --c-warning-t-H: 0; --c-warning-t-S:  0%; --c-warning-t-L: 30%;
+
+    --c-danger-H:  36; --c-danger-S:  100%; --c-danger-L:   50%;
+    --c-danger-t-H: 0; --c-danger-t-S:  0%; --c-danger-t-L: 93%;
+
+    --c-error-H:   4; --c-error-S:  90%; --c-error-L:   58%;
+    --c-error-t-H: 0; --c-error-t-S: 0%; --c-error-t-L: 93%;
+
+    --c-link-inline-H:  207; --c-link-inline-S:  90%; --c-link-inline-L:   54%;
+    --c-link-context-H:   0; --c-link-context-S:  0%; --c-link-context-L: 100%;
+    --c-focus-H:        207; --c-focus-S:        90%; --c-focus-L:         54%;
+}
+
+.elzTheme-light {
+    /* Theme colors */
+
+}
+
+.elzTheme-dark {
+    /* Theme colors */
+
+    --c-primary-H:   223; --c-primary-S:   7%; --c-primary-L:   20%;
+    --c-primary-t-H: 223; --c-primary-t-S: 7%; --c-primary-t-L: 88%;
+
+    --c-primary-inv-H:   0; --c-primary-inv-S:   0%; --c-primary-inv-L:   90%;
+    --c-primary-inv-t-H: 0; --c-primary-inv-t-S: 0%; --c-primary-inv-t-L: 30%;
+
+    --c-secondary-H:   223; --c-secondary-S:   7%; --c-secondary-L:   10%;
+    --c-secondary-t-H: 223; --c-secondary-t-S: 7%; --c-secondary-t-L: 90%;
+
+    --c-secondary-inv-H:   0; --c-secondary-inv-S:   0%; --c-secondary-inv-L:   90%;
+    --c-secondary-inv-t-H: 0; --c-secondary-inv-t-S: 0%; --c-secondary-inv-t-L: 30%;
+/*
+    --c-brand-H: 227; --c-brand-S:  50%; --c-brand-L:   45%;
+
+    --c-ok-H: 207; --c-ok-S:  90%; --c-ok-L:   35%;
+
+    --c-success-H: 122; --c-success-S:  39%; --c-success-L:   35%;
+
+    --c-warning-H:  54; --c-warning-S:  80%; --c-warning-L:   45%;
+
+    --c-danger-H:  36; --c-danger-S:  100%; --c-danger-L:   40%;
+
+    --c-error-H:   4; --c-error-S:  70%; --c-error-L:   50%;
+ */
+    --c-male-L:   70%;
+    --c-female-L: 67%;
+}
+
+.elzTheme-light.subTheme-blevota {
+    --c-primary-H:   54; --c-primary-S:   61%; --c-primary-L:   90%;
+}

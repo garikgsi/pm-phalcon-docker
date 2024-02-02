@@ -1,0 +1,259 @@
+/* Rarity colors */
+
+.infRarityGR { background-repeat: no-repeat; background-size: 100% 100%; }
+
+/* Light ambient */
+/*
+.infAmbLight .infRarity1 .infRarityBG { background-color: #ffffff; } .infAmbLight .infRarity1 .infRarityFill { fill: #ffffff; }
+.infAmbLight .infRarity2 .infRarityBG { background-color: #ffffff; } .infAmbLight .infRarity2 .infRarityFill { fill: #ffffff; }
+.infAmbLight .infRarity3 .infRarityBG { background-color: #ffffff; } .infAmbLight .infRarity3 .infRarityFill { fill: #ffffff; }
+.infAmbLight .infRarity4 .infRarityBG { background-color: #ffffff; } .infAmbLight .infRarity4 .infRarityFill { fill: #ffffff; }
+.infAmbLight .infRarity5 .infRarityBG { background-color: #ffffff; } .infAmbLight .infRarity5 .infRarityFill { fill: #ffffff; }
+.infAmbLight .infRarity6 .infRarityBG { background-color: #ffffff; } .infAmbLight .infRarity6 .infRarityFill { fill: #ffffff; }
+.infAmbLight .infRarity7 .infRarityBG { background-color: #fffbf1; } .infAmbLight .infRarity7 .infRarityFill { fill: #fffbf1; }
+.infAmbLight .infRarity8 .infRarityBG { background-color: #ffdcdc; } .infAmbLight .infRarity8 .infRarityFill { fill: #ffdcdc; }
+*/
+
+
+.infAmbLight .infRarity1 .infRarityBG { background-color: #e3e3e3; } .infAmbLight .infRarity1 .infRarityFill { fill: #e3e3e3; }
+.infAmbLight .infRarity2 .infRarityBG { background-color: #ffffff; } .infAmbLight .infRarity2 .infRarityFill { fill: #ffffff; }
+.infAmbLight .infRarity3 .infRarityBG { background-color: #c9e7ca; } .infAmbLight .infRarity3 .infRarityFill { fill: #c9e7ca; }
+.infAmbLight .infRarity4 .infRarityBG { background-color: #b5dcfb; } .infAmbLight .infRarity4 .infRarityFill { fill: #b5dcfb; }
+.infAmbLight .infRarity5 .infRarityBG { background-color: #e3c2e8; } .infAmbLight .infRarity5 .infRarityFill { fill: #e3c2e8; }
+.infAmbLight .infRarity6 .infRarityBG { background-color: #fdd8aa; } .infAmbLight .infRarity6 .infRarityFill { fill: #fdd8aa; }
+.infAmbLight .infRarity7 .infRarityBG { background-color: #f3e4ba; } .infAmbLight .infRarity7 .infRarityFill { fill: #f3e4ba; }
+.infAmbLight .infRarity8 .infRarityBG { background-color: #ffd5d5; } .infAmbLight .infRarity8 .infRarityFill { fill: #ffd5d5; }
+
+.infAmbLight .infRarity1 .infRarityBR { border-color: #aaaaaa; } .infAmbLight .infRarity1 .infRarityStroke { stroke: #aaaaaa; } .infAmbLight .infRarity1 .infRarityFN { color: #aaaaaa; }
+.infAmbLight .infRarity2 .infRarityBR { border-color: #888888; } .infAmbLight .infRarity2 .infRarityStroke { stroke: #888888; } .infAmbLight .infRarity2 .infRarityFN { color: #888888; }
+.infAmbLight .infRarity3 .infRarityBR { border-color: #4caf50; } .infAmbLight .infRarity3 .infRarityStroke { stroke: #4caf50; } .infAmbLight .infRarity3 .infRarityFN { color: #4caf50; }
+.infAmbLight .infRarity4 .infRarityBR { border-color: #2196f3; } .infAmbLight .infRarity4 .infRarityStroke { stroke: #2196f3; } .infAmbLight .infRarity4 .infRarityFN { color: #2196f3; }
+.infAmbLight .infRarity5 .infRarityBR { border-color: #9c27b0; } .infAmbLight .infRarity5 .infRarityStroke { stroke: #9c27b0; } .infAmbLight .infRarity5 .infRarityFN { color: #9c27b0; }
+.infAmbLight .infRarity6 .infRarityBR { border-color: #ff6d00; } .infAmbLight .infRarity6 .infRarityStroke { stroke: #ff6d00; } .infAmbLight .infRarity6 .infRarityFN { color: #ff6d00; }
+.infAmbLight .infRarity7 .infRarityBR { border-color: #c0a860; } .infAmbLight .infRarity7 .infRarityStroke { stroke: #c0a860; } .infAmbLight .infRarity7 .infRarityFN { color: #c0a860; }
+.infAmbLight .infRarity8 .infRarityBR { border-color: #ff0000; } .infAmbLight .infRarity8 .infRarityStroke { stroke: #ff0000; } .infAmbLight .infRarity8 .infRarityFN { color: #ff0000; }
+/*
+.infAmbLight .infRarity1 .infRarityGR { background-color: #dddddd; }
+.infAmbLight .infRarity2 .infRarityGR { background-image: linear-gradient(45deg, rgba(221, 221, 221, 0.75) 0, rgba(221, 221, 221, 0) 100%); }
+.infAmbLight .infRarity3 .infRarityGR { background-image: linear-gradient(45deg, rgba(76,  175,  80,  0.5) 0, rgba(76,  175,  80, 0) 100%); }
+.infAmbLight .infRarity4 .infRarityGR { background-image: linear-gradient(45deg, rgba(33,  150, 243,  0.5) 0, rgba(33,  150, 243, 0) 100%); }
+.infAmbLight .infRarity5 .infRarityGR { background-image: linear-gradient(45deg, rgba(156,  39, 176,  0.5) 0, rgba(156,  39, 176, 0) 100%); }
+.infAmbLight .infRarity6 .infRarityGR { background-image: linear-gradient(45deg, rgba(251, 140,   0,  0.5) 0, rgba(251, 140,   0, 0) 100%); }
+.infAmbLight .infRarity7 .infRarityGR { background-image: linear-gradient(45deg, rgba(230, 204, 128, 0.75) 0, rgba(230, 204, 128, 0) 100%); }
+.infAmbLight .infRarity8 .infRarityGR { background-image: linear-gradient(45deg, rgba(255,   0,   0,  0.5) 0, rgba(255,   0,   0, 0) 100%); }
+*/
+/* Dark ambient */
+
+.infAmbDark .infRarity1 .infRarityBG { background-color: #333333; } .infAmbDark .infRarity1 .infRarityFill { fill: #777777; }
+.infAmbDark .infRarity2 .infRarityBG { background-color: #333333; } .infAmbDark .infRarity2 .infRarityFill { fill: #cccccc; }
+.infAmbDark .infRarity3 .infRarityBG { background-color: #163317; } .infAmbDark .infRarity3 .infRarityFill { fill: #4caf50; }
+.infAmbDark .infRarity4 .infRarityBG { background-color: #071f33; } .infAmbDark .infRarity4 .infRarityFill { fill: #2196f3; }
+.infAmbDark .infRarity5 .infRarityBG { background-color: #2d0b33; } .infAmbDark .infRarity5 .infRarityFill { fill: #9c27b0; }
+.infAmbDark .infRarity6 .infRarityBG { background-color: #421d00; } .infAmbDark .infRarity6 .infRarityFill { fill: #ff6d00; }
+.infAmbDark .infRarity7 .infRarityBG { background-color: #332d1a; } .infAmbDark .infRarity7 .infRarityFill { fill: #c0a860; }
+.infAmbDark .infRarity8 .infRarityBG { background-color: #400000; } .infAmbDark .infRarity8 .infRarityFill { fill: #ff0000; }
+
+.infAmbDark .infRarity1 .infRarityBR { border-color: #777777; } .infAmbDark .infRarity1 .infRarityStroke { stroke: #777777; } .infAmbDark .infRarity1 .infRarityFN { color: #777777; }
+.infAmbDark .infRarity2 .infRarityBR { border-color: #cccccc; } .infAmbDark .infRarity2 .infRarityStroke { stroke: #cccccc; } .infAmbDark .infRarity2 .infRarityFN { color: #cccccc; }
+.infAmbDark .infRarity3 .infRarityBR { border-color: #4caf50; } .infAmbDark .infRarity3 .infRarityStroke { stroke: #4caf50; } .infAmbDark .infRarity3 .infRarityFN { color: #4caf50; }
+.infAmbDark .infRarity4 .infRarityBR { border-color: #2196f3; } .infAmbDark .infRarity4 .infRarityStroke { stroke: #2196f3; } .infAmbDark .infRarity4 .infRarityFN { color: #2196f3; }
+.infAmbDark .infRarity5 .infRarityBR { border-color: #9c27b0; } .infAmbDark .infRarity5 .infRarityStroke { stroke: #9c27b0; } .infAmbDark .infRarity5 .infRarityFN { color: #9c27b0; }
+.infAmbDark .infRarity6 .infRarityBR { border-color: #ff6d00; } .infAmbDark .infRarity6 .infRarityStroke { stroke: #ff6d00; } .infAmbDark .infRarity6 .infRarityFN { color: #ff6d00; }
+.infAmbDark .infRarity7 .infRarityBR { border-color: #c0a860; } .infAmbDark .infRarity7 .infRarityStroke { stroke: #c0a860; } .infAmbDark .infRarity7 .infRarityFN { color: #c0a860; }
+.infAmbDark .infRarity8 .infRarityBR { border-color: #ff0000; } .infAmbDark .infRarity8 .infRarityStroke { stroke: #ff0000; } .infAmbDark .infRarity8 .infRarityFN { color: #ff0000; }
+
+.infAmbDark .infRarity1 .infRarityGR { background-color: #dddddd; }
+.infAmbDark .infRarity2 .infRarityGR { background-image: linear-gradient(45deg, rgba(221, 221, 221, 0.75) 0, rgba(221, 221, 221, 0) 100%); }
+.infAmbDark .infRarity3 .infRarityGR { background-image: linear-gradient(45deg, rgba(76,  175,  80,  0.5) 0, rgba(76,  175,  80, 0) 100%); }
+.infAmbDark .infRarity4 .infRarityGR { background-image: linear-gradient(45deg, rgba(33,  150, 243,  0.5) 0, rgba(33,  150, 243, 0) 100%); }
+.infAmbDark .infRarity5 .infRarityGR { background-image: linear-gradient(45deg, rgba(156,  39, 176,  0.5) 0, rgba(156,  39, 176, 0) 100%); }
+.infAmbDark .infRarity6 .infRarityGR { background-image: linear-gradient(45deg, rgba(251, 140,   0,  0.5) 0, rgba(251, 140,   0, 0) 100%); }
+.infAmbDark .infRarity7 .infRarityGR { background-image: linear-gradient(45deg, rgba(230, 204, 128, 0.75) 0, rgba(230, 204, 128, 0) 100%); }
+.infAmbDark .infRarity8 .infRarityGR { background-image: linear-gradient(45deg, rgba(255,   0,   0,  0.5) 0, rgba(255,   0,   0, 0) 100%); }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Arrow debuffs */
+
+.infDBuff {
+    display: block;
+    width:  7px;
+    height: 9px;
+    background-repeat: no-repeat;
+    background-position: left center;
+}
+
+.infDBuff.ud { background-image: url('data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmlld0JveD0iMCAwIDcgOSIgd2lkdGg9IjciIGhlaWdodD0iOSI+DQo8cG9seWdvbiBmaWxsPSIjMjJiMTRjIiBwb2ludHM9IjEsOSAxLDIgMCwyIDEuNSwwIDMsMiAyLDIgMiw5Ii8+DQo8cG9seWdvbiBmaWxsPSIjZWQxYzI0IiBwb2ludHM9IjUsMCA1LDcgNCw3IDUuNSw5IDcsNyA2LDcgNiwwIi8+DQo8L3N2Zz4='); }
+.infDBuff.u  { background-image: url('data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmlld0JveD0iMCAwIDMgOSIgd2lkdGg9IjMiIGhlaWdodD0iOSI+DQo8cG9seWdvbiBmaWxsPSIjMjJiMTRjIiBwb2ludHM9IjEsOSAxLDIgMCwyIDEuNSwwIDMsMiAyLDIgMiw5Ii8+DQo8L3N2Zz4='); }
+.infDBuff.d  { background-image: url('data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmlld0JveD0iMCAwIDMgOSIgd2lkdGg9IjMiIGhlaWdodD0iOSI+DQo8cG9seWdvbiBmaWxsPSIjZWQxYzI0IiBwb2ludHM9IjEsMCAxLDcgMCw3IDEuNSw5IDMsNyAyLDcgMiwwIi8+DQo8L3N2Zz4='); }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Character bars */
+
+.infCharBar {
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+    border-radius: 2px;
+    height: 18px;
+    text-align: center;
+}
+
+.infCharBar .barInner {
+    display: block;
+    height: 100%;
+    background-clip: padding-box;
+    border-radius: 2px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+}
+
+.infCharBar .barInner[style*="width: 0"] { display: none; }
+
+.infCharBar.hp { background-color: #b71c1c; } .infCharBar.hp .barInner { background-color: #f44336; }
+.infCharBar.mp { background-color: #0d47a1; } .infCharBar.mp .barInner { background-color: #2196f3; }
+.infCharBar.sh { background-color: #0d47a1; } .infCharBar.sh .barInner { background-color: #2196f3; }
+.infCharBar.ft { background-color: #a85100; } .infCharBar.ft .barInner { background-color: #ffc107; }
+.infCharBar.xp { background-color: #a85100; } .infCharBar.xp .barInner { background-color: #ffc107; }
+.infCharBar.ar { background-color: #455a64; } .infCharBar.ar .barInner { background-color: #b0bec5; }
+
+.infCharBar .barStat {
+    position: absolute;
+    display: block;
+    top:    0;
+    right:  0;
+    bottom: 0;
+    left:   0;
+    padding: 0 10px;
+    line-height: 18px;
+    font-weight: bold;
+    font-size: 8pt;
+    color: #ffffff;
+    text-shadow: 0 1px 1px #000000, 0 1px 1px #000000;
+}
+
+.infCharBar:not(:hover) .barStat.hover { display: none; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+/* Character avatar */
+
+.infCharMenuAv { padding: 16px 16px 17px 16px; }
+
+.infCharMenuAv:before {
+    content: "";
+    position: absolute;
+    display: block;
+    bottom: 0;
+    left:  16px;
+    right: 16px;
+    height: 0;
+    border-bottom: 1px solid #cccccc;
+    opacity: 0.25;
+}
+
+.infCharMenuAv .infMenuAvatar {
+    display: block;
+    margin: auto;
+    width:  auto;
+    height: auto;
+    max-width:  200px;
+    max-height: 200px;
+}
+
+/* end */
+
+
+
+
+
+
+
+
+
+/* Dialog balloons */
+
+.infDialogBalloon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    line-height: 1.25;
+    border-color:     #eeeeee;
+    background-color: #eeeeee;
+    border-radius: 3px;
+    color: inherit;
+    text-decoration: none;
+}
+.infDialogBalloon.link { cursor: pointer; }
+
+.infDialogBalloon.link:hover,
+.infDialogBalloon.link:active {
+    color: #ffffff;
+    border-color: #555555;
+    background-color: #555555;
+}
+
+.infDialogBalloon.link:active { opacity: 0.7; }
+
+.infDialogBalloon.disabled {
+    opacity: 0.25;
+    pointer-events: none;
+}
+
+.infDialogBalloon:before {
+    content: "";
+    position: absolute;
+    top:    0;
+    width:  0;
+    height: 0;
+    border-style: solid;
+    border-width: 8px 8px 0 8px;
+    border-color: transparent;
+    border-top-color: inherit;
+    pointer-events: none;
+}
+
+.infDialogBalloon.left:before  { left:  -8px; }
+.infDialogBalloon.right:before { right: -8px; }
+
+.infDialogBalloon.textLeft   { justify-content: flex-start; }
+.infDialogBalloon.textRight  { justify-content:   flex-end; }
+.infDialogBalloon.textCenter { justify-content:     center; }
+
+.infDialogBalloon .balloonText {
+    display: block;
+    overflow: hidden;
+    max-height: 2.5em;
+    padding: 0 16px;
+}
+
+.infDialogBalloon.grow .balloonText { flex-grow: 1; width: 0;  }
+
+/* end */

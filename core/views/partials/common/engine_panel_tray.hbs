@@ -1,0 +1,34 @@
+<div {{#id_tray}}id="{{id_tray}}"{{/id_tray}} class="elz tbIt tbWrap left mainTray">
+    <div class="elz epBF tbIt tbWrapFlex">
+        <div class="elz epBF tbIt tbWrapIn">
+
+            <div {{#id_menu}}id="{{id_menu}}"{{/id_menu}} class="elz tbIt tbTool default medium link txt elzCSSNtrayStart">
+                <div class="elz toolAction">
+                    <div class="elz item lines">
+                        <i class="elz line"></i>
+                        <i class="elz line"></i>
+                        <i class="elz line"></i>
+                    </div>
+                </div>
+                <div id="{{id_tray}}Avatar" class="elz elzIcon rad larger elzPLT" data-bg="light 200">
+{{#avatar_ver}}
+                    <div class="elz main image fill">
+                        <img class="elz img" src="/uploads/avatars/user_{{user_id}}_{{avatar_ver}}_32.png">
+                    </div>
+{{/avatar_ver}}
+{{^avatar_ver}}
+                    <i class="elz main medium elzIc ic-eliza-logo elzPLT shD" data-fn="white"></i>
+{{/avatar_ver}}
+
+                </div>
+                <div {{#id_text}}id="{{id_text}}"{{/id_text}} class="elz tbText right">
+                    <div {{#id_text}}id="{{id_text}}Nick"{{/id_text}} class="elz txtWrap bold">{{user_name}}</div>
+                    <div {{#id_text}}id="{{id_text}}Status"{{/id_text}} class="elz txtWrap fn-8">{{user_text}}</div>
+                </div>
+            </div>
+            <div class="elz tbIt tbGroup trayTools">
+                <div {{#id_tools}}id="{{id_tools}}"{{/id_tools}} class="elz epBF tbIt tbGroupIn"></div>
+            </div>
+        </div>
+    </div>
+</div>

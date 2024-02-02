@@ -1,0 +1,248 @@
+.uPickFrame {
+    --pickBorder:      1px;
+    --pickSightRad:    5px;
+    --pickHandle:      8px;
+    --pickHandleIn:    3px;
+    --pickDash:        4px;
+    --pickRotatePad:  32px;
+    --pickRotateRad:  32px;
+    --pickRotateBor:   1px;
+    --pickDefaultBlack: #000;
+    --pickDefaultWhite: #fff;
+}
+
+.uPickFrame .ui-resizable-handle {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-color: inherit;
+    z-index: 90;
+}
+
+.uPickFrame .ui-draggable-handle { z-index: 80; }
+.uPickFrame:not(.drag) .dragHandle { display: none; }
+
+.uPickFrame .ui-resizable-handle.ui-resizable-n,
+.uPickFrame .ui-resizable-handle.ui-resizable-s { left: var(--pickHandle); right: var(--pickHandle); }
+
+.uPickFrame .ui-resizable-handle.ui-resizable-e,
+.uPickFrame .ui-resizable-handle.ui-resizable-w { top: var(--pickHandle); bottom: var(--pickHandle); }
+
+.uPickFrame .ui-resizable-handle.ui-resizable-n { cursor: n-resize; }
+.uPickFrame .ui-resizable-handle.ui-resizable-s { cursor: s-resize; }
+.uPickFrame .ui-resizable-handle.ui-resizable-e { cursor: e-resize; }
+.uPickFrame .ui-resizable-handle.ui-resizable-w { cursor: w-resize; }
+
+.uPickFrame .ui-resizable-handle.ui-resizable-ne { cursor: ne-resize; }
+.uPickFrame .ui-resizable-handle.ui-resizable-se { cursor: se-resize; }
+.uPickFrame .ui-resizable-handle.ui-resizable-sw { cursor: sw-resize; }
+.uPickFrame .ui-resizable-handle.ui-resizable-nw { cursor: nw-resize; }
+
+.uPickFrame .ui-resizable-handle.ui-resizable-n,
+.uPickFrame .ui-resizable-handle.ui-resizable-s,
+.uPickFrame .ui-resizable-handle.ui-resizable-ne,
+.uPickFrame .ui-resizable-handle.ui-resizable-se,
+.uPickFrame .ui-resizable-handle.ui-resizable-sw,
+.uPickFrame .ui-resizable-handle.ui-resizable-nw { height: calc((var(--pickHandle) * 2) + var(--pickBorder)); }
+
+.uPickFrame .ui-resizable-handle.ui-resizable-e,
+.uPickFrame .ui-resizable-handle.ui-resizable-w,
+.uPickFrame .ui-resizable-handle.ui-resizable-ne,
+.uPickFrame .ui-resizable-handle.ui-resizable-se,
+.uPickFrame .ui-resizable-handle.ui-resizable-sw,
+.uPickFrame .ui-resizable-handle.ui-resizable-nw { width:  calc((var(--pickHandle) * 2) + var(--pickBorder)); }
+
+.uPickFrame .ui-resizable-handle.ui-resizable-n,
+.uPickFrame .ui-resizable-handle.ui-resizable-ne,
+.uPickFrame .ui-resizable-handle.ui-resizable-nw { top: calc((var(--pickHandle) + var(--pickBorder)) * -1); }
+
+.uPickFrame .ui-resizable-handle.ui-resizable-s,
+.uPickFrame .ui-resizable-handle.ui-resizable-se,
+.uPickFrame .ui-resizable-handle.ui-resizable-sw { bottom: calc((var(--pickHandle) + var(--pickBorder)) * -1); }
+
+.uPickFrame .ui-resizable-handle.ui-resizable-e,
+.uPickFrame .ui-resizable-handle.ui-resizable-ne,
+.uPickFrame .ui-resizable-handle.ui-resizable-se { right:  calc((var(--pickHandle) + var(--pickBorder)) * -1); }
+
+.uPickFrame .ui-resizable-handle.ui-resizable-w,
+.uPickFrame .ui-resizable-handle.ui-resizable-sw,
+.uPickFrame .ui-resizable-handle.ui-resizable-nw { left: calc((var(--pickHandle) + var(--pickBorder)) * -1); }
+
+.uPickFrame .ui-resizable-handle:before,
+.uPickFrame .ui-resizable-handle:after {
+    content: "";
+    position: absolute;
+    display: block;
+    box-sizing: border-box;
+    border-width: var(--pickBorder);
+    border-style: solid;
+    transition: 0.2s visibility, 0.2s opacity;
+}
+
+.uPickFrame > .frameWrap:not(.fn) .ui-resizable-handle { color:        var(--pickDefaultWhite); }
+.uPickFrame > .frameWrap:not(.br) .ui-resizable-handle { border-color: var(--pickDefaultBlack); }
+
+.uPickFrame .ui-resizable-handle:before {
+    width:  calc((var(--pickHandleIn) * 2) - var(--pickBorder));
+    height: calc((var(--pickHandleIn) * 2) - var(--pickBorder));
+    border-color: currentColor;
+}
+
+.uPickFrame .ui-resizable-handle:after {
+    width:  calc((var(--pickHandleIn) * 2) + var(--pickBorder));
+    height: calc((var(--pickHandleIn) * 2) + var(--pickBorder));
+    border-color: inherit;
+}
+
+
+
+/* Border */
+
+.uPickFrame .frameBorder {
+    position: absolute;
+    display: block;
+    overflow: hidden;
+    pointer-events: none;
+    top:  calc(var(--pickBorder) * -1);
+    left: calc(var(--pickBorder) * -1);
+    width:  calc(100% + (var(--pickBorder) * 2));
+    height: calc(100% + (var(--pickBorder) * 2));
+}
+
+.uPickFrame .frameBorder .rect {
+    fill: none;
+    stroke-width: calc(var(--pickBorder) * 2);
+    stroke-dasharray: var(--pickDash), var(--pickDash);
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-duration: 1s;
+    stroke: currentColor
+}
+
+.uPickFrame .frameBorder .rect:first-child { stroke-dashoffset: var(--pickDash); }
+
+.uPickFrame .frameBorder .white:not(.fn) { stroke: var(--pickDefaultWhite); }
+.uPickFrame .frameBorder .black:not(.fn) { stroke: var(--pickDefaultBlack); }
+
+.uPickFrame:hover .frameBorder .white { animation-name: pickFrameDashWhite; }
+.uPickFrame:hover .frameBorder .black { animation-name: pickFrameDashBlack; }
+
+@keyframes pickFrameDashWhite { to { stroke-dashoffset: -4; } }
+@keyframes pickFrameDashBlack { to { stroke-dashoffset: -8; } }
+
+
+
+
+/* Sight */
+
+.uPickFrame .sight {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items:     center;
+    width:  25%;
+    height: 25%;
+    min-width:  32px;
+    max-width:  64px;
+    min-height: 32px;
+    max-height: 64px;
+}
+
+.uPickFrame .sight .item {
+    position: absolute;
+    display: block;
+}
+
+.uPickFrame .sight .center {
+    width:  calc((var(--pickSightRad) * 2) - 1px);
+    height: calc((var(--pickSightRad) * 2) - 1px);
+    border: 1px solid var(--pickDefaultBlack);
+    border-radius: 100%;
+}
+
+.uPickFrame .sight .center.white {
+    width:  calc((var(--pickSightRad) * 2) - 3px);
+    height: calc((var(--pickSightRad) * 2) - 3px);
+    border: 1px solid var(--pickDefaultWhite);
+}
+
+.uPickFrame .sight .line.white { border-color: var(--pickDefaultWhite); }
+.uPickFrame .sight .line.black { border-color: var(--pickDefaultBlack); border-style: dashed; }
+
+.uPickFrame .sight .line.top, .uPickFrame .sight .line.bottom { border-left-width: var(--pickBorder); height: 50%; }
+.uPickFrame .sight .line.left, .uPickFrame .sight .line.right { border-top-width: var(--pickBorder); width: 50%; }
+
+.uPickFrame .sight .line { margin: -8px; }
+
+.uPickFrame .sight .line.top     { top:    0; }
+.uPickFrame .sight .line.bottom  { bottom: 0; }
+.uPickFrame .sight .line.left    { left:   0; }
+.uPickFrame .sight .line.right   { right:  0; }
+
+
+
+
+/* Rotate */
+
+.ui-rotatable-handle {
+    position: absolute;
+    display: block;
+    margin: calc(var(--pickRotatePad) * -1);
+    top:    0;
+    right:  0;
+    bottom: 0;
+    left:   0;
+    cursor: url('../cursors/cur_rotate.cur') 12 10, all-scroll;
+    cursor: url('../cursors/cur_rotate.svg') 12 10, all-scroll;
+}
+
+.uPickFrame.rotate .ui-rotatable-handle:before,
+.uPickFrame.rotate .ui-rotatable-handle:after,
+.uPickFrame.rotate > .frameWrap:before,
+.uPickFrame.rotate > .frameWrap:after {
+    content: "";
+    position: absolute;
+    display: block;
+    width:  var(--pickRotateRad);
+    height: var(--pickRotateRad);
+    box-sizing: border-box;
+    border-style: solid;
+    border-color: currentColor;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.uPickFrame.rotate .ui-rotatable-handle:before,
+.uPickFrame.rotate .ui-rotatable-handle:after {
+    top: 0;
+    border-top-width: var(--pickRotateBor);
+    border-bottom: none;
+}
+
+.uPickFrame.rotate > .frameWrap:before,
+.uPickFrame.rotate > .frameWrap:after {
+    bottom: calc(var(--pickRotatePad) * -1);
+    border-bottom-width: var(--pickRotateBor);
+    border-top: none;
+}
+
+.uPickFrame.rotate .ui-rotatable-handle:before,
+.uPickFrame.rotate > .frameWrap:before {
+    bottom: calc(var(--pickRotatePad) * -1);
+    border-left-width: var(--pickRotateBor);
+    border-right: none;
+}
+
+.uPickFrame.rotate .ui-rotatable-handle:after,
+.uPickFrame.rotate > .frameWrap:after {
+    bottom: calc(var(--pickRotatePad) * -1);
+    border-right-width: var(--pickRotateBor);
+    border-left: none;
+}
+
+.uPickFrame.rotate > .frameWrap:before         { border-bottom-left-radius: var(--pickRotateRad); left: calc(var(--pickRotatePad) * -1); }
+.uPickFrame.rotate .ui-rotatable-handle:before { border-top-left-radius: var(--pickRotateRad); left: 0; }
+
+.uPickFrame.rotate > .frameWrap:after         { border-bottom-right-radius: var(--pickRotateRad); right: calc(var(--pickRotatePad) * -1); }
+.uPickFrame.rotate .ui-rotatable-handle:after { border-top-right-radius: var(--pickRotateRad); right: 0; }

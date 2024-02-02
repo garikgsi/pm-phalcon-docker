@@ -1,0 +1,172 @@
+/* Window settings ***********************************/
+
+.winCSSNunit {
+	position: fixed;
+	display: block;
+    box-shadow: 0 5px 32px rgba(0, 0, 0, 0.4);
+    max-width:  100%;
+    max-height: 100%;
+    box-sizing: border-box;
+    background-clip: padding-box;
+    background-color: #eeeeee;
+    color:            #000000;
+    font-family: var(--mainIntFontFamily);
+    font-size: 9pt;
+}
+
+.winCSSNunit.hide { display: none; }
+
+.winCSSNunit.window.draggable .elzCLSenginePanel.winHeader,
+.winCSSNunit.popup.draggable  .elzCLSenginePanel.winHeader { cursor: move; }
+
+.winCSSNunit.appAfterPlaceholder {
+    animation: winCSSNAfterPlaceholder;
+    animation-duration: 0.5s;
+}
+
+@keyframes winCSSNAfterPlaceholder { from { opacity: 0; } to { opacity: 1; } }
+
+.winCSSNunit.fullscreen {
+    top:        0 !important;
+    left:       0 !important;
+    min-width:  0 !important;
+    min-height: 0 !important;
+    margin:     0 !important;
+    width:   100% !important;
+    height:  100% !important;
+    border:     none !important;
+    max-width:  none !important;
+    max-height: none !important;
+    box-shadow: none !important;
+    overflow: hidden !important;
+}
+
+.winCSSNunit.rightpanel {
+    top:        0 !important;
+    right:      0 !important;
+    bottom:     0 !important;
+    min-width:  0 !important;
+    min-height: 0 !important;
+    margin:     0 !important;
+    height:  100% !important;
+}
+
+.winCSSNunit.fullscreen .winHeader .winTitle {
+    width: 60px;
+    min-width: 0;
+    max-width: none;
+    overflow: hidden;
+    pointer-events: none;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.winCSSNunit .winCloseOuterClick {
+    position: absolute;
+    display: block;
+    top:    0;
+    right:  0;
+    bottom: 0;
+    left:   0;
+    cursor: alias;
+}
+
+/* Z */
+
+.winCSSNunit.fullscreen       { z-index: 100; }
+.winCSSNunit.fullscreen.focus { z-index: 110; }
+
+.winCSSNunit.window           { z-index: 300; }
+.winCSSNunit.window.focus     { z-index: 310; }
+
+.winCSSNunit.popup            { z-index: 400; }
+.winCSSNunit.popup.focus      { z-index: 410; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Marks settings */
+/*
+.winCSSNunit .markMenuL   {}
+.winCSSNunit .markMenuR   {}
+.winCSSNunit .markSideL   {}
+.winCSSNunit .markSideR   {}
+.winCSSNunit .markContent {}
+*/
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* JQUERY UI SETTINGS */
+
+.winCSSNunit > .ui-resizable-handle {
+    position: absolute;
+    display: block;
+    opacity: 0 !important;
+    z-index: 90;
+}
+
+.winCSSNunit > .ui-resizable-handle.ui-resizable-n { top:    -4px; cursor: n-resize; height: 8px; left: 8px; right:  8px; }
+.winCSSNunit > .ui-resizable-handle.ui-resizable-e { right:  -4px; cursor: e-resize; width:  8px; top:  8px; bottom: 8px; }
+.winCSSNunit > .ui-resizable-handle.ui-resizable-s { bottom: -4px; cursor: s-resize; height: 8px; left: 8px; right:  8px; }
+.winCSSNunit > .ui-resizable-handle.ui-resizable-w { left:   -4px; cursor: w-resize; width:  8px; top:  8px; bottom: 8px; }
+
+.winCSSNunit > .ui-resizable-handle.ui-resizable-ne { right: -8px; top:    -8px; cursor: ne-resize; width: 16px; height: 16px; }
+.winCSSNunit > .ui-resizable-handle.ui-resizable-se { right: -8px; bottom: -8px; cursor: se-resize; width: 16px; height: 16px; }
+.winCSSNunit > .ui-resizable-handle.ui-resizable-sw { left:  -8px; bottom: -8px; cursor: sw-resize; width: 16px; height: 16px; }
+.winCSSNunit > .ui-resizable-handle.ui-resizable-nw { left:  -8px; top:    -8px; cursor: nw-resize; width: 16px; height: 16px; }
+
+.winCSSNunit.fullscreen > .ui-resizable-handle { display: none !important; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Media *********************/
+
+/* Popup settings */
+
+@media (max-width: 640px) {
+    .winCSSNunit.popup > .ui-resizable-handle { display: none !important; }
+
+    .winCSSNunit.draggable.popup  .elzCLSenginePanel.winHeader { cursor: default !important; }
+
+    .winCSSNunit.popup {
+        top:        0 !important;
+        left:       0 !important;
+        min-width:  0 !important;
+        min-height: 0 !important;
+        margin:     0 !important;
+        width:   100% !important;
+        height:  100% !important;
+        border:     none !important;
+        max-width:  none !important;
+        max-height: none !important;
+        box-shadow: none !important;
+        overflow: hidden !important;
+    }
+}
+
+/* end */

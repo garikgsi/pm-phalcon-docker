@@ -1,0 +1,15 @@
+<div class="elz hxdTxGrid {{grid_hxd_class}}">
+    {{^grid_disabled}}<input class="elz gridExpander" type="checkbox" {{{grid_check_data}}}>{{/grid_disabled}}
+    {{#grid_title}}
+    <div class="elz gridCaption">
+        <span class="elz title">{{grid_title}}</span>
+        {{#grid_count}}<div class="elz value">{{grid_count}}</div>{{/grid_count}}
+        {{{grid_head_html}}}
+    </div>
+    {{/grid_title}}
+    <ul class="elz gridList x{{grid_size}} {{grid_list_class}}" {{{grid_list_data}}}>
+    {{#grid_list}}
+        {{> tools/app_hxd_grid_item}}
+    {{/grid_list}}
+    </ul>
+</div>

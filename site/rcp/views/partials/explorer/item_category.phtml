@@ -1,0 +1,22 @@
+<?$move   = @$move?>
+<?$opened = @$opened?>
+
+<li class="elz expItem" data-dir="<?=$dir.$name.'/'?>"<?=@$data?>>
+    <div class="elz expInner elzPLT">
+        <div class="elz expSTR icon left <?=$move?>">
+            <i class="elz elzIcon medium rad elzPLT" data-fn="grey 600">
+                <i class="elz elzIc main smallest ic-folder"></i>
+            </i>
+        </div>
+        <div class="elz expSTR grow marRSmall <?=$move?>">
+            <div class="elz elzText nowrap"><?=$name?></div>
+        </div>
+        <?=$controls?>
+    </div>
+
+    <input class="elz expNodeChecker<?if($count == 0):?> hide<?endif;?>" type="checkbox" title="Развернуть" data-dir="<?=$dir.$name?>"<?if($opened):?> checked="checked"<?endif;?>/>
+    <div class="elz expNode"></div>
+    <?if (isset($list)):?>
+        <?$this->view->partial('partials/explorer/items', ['list' => $list]);?>
+    <?endif;?>
+</li>

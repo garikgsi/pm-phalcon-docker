@@ -1,0 +1,53 @@
+<?php $title = $title ?? '';?>
+<?php $icon = $icon ?? '';?>
+<?php $name = $name ?? '';?>
+<?php $category = $category ?? 0;?>
+<?php $search = $search ?? 'defaultSearchName';?>
+<?php $update = $update ?? 0;?>
+<?php $delay = $delay ?? 0;?>
+<?php $uri = $uri ?? 0;?>
+<?php $extended = $extended ?? [
+        'active' => 0,
+        'title' => 'Поиск'
+    ];?>
+
+<?php $reset = $reset ?? [
+    'active' => 0,
+    'title'  => 'Сброс',
+    'descr'  => 'Сбросить фильтр'
+]?>
+
+<?php $list = $list ?? [];?>
+<?php $listLen = sizeof($list);?>
+
+<div class="elizaSearchFilterItem elz d-block grow fb320 pVVar r3 bg bg-primary bgL5 bsh-default1" data-engine="<?=$search?>" data-name="<?=$name?>" data-type="extend" data-update="<?=(int)$update?>" data-delay="<?=(int)$delay?>" data-category="<?=$category?>">
+    <div class="elz d-flex a-X fn16 pV8 hmn36">
+        <div class="elz d-flex a-X grow mV-8 pV8">
+<?if($icon):?>
+    <?$iconExpl = explode(' ', $icon)?>
+    <?$iconSvg = $iconExpl[0]?>
+    <?$iconSize = $iconExpl[1] ?? 's16'?>
+            <div class="elz p-rel d-flex a-X w40 noShrink">
+                <div class="elz p-abs d-block mskBef <?=$iconSize?> cFillBef bgBef-CC mskBef-contain" style="--elzMsk: url('/design/icons/<?=$iconSvg?>.svg');"></div>
+            </div>
+<?endif;?>
+            <div class="elz d-block growX"><?=$title?></div>
+            <div class="elizaSearchFilterItemReset elz p-rel d-flex a-X pH4 h20 wmn20 fn10 r2 al-center cur-pointer opAct07 bg bg-error bgHovL10 fn fn-error-t<?if(!$reset['active']):?> hide<?endif;?>" title="<?=$reset['descr']?>"><?=$reset['title']?></div>
+        </div>
+<?if($extended['active']):?>
+        <div class="elz p-rel d-flex a-X w40 noShrink">
+            <div class="elizaSearchFilterItemPanelToggle elz d-flex a-X p8 m-8 rRound cur-pointer opAct07 bgHov bgHov-primary bgHovL-5 bgHovLF5 bgHovFD bgLInvD bgSel bgSel-ok fnSel fnSel-ok-t" title="<?=$extended['title']?>">
+                <div class="elz p-rel d-block mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/search.svg');"></div>
+            </div>
+        </div>
+<?endif;?>
+    </div>
+
+    <div class="elizaSearchFilterItemContent elz d-block lh12 mT8 borT1 br br-primary brL-10 brLInvD<?if(!$listLen):?> hide<?endif;?>">
+<?for($a = 0; $a < $listLen; $a++):?>
+    <?$tile = $list[$a]?>
+    <?$this->view->partial('partials/eliza_search/tiles/'.$tile['type'], $tile);?>
+<?endfor;?>
+    </div>
+
+</div>

@@ -1,0 +1,210 @@
+<?$site = $this->view->getVar('site')?>
+<?$meta = $this->view->getVar('manifestMeta')?>
+<?$data = $this->view->getVar('manifestData');?>
+<?$t = $this->view->t?>
+<?$langed = ['list' => [[1, 'RU'], [2, 'EN']], 'id' => 'rcpSiteManifestEditLang', 'name' => 'lang', 'class' => '']?>
+<div id="ipRcpEditSiteId" data-id="<?=$this->view->getVar('rcp_edit_site_id')?>" class="elz strCLSitem wrap flexible padBMedium padRMedium">
+    <?$this->view->partial('partials/forms/forms_section', [
+        'title'  => $t->_('rcp_sites_manifest_label1'),
+        'secWidth' => 'w960',
+        'formId' => 'rcpSiteManifestMetaEdit',
+        'formAction' => '/sites/api/manifest_meta?site='.$site['site_id'],
+        'formData'   => 'data-site="'.$site['site_id'].'"',
+        'submitTitle' => $t->_('rcp_sites_save'),
+        'langed' => $langed,
+        'fieldList' => [
+            [
+                'field' => 'input',
+                'ftitle' => $t->_('rcp_sites_manifest_short'),
+                'fdescr' => $t->_('rcp_sites_manifest_short_d'),
+                'wtitle' => 'wmn280',
+                'type' => 'text',
+                'placeholder' => $t->_('rcp_sites_manifest_short_p'),
+                'value' => $meta['name_short'],
+                'name' => 'name_short'
+            ],
+            [
+                'field' => 'input',
+                'ftitle' => $t->_('rcp_sites_manifest_long'),
+                'fdescr' => $t->_('rcp_sites_manifest_long_d'),
+                'wtitle' => 'wmn280',
+                'type' => 'text',
+                'placeholder' => $t->_('rcp_sites_manifest_long_p'),
+                'value' => $meta['name_long'],
+                'name' => 'name_long'
+            ],
+            [
+                'field' => 'input',
+                'ftitle' => $t->_('rcp_sites_manifest_descr'),
+                'fdescr' => $t->_('rcp_sites_manifest_descr_d'),
+                'wtitle' => 'wmn280',
+                'type' => 'text',
+                'placeholder' => $t->_('rcp_sites_manifest_descr_p'),
+                'value' => $meta['description'],
+                'name' => 'description'
+            ]
+        ]
+    ])?>
+
+
+    <?$this->view->partial('partials/forms/forms_section', [
+        'title'  => $t->_('rcp_sites_manifest_label2'),
+        'isFake'   => 1,
+        'secWidth' => 'w960',
+        'formId' => 'rcpSiteManifestAndroidEdit',
+        'formAction' => '/sites/api/manifest_android?site='.$site['site_id'],
+        'formData'   => 'data-site="'.$site['site_id'].'"',
+        'submitTitle' => $t->_('rcp_sites_save'),
+        'clsAlign'    => 'center flexible wrap',
+        'beforeHtml'  => '<div class="elz strCLSitem grow w320 wmx100p"><div class="elz strCLSitem flexible wrap grow">',
+        'afterHtml'   => '</div></div>',
+        'beforeTemplate' => [
+            'name' => 'sites/partials/manifest_android',
+            'data' =>  [
+                'appListAndroid'   => $this->view->getVar('appListAndroid'),
+                'booksListAndroid' => $this->view->getVar('booksListAndroid'),
+                'long_name'  => $meta['name_long'],
+                'appImg'     => $this->view->getVar('manifestAndroidIcons')[1]['imageSrc'],
+                'themeColor' => $data['theme_color']
+            ]
+        ],
+        'fieldList' => [
+            [
+                'wclass' => 'grow w480',
+                'wtitle' => 'w150',
+                'wcont' => 'w150',
+                'field' => 'input',
+                'ftitle' => $t->_('rcp_sites_manifest_android_addr'),
+                'fdescr' => $t->_('rcp_sites_manifest_android_addr_d'),
+                'type' => 'text',
+                'placeholder' => '#ffffff',
+                'value' => $data['addr_color'],
+                'name' => 'addr_color',
+                'classes' => 'initColorPicker'
+            ],
+            [
+                'wclass' => 'grow w480',
+                'wtitle' => 'w150',
+                'wcont' => 'w150',
+                'field' => 'input',
+                'ftitle' => $t->_('rcp_sites_manifest_android_app'),
+                'fdescr' => $t->_('rcp_sites_manifest_android_app_d'),
+                'type' => 'text',
+                'placeholder' => '#ffffff',
+                'value' => $data['theme_color'],
+                'name' => 'theme_color',
+                'classes' => 'initColorPicker'
+            ],
+            ['separate' => 1],
+            ['wclass' => 'grow w480', 'wtitle' => 'w150', 'wcont' => 'w150', 'field' => 'select', 'ftitle' => 'Display',     'value' => (int)$data['display'],     'name' => 'display',     'optionList' => $this->view->getVar('displayList')],
+            ['wclass' => 'grow w480', 'wtitle' => 'w150', 'wcont' => 'w150', 'field' => 'select', 'ftitle' => 'Orientation', 'value' => (int)$data['orientation'], 'name' => 'orientation', 'optionList' => $this->view->getVar('orientationList')],
+            ['separate' => 1],
+            ['wclass' => 'grow w100p', 'wtitle' => 'w150', 'wcont' => 'w300', 'field' => 'input', 'ftitle' => 'Start_url', 'type' => 'text', 'placeholder' => './?utm_source=web_app_manifest', 'value' => $data['url'],   'name' => 'url' ],
+            ['wclass' => 'grow w100p', 'wtitle' => 'w150', 'wcont' => 'w300', 'field' => 'input', 'ftitle' => 'Scope',     'type' => 'text', 'placeholder' => '/myapp/',                        'value' => $data['scope'], 'name' => 'scope'],
+            [
+                'wclass' => 'grow w100p',
+                'wtitle' => 'w150',
+                'contClass' => ' android',
+                'ftitle' => 'Иконки',
+                'images' => $this->view->getVar('manifestAndroidIcons')
+            ]
+        ]
+    ])?>
+
+
+    <?$this->view->partial('partials/forms/forms_section', [
+        'title'  => $t->_('rcp_sites_manifest_label3'),
+        'isFake'   => 1,
+        'secWidth' => 'w960',
+        'formId' => 'rcpSiteManifestAppleEdit',
+        'formAction' => '/sites/api/manifest_apple?site='.$site['site_id'],
+        'formData'   => 'data-site="'.$site['site_id'].'"',
+        'submitTitle' => $t->_('rcp_sites_save'),
+        'clsAlign'    => 'center flexible wrap',
+        'beforeHtml'  => '<div class="elz strCLSitem grow w320 wmx100p">',
+        'afterHtml'   => '</div>',
+        'beforeTemplate' => [
+            'name' => 'sites/partials/manifest_apple',
+            'data' => [
+                'appListApple'   => $this->view->getVar('appListApple'),
+                'booksListApple' => $this->view->getVar('booksListApple'),
+                'addrColor' => $data['ios_color_addr'],
+                'splashSrc' => $this->view->getVar('manifestAppleIcons')[0]['imageSrc']
+            ]
+        ],
+        'fieldList' => [
+            [
+                'wclass' => 'wmx640',
+                'wtitle' => 'w150',
+                'wcont' => 'w150',
+                'field' => 'input',
+                'ftitle' => $t->_('rcp_sites_manifest_ios_addr'),
+                'fdescr' => $t->_('rcp_sites_manifest_ios_addr_d'),
+                'type' => 'text',
+                'placeholder' => '#ffffff',
+                'value' => $data['ios_color_addr'],
+                'name' => 'ios_color_addr',
+                'classes' => 'initColorPicker'
+            ],
+            [
+                'wclass' => 'wmx640',
+                'wtitle' => 'w150',
+                'wcont' => 'w150',
+                'field' => 'input',
+                'ftitle' => $t->_('rcp_sites_manifest_ios_touch'),
+                'fdescr' => $t->_('rcp_sites_manifest_ios_touch_d'),
+                'type' => 'text',
+                'placeholder' => '#ffffff',
+                'value' => $data['ios_color_touch'],
+                'name' => 'ios_color_touch',
+                'classes' => 'initColorPicker'
+            ],
+            [
+                'wclass' => '',
+                'wtitle' => 'w150',
+                'contClass' => ' ios',
+                'ftitle' => 'Иконки',
+                'images' => $this->view->getVar('manifestAppleIcons')
+            ]
+        ]
+    ])?>
+
+    <?$this->view->partial('partials/forms/forms_section', [
+        'title'  => $t->_('rcp_sites_manifest_label4'),
+        'isFake'   => 1,
+        'secWidth' => 'w960',
+        'formId' => 'rcpSiteManifestMicrosoftEdit',
+        'formAction' => '/sites/api/manifest_microsoft?site='.$site['site_id'],
+        'formData'   => 'data-site="'.$site['site_id'].'"',
+        'submitTitle' => $t->_('rcp_sites_save'),
+        'clsAlign'    => 'center flexible wrap',
+        'beforeHtml'  => '<div class="elz strCLSitem grow w320 wmx100p">',
+        'afterHtml'   => '</div>',
+        'beforeTemplate' => [
+            'name' => 'sites/partials/manifest_ms',
+            'data' => ['appList' => $this->view->getVar('appListMs')]
+        ],
+        'fieldList' => [
+            [
+                'wclass' => 'wmx640',
+                'wtitle' => 'w150',
+                'wcont' => 'w150',
+                'field' => 'input',
+                'ftitle' => $t->_('rcp_sites_manifest_ms_color'),
+                'fdescr' => $t->_('rcp_sites_manifest_ms_color_d'),
+                'type' => 'text',
+                'placeholder' => '#ffffff',
+                'value' => $data['ms_color_tile'],
+                'name' => 'ms_color_tile',
+                'classes' => 'initColorPicker'
+            ],
+            [
+                'wclass' => ' wmx640',
+                'wtitle' => 'w150',
+                'contClass' => ' ms',
+                'ftitle' => 'Иконки',
+                'images' => $this->view->getVar('manifestMicrosoftIcons')
+            ]
+        ]
+    ])?>
+</div>

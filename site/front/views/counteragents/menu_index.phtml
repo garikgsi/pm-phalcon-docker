@@ -1,0 +1,42 @@
+
+<?php $elizaSearch = $this->view->getVar('searchEngineData')?>
+
+    <div class="elz d-block grow fb320 pVVar r3 bg bg-primary bgL5 bsh-default1">
+        <div class="elz d-flex a-X fn16 pV8 hmn36">
+            <div class="TEST_showChild elz d-flex a-X grow mV-8 pAR8">
+                <div class="elz p-rel d-flex a-X w40 noShrink">
+                    <div class="elz p-abs d-block mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/search.svg');"></div>
+                </div>
+                <div class="elz d-block growX">Поиск</div>
+                <div class="elz p-rel d-flex a-X w40 noShrink">
+                    <div id="pmCounteragentsSearchLinksToggle" class="elz d-flex a-X p8 m-8 rRound cur-pointer opAct07 bgHov bgHov-primary bgHovL-5 bgHovLF5 bgHovFD bgLInvD bgSel bgSel-success fnSel fnSel-success-t" title="Список фильтров">
+                        <div class="elz p-rel d-block mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/filter.svg');"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="elz d-block lh12 mT8 pAT8 borT1 br br-primary brL-10 brLInvD">
+            <div class="elz d-flex dir-y gap8">
+                <div class="elz d-block">
+<?php $filterInputs = $elizaSearch['filter_inputs']?>
+<?php for($a = 0, $len = sizeof($filterInputs); $a < $len; $a++):?>
+    <?php $filterInput = $filterInputs[$a]?>
+    <?php $this->view->partial('partials/eliza_search/filters/'.$filterInput['filter'], $filterInput)?>
+<?php endfor;?>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<?php $filterItems = $elizaSearch['filter_items']?>
+<?php for($a = 0, $len = sizeof($filterItems); $a < $len; $a++):?>
+    <?php $filterItem = $filterItems[$a]?>
+    <?php $this->view->partial('partials/eliza_search/filters/'.$filterItem['filter'], $filterItem)?>
+<?php endfor;?>
+
+<?php $controlSections = $elizaSearch['control_sections']?>
+<?php for($a = 0, $len = sizeof($controlSections); $a < $len; $a++):?>
+    <?php $controlSection = $controlSections[$a]?>
+    <?php $this->view->partial('partials/eliza_search/controls/'.$controlSection['control'], $controlSection)?>
+<?php endfor;?>

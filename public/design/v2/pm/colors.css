@@ -1,0 +1,13 @@
+:root {
+    --c-brand-H:  196; --c-brand-S:   100%; --c-brand-L: 47.1%;
+    --c-brand-t-H: 0; --c-brand-t-S: 0%; --c-brand-t-L: 100%;
+}
+
+/* Dark theme */
+
+.elzTheme-dark {
+}
+
+@media (prefers-color-scheme: dark) {
+    .elzTheme-device {}
+}

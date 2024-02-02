@@ -1,0 +1,53 @@
+<li class="elz listItem {{item_li_class}}" {{{item_li_data}}}>
+    <div class="elz itemWrap {{item_wrap_class}}">
+        <div class="elz itemItself link">
+            <div class="elz itemInner">
+                <{{item_tag}} class="elz hxdTxGridCont {{{item_class}}}" {{{item_data}}}>
+                    <div class="elz contOut main">
+                        <div class="elz contIn {{{cont_class}}}" {{{cont_data}}}>
+    {{^cont_html}}
+        {{#item_icon}}
+        <div class="elz elzIcon rad larger elzPLT" data-fn="grey 800">
+            <i class="elz main larger elzIc {{item_icon}}"></i>
+        </div>
+        {{/item_icon}}
+    {{/cont_html}}
+    {{#cont_html}}
+        {{{cont_html}}}
+    {{/cont_html}}
+                        </div>
+                        <div class="elz elzSight doubleColor">
+                            <i class="elz sH tr"></i>
+                            <i class="elz sH tl"></i>
+                            <i class="elz sH br"></i>
+                            <i class="elz sH bl"></i>
+                        </div>
+                        <div class="elz hxdGridActivator">
+                            <i class="elz elzIcon smallest">
+                                <i class="elz elzIc main smallest ic-check"></i>
+                            </i>
+                        </div>
+                    </div>
+                </{{item_tag}}>
+            </div>
+        </div>
+        {{#eicon}}
+        <ul class="elz elzCLSoverControls {{^eic_show}}hidden{{/eic_show}} horizontal top">
+            {{#eic}}
+            <li class="elz cntrlItem right link smaller {{eit_class}}" title="{{eit}}" {{{item_data}}}>
+                <div class="elz elzIcon xsmallest">
+                    <i class="elz main xsmallest elzIc {{eic}}"></i>
+                </div>
+            </li>
+            {{/eic}}
+            {{#eic_list}}
+                <li class="elz cntrlItem right link {{l_eit_class}}" title="{{l_eit}}" {{{l_item_data}}}>
+                    <div class="elz elzIcon {{l_eic_size}}">
+                        <i class="elz main {{l_eic_size}} elzIc {{l_eic}}"></i>
+                    </div>
+                </li>
+            {{/eic_list}}
+        </ul>
+        {{/eicon}}
+    </div>
+</li>

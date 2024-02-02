@@ -1,0 +1,35 @@
+<div class="elz d-flex hmn100p dir-y gapVar pVar">
+    <div class="elz d-block pVar r3 bg bg-primary bgL5 bsh-default1">
+        <div class="elz d-flex a-H f-wrap gapH16 gapV8 hmn36">
+            <div class="elz d-flex a-H growMax fn20 lh12">
+
+                <div class="elz d-flex a-H growMax fn20 lh12">
+
+                    <a href="/" class="elz p-rel d-flex a-X w40 mL-Var">
+                        <div class="elz p-rel p8 m-8 rCircle cur-pointer opAct07 bgHov bgHov-primary bgHovL-5 bgHovLF5 bgHovFD bgLInvD" title="На главную">
+                            <div class="elz p-rel d-flex a-X s16">
+                                <div class="elz p-abs d-block mskBef s16 cFillBef bgBef-CC deg270" style="--elzMsk: url('/design/icons/arrow4.svg');"></div>
+                                <!--
+                                <div class="elz p-abs d-block rRound p2 mEA12 bg bg-ok fn fn-ok-t">
+                                    <div class="elz p-rel d-block mskBef s8 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/search.svg');"></div>
+                                </div>
+                                -->
+                            </div>
+                        </div>
+                    </a>
+
+                    <div class="elz d-flex grow">Справочник ролей для контактов</div>
+                </div>
+            </div>
+            <div class="elz d-flex f-wrap grow fb240 a-H gap8">
+            </div>
+        </div>
+    </div>
+
+    <div id="contactTypesList" class="elz d-flex grow dir-y gap8">
+        <?php $typesMap = $this->view->getVar('contactTypesMap') ?? []?>
+        <?foreach($typesMap as $typeId => $typeDate):?>
+            <?$this->view->partial('contacts/partials/role_category', $typeDate)?>
+        <?endforeach;?>
+    </div>
+</div>

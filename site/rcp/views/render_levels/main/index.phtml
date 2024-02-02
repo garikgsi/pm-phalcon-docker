@@ -1,0 +1,19 @@
+<!doctype html>
+<html class="elzCSSNRoot style-default" <?=$this->html->generateHtmlAttributes()?>>
+    <head>
+        <?=$this->html->generateMetaTags()?>
+
+        <link href="/design/interface/css_compilation.css" rel="stylesheet" type="text/css" />
+        <link href="/design/admin/css_compilation.css" rel="stylesheet" type="text/css" />
+
+    </head>
+    <body>
+        <div class="elzUniRender" id="<?=$this->hapi->genRenderContainerId('after')?>">
+            <?=$this->getContent()?>
+        </div>
+
+        <?require(DIR_VIEWS.'common/eliza_panel.phtml')?>
+
+        <?=$this->site->getResourcesJSHtml()?>
+    </body>
+</html>

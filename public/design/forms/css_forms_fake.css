@@ -1,0 +1,74 @@
+/***************************************/
+/* FAKE SETTINGS                       */
+/***************************************/
+
+.elzF-fake {
+	position: absolute;
+	display: block;
+	overflow: hidden;
+	top:    0;
+	left:   0;
+	width:  100%;
+    height: 100%;
+	opacity: 0;
+	z-index: 10;
+    background: #fff;
+    color: #000;
+}
+
+.elzF-fake,
+input.elzF-fake[type="file"]::-webkit-file-upload-button { cursor: pointer; } /* Курсор для кнопки дефолтного аплоадера */
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Select **********************************/
+
+.elzF.item.select > .elzF.wrap.compiled > .elzF.wrap:last-child .elzF.item:after {
+    content: "";
+    position: absolute;
+    display: block;
+    width:  0;
+    height: 0;
+    border-width: 4px;
+    border-style: solid;
+    border-color: currentColor;
+    border-left-color:  transparent !important;
+    border-right-color: transparent !important;
+    border-bottom: 0;
+    top:   50%;
+    margin-top:  -2px;
+    z-index: 1;
+}
+
+.elzF.item.select select.elzF-fake,
+.elzF.item.select select.elzF-fake option { padding: 0 10px; }
+
+.elzF.item.select > .elzF.wrap.compiled > .elzF.wrap:last-child .elzF.item.lite:after    { right: 9px; }
+.elzF.item.select > .elzF.wrap.compiled > .elzF.wrap:last-child .elzF.item.default:after { right: 8px; }
+
+.elzF.item.select > .elzF.wrap.compiled > .elzF.wrap:last-child .elzF.item.text.lite    { padding-right: 20px; }
+.elzF.item.select > .elzF.wrap.compiled > .elzF.wrap:last-child .elzF.item.text.default { padding-right: 19px; }
+
+.elzF.item.select .elzF.item.button {
+    padding: 0 !important;
+    width: 26px;
+}
+
+.elzF.item.select > .elzF.wrap.compiled > .elzF.wrap:last-child .elzF.item.text:after {
+    color: #777777;
+    transition: 0.2s color;
+}
+
+.elzF.item.select:hover  > .elzF.wrap.compiled > .elzF.wrap:last-child .elzF.item.text:after,
+.elzF.item.select:active > .elzF.wrap.compiled > .elzF.wrap:last-child .elzF.item.text:after { color: #555555; }
+
+/* end */

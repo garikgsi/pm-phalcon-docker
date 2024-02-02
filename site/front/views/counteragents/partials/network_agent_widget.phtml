@@ -1,0 +1,18 @@
+<?$networksList = $this->view->getVar('networksList') ?? []?>
+<?$networksListLen = sizeof($networksList)?>
+
+<?php if($networksListLen):?>
+<div class="elz d-flex dir-y gap8 w100p">
+    <div class="elz d-flex a-H hmn48">
+        <div class="elz d-block growX borB1 br br-primary brL-10 brLInvD"></div>
+        <div class="elz d-block fn16 lh12 pH16">Сеть партнера</div>
+        <div class="elz d-block growX borB1 br br-primary brL-10 brLInvD"></div>
+    </div>
+
+    <div id="networksList" class="elz a-T d-grid grH320 gap8 grow">
+<?for($a = 0; $a < $networksListLen; $a++):?>
+    <?$this->view->partial('counteragents/partials/network_item', $networksList[$a])?>
+<?endfor;?>
+    </div>
+</div>
+<?php endif;?>

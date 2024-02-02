@@ -1,0 +1,43 @@
+.hxwItemsGrid {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items:     center;
+    flex-wrap: wrap;
+    min-height: 100%;
+    padding: 16px 16px 0 0;
+    box-sizing: border-box;
+}
+
+.hxwItemsGrid .hxwGridItemWrap,
+.hxwItemsGrid .hxwGridItem {
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+    max-width: 100%;
+}
+
+.hxwItemsGrid .hxwGridItemWrap { padding: 0 0 16px 16px; }
+
+.hxwItemsGrid .hxwGridItem {
+    position: relative;
+    display: block;
+    width:  320px;
+    background-color: #ffffff;
+    border-radius: 4px 4px 3px 3px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.hxwItemsGrid .hxwGridItem .picWrap {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    border-radius: 3px 3px 0 0;
+}
+
+.hxwItemsGrid .hxwGridItem .picWrap:before {
+    content: "";
+    display: block;
+    padding-top: 100%;
+    pointer-events: none;
+}

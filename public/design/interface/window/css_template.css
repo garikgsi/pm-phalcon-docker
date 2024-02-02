@@ -1,0 +1,184 @@
+/* Window basis template settings */
+
+.tplGrItem {
+    display: block;
+    box-sizing: border-box;
+}
+
+.tplGrItem.tplGrid {
+    width:  100%;
+    height: 100%;
+}
+
+.tplGrItem.tplGrid::-webkit-scrollbar {
+    width:  0;
+    height: 0;
+}
+
+.tplGrItem.wrap {
+    display: -webkit-flex;
+    display:         flex;
+    -webkit-justify-content: center;
+    justify-content:         center;
+    -webkit-align-content: stretch;
+    align-content:         stretch;
+}
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Disabled */
+
+.tplDisabledWrap,
+.tplDisabledWrap:before {
+    position: absolute;
+    top:    0;
+    right:  0;
+    bottom: 0;
+    left:   0;
+}
+
+.tplDisabledWrap {
+    display: none;
+    align-items:     center;
+    justify-content: center;
+    text-align:      center;
+    font-size: 12pt;
+    visibility: hidden;
+    overflow: auto;
+    -ms-overflow-style: none; /* For Edge desktop */
+    scrollbar-width:    none; /* For FireFox desktop */
+}
+
+.tplDisabledWrap::-webkit-scrollbar {
+    width:  0;
+    height: 0;
+}
+
+.tplDisabledWrap:before,
+.tplDisabledWrap .wrapInner {
+    display: block;
+    visibility: visible;
+}
+
+.tplDisabledWrap:before {
+    content: "";
+    background-color: inherit;
+}
+
+.tplDisabledWrap .wrapInner {
+    position: relative;
+    visibility: visible;
+}
+
+.tplGrItem.disabled .tplDisabledWrap { display: flex; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Position and displays */
+
+.tplGrItem.hide,
+.tplGrItem.hideSide .tplGrItem.outerSide { display: none; }
+
+.tplGrItem.rel,
+.tplGrItem.disabled { position: relative; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Cells and rows */
+
+.tplGrItem.cells { -webkit-flex-direction:    row; flex-direction:    row; }
+.tplGrItem.rows  { -webkit-flex-direction: column; flex-direction: column; }
+.tplGrItem.grow  { -webkit-flex-grow:           1; flex-grow:           1; }
+
+.tplGrItem.cells > .tplGrItem.grow { width:  0; }
+.tplGrItem.rows  > .tplGrItem.grow { height: 0; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Inner content settings */
+
+.tplGrItem > .tplContent {
+    position: absolute;
+    display: block;
+    top:    0;
+    right:  0;
+    bottom: 0;
+    left:   0;
+}
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Mobile settings */
+
+@media (max-width: 900px) {
+    .tplCLSgrid {
+        position: static;
+        display: block;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    .tplCLSgrid > .tplSection {
+        min-width:     0 !important;
+        min-height:    0 !important;
+        margin:        0 !important;
+        width:      100% !important;
+        height:     100% !important;
+        max-width:  none !important;
+        max-height: none !important;
+    }
+
+    .tplCLSgrid > .tplSection.side {
+        height: auto !important;
+        min-height: calc(100% - 48px) !important;
+    }
+
+    .tplCLSgrid > .tplSection.side .tplSection.content > .tplContent.elzScroll { position: relative !important; }
+}
+
+/* end */

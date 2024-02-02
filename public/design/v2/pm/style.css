@@ -1,0 +1,85 @@
+/* Main template */
+/*.elizeChangeTheme { display: none !important; }*/
+
+:root {
+    --pmSideSize: 320px;
+    --uniVar:   8px;
+    --uniVar1: 16px;
+}
+
+.pmTpl { grid-template-columns: var(--pmSideSize) 1fr; }
+
+.pmTplSide {
+    width: var(--pmSideSize);
+    grid-area: 1 / 1 / 2 / 2;
+    transition-duration: 0.2s;
+    transition-property: transform, opacity, visibility;
+}
+
+.pmTplContent { grid-area: 1 / 2 / 2 / 3; }
+.pmTplSide.menuOver   { z-index: 15; }
+.pmTplSide.menuStatic { z-index: 10; }
+
+.pmAdvSec {
+    top: calc(var(--uniVar) + var(--elzEPSize));
+    left: var(--pmSideSize);
+}
+
+
+
+@media (min-width: 801px) {
+    .pmMenuTriggerMobile { display: none; }
+
+    .pmTplSide.menuOver:not(.showDesktop) {
+        transform: translateX(-100%);
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+@media (max-width: 800px) {
+    .pmTplSide {
+        position: fixed;
+        top: var(--elzEPSize);
+        left:   0;
+        right:  0;
+        bottom: 0;
+        width: auto;
+    }
+
+    .pmTplSide.menuStatic:not(.showMobile),
+    .pmTplSide.menuOver:not(.showMobile) { opacity: 0; visibility: hidden; }
+
+    .pmTplContent {
+        margin-left: 0;
+        grid-area: 1 / 1 / 2 / 3;
+    }
+
+    .pmOverMenuTriggerDesktop,
+    .pmOverMenuTriggerWrapDesktop { display: none; }
+}
+
+
+
+@media (max-width: 1224px), (max-height: 712px) {
+    .pmAdvSec {
+        position: fixed;
+        top:  0;
+        left: 0;
+        width:  100%;
+        height: 100%;
+        border-radius: 0;
+        box-shadow: none;
+        z-index: 500;
+    }
+}
+
+@media (min-width: 640px) {
+    .pmAdvSec .advBack { display: none; }
+}
+
+@media (max-width: 639px) {
+    .pmAdvSec .advPanel { border: none; }
+}
+
+/* end */

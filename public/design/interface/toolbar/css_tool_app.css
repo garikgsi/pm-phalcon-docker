@@ -1,0 +1,37 @@
+/* Tool settings */
+
+.elzCLStoolbar .tbTool.app { min-width: 40px; }
+
+.elzCLStoolbar .tbTool.app .tbToolInner {
+    padding-left:  4px;
+    padding-right: 4px;
+}
+
+.elzCLStoolbar .winTitle .tbTool.app:first-child .tbToolInner { padding-left:  8px; }
+
+.elzCLStoolbar .tbTool.app .elzIcon[data-bg]:before {
+    display: block;
+    background-color: #ffffff;
+    opacity: 0;
+}
+
+.elzCLStoolbar .tbTool.app:hover  .elzIcon[data-bg]:before,
+.elzCLStoolbar .tbTool.app:active .elzIcon[data-bg]:before,
+.elzCLStoolbar .tbTool.app.active .elzIcon[data-bg]:before { opacity: 0.15; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* App text */
+
+.elzCLStoolbar .tbTool.app .tbText { padding-left: 8px; padding-right: 8px; }
+
+/* end */

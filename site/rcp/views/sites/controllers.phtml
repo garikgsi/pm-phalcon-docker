@@ -1,0 +1,16 @@
+<?$controllersListRaw = $this->view->getVar('controllersList')?>
+
+<?$this->view->partial('sites/partials/controller_list', [
+    'controllerSiteId'     =>  $this->view->getVar('site')['site_id'],
+    'controllersType'      => 'active',
+    'controllersList'      => $controllersListRaw['active'],
+    'controllersListTitle' => 'Активные контроллеры'
+])?>
+
+
+<?$this->view->partial('sites/partials/controller_list', [
+    'controllerSiteId'     =>  $this->view->getVar('site')['site_id'],
+    'controllersType'      => 'unactive',
+    'controllersList'      => $controllersListRaw['others'],
+    'controllersListTitle' => 'Неактивные контроллеры'
+])?>

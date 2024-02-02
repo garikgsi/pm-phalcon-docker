@@ -1,0 +1,29 @@
+/*******************************/
+/* ELIZA ADDRESS SETTINGS      */
+/*******************************/
+
+.elzCLSaddress {
+    display: block;
+    padding: 8px 0 8px 10px;
+    overflow: hidden;
+    background-color: #f8f8f8;
+    border: 1px dashed rgba(0, 0, 0, 0.2);
+}
+
+.elzCLSaddress .title,
+.elzCLSaddress .uri {
+    display: block;
+    float: left;
+    padding-right: 10px;
+}
+
+.elzCLSaddress .uri { font-family: Verdana, Geneva, sans-serif; }
+
+.elzCLSaddress .uri .item {
+    display: block;
+    float: left;
+}
+
+.elzCLSaddress .uri .domain  { color: #43a047; }
+.elzCLSaddress .uri .way     { color: #757575; }
+.elzCLSaddress .uri .address { color: #000000; font-weight: bold; }

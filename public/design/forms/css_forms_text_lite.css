@@ -1,0 +1,26 @@
+/* Main */
+
+.elzF.item.text.lite { background-color: #ffffff; }
+
+/* end */
+
+
+
+
+
+/* Hover */
+
+.elzF.parent:hover .elzF.item.text.lite, .elzF.parent .elzF.item.text.lite:hover, .elzF.item.text.lite:hover,
+.elzF.parent.hover .elzF.item.text.lite, .elzF.parent .elzF.item.text.lite.hover, .elzF.item.text.lite.hover { box-shadow: 0 0 8px rgba(0, 0, 0, 0.05); }
+
+/* Focus */
+
+.elzF.parent:focus .elzF.item.text.lite, .elzF.parent .elzF.item.text.lite:focus, .elzF.item.text.lite:focus,
+.elzF.parent.focus .elzF.item.text.lite, .elzF.parent .elzF.item.text.lite.focus, .elzF.item.text.lite.focus { box-shadow: 0 0 8px rgba(0, 136, 255, 0.25); }
+
+/* Valid & Invalid */
+
+.elzF.parent.valid   .elzF.item.text.lite, .elzF.parent .elzF.item.text.lite.valid,   .elzF.item.text.lite.valid   { color: #4caf50; }
+.elzF.parent.invalid .elzF.item.text.lite, .elzF.parent .elzF.item.text.lite.invalid, .elzF.item.text.lite.invalid { color: #ff1800; }
+
+/* end */

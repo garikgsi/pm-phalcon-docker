@@ -1,0 +1,144 @@
+<div class="elizaRightPanelTrigger pmContactItem elz p-rel d-flex f-wrap a-H gapH16 gapV16 pH16 pV10 r3 bg bg-primary bgL5 bgHovL7 bsh-default1 opHovOut cur-pointer" data-panel="contact" data-widget="card" data-node="<?=$contact_node_id?>" data-id="<?=$contact_id?>" data-active="<?=$contact_active?>">
+    <div title="<?=$contact_nickname?>" class="pmContactLine header elz d-flex growMax a-H gap16 fb300 cur-pointer opAct07 br br-primary brL-10 brLInvD underlineHovOut">
+        <div class="elz d-block noShrink">
+            <div class="pmContactAvatar elz uAvatar d-block p-rel s40 mAuto">
+                <div class="elz avCutMask p-abs p-F oH rCircle">
+                    <div class="elz avWrap d-block s100p rInh oH">
+                        <div class="pmContactAvatarPlaceholder elz d-flex a-X s100p fn14 bg bg-<?=$gender_name?> fn fn-white" title="<?=$contact_nickname?>"><?=htmlspecialchars($contact_nickname_short)?></div>
+<!--                        <img class="elz d-block s100p obj-cover obj-T obj-C" alt="--><?//=$contact_nickname?><!--" src="--><?//=$img?><!--">-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="elz d-flex a-H grow f-wrap gapH16 gapV8">
+            <div class="pmContactName elz d-block grow fb240 cur-pointer bold underlineHovIn fn fn-<?=$gender_name?>"><?=$contact_nickname?></div>
+            <div class="pmContactRole elz d-block grow fb240"><?=$role_title?></div>
+        </div>
+    </div>
+<?php
+$contactInfos = json_decode($contact_info, true);
+$infoMap = [];
+if(is_array($contactInfos)) {
+
+    for ($a = 0, $len = sizeof($contactInfos); $a < $len; $a++) {
+        $info = $contactInfos [$a];
+
+        $infoMap[$info['tid']] = $info;
+    }
+}
+
+$phoneNumber = 0;
+$phoneNumberExtra = 0;
+$mobileNumber = 0;
+$email = 0;
+
+if ($infoMap[1] ?? 0) {
+    $phoneNumber = $infoMap[1]['val'];
+    $phoneNumberExtra = $infoMap[1]['extra'];
+}
+
+if ($infoMap[2] ?? 0) {
+    $mobileNumber = $infoMap[2]['val'];
+}
+
+if ($infoMap[4] ?? 0) {
+    $email = $infoMap[4]['val'];
+}
+?>
+    <div class="pmContactLine body elz d-flex growMax fb240 f-wrap gapH16 gapV8">
+        <div class="elz d-flex dir-y gap8 grow fb240">
+            <div class="elz d-flex gap8<?if(!$phoneNumber):?> fn fn-error fnLF20 fnFD italic<?endif;?>">
+                <div class="elz p-rel d-block mskBef s16 noShrink cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/phone1.svg');"></div>
+                <div class="elz d-block"><?=(!$phoneNumber ? 'Номер не указан' : $phoneNumber)?></div>
+            <?if($phoneNumberExtra):?>
+                <div class="elz d-flex a-X gap4 fn11 bold bg bg-primary bgL-5 pH6 pV3 lh10 r3 cur-help" title="Добавочный: <?=$phoneNumberExtra?>">
+                    <div class="elz d-block mT1"><?=$phoneNumberExtra?></div>
+                </div>
+            <?endif;?>
+            </div>
+            <div class="elz d-flex gap8<?if(!$mobileNumber):?> fn fn-error fnLF20 fnFD italic<?endif;?>">
+                <div class="elz p-rel d-block mskBef s16 noShrink cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/mobile.svg');"></div>
+                <div class="elz d-block"><?=(!$mobileNumber ? 'Номер не указан' : $mobileNumber)?></div>
+            </div>
+        </div>
+
+        <div class="elz d-flex a-H gap8 grow fb240<?if(!$email):?> fn fn-error fnLF20 fnFD italic<?endif;?>">
+            <div class="elz p-rel d-block mskBef s16 noShrink cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/mail.svg');"></div>
+            <div class="elz d-block grow"><?=(!$email ? 'Почта не указана' : $email)?></div>
+        </div>
+    </div>
+
+<!--    <div class="pmContactLine footer elz p-rel d-flex grow a-PR f-wrap gap8 fb160">-->
+<?//if(!($hide_pin ?? 0)):?>
+<!--        <div class="pmPinContact elz p-rel d-flex p-EC a-X gap4 fn11 bold p8 al-center lh10 r3 cur-pointer op0 opHovIn10 opSel10 bg bg-primary bgL-5 bgHovL-10 bgSel bgSel-ok fnSel fnSel-ok-t" title="Закрепить на странице компании">-->
+<!--            <div class="elz p-rel d-flex a-X s12">-->
+<!--                <div class="elz p-abs d-block mskBef s16 noShrink cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/pushpin.svg');"></div>-->
+<!--            </div>-->
+<!--        </div>-->
+<?//endif;?>
+<!--        <div class="pmContactLabel comment elz p-rel d-flex a-X wmn120 showHovOut1">-->
+<!--            <div class="elz p-rel d-flex grow a-X gap8 fn11 bold p8 al-center lh10 r3 cur-help bg bg-primary bgL-5 bgHovL-10" title="Показать комментарий">-->
+<!--                <div class="elz p-rel d-flex a-X s12">-->
+<!--                    <div class="elz p-abs d-block mskBef s16 mT1 mB-1 noShrink cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/comment.svg');"></div>-->
+<!--                </div>-->
+<!--                <div class="pmCommentText elz d-block">Комментарий</div>-->
+<!--            </div>-->
+<!--            <div class="elz p-abs pi-T p-H d-flex dir-y a-X z10 showHovIn1">-->
+<!---->
+<!--                <div class="elz elzTriangle bordered pad1 tr-T p-rel z1 borBef8 borAft8 brBef br-black brA10 fn fn-primary fnL10"></div>-->
+<!---->
+<!--                <div class="pmCommentBubble elz p-abs d-block p-EB mT8 p16 r5 w280 bg bg-primary bgL10 bor1 br br-black brA10 bgp bsh-default">-->
+<!--                    English texts for beginners to practice reading and comprehension online and for free. Practicing your comprehension of written English will both improve your vocabulary and understanding of grammar and word order. The texts below are designed to help you develop while giving you an instant evaluation of your progress.-->
+<!--                </div>-->
+<!---->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<?$contact_trait = json_decode($contact_trait, true)?>
+
+    <div class="pmContactLine footer elz p-rel d-flex grow a-PR f-wrap gap8 fb160">
+
+        <div class="elz d-flex a-X">
+            <div class="elizaRightPanelUtilTrigger elz d-flex a-X r3 p4 cur-pointer bg bg-primary bgL-5 bgHovL-10 bgSel bgSel-ok fnSel fnSel-ok-t op025 opHovIn10 opSel10<?if($contact_trait[2] ?? 0):?> sel<?endif;?>" data-util="trait_toggle" data-id="2" data-type="node" title="Закрепить на главной">
+                <div class="elz p-rel d-block mskBef s16 noShrink cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/pushpin.svg');"></div>
+            </div>
+        </div>
+<?if($contact_type_id == 4):?>
+        <div class="elz d-flex a-X">
+            <div class="elizaRightPanelUtilTrigger elz d-flex a-X r3 p4 cur-pointer bg bg-primary bgL-5 bgHovL-10 bgSel bgSel-success fnSel fnSel-success-t op025 opHovIn10 opSel10<?if($contact_trait[1] ?? 0):?> sel<?endif;?>" data-util="trait_toggle" data-id="1" data-type="node" title="Контакт по умолчанию">
+                <div class="elz p-rel d-block mskBef s16 noShrink cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/user-tie.svg');"></div>
+            </div>
+        </div>
+        <div class="elz d-flex a-X">
+            <div class="elizaRightPanelUtilTrigger elz d-flex a-X r3 p4 cur-pointer bg bg-primary bgL-5 bgHovL-10 bgSel bgSel-danger fnSel fnSel-danger-t op025 opHovIn10 opSel10<?if($contact_trait[3] ?? 0):?> sel<?endif;?>" data-util="trait_toggle" data-id="3" data-type="node" title="Контакт по инцидентам">
+                <div class="elz p-rel d-block mskBef s16 noShrink cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/fire1.svg');"></div>
+            </div>
+        </div>
+        <div class="elz d-flex a-X">
+            <div class="elizaRightPanelUtilTrigger elz d-flex a-X r3 p4 cur-pointer bg bg-primary bgL-5 bgHovL-10 bgSel bgSel-error fnSel fnSel-error-t op025 opHovIn10 opSel10<?if($contact_trait[4] ?? 0):?> sel<?endif;?>" data-util="trait_toggle" data-id="4" data-type="contact" title="Лицо принимающее решения">
+                <div class="elz p-rel d-block mskBef s16 noShrink cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/star3.svg');"></div>
+            </div>
+        </div>
+        <div class="elz d-flex a-X">
+            <div class="elz d-flex a-X r3 p4 cur-help bg bg-primary bgL-5 bgHovL-10 bgSel bgSel-warning fnSel fnSel-warning-t op025 opHovIn10 opSel10<?if($contact_trait[6] ?? 0):?> sel<?endif;?>" title="Право подписи">
+                <div class="elz p-rel d-block mskBef s16 noShrink cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/rules.svg');"></div>
+            </div>
+        </div>
+<?endif;?>
+<?if($contact_comment):?>
+        <div class="elz d-flex a-X showHovOut1">
+            <div class="elz d-flex a-X r3 p4 cur-pointer bg bg-primary bgL-5 bgHovL-10">
+                <div class="elz p-rel d-block mT1 mB-1 mskBef s16 noShrink cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/comment.svg');"></div>
+            </div>
+
+            <div class="pmCommentBubble elz p-abs pi-T z10 p-EB pT4">
+                <div class="elz d-block  p16 r5 w240 bg bg-primary bgL10 bor1 br br-black brA10 bgp bsh-default showHovIn1">
+                    <?=nl2br(htmlspecialchars($contact_comment))?>
+                </div>
+            </div>
+            <div class="elz elzTriangle bordered pad1 tr-T p-abs pi-T z10 borBef4 borAft4 brBef br-black brA10 fn fn-primary fnL10 showHovIn1"></div>
+        </div>
+<?endif;?>
+    </div>
+
+</div>

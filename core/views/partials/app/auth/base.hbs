@@ -1,0 +1,86 @@
+<div class="elz elzCLSauth">
+    <div class="elz authHeader {{head_class}}">
+        {{#auth_title}}<div class="elz caption">{{auth_title}}</div>{{/auth_title}}
+        <div class="elz picture {{picture}}"></div>
+    </div>
+    <div class="elz authFlex {{flex_class}}">
+
+
+
+        <form id="{{form_id}}" class="elz authWrap form" action="{{form_url}}" method="post">
+
+            {{#auth_caption}}<div class="elz wrapCaption">{{auth_caption}}</div>{{/auth_caption}}
+            {{#text_first}}<p class="bb p al-center">{{{text_first}}}</p>{{/text_first}}
+
+{{#inputs}}{{> app/auth/input}}{{/inputs}}
+{{#date}}
+            <div class="elz formWrap input birthday">
+                <div class="elz elzF wrap compiled flexible noborder">
+    {{#selects}}
+                    <select class="elizaIFormsInit" name="{{name}}" data-title="{{title}}" data-icon="{{icon}}">
+                        {{#list}}<option value="{{val}}">{{txt}}</option>{{/list}}
+                    </select>
+    {{/selects}}
+                </div>
+            </div>
+{{/date}}
+{{#gender}}
+            <div class="elz formWrap input gender">
+                <div class="elz elzF wrap compiled flexible fixed">
+    {{#list}}
+        <input class="elizaIFormsInit" type="radio" name="{{name}}" value="{{value}}" {{{data}}} />
+    {{/list}}
+                </div>
+            </div>
+{{/gender}}
+{{#text_last}}<p class="bb p al-center fn-8">{{{text_last}}}</p>{{/text_last}}
+{{#submit}}
+            <div class="elz formWrap submit">
+                <input class="elizaIFormsInit" type="submit" name="{{name}}" value="{{value}}" data-variant="send" />
+            </div>
+{{/submit}}
+
+            <div class="elz formWrap links">
+{{#footer_links}}
+                <div class="elz linkWrap {{class}}">
+                    {{#text}}{{text}}<br />{{/text}}<a class="bb inlink" title="{{title}}" href="{{href}}">{{title}}</a>
+                </div>
+{{/footer_links}}
+            </div>
+
+
+
+        </form>
+
+
+        {{#socials.enabled}}
+        <div class="elz authWrap socials">
+            <div class="elz wrapCaption">{{socials.title}}</div>
+
+            <div class="elz socialsList">
+                {{#socials.list}}
+                    {{#soon}}
+                        <div class="elz socialItem {{class}}" data-subtitle="{{soon}}">
+                            <div class="elz elzIcon medium rad">
+                                <i class="elz elzIc main smallest {{icon}}"></i>
+                            </div>
+                            <div class="elz text">{{title}}</div>
+                        </div>
+                    {{/soon}}
+                    {{^soon}}
+                        <a class="elz socialItem {{class}}" href="{{url}}" title="{{title}}">
+                            <div class="elz elzIcon medium rad">
+                                <i class="elz elzIc main smallest {{icon}}"></i>
+                            </div>
+                            <div class="elz text">{{title}}</div>
+                        </a>
+                    {{/soon}}
+                {{/socials.list}}
+            </div>
+
+        </div>
+        {{/socials.enabled}}
+    </div>
+
+</div>
+

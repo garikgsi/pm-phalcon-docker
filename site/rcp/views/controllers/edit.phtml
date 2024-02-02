@@ -1,0 +1,95 @@
+<?$controllerRow = $this->view->getVar('controllerRow')?>
+<?$sitesList = $this->view->getVar('sitesList')?>
+<?$rightsList = $this->view->getVar('rightsList')?>
+<?$langList = [[1, 'RU'], [2, 'EN']]?>
+<?$t = $this->view->t?>
+
+<div id="ipRcpEditControllerId" data-id="<?=$controllerRow['controller_id']?>" class="elz strCLSitem wrap flexible padBMedium padRMedium">
+
+
+
+
+    <?$this->view->partial('partials/forms/forms_section', [
+        'title'  => $t->_('ctrl_controllers_edit_caption1'),
+        'formId' => 'ipRcpEditControllerEdit',
+        'formAction' => '/controllers/api/controller_edit?controller_id='.$controllerRow['controller_id'],
+        'formData'   => 'data-controller="'.$controllerRow['controller_id'].'"',
+        'submitTitle' => $t->_('ctrl_controllers_edit_save'),
+        'langed' => ['list' => [[1, 'RU'], [2, 'EN']], 'id' => 'ipRcpEditControllerEditLang', 'name' => 'lang', 'class' => ''],
+        'fieldList' => [
+            [
+                'field'  => 'input',
+                'ftitle' => $t->_('ctrl_controllers_edit_name'),
+                'fdescr' => $t->_('ctrl_controllers_edit_name_d'),
+                'wtitle' => 'wmn240',
+                'type'   => 'text',
+                'readonly' => (int)$controllerRow['controller_locked'],
+                'placeholder' => $t->_('ctrl_controllers_edit_name_p'),
+                'value' => $controllerRow['controller_name'],
+                'name'  => 'name'
+            ],
+            [
+                'field'  => 'input',
+                'ftitle' => $t->_('ctrl_controllers_edit_title'),
+                'fdescr' => $t->_('ctrl_controllers_edit_title_d'),
+                'wtitle' => 'wmn240',
+                'type'   => 'text',
+                'placeholder' => $t->_('ctrl_controllers_edit_title_p'),
+                'value' => $controllerRow['controller_title'],
+                'name'  => 'title'
+            ],
+            [
+                'field'  => 'textarea',
+                'ftitle' => $t->_('ctrl_controllers_edit_description'),
+                'fdescr' => $t->_('ctrl_controllers_edit_description_d'),
+                'wtitle' => 'wmn240',
+                'placeholder' => $t->_('ctrl_controllers_edit_description_p'),
+                'value' => $controllerRow['controller_description'],
+                'name'  => 'description'
+            ]
+        ]
+    ])?>
+
+
+
+    <div class="elz strCLSitem marLMedium marTMedium w400 grow flexible">
+        <div class="elz admCLSwrap flexible shadowed">
+
+            <div class="elz admHeader admWBordered">
+                <div class="elz admCaption">
+                    <h2 class="elz admTitle">Подключение к сайтам</h2>
+                </div>
+            </div>
+
+            <div class="elz admBody">
+
+                <div class="elz strCLSitem">
+                    <div class="elz elzCLStableWrap padTSmaller">
+                        <table class="elz elzCLStable striped">
+                            <tbody class="elz tbody" id="rcpControllersSitesList">
+<?for($a = 0, $len = sizeof($sitesList); $a < $len; $a++):?>
+    <?$site = $sitesList[$a]?>
+                            <tr class="rcpControllersSitesContainer" data-site="<?=$site['site_id']?>">
+                                <td class="pad padVSmaller padHMedium elzCbox h36 wmn200">
+                                    <div class="elz elzText nowrap">Сайт: <b class="bb strong"><?=$site['site_name']?></b></div>
+                                </td>
+                                <td class="pad padVSmaller padHMedium elzCbox h36 compressed">
+                                    <?=\Core\Builder\MustacheForms::checkbox('', 'Подключить контроллер', 'rcpControllersSitesToggle', '', (int)$site['controller_linked'])?>
+                                </td>
+                            </tr>
+<?endfor;?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<?$this->view->partial('rights/rights_widget', [
+    'rightsList' => $rightsList,
+    'rightsWidgetGetParam' => 'controller_id='.$controllerRow['controller_id'],
+    'rightsWidgetId' => 'ipRcpEditControllerRights'
+])?>

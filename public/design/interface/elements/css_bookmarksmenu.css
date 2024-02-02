@@ -1,0 +1,63 @@
+.elzBookmarksmenu {
+    position: relative;
+    display: block;
+    overflow: auto;
+    text-align: center;
+    -webkit-mask-image: linear-gradient(to right, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 1) 16px, rgba(0, 0, 0, 1) calc(100% - 16px), rgba(0, 0, 0, 0) 100%);
+    -ms-overflow-style: none; /* For Edge desktop */
+    scrollbar-width:    none; /* For FireFox desktop */
+}
+
+.elzBookmarksmenu::-webkit-scrollbar {
+    width:  0;
+    height: 0;
+}
+
+.elzBookmarksmenu .list {
+    display: table;
+}
+
+.elzBookmarksmenu.center .list { margin-left:  auto; margin-right: auto; }
+.elzBookmarksmenu.right  .list { margin-left:  auto; }
+.elzBookmarksmenu.left   .list { margin-right: auto; }
+
+.elzBookmarksmenu.grow .list { width: 100%; }
+
+.elzBookmarksmenu .item {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.elzBookmarksmenu .itemLink {
+    position: relative;
+    display: block;
+    padding: 0.5em 16px;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+.elzBookmarksmenu .itemLink:before {
+    content: "";
+    position: absolute;
+    left: 16px;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    background-color: currentColor;
+    opacity: 0;
+    transition: 0.2s opacity, 0.2s width;
+}
+
+.elzBookmarksmenu .itemLink:hover:before,
+.elzBookmarksmenu .itemLink:active:before,
+.elzBookmarksmenu .itemLink.active:before {
+    opacity: 0.25;
+    width: calc(100% - 32px);
+}
+
+.elzBookmarksmenu .itemLink.active:before { opacity: 0.75; }
+
+.elzBookmarksmenu .itemLink:active { opacity: 0.7; }

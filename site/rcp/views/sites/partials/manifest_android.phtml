@@ -1,0 +1,50 @@
+<div class="elz strCLSitem marTMedium marLMedium">
+    <div class="elz admManiTabs">
+        <div class="elz tabsWrap">
+            <input class="elz checker" id="andrSwitch1" type="radio" name="maniAndroidSwitch" checked="checked">
+            <label class="elz checkerLabel" for="andrSwitch1"><?=$this->view->t->_('rcp_sites_manifest_android_btn_screen')?></label>
+            <div class="elz admManiDevicePreview android">
+
+                <div class="elz appsGrid">
+                    <?for($i = 0, $len = sizeof($appListAndroid); $i < $len; $i++):?>
+                        <?$icon = $appListAndroid[$i]?>
+                        <div class="elz appItem<?=@$icon['itemClass']?>"<?=@$icon['itemData']?>>
+                            <div class="elz appIcon<?=$icon['class']?>"<?=$icon['data']?>><img class="elz image <?=@$icon['imgClass']?>" alt="" src="<?=$icon['src']?>"></div>
+                            <div class="elz appTitle<?=@$icon['titleClass']?>"><?=$icon['title']?></div>
+                        </div>
+                    <?endfor;?>
+                </div>
+
+            </div>
+
+            <input class="elz checker" id="andrSwitch2" type="radio" name="maniAndroidSwitch">
+            <label class="elz checkerLabel" for="andrSwitch2"><?=$this->view->t->_('rcp_sites_manifest_android_btn_book')?></label>
+            <div class="elz admManiDevicePreview android">
+                <div class="elz appSwitch">
+                    <?for($i = 0, $len = sizeof($booksListAndroid); $i < $len; $i++):?>
+                        <?$icon = $booksListAndroid[$i]?>
+                        <div class="elz switchItem<?=$icon['switch']?>">
+                            <div class="elz switchHeader"<?=$icon['style']?>>
+                                <div class="elz appIcon<?=$icon['class']?>"<?=$icon['data']?>>
+                                    <div class="elz iconWrap"><img class="elz image <?=@$icon['imgClass']?>" alt="" src="<?=$icon['src']?>"></div>
+                                </div>
+                                <div class="elz appTitle<?=@$icon['titleClass']?>"><?=$icon['title']?></div>
+                            </div>
+                        </div>
+                    <?endfor;?>
+
+                </div>
+            </div>
+
+            <input class="elz checker" id="andrSwitch3" type="radio" name="maniAndroidSwitch">
+            <label class="elz checkerLabel" for="andrSwitch3"><?=$this->view->t->_('rcp_sites_manifest_android_btn_app')?></label>
+            <div class="elz admManiDevicePreview android">
+                <div class="elz splashScreen rcpManifestAndroidThemeColor" style="background-color: <?=$themeColor?>;">
+                    <div class="elz tray"></div>
+                    <div class="elz splashIcon helpinfo dtb" data-elz-title="512×512" title="Так будет выглядеть ваша иконка"><img class="elz image rcpManifestAndroid_512x512" alt="" src="<?=$appImg?>"></div>
+                    <div class="elz title rcpManifestNameLong"><?=$long_name?></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

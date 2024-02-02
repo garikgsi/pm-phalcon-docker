@@ -1,0 +1,677 @@
+<div class="elz d-block elizeMenuItem {{item_li_class}}" {{{item_li_data}}}>
+    <div class="elz p-rel d-block elizeItemInner">
+    {{#is_sep}}
+        <div class="elz d-block pH16 pV12 fn10 uppercase bold bg bg-primary bgL-10 bgLInvD">{{item_title}}</div>
+    {{/is_sep}}
+    {{^is_sep}}
+        <div class="elz p-rel d-flex hmn56 bgHov bgHov-primary bgHovL-5 bgHovLInvD cHovOut opHovOut">
+            <{{item_tag}} class="elz d-flex a-H growX cur-pointer opAct07 {{item_class}}" {{{item_data}}} title="{{item_title}}">
+                <div class="d-flex a-X s56 mH8">
+                    <div class="d-flex a-X s40 rCircle bg bg-{{icon_bg}} fn fn-{{icon_fn}} fnL-10 fnHovInL0" title="Галочка на иконке типа">
+                        <div class="elz d-flex a-X dsh-text3">
+                            <div class="elz d-block p-rel mskBef s16 cFillBef bgBef-CC {{icon_degree}}" style="--elzMsk: url('/design/icons/{{icon_src}}.svg');"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="elz d-block growX lh12 fnHovIn fnHovIn-primary-t fnHovInL-10 fnHovInLInvD">
+                    <div class="elz d-block pV2 fn14">{{item_title}}</div>
+                    {{#item_descr}}<div class="elz d-block pV2 fn11">{{item_descr}}</div>{{/item_descr}}
+                </div>
+            </{{item_tag}}>
+            {{#nest}}
+                <div class="elz elzItemNext p-rel d-flex a-X s56 borL1 mL8 cur-pointer op025 opHov10 opAct07 trns" title="{{nest_title}}" data-nest="{{nest_name}}">
+                    <div class="elz p-abs p-H d-flex h24 borL1 br br-CC trns op0 opHovIn10"></div>
+                    <div class="elz d-block p-rel mskBef s12 cFillBef bgBef-CC deg90" style="--elzMsk: url('/design/icons/arrow2.svg');"></div>
+                </div>
+            {{/nest}}
+        </div>
+    {{/is_sep}}
+    </div>
+
+    {{#nest}}
+    <div class="elz elizeMenuList z1 p-abs p-AT d-block hmn100p bg bg-primary">
+
+            <div class="elz d-block elizeMenuItem">
+                <div class="elz p-rel d-block elizeItemInner">
+
+                    <div class="elz elzItemBack p-rel d-flex hmn56 bg bgL-8 bgHovL-12 bgLInvD cHovOut opHovOut showHovOut hideHovOut">
+                        <div class="elz p-rel d-flex a-H growX cur-pointer opAct07">
+                            <div class="d-flex a-X s56 mH8">
+                                <div class="d-flex a-X s40 rCircle bg bg-blue fn fn-white fnL-10 fnHovInL0" title="Галочка на иконке типа">
+                                    <div class="elz d-flex a-X dsh-text3">
+                                        <div class="elz d-block p-rel mskBef s16 cFillBef bgBef-CC hideHovIn" style="--elzMsk: url('/design/icons/checkmark.svg');"></div>
+                                        <div class="elz d-block p-rel mskBef s16 cFillBef bgBef-CC deg270 showHovIn" style="--elzMsk: url('/design/icons/arrow2.svg');"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="elz d-block growX lh12 fnHovIn fnHovIn-primary-t fnHovInL-10 fnHovInLInvD">
+                                <div class="elz d-block pV2 fn14">Редактор текста</div>
+                                <div class="elz d-block pV2 fn11 hideHovIn">Редактирование шаблонов</div>
+                                <div class="elz d-block pV2 fn11 bold showHovIn">Вернуться назад</div>
+                            </div>
+                        </div>
+                        <div class="elz p-rel d-flex a-X s56 borL1 mL8 cur-pointer op025 opHov10 opAct07 trns">
+                            <div class="elz p-abs p-H d-flex h24 borL1 br br-CC trns op0 opHovIn10"></div>
+                            <div class="elz d-block p-rel mskBef s12 cFillBef bgBef-CC deg90" style="--elzMsk: url('/design/icons/cross1.svg');"></div>
+                        </div>
+                        <div class="elz p-abs p-F borV1 br br-primary brL-12 brLInvD evNone"></div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="elz d-block elizeMenuItem">
+                <div class="elz p-rel d-block elizeItemInner">
+
+                    <div class="elz p-rel d-flex hmn56 bgHov bgHov-primary bgHovL-5 bgHovLInvD cHovOut opHovOut">
+                        <div class="elz d-flex a-H growX cur-pointer opAct07">
+                            <div class="d-flex a-X s56 mH8">
+                                <div class="d-flex a-X s40 rCircle bg bg-primary bgL-10 bgLInvD fn fn-white fnL-5 fnHovInL0" title="Галочка на иконке типа">
+                                    <div class="elz d-flex a-X dsh-text3">
+                                        <div class="elz d-block p-rel mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/checkmark.svg');"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="elz d-block growX lh12 fnHovIn fnHovIn-primary-t fnHovInL-10 fnHovInLInvD">
+                                <div class="elz d-block pV2 fn14">Редактор текста</div>
+                                <div class="elz d-block pV2 fn11">Редактирование шаблонов</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="elz d-block elizeMenuItem">
+                <div class="elz p-rel d-block elizeItemInner">
+
+                    <div class="elz p-rel d-flex hmn56 bgHov bgHov-primary bgHovL-5 bgHovLInvD cHovOut opHovOut">
+                        <div class="elz d-flex a-H growX cur-pointer opAct07">
+                            <div class="d-flex a-X s56 mH8">
+                                <div class="d-flex a-X s40 rCircle bg bg-primary bgL-10 bgLInvD fn fn-white fnL-5 fnHovInL0" title="Галочка на иконке типа">
+                                    <div class="elz d-flex a-X dsh-text3">
+                                        <div class="elz d-block p-rel mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/checkmark.svg');"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="elz d-block growX lh12 fnHovIn fnHovIn-primary-t fnHovInL-10 fnHovInLInvD">
+                                <div class="elz d-block pV2 fn14">Редактор текста</div>
+                                <div class="elz d-block pV2 fn11">Редактирование шаблонов</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="elz d-block elizeMenuItem">
+                <div class="elz p-rel d-block elizeItemInner">
+
+                    <div class="elz p-rel d-flex hmn56 bgHov bgHov-primary bgHovL-5 bgHovLInvD cHovOut opHovOut">
+                        <div class="elz d-flex a-H growX cur-pointer opAct07">
+                            <div class="d-flex a-X s56 mH8">
+                                <div class="d-flex a-X s40 rCircle bg bg-green fn fn-white fnL-10 fnHovInL0" title="Галочка на иконке типа">
+                                    <div class="elz d-flex a-X dsh-text3">
+                                        <div class="elz d-block p-rel mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/checkmark.svg');"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="elz d-block growX lh12 fnHovIn fnHovIn-primary-t fnHovInL-10 fnHovInLInvD">
+                                <div class="elz d-block pV2 fn14">Редактор текста</div>
+                                <div class="elz d-block pV2 fn11">Редактирование шаблонов</div>
+                            </div>
+                        </div>
+                        <div class="elz elzItemNext p-rel d-flex a-X s56 borL1 mL8 cur-pointer op025 opHov10 opAct07 trns">
+                            <div class="elz p-abs p-H d-flex h24 borL1 br br-CC trns op0 opHovIn10"></div>
+                            <div class="elz d-block p-rel mskBef s12 cFillBef bgBef-CC deg90" style="--elzMsk: url('/design/icons/arrow2.svg');"></div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+                <div class="elz elizeMenuList z1 p-abs p-AT d-block hmn100p bg bg-primary">
+
+                    <div class="elz d-block elizeMenuItem">
+                        <div class="elz p-rel d-block elizeItemInner">
+
+                            <div class="elz elzItemBack p-rel d-flex hmn56 bg bgL-8 bgHovL-12 bgLInvD cHovOut opHovOut showHovOut hideHovOut">
+                                <div class="elz p-rel d-flex a-H growX cur-pointer opAct07">
+                                    <div class="d-flex a-X s56 mH8">
+                                        <div class="d-flex a-X s40 rCircle bg bg-green fn fn-white fnL-10 fnHovInL0" title="Галочка на иконке типа">
+                                            <div class="elz d-flex a-X dsh-text3">
+                                                <div class="elz d-block p-rel mskBef s16 cFillBef bgBef-CC hideHovIn" style="--elzMsk: url('/design/icons/checkmark.svg');"></div>
+                                                <div class="elz d-block p-rel mskBef s16 cFillBef bgBef-CC deg270 showHovIn" style="--elzMsk: url('/design/icons/arrow2.svg');"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="elz d-block growX lh12 fnHovIn fnHovIn-primary-t fnHovInL-10 fnHovInLInvD">
+                                        <div class="elz d-block pV2 fn14">Редактор текста</div>
+                                        <div class="elz d-block pV2 fn11 hideHovIn">Редактирование шаблонов</div>
+                                        <div class="elz d-block pV2 fn11 bold showHovIn">Вернуться назад</div>
+                                    </div>
+
+                                </div>
+                                <div class="elz p-rel d-flex a-X s56 borL1 mL8 cur-pointer op025 opHov10 opAct07 trns">
+                                    <div class="elz p-abs p-H d-flex h24 borL1 br br-CC trns op0 opHovIn10"></div>
+                                    <div class="elz d-block p-rel mskBef s12 cFillBef bgBef-CC deg90" style="--elzMsk: url('/design/icons/cross1.svg');"></div>
+                                </div>
+                                <div class="elz p-abs p-F borV1 br br-primary brL-12 brLInvD evNone"></div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="elz d-block elizeMenuItem">
+                        <div class="elz p-rel d-block elizeItemInner">
+
+                            <div class="elz p-rel d-flex hmn56 bgHov bgHov-primary bgHovL-5 bgHovLInvD cHovOut opHovOut">
+                                <div class="elz d-flex a-H growX cur-pointer opAct07">
+                                    <div class="d-flex a-X s56 mH8">
+                                        <div class="d-flex a-X s40 rCircle bg bg-primary bgL-10 bgLInvD fn fn-white fnL-5 fnHovInL0" title="Галочка на иконке типа">
+                                            <div class="elz d-flex a-X dsh-text3">
+                                                <div class="elz d-block p-rel mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/checkmark.svg');"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="elz d-block growX lh12 fnHovIn fnHovIn-primary-t fnHovInL-10 fnHovInLInvD">
+                                        <div class="elz d-block pV2 fn14">Редактор текста</div>
+                                        <div class="elz d-block pV2 fn11">Редактирование шаблонов</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="elz d-block elizeMenuItem">
+                        <div class="elz p-rel d-block elizeItemInner">
+
+                            <div class="elz p-rel d-flex hmn56 bgHov bgHov-primary bgHovL-5 bgHovLInvD cHovOut opHovOut">
+                                <div class="elz d-flex a-H growX cur-pointer opAct07">
+                                    <div class="d-flex a-X s56 mH8">
+                                        <div class="d-flex a-X s40 rCircle bg bg-primary bgL-10 bgLInvD fn fn-white fnL-5 fnHovInL0" title="Галочка на иконке типа">
+                                            <div class="elz d-flex a-X dsh-text3">
+                                                <div class="elz d-block p-rel mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/checkmark.svg');"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="elz d-block growX lh12 fnHovIn fnHovIn-primary-t fnHovInL-10 fnHovInLInvD">
+                                        <div class="elz d-block pV2 fn14">Редактор текста</div>
+                                        <div class="elz d-block pV2 fn11">Редактирование шаблонов</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="elz d-block elizeMenuItem">
+                        <div class="elz p-rel d-block elizeItemInner">
+
+                            <div class="elz d-block pH16 pV12 fn10 uppercase bold bg bg-primary bgL-10 bgLInvD">Редакторы</div>
+
+                        </div>
+                    </div>
+
+                    <div class="elz d-block elizeMenuItem">
+                        <div class="elz p-rel d-block elizeItemInner">
+
+                            <div class="elz p-rel d-flex hmn56 bgHov bgHov-primary bgHovL-5 bgHovLInvD cHovOut opHovOut">
+                                <div class="elz d-flex a-H growX cur-pointer opAct07">
+                                    <div class="d-flex a-X s56 mH8">
+                                        <div class="d-flex a-X s40 rCircle bg bg-primary bgL-10 bgLInvD fn fn-white fnL-5 fnHovInL0" title="Галочка на иконке типа">
+                                            <div class="elz d-flex a-X dsh-text3">
+                                                <div class="elz d-block p-rel mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/checkmark.svg');"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="elz d-block growX lh12 fnHovIn fnHovIn-primary-t fnHovInL-10 fnHovInLInvD">
+                                        <div class="elz d-block pV2 fn14">Редактор текста</div>
+                                        <div class="elz d-block pV2 fn11">Редактирование шаблонов</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="elz d-block elizeMenuItem">
+                        <div class="elz p-rel d-block elizeItemInner">
+
+                            <div class="elz p-rel d-flex hmn56 bgHov bgHov-primary bgHovL-5 bgHovLInvD cHovOut opHovOut">
+                                <div class="elz d-flex a-H growX cur-pointer opAct07">
+                                    <div class="d-flex a-X s56 mH8">
+                                        <div class="d-flex a-X s40 rCircle bg bg-primary bgL-10 bgLInvD fn fn-white fnL-5 fnHovInL0" title="Галочка на иконке типа">
+                                            <div class="elz d-flex a-X dsh-text3">
+                                                <div class="elz d-block p-rel mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/checkmark.svg');"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="elz d-block growX lh12 fnHovIn fnHovIn-primary-t fnHovInL-10 fnHovInLInvD">
+                                        <div class="elz d-block pV2 fn14">Редактор текста</div>
+                                        <div class="elz d-block pV2 fn11">Редактирование шаблонов</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="elz d-block elizeMenuItem">
+                        <div class="elz p-rel d-block elizeItemInner">
+
+                            <div class="elz p-rel d-flex hmn56 bgHov bgHov-primary bgHovL-5 bgHovLInvD cHovOut opHovOut">
+                                <div class="elz d-flex a-H growX cur-pointer opAct07">
+                                    <div class="d-flex a-X s56 mH8">
+                                        <div class="d-flex a-X s40 rCircle bg bg-primary bgL-10 bgLInvD fn fn-white fnL-5 fnHovInL0" title="Галочка на иконке типа">
+                                            <div class="elz d-flex a-X dsh-text3">
+                                                <div class="elz d-block p-rel mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/checkmark.svg');"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="elz d-block growX lh12 fnHovIn fnHovIn-primary-t fnHovInL-10 fnHovInLInvD">
+                                        <div class="elz d-block pV2 fn14">Редактор текста</div>
+                                        <div class="elz d-block pV2 fn11">Редактирование шаблонов</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="elz d-block elizeMenuItem">
+                        <div class="elz p-rel d-block elizeItemInner">
+
+                            <div class="elz p-rel d-flex hmn56 bgHov bgHov-primary bgHovL-5 bgHovLInvD cHovOut opHovOut">
+                                <div class="elz d-flex a-H growX cur-pointer opAct07">
+                                    <div class="d-flex a-X s56 mH8">
+                                        <div class="d-flex a-X s40 rCircle bg bg-primary bgL-10 bgLInvD fn fn-white fnL-5 fnHovInL0" title="Галочка на иконке типа">
+                                            <div class="elz d-flex a-X dsh-text3">
+                                                <div class="elz d-block p-rel mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/checkmark.svg');"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="elz d-block growX lh12 fnHovIn fnHovIn-primary-t fnHovInL-10 fnHovInLInvD">
+                                        <div class="elz d-block pV2 fn14">Редактор текста</div>
+                                        <div class="elz d-block pV2 fn11">Редактирование шаблонов</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="elz d-block elizeMenuItem">
+                        <div class="elz p-rel d-block elizeItemInner">
+
+                            <div class="elz p-rel d-flex hmn56 bgHov bgHov-primary bgHovL-5 bgHovLInvD cHovOut opHovOut">
+                                <div class="elz d-flex a-H growX cur-pointer opAct07">
+                                    <div class="d-flex a-X s56 mH8">
+                                        <div class="d-flex a-X s40 rCircle bg bg-primary bgL-10 bgLInvD fn fn-white fnL-5 fnHovInL0" title="Галочка на иконке типа">
+                                            <div class="elz d-flex a-X dsh-text3">
+                                                <div class="elz d-block p-rel mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/checkmark.svg');"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="elz d-block growX lh12 fnHovIn fnHovIn-primary-t fnHovInL-10 fnHovInLInvD">
+                                        <div class="elz d-block pV2 fn14">Редактор текста</div>
+                                        <div class="elz d-block pV2 fn11">Редактирование шаблонов</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="elz d-block elizeMenuItem">
+                        <div class="elz p-rel d-block elizeItemInner">
+
+                            <div class="elz p-rel d-flex hmn56 bgHov bgHov-primary bgHovL-5 bgHovLInvD cHovOut opHovOut">
+                                <div class="elz d-flex a-H growX cur-pointer opAct07">
+                                    <div class="d-flex a-X s56 mH8">
+                                        <div class="d-flex a-X s40 rCircle bg bg-primary bgL-10 bgLInvD fn fn-white fnL-5 fnHovInL0" title="Галочка на иконке типа">
+                                            <div class="elz d-flex a-X dsh-text3">
+                                                <div class="elz d-block p-rel mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/checkmark.svg');"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="elz d-block growX lh12 fnHovIn fnHovIn-primary-t fnHovInL-10 fnHovInLInvD">
+                                        <div class="elz d-block pV2 fn14">Редактор текста</div>
+                                        <div class="elz d-block pV2 fn11">Редактирование шаблонов</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="elz d-block elizeMenuItem">
+                        <div class="elz p-rel d-block elizeItemInner">
+
+                            <div class="elz p-rel d-flex hmn56 bgHov bgHov-primary bgHovL-5 bgHovLInvD cHovOut opHovOut">
+                                <div class="elz d-flex a-H growX cur-pointer opAct07">
+                                    <div class="d-flex a-X s56 mH8">
+                                        <div class="d-flex a-X s40 rCircle bg bg-primary bgL-10 bgLInvD fn fn-white fnL-5 fnHovInL0" title="Галочка на иконке типа">
+                                            <div class="elz d-flex a-X dsh-text3">
+                                                <div class="elz d-block p-rel mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/checkmark.svg');"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="elz d-block growX lh12 fnHovIn fnHovIn-primary-t fnHovInL-10 fnHovInLInvD">
+                                        <div class="elz d-block pV2 fn14">Редактор текста</div>
+                                        <div class="elz d-block pV2 fn11">Редактирование шаблонов</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="elz d-block elizeMenuItem">
+                        <div class="elz p-rel d-block elizeItemInner">
+
+                            <div class="elz p-rel d-flex hmn56 bgHov bgHov-primary bgHovL-5 bgHovLInvD cHovOut opHovOut">
+                                <div class="elz d-flex a-H growX cur-pointer opAct07">
+                                    <div class="d-flex a-X s56 mH8">
+                                        <div class="d-flex a-X s40 rCircle bg bg-primary bgL-10 bgLInvD fn fn-white fnL-5 fnHovInL0" title="Галочка на иконке типа">
+                                            <div class="elz d-flex a-X dsh-text3">
+                                                <div class="elz d-block p-rel mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/checkmark.svg');"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="elz d-block growX lh12 fnHovIn fnHovIn-primary-t fnHovInL-10 fnHovInLInvD">
+                                        <div class="elz d-block pV2 fn14">Редактор текста</div>
+                                        <div class="elz d-block pV2 fn11">Редактирование шаблонов</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="elz d-block elizeMenuItem">
+                        <div class="elz p-rel d-block elizeItemInner">
+
+                            <div class="elz p-rel d-flex hmn56 bgHov bgHov-primary bgHovL-5 bgHovLInvD cHovOut opHovOut">
+                                <div class="elz d-flex a-H growX cur-pointer opAct07">
+                                    <div class="d-flex a-X s56 mH8">
+                                        <div class="d-flex a-X s40 rCircle bg bg-primary bgL-10 bgLInvD fn fn-white fnL-5 fnHovInL0" title="Галочка на иконке типа">
+                                            <div class="elz d-flex a-X dsh-text3">
+                                                <div class="elz d-block p-rel mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/checkmark.svg');"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="elz d-block growX lh12 fnHovIn fnHovIn-primary-t fnHovInL-10 fnHovInLInvD">
+                                        <div class="elz d-block pV2 fn14">Редактор текста</div>
+                                        <div class="elz d-block pV2 fn11">Редактирование шаблонов</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="elz d-block elizeMenuItem">
+                        <div class="elz p-rel d-block elizeItemInner">
+
+                            <div class="elz p-rel d-flex hmn56 bgHov bgHov-primary bgHovL-5 bgHovLInvD cHovOut opHovOut">
+                                <div class="elz d-flex a-H growX cur-pointer opAct07">
+                                    <div class="d-flex a-X s56 mH8">
+                                        <div class="d-flex a-X s40 rCircle bg bg-primary bgL-10 bgLInvD fn fn-white fnL-5 fnHovInL0" title="Галочка на иконке типа">
+                                            <div class="elz d-flex a-X dsh-text3">
+                                                <div class="elz d-block p-rel mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/checkmark.svg');"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="elz d-block growX lh12 fnHovIn fnHovIn-primary-t fnHovInL-10 fnHovInLInvD">
+                                        <div class="elz d-block pV2 fn14">Редактор текста</div>
+                                        <div class="elz d-block pV2 fn11">Редактирование шаблонов</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="elz d-block elizeMenuItem">
+                        <div class="elz p-rel d-block elizeItemInner">
+
+                            <div class="elz p-rel d-flex hmn56 bgHov bgHov-primary bgHovL-5 bgHovLInvD cHovOut opHovOut">
+                                <div class="elz d-flex a-H growX cur-pointer opAct07">
+                                    <div class="d-flex a-X s56 mH8">
+                                        <div class="d-flex a-X s40 rCircle bg bg-primary bgL-10 bgLInvD fn fn-white fnL-5 fnHovInL0" title="Галочка на иконке типа">
+                                            <div class="elz d-flex a-X dsh-text3">
+                                                <div class="elz d-block p-rel mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/checkmark.svg');"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="elz d-block growX lh12 fnHovIn fnHovIn-primary-t fnHovInL-10 fnHovInLInvD">
+                                        <div class="elz d-block pV2 fn14">Редактор текста</div>
+                                        <div class="elz d-block pV2 fn11">Редактирование шаблонов</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="elz d-block elizeMenuItem">
+                        <div class="elz p-rel d-block elizeItemInner">
+
+                            <div class="elz p-rel d-flex hmn56 bgHov bgHov-primary bgHovL-5 bgHovLInvD cHovOut opHovOut">
+                                <div class="elz d-flex a-H growX cur-pointer opAct07">
+                                    <div class="d-flex a-X s56 mH8">
+                                        <div class="d-flex a-X s40 rCircle bg bg-primary bgL-10 bgLInvD fn fn-white fnL-5 fnHovInL0" title="Галочка на иконке типа">
+                                            <div class="elz d-flex a-X dsh-text3">
+                                                <div class="elz d-block p-rel mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/checkmark.svg');"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="elz d-block growX lh12 fnHovIn fnHovIn-primary-t fnHovInL-10 fnHovInLInvD">
+                                        <div class="elz d-block pV2 fn14">Редактор текста</div>
+                                        <div class="elz d-block pV2 fn11">Редактирование шаблонов</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="elz d-block elizeMenuItem">
+                        <div class="elz p-rel d-block elizeItemInner">
+
+                            <div class="elz p-rel d-flex hmn56 bgHov bgHov-primary bgHovL-5 bgHovLInvD cHovOut opHovOut">
+                                <div class="elz d-flex a-H growX cur-pointer opAct07">
+                                    <div class="d-flex a-X s56 mH8">
+                                        <div class="d-flex a-X s40 rCircle bg bg-primary bgL-10 bgLInvD fn fn-white fnL-5 fnHovInL0" title="Галочка на иконке типа">
+                                            <div class="elz d-flex a-X dsh-text3">
+                                                <div class="elz d-block p-rel mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/checkmark.svg');"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="elz d-block growX lh12 fnHovIn fnHovIn-primary-t fnHovInL-10 fnHovInLInvD">
+                                        <div class="elz d-block pV2 fn14">Редактор текста</div>
+                                        <div class="elz d-block pV2 fn11">Редактирование шаблонов</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="elz d-block elizeMenuItem">
+                        <div class="elz p-rel d-block elizeItemInner">
+
+                            <div class="elz p-rel d-flex hmn56 bgHov bgHov-primary bgHovL-5 bgHovLInvD cHovOut opHovOut">
+                                <div class="elz d-flex a-H growX cur-pointer opAct07">
+                                    <div class="d-flex a-X s56 mH8">
+                                        <div class="d-flex a-X s40 rCircle bg bg-primary bgL-10 bgLInvD fn fn-white fnL-5 fnHovInL0" title="Галочка на иконке типа">
+                                            <div class="elz d-flex a-X dsh-text3">
+                                                <div class="elz d-block p-rel mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/checkmark.svg');"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="elz d-block growX lh12 fnHovIn fnHovIn-primary-t fnHovInL-10 fnHovInLInvD">
+                                        <div class="elz d-block pV2 fn14">Редактор текста</div>
+                                        <div class="elz d-block pV2 fn11">Редактирование шаблонов</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="elz d-block elizeMenuItem">
+                        <div class="elz p-rel d-block elizeItemInner">
+
+                            <div class="elz p-rel d-flex hmn56 bgHov bgHov-primary bgHovL-5 bgHovLInvD cHovOut opHovOut">
+                                <div class="elz d-flex a-H growX cur-pointer opAct07">
+                                    <div class="d-flex a-X s56 mH8">
+                                        <div class="d-flex a-X s40 rCircle bg bg-primary bgL-10 bgLInvD fn fn-white fnL-5 fnHovInL0" title="Галочка на иконке типа">
+                                            <div class="elz d-flex a-X dsh-text3">
+                                                <div class="elz d-block p-rel mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/checkmark.svg');"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="elz d-block growX lh12 fnHovIn fnHovIn-primary-t fnHovInL-10 fnHovInLInvD">
+                                        <div class="elz d-block pV2 fn14">Редактор текста</div>
+                                        <div class="elz d-block pV2 fn11">Редактирование шаблонов</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="elz d-block elizeMenuItem">
+                        <div class="elz p-rel d-block elizeItemInner">
+
+                            <div class="elz p-rel d-flex hmn56 bgHov bgHov-primary bgHovL-5 bgHovLInvD cHovOut opHovOut">
+                                <div class="elz d-flex a-H growX cur-pointer opAct07">
+                                    <div class="d-flex a-X s56 mH8">
+                                        <div class="d-flex a-X s40 rCircle bg bg-primary bgL-10 bgLInvD fn fn-white fnL-5 fnHovInL0" title="Галочка на иконке типа">
+                                            <div class="elz d-flex a-X dsh-text3">
+                                                <div class="elz d-block p-rel mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/checkmark.svg');"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="elz d-block growX lh12 fnHovIn fnHovIn-primary-t fnHovInL-10 fnHovInLInvD">
+                                        <div class="elz d-block pV2 fn14">Редактор текста</div>
+                                        <div class="elz d-block pV2 fn11">Редактирование шаблонов</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="elz d-block elizeMenuItem">
+                        <div class="elz p-rel d-block elizeItemInner">
+
+                            <div class="elz p-rel d-flex hmn56 bgHov bgHov-primary bgHovL-5 bgHovLInvD cHovOut opHovOut">
+                                <div class="elz d-flex a-H growX cur-pointer opAct07">
+                                    <div class="d-flex a-X s56 mH8">
+                                        <div class="d-flex a-X s40 rCircle bg bg-primary bgL-10 bgLInvD fn fn-white fnL-5 fnHovInL0" title="Галочка на иконке типа">
+                                            <div class="elz d-flex a-X dsh-text3">
+                                                <div class="elz d-block p-rel mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/checkmark.svg');"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="elz d-block growX lh12 fnHovIn fnHovIn-primary-t fnHovInL-10 fnHovInLInvD">
+                                        <div class="elz d-block pV2 fn14">Редактор текста</div>
+                                        <div class="elz d-block pV2 fn11">Редактирование шаблонов</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="elz d-block elizeMenuItem">
+                        <div class="elz p-rel d-block elizeItemInner">
+
+                            <div class="elz p-rel d-flex hmn56 bgHov bgHov-primary bgHovL-5 bgHovLInvD cHovOut opHovOut">
+                                <div class="elz d-flex a-H growX cur-pointer opAct07">
+                                    <div class="d-flex a-X s56 mH8">
+                                        <div class="d-flex a-X s40 rCircle bg bg-primary bgL-10 bgLInvD fn fn-white fnL-5 fnHovInL0" title="Галочка на иконке типа">
+                                            <div class="elz d-flex a-X dsh-text3">
+                                                <div class="elz d-block p-rel mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/checkmark.svg');"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="elz d-block growX lh12 fnHovIn fnHovIn-primary-t fnHovInL-10 fnHovInLInvD">
+                                        <div class="elz d-block pV2 fn14">Редактор текста</div>
+                                        <div class="elz d-block pV2 fn11">Редактирование шаблонов</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+
+
+            </div>
+
+            <div class="elz d-block elizeMenuItem">
+                <div class="elz p-rel d-block elizeItemInner">
+
+                    <div class="elz d-block pH16 pV12 fn10 uppercase bold bg bg-primary bgL-10 bgLInvD">Редакторы</div>
+
+                </div>
+            </div>
+
+            <div class="elz d-block elizeMenuItem">
+                <div class="elz p-rel d-block elizeItemInner">
+
+                    <div class="elz p-rel d-flex hmn56 bgHov bgHov-primary bgHovL-5 bgHovLInvD cHovOut opHovOut">
+                        <div class="elz d-flex a-H growX cur-pointer opAct07">
+                            <div class="d-flex a-X s56 mH8">
+                                <div class="d-flex a-X s40 rCircle bg bg-primary bgL-10 bgLInvD fn fn-white fnL-5 fnHovInL0" title="Галочка на иконке типа">
+                                    <div class="elz d-flex a-X dsh-text3">
+                                        <div class="elz d-block p-rel mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/checkmark.svg');"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="elz d-block growX lh12 fnHovIn fnHovIn-primary-t fnHovInL-10 fnHovInLInvD">
+                                <div class="elz d-block pV2 fn14">Редактор текста</div>
+                                <div class="elz d-block pV2 fn11">Редактирование шаблонов</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="elz d-block elizeMenuItem">
+                <div class="elz p-rel d-block elizeItemInner">
+
+                    <div class="elz p-rel d-flex hmn56 bgHov bgHov-primary bgHovL-5 bgHovLInvD cHovOut opHovOut">
+                        <div class="elz d-flex a-H growX cur-pointer opAct07">
+                            <div class="d-flex a-X s56 mH8">
+                                <div class="d-flex a-X s40 rCircle bg bg-primary bgL-10 bgLInvD fn fn-white fnL-5 fnHovInL0" title="Галочка на иконке типа">
+                                    <div class="elz d-flex a-X dsh-text3">
+                                        <div class="elz d-block p-rel mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/checkmark.svg');"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="elz d-block growX lh12 fnHovIn fnHovIn-primary-t fnHovInL-10 fnHovInLInvD">
+                                <div class="elz d-block pV2 fn14">Редактор текста</div>
+                                <div class="elz d-block pV2 fn11">Редактирование шаблонов</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="elz d-block elizeMenuItem">
+                <div class="elz p-rel d-block elizeItemInner">
+
+                    <div class="elz p-rel d-flex hmn56 bgHov bgHov-primary bgHovL-5 bgHovLInvD cHovOut opHovOut">
+                        <div class="elz d-flex a-H growX cur-pointer opAct07">
+                            <div class="d-flex a-X s56 mH8">
+                                <div class="d-flex a-X s40 rCircle bg bg-primary bgL-10 bgLInvD fn fn-white fnL-5 fnHovInL0" title="Галочка на иконке типа">
+                                    <div class="elz d-flex a-X dsh-text3">
+                                        <div class="elz d-block p-rel mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/checkmark.svg');"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="elz d-block growX lh12 fnHovIn fnHovIn-primary-t fnHovInL-10 fnHovInLInvD">
+                                <div class="elz d-block pV2 fn14">Редактор текста</div>
+                                <div class="elz d-block pV2 fn11">Редактирование шаблонов</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    {{/nest}}
+
+</div>

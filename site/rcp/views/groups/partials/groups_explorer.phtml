@@ -1,0 +1,10 @@
+<div class="elz elzCLSexplorer nodeLight">
+
+    <ul class="elz expList root" id="<?=$groupsListId?>">
+<?$this->view->partial('groups/partials/groups_explorer_li', [
+    'group_node_id' => $startNodeId ?? 0,
+    'groups_list' => $groupsList
+])?>
+    </ul>
+
+</div>

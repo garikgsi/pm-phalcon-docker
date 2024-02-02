@@ -1,0 +1,67 @@
+.elzTTwrap.dtc { justify-content:     center; }
+.elzTTwrap.dtl { justify-content:   flex-end; }
+.elzTTwrap.dtr { justify-content: flex-start; }
+
+.elzTTwrap.dtt .elzTooltip, .elzTooltip.dtt { bottom: 100%; margin-bottom: 6px; }
+.elzTTwrap.dtb .elzTooltip, .elzTooltip.dtb { top:    100%; margin-top:    6px; }
+
+.elzTTwrap {
+    position: absolute;
+    display: flex;
+    top:    0;
+    right:  0;
+    bottom: 0;
+    left:   0;
+    pointer-events: none;
+    visibility: hidden;
+    opacity: 0;
+    z-index: 1000;
+}
+
+.elzTooltip {
+    position: absolute;
+    display: block;
+    font-style: normal;
+    font-size: 8pt;
+    line-height: 14px;
+    padding: 8px 10px;
+    max-width: 300px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.8);
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.75);
+    border-radius: 2px;
+}
+
+.elzTTwrap:before {
+    content: "";
+    position: absolute;
+    display: block;
+    width:  0;
+    height: 0;
+    border: 6px solid rgba(0, 0, 0, 0.8);
+    border-left-color:  transparent !important;
+    border-right-color: transparent !important;
+    left: 50%;
+    margin-left: -6px;
+}
+
+.elzTTwrap.dtt:before { border-bottom-width: 0; bottom: 100%; }
+.elzTTwrap.dtb:before { border-top-width:    0; top:    100%; }
+
+.elzTThover:hover  .elzTTwrap,
+.elzTThover:active .elzTTwrap {
+    visibility: visible;
+    opacity: 1;
+}
+
+
+/*
+@media (pointer: coarse) {
+    .elz[data-elz-title]:hover:before, .elz[data-elz-title]:active:before,
+    .elz[data-elz-title]:hover:after,  .elz[data-elz-title]:active:after { display: none !important; }
+}
+*/
+/* end */

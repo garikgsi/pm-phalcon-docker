@@ -1,0 +1,29 @@
+/* Main */
+
+.elzF.item.text.default {
+    border-color: rgba(0, 0, 0, 0.15);
+    background-color: #ffffff;
+}
+
+/* end */
+
+
+
+
+
+/* Hover */
+
+.elzF.parent:hover .elzF.item.text.default, .elzF.parent .elzF.item.text.default:hover, .elzF.item.text.default:hover,
+.elzF.parent.hover .elzF.item.text.default, .elzF.parent .elzF.item.text.default.hover, .elzF.item.text.default.hover { border-color: rgba(0, 0, 0, 0.2); }
+
+/* Focus */
+
+.elzF.parent:focus .elzF.item.text.default, .elzF.parent .elzF.item.text.default:focus, .elzF.item.text.default:focus,
+.elzF.parent.focus .elzF.item.text.default, .elzF.parent .elzF.item.text.default.focus, .elzF.item.text.default.focus { border-color: #42abff; }
+
+/* Valid & Invalid */
+
+.elzF.parent.valid   .elzF.item.text.default, .elzF.parent .elzF.item.text.default.valid,   .elzF.item.text.default.valid   { border-color: #8bc34a; }
+.elzF.parent.invalid .elzF.item.text.default, .elzF.parent .elzF.item.text.default.invalid, .elzF.item.text.default.invalid { border-color: #e57373; }
+
+/* end */

@@ -1,0 +1,62 @@
+/* Main settings */
+
+.winCSSNunit.app-auth {
+    width:  1024px;
+    height:  720px;
+    min-width:  1024px;
+    min-height:  720px;
+}
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Toolbar */
+
+.elzCSSNui.guest .mainTaskbar    .tbWrap.contentCenter,
+.winCSSNunit.app-auth .winHeader .tbWrap.contentCenter { max-width: 640px; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Media */
+
+@media (max-width: 1479px) { .winCSSNunit.app-auth.focus { z-index: var(--elzWinAbove9); } .elzCSSNui.guest .mainTaskbar .trayTools .tbTool:nth-child(9) { display: none; } }
+@media (max-width: 1399px) { .winCSSNunit.app-auth.focus { z-index: var(--elzWinAbove8); } .elzCSSNui.guest .mainTaskbar .trayTools .tbTool:nth-child(8) { display: none; } }
+@media (max-width: 1319px) { .winCSSNunit.app-auth.focus { z-index: var(--elzWinAbove7); } .elzCSSNui.guest .mainTaskbar .trayTools .tbTool:nth-child(7) { display: none; } }
+@media (max-width: 1239px) { .winCSSNunit.app-auth.focus { z-index: var(--elzWinAbove6); } .elzCSSNui.guest .mainTaskbar .trayTools .tbTool:nth-child(6) { display: none; } }
+@media (max-width: 1159px) { .winCSSNunit.app-auth.focus { z-index: var(--elzWinAbove5); } .elzCSSNui.guest .mainTaskbar .trayTools .tbTool:nth-child(5) { display: none; } }
+@media (max-width: 1079px) { .winCSSNunit.app-auth.focus { z-index: var(--elzWinAbove4); } .elzCSSNui.guest .mainTaskbar .trayTools .tbTool:nth-child(4) { display: none; } }
+@media (max-width:  999px) { .winCSSNunit.app-auth.focus { z-index: var(--elzWinAbove3); } .elzCSSNui.guest .mainTaskbar .trayTools .tbTool:nth-child(3) { display: none; } }
+@media (max-width:  919px) { .winCSSNunit.app-auth.focus { z-index: var(--elzWinAbove2); } .elzCSSNui.guest .mainTaskbar .trayTools .tbTool:nth-child(2) { display: none; } }
+@media (max-width:  839px) { .winCSSNunit.app-auth.focus { z-index: var(--elzWinAbove1); } .elzCSSNui.guest .mainTaskbar .trayTools .tbTool:nth-child(1) { display: none; } }
+
+@media (max-width:  831px)  { .winCSSNunit.app-auth .winControls .tbTool.sep:first-child { display: none; } }
+@media (max-width:  1119px) { .elzCSSNui.guest .mainTaskbar .mainTray .tbTool.elzCSSNtrayStart .tbText { display: none; } }
+
+@media (max-width: 529px) {
+    .elzCSSNui.guest .mainTaskbar    .tbWrap.contentCenter .tbText,
+    .winCSSNunit.app-auth .winHeader .tbWrap.contentCenter .tbText { display: none; }
+}
+
+@media (max-width: 359px) {
+    .elzCSSNui.guest .mainTaskbar .appSocials,
+    .winCSSNunit.app-auth .winHeader .appSocials { display: none; }
+}
+
+/* end */

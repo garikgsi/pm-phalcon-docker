@@ -1,0 +1,17 @@
+<?$move = @$move?>
+
+<li class="elz expItem" data-dir="<?=$dir?>" data-name="<?=$file_name?>"<?=@$data?>>
+    <div class="elz expInner elzPLT">
+        <div class="elz expSTR icon left <?=$move?>">
+            <i class="elz elzIcon medium rad elzPLT" data-fn="grey 600">
+                <i class="elz elzIc main smallest ic-file-text">
+                    <i class="elz elzIc gspot shD elzPLT" data-bg="<?=$file_color?>" data-fn="white"><?=$file_type?></i>
+                </i>
+            </i>
+        </div>
+        <div class="elz expSTR grow marRSmall <?=$move?>">
+            <div class="elz elzText nowrap ov-x"><?if(isset($file_dir)):?><?=$file_dir?><b><?=$file_name?></b><?else:?><?=$file_name?><?endif;?></div>
+        </div>
+        <?=$controls?>
+    </div>
+</li>

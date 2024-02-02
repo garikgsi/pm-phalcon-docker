@@ -1,0 +1,46 @@
+.admControllersList {
+    position: relative;
+    display: block;
+}
+
+.admController {
+    position: relative;
+    display: block;
+    border-width: 1px 0;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.1);
+}
+
+.admControllersList .admController             { border-top:    none; }
+.admControllersList .admController:last-child  { border-bottom: none; }
+
+.admController.isActive .controllerMain:hover,
+.admController.isActive .controllerMain:active {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.admController .controllerDetails {
+    position: relative;
+    display: none;
+    border-top: 1px dashed rgba(0, 0, 0, 0.05);
+}
+
+.admController.expanded .controllerDetails { display: block; }
+
+/* Border left */
+
+.admController > .cStatus {
+    position: absolute;
+    display: none;
+    top:    0;
+    bottom: 0;
+    left:   0;
+    width: 3px;
+}
+
+.admController.isActive > .cStatus { display: block; }
+
+.admController.expanded > .cStatus { background-image: repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5) 3px, rgba(255, 255, 255, 0) 3px, rgba(255, 255, 255, 0) 6px); }
+
+/* end */

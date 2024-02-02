@@ -1,0 +1,213 @@
+<?php
+$rightNodeId = $right_node_id;
+$rightsList = $rights_list;
+
+?>
+<?if(isset($rightsList[$rightNodeId]) && is_array($rightsList[$rightNodeId])):?>
+    <?$nodeList = $rightsList[$rightNodeId]?>
+    <?for($a = 0, $len = sizeof($nodeList); $a < $len; $a++):?>
+        <?$node = $nodeList[$a]?>
+        <?$hasChild = isset($rightsList[$node['id']]) && is_array($rightsList[$node['id']]) && sizeof($rightsList[$node['id']])?>
+        <?$title = trim($node['title'])?>
+
+<li class="elz expItem parentId<?=$node['parent_id']?>" data-right="<?if(isset($node['object'])):?><?=$node['right_id']?><?else:?><?=$node['id']?><?endif;?>">
+    <div class="elz expInner elzPLT">
+        <div class="elz expSTR icon left">
+            <i class="elz elzIcon medium rad elzPLT" data-fn="grey 600">
+                <i class="elz elzIc main smallest <?=$node['icon']?>">
+        <?if(isset($node['s_icon'])):?>
+                    <i class="elz elzIc gspot shD elzPLT <?=$node['s_icon']?>" data-bg="blue" data-fn="white"></i>
+        <?endif;?>
+                </i>
+            </i>
+        </div>
+        <div class="elz expSTR grow">
+            <div class="elz elzText nowrap"><?if(isset($node['mode'])):?><b class="bb strong"><?=$node['name']?>:</b> <?=$node['title']?></b><?else:?><?=$title?><?endif;?></div>
+        </div>
+
+        <?if(isset($node['mode']) && isset($node['is_active']) && !isset($node['is_member'])):?>
+            <?if(isset($node['is_inherit']) && $node['is_inherit']):?>
+                <?$delegateClass = ''?>
+                <?$delegateIcon = 'ic-git-compare'?>
+                <?$delegateAttrs = 'data-fn="white" data-bg="blue"'?>
+                <div class="elz expSTR right marRSmall">
+                    <div class="elz strCLSitem">
+                        <div class="elz elzCLSlabel small elzPLT"<?=$delegateAttrs?> title="Право наследуется от родителя" data-id="<?=$node['right_id']?>">
+                            <i class="elz elzIc <?=$delegateIcon?>"></i>
+                        </div>
+                    </div>
+                </div>
+            <?endif;?>
+
+            <?if(isset($node['is_leader_only'])):?>
+                <?$delegateClass = ''?>
+                <?$delegateIcon = 'ic-star3'?>
+                <?$delegateAttrs = 'data-fn="orange"'?>
+
+                <?if($node['is_leader_only']):?>
+                    <?$delegateClass = ' active'?>
+                    <?$delegateAttrs = 'data-fn="white" data-bg="orange"'?>
+                <?endif;?>
+
+                <div class="elz expSTR right marRSmall">
+                    <div class="elz strCLSitem">
+                        <div class="elz elzCLSlabel small link rightCheckLeader<?=$delegateClass?> elzPLT"<?=$delegateAttrs?> title="Право доступно только лидеру" data-id="<?=$node['right_id']?>">
+                            <i class="elz elzIc <?=$delegateIcon?>"></i>
+                        </div>
+                    </div>
+                </div>
+            <?endif;?>
+
+            <?if(isset($node['is_delegating'])):?>
+                <?$delegateClass = ''?>
+                <?$delegateIcon = 'ic-git-branch'?>
+                <?$delegateAttrs = 'data-fn="purple"'?>
+
+                <?if($node['is_delegating']):?>
+                    <?$delegateClass = ' active'?>
+                    <?$delegateAttrs = 'data-fn="white" data-bg="purple"'?>
+                <?endif;?>
+
+                <div class="elz expSTR right marRSmall">
+                    <div class="elz strCLSitem">
+                        <div class="elz elzCLSlabel small link rightCheckDelegate<?=$delegateClass?> elzPLT"<?=$delegateAttrs?> title="Дочерние группы наследуют право" data-id="<?=$node['right_id']?>">
+                            <i class="elz elzIc <?=$delegateIcon?>"></i>
+                        </div>
+                    </div>
+                </div>
+            <?endif;?>
+
+
+
+
+            <?$activeClass = ''?>
+            <?$activeIcon = 'ic-link-broken'?>
+            <?$activeAttrs = 'data-fn="red"'?>
+
+            <?if($node['is_active']):?>
+                <?$activeClass = ' active'?>
+                <?$activeIcon = 'ic-link'?>
+                <?$activeAttrs = 'data-fn="white" data-bg="green"'?>
+            <?endif;?>
+        <div class="elz expSTR right marRSmall">
+            <div class="elz strCLSitem">
+                <div class="elz elzCLSlabel small link rightCheck<?=$activeClass?> elzPLT"<?=$activeAttrs?> title="Выдать право" data-id="<?=$node['right_id']?>">
+                    <i class="elz elzIc <?=$activeIcon?>"></i>
+                </div>
+            </div>
+        </div>
+        <?endif;?>
+
+        <?if(isset($node['object']) && !isset($node['is_member'])):?>
+            <?if($node['groups_count']):?>
+                <div class="elz expSTR right marRSmall">
+                    <div class="elz strCLSitem">
+                        <div class="elz elzCLSlabel small elzPLT" data-fn="white" data-bg="teal" title="<?=$node['groups_count']?> групп обладают указанным правом">
+                            <i class="elz elzIc ic-users"></i> <?=$node['groups_count']?>
+                        </div>
+                    </div>
+                </div>
+            <?endif;?>
+
+            <?if($node['members_count']):?>
+                <div class="elz expSTR right marRSmall">
+                    <div class="elz strCLSitem">
+                        <div class="elz elzCLSlabel small elzPLT" data-fn="white" data-bg="lue-grey" title="<?=$node['members_count']?> пользователей обладают указанным правом">
+                            <i class="elz elzIc ic-user"></i> <?=$node['members_count']?>
+                        </div>
+                    </div>
+                </div>
+            <?endif;?>
+
+            <?if($node['is_locked']):?>
+                <div class="elz expSTR right marRSmall">
+                    <div class="elz strCLSitem">
+                        <div class="elz elzCLSlabel small elzPLT" data-fn="red" title="Удаление права невозможно">
+                            <i class="elz elzIc ic-lock"></i>
+                        </div>
+                    </div>
+                </div>
+            <?endif;?>
+
+            <div class="elz expSTR right marRSmall">
+                <div class="elz strCLSitem">
+                    <a class="elz elzCLSlabel link small elzPLT" data-fn="white" data-bg="blue" title="Редактировать право" href="/rights/edit/<?=$node['right_id']?>">
+                        <i class="elz elzIc ic-pencil"></i>
+                    </a>
+                </div>
+            </div>
+
+            <?if(!$node['is_locked']):?>
+                <div class="elz expSTR right marRSmall">
+                    <div class="elz strCLSitem">
+                        <div class="elz elzCLSlabel small link rightDelete elzPLT" data-fn="red" title="Удалить право">
+                            <i class="elz elzIc ic-cross"></i>
+                        </div>
+                    </div>
+                </div>
+            <?endif;?>
+
+        <?endif;?>
+
+        <?if(isset($node['is_member'])):?>
+            <?if($node['is_group_leader'] && $node['right_given_to_leader']):?>
+                <div class="elz expSTR right marRSmall">
+                    <div class="elz strCLSitem">
+                        <div class="elz elzCLSlabel small elzPLT" data-fn="white" data-bg="orange" title="Право лидера группы, которым является пользователь">
+                            <i class="elz elzIc ic-star3"></i>
+                        </div>
+                    </div>
+                </div>
+            <?endif;?>
+            <?if($node['is_inherit']):?>
+                <div class="elz expSTR right marRSmall">
+                    <div class="elz strCLSitem">
+                        <div class="elz elzCLSlabel small elzPLT" data-fn="white" data-bg="purple" title="Право получено от одной из родительских групп">
+                            <i class="elz elzIc ic-git-branch"></i>
+                        </div>
+                    </div>
+                </div>
+            <?endif;?>
+            <?if($node['is_active']):?>
+                <div class="elz expSTR right marRSmall">
+                    <div class="elz strCLSitem">
+                        <div class="elz elzCLSlabel small elzPLT" data-fn="white" data-bg="blue" title="Право получено от группы пользователя">
+                            <i class="elz elzIc ic-users"></i>
+                        </div>
+                    </div>
+                </div>
+            <?endif;?>
+
+            <?$fnColor = 'black'?>
+            <?$bgColor = 'grey 400'?>
+            <?$rightClass = ''?>
+
+            <?if($node['given_by_member']):?>
+                <?$fnColor = 'white'?>
+                <?$bgColor = 'green'?>
+                <?$rightClass = ' linked'?>
+            <?endif;?>
+
+            <div class="elz expSTR right marRSmall">
+                <div class="elz strCLSitem">
+                    <div class="elz elzCLSlabel small elzPLT link memberRightCheck<?=$rightClass?>" data-fn="<?=$fnColor?>" data-bg="<?=$bgColor?>" data-id="<?=$node['right_id']?>" title="Присвоить право пользователю">
+                        <i class="elz elzIc ic-check"></i>
+                    </div>
+                </div>
+            </div>
+        <?endif;?>
+    </div>
+    <?$hideOpener = $hasChild ? '' : ' elzHide'?>
+
+    <input class="nodeOpenerToggle<?=$node['id']?> elz expNodeChecker<?=$hideOpener?>" type="checkbox" title="Развернуть">
+    <div class="nodeOpenerToggle<?=$node['id']?> elz expNode<?=$hideOpener?>"></div>
+
+    <ul class="elz expList" data-right="<?if(isset($node['object'])):?><?=$node['right_id']?><?else:?><?=$node['id']?><?endif;?>">
+        <?$this->view->partial('rights/partials/rights_set_explorer_li', [
+            'right_node_id' => $node['id'],
+            'rights_list' => $rightsList
+        ])?>
+    </ul>
+</li>
+    <?endfor;?>
+<?endif;?>

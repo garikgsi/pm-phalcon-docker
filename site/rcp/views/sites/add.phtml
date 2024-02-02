@@ -1,0 +1,31 @@
+<?$t = $this->view->t?>
+<div class="elz strCLSitem wrap flexible padBMedium padRMedium">
+    <?$this->view->partial('partials/forms/forms_section', [
+        'title'  => $t->_('rcp_sites_add'),
+        'formId' => 'rcpSiteAdd',
+        'formAction' => '/sites/api/site_add',
+        'submitTitle' => $t->_('rcp_sites_save'),
+        'fieldList' => [
+            [
+                'field' => 'input',
+                'ftitle' => $t->_('rcp_sites_add_folder'),
+                'fdescr' => $t->_('rcp_sites_add_folder_d'),
+                'wtitle' => 'wmn220',
+                'type' => 'text',
+                'placeholder' => $t->_('rcp_sites_add_folder_p'),
+                'value' => '',
+                'name' => 'name'
+            ],
+            [
+                'field' => 'input',
+                'ftitle' => $t->_('rcp_sites_add_domain'),
+                'fdescr' => $t->_('rcp_sites_add_domain_d'),
+                'wtitle' => 'wmn220',
+                'type' => 'text',
+                'placeholder' => $t->_('rcp_sites_add_domain_p'),
+                'value' => '',
+                'name' => 'domain'
+            ]
+        ]
+    ])?>
+</div>

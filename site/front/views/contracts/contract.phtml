@@ -1,0 +1,462 @@
+<?php $contractRow = $this->view->getVar('contractRow')?>
+<div class="elz d-flex f-wrap gap8 a-T">
+    <div id="contractMeta" class="elz d-flex dir-y gap8 grow fb320">
+        <div class="elz d-block growX r3 w100p bg bg-primary bgL5 bsh-default1">
+            <div class="elz d-flex dir-y p16 fn12 lh15">
+
+                <div class="pmContentExpandBorder elz d-flex a-H gap8 fn16 br-primary brL-10 brLInvD pB8">
+                    <div class="elz d-block grow">О договоре</div>
+                </div>
+
+                <?$this->view->partial(
+                    'forms/entity_edit/content_line_input',
+                    [
+                       'name' => 'title',
+                       'title' => 'Название договора',
+                       'action' => '?act=contract_edit_title',
+                       'content' => $contractRow['contract_title']
+                    ]
+                )?>
+
+                <?$this->view->partial(
+                    'forms/entity_edit/content_line_input',
+                    [
+                       'name' => 'number',
+                       'title' => 'Номер договора',
+                       'action' => '?act=contract_edit_number',
+                       'content' => $contractRow['contract_number']
+                    ]
+                )?>
+                <div class="elz d-flex a-H f-wrap gapH16 gapV8 pV16 borT1 br br-primary brL-10 brLInvD">
+                    <div class="elz d-block fb120 bold">Статус договора:</div>
+                    <div class="elz p-rel d-flex dir-y a-V fb320 grow hmn18">
+                        <div class="elz d-flex a-H lh10 f-wrap gap8 fn11">
+                            <div class="elz d-flex a-X gap8 al-center pV6 pH8 r3 fn11 bg bg-success fn fn-success-t">
+                                <div class="elz d-block"><?=$contractRow['status_title']?></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <?$this->view->partial(
+                    'forms/entity_edit/content_line_dual_select',
+                    [
+                        'title' => 'Пролонгация',
+                        'action' => '?act=contract_edit_prolongation',
+                        'select1' => [
+                            'name' => 'prolongation',
+                            'options' => $this->view->getVar('prolongationOptions'),
+                            'value' => $contractRow['contract_prolongation_id'],
+                            'content' => $contractRow['prolongation_title']
+                        ],
+                        'select2' => [
+                            'name' => 'duration',
+                            'hidden' => $contractRow['contract_prolongation_id'] == 2,
+                            'options' => $this->view->getVar('durationOptions'),
+                            'value' => $contractRow['contract_prolongation_duration_id'],
+                            'content' => $contractRow['duration_month'].' мес.'
+                        ],
+                        'label_color' => 'danger'
+                    ]
+                )?>
+
+                <?$this->view->partial(
+                    'forms/entity_edit/content_line_dual_select',
+                    [
+                        'title' => 'Условия оплаты',
+                        'action' => '?act=contract_edit_payment',
+                        'select1' => [
+                            'name' => 'term',
+                            'options' => $this->view->getVar('termOptions'),
+                            'value' => $contractRow['payment_term_id'],
+                            'content' => $contractRow['term_title']
+                        ],
+                        'select2' => [
+                            'name' => 'before',
+                            'options' => $this->view->getVar('payDayOptions'),
+                            'value' => $contractRow['payment_before'],
+                            'content' => $contractRow['payment_before'].'го числа'
+                        ],
+                        'label_color' => 'ok'
+                    ]
+                )?>
+
+                <?$this->view->partial(
+                    'forms/entity_edit/content_line_select',
+                    [
+                        'title' => 'Валюта договора',
+                        'action' => '?act=contract_edit_currency',
+                        'select' => [
+                            'name' => 'currency',
+                            'options' => $this->view->getVar('currencyOptions'),
+                            'value' => $contractRow['currency_id'],
+                            'content' => $contractRow['currency_title']
+                        ],
+                        'label_color' => 'purple'
+                    ]
+                )?>
+
+                <?$this->view->partial(
+                    'forms/entity_edit/content_line_input',
+                    [
+                        'name' => 'finish',
+                        'title' => 'Срок действия',
+                        'action' => '?act=contract_edit_finish',
+                        'content' => $contractRow['contract_finish_date']
+                    ]
+                )?>
+
+                <?$this->view->partial(
+                    'forms/entity_edit/content_line_input',
+                    [
+                        'name' => 'sign',
+                        'empty' => 'Договор не подписан',
+                        'title' => 'Дата подписания',
+                        'action' => '?act=contract_edit_sign',
+                        'content' => $contractRow['contract_sign_date']
+                    ]
+                )?>
+
+                <?$this->view->partial(
+                    'forms/entity_edit/content_line_autocomplete',
+                    [
+                        'name' => 'responsible',
+                        'title' => 'Ответственный',
+                        'action' => '?act=contract_edit_responsible',
+                        'content' => [
+                            'id' => $contractRow['responsible_member_id'],
+                            'title' => $contractRow['responsible_member_nick'],
+                        ]
+                    ]
+                )?>
+            </div>
+        </div>
+
+        <div id="pmContractCounterAgentRoles" class="elz d-block pVVar r3 bg bg-primary bgL5 bsh-default1 showSelOut sel">
+            <div class="elz d-flex a-X gap8 fn16 hmn36 pAR8 pL16">
+                <div class="elz d-block growX">Подписанты</div>
+            </div>
+
+            <div class="elz d-block pH16">
+
+                <div class="elz d-flex dir-y mB-8">
+<?$rolesList = $this->view->getVar('rolesList')?>
+<?foreach($rolesList as $role):?>
+                    <div class="pmContractCounterAgentRole elz d-flex f-wrap gapH16 gapV8 a-H pV16 borT1 br br-primary brL-10 brLInvD showSelOut hideSelOut visSelOut invSelOut" data-role="<?=$role['contract_counteragent_role_id']?>" data-agent="<?=$role['counteragent_id']?>" data-contract="<?=$contractRow['contract_id']?>">
+
+                        <div class="elz d-block pV5 pH8 grow fb120 r3 cur-pointer opAct07 al-center fn11 bg bg-success bgHovL5 fn fn-success-t"><?=$role['role_title']?></div>
+                        <div class="elz d-flex dir-y gap4 growMax fb280 lh12">
+                            <a class="elz d-flex a-H gap8 fn16 cur-pointer opAct07 underlineHov" href="/counteragents/<?=$role['counteragent_id']?>" target="_blank">
+                                <div class="elz p-rel d-block noShrink mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/user-tie.svg');"></div>
+                                <div class="elz d-block grow"><?=$role['counteragent_title']?></div>
+                            </a>
+                        </div>
+
+                        <div class="elz p-rel d-flex gap8 a-H fb320 grow">
+
+                            <div class="elz p-rel d-flex a-H grow">
+
+
+    <?if($contractRow['contract_status_id'] == 1):?>
+        <?
+            $this->view->partial('forms/select_base', [
+                'name' => 'contact',
+                'grow' => 'p-abs p-H ',
+                'class' => 'z1 visSelIn',
+                'width' => 'w100p',
+                'options' => $role['signer_options'],
+                'value' => (int)$role['contact_id'],
+                'inputClass' => 'r3 h36'
+            ]);
+        ?>
+    <?endif;?>
+
+    <?if($role['contact_id']):?>
+        <?$this->view->partial('contracts/partials/contract_edit_signer', $role)?>
+    <?else:?>
+                                <div class="roleEmptyPlaceholder elz d-flex a-H gap8 grow opAct07 br br-primary brL-10 brLInvD invSelIn">
+                                    <div class="elz d-block noShrink">
+                                        <div class="elz uAvatar d-block p-rel s40 mAuto">
+                                            <div class="elz avCutMask p-abs p-F oH rCircle">
+                                                <div class="elz avWrap d-block s100p rInh oH">
+                                                    <div class="elz d-flex a-X s100p fn11 bold bg bg-error fn fn-error-t bgLF20 bgFD">
+                                                        <div class="elz p-rel d-block mskBef s20 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/crosscircle.svg');"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="elz d-flex dir-y gap4 lh12">
+                                        <div class="elz d-block bold fn fn-error fnLF20 fnFD">Подписант не указан</div>
+                                        <div class="elz d-block fn11">Для подписания необходимо указать</div>
+                                    </div>
+                                </div>
+    <?endif;?>
+                            </div>
+    <?if($contractRow['contract_status_id'] == 1):?>
+                            <div title="Редактировать" class="roleEdit elz d-flex a-X cur-pointer noShrink opAct07 s36 rRound bgHov bgHov-primary bgHovL-5 hideSelIn">
+                                <div class="mskIcon elz d-block p-rel noShrink mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/pencil.svg');"></div>
+                            </div>
+                            <div title="Сохранить" class="roleSave elz d-flex a-X cur-pointer noShrink opAct07 s36 rRound bgHov bgHov-primary bgHovL-5 showSelIn">
+                                <div class="mskIcon elz d-block p-rel noShrink mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/save.svg');"></div>
+                            </div>
+    <?endif;?>
+                        </div>
+                    </div>
+<?endforeach;?>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+        <div class="elz d-flex f-wrap gap8 w100p">
+
+
+<?$filesMap = $this->view->getVar('contractFilesMap');?>
+<?foreach ($filesMap as $fileTypeId => $file):?>
+    <?$fileId = $file['file_id']?>
+    <?$pluploadHtmlId = 'contractFilePlupload_'.$fileTypeId?>
+
+            <div id="<?=$pluploadHtmlId?>"
+                 class="pluploadInit elz p-rel d-flex grow w240 r3 hmn120 bg bg-primary bgL5 bsh-default1 opHovOut showSelOut hideSelOut cur-pointer"
+                 data-type="<?=$fileTypeId?>"
+                 data-trait="<?=$file['trait']?>">
+                <div id="<?=$pluploadHtmlId?>Hover" class="pluploadLoaded elz p-abs p-F m8 bor1 br-dashed br-CC op025 opHovIn075 opSel075 trns"></div>
+                <div id="<?=$pluploadHtmlId?>UploadZone" class="elz p-rel d-flex dir-y grow a-X p16 lh15 hideSelIn<?if($fileId):?> hide<?endif;?>">
+                    <div class="elz p-rel d-flex a-X mB8 evNone">
+                        <div class="elz p-rel d-block p-rel mHAuto mskBef s32 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/<?=$file['icon']?>.svg');"></div>
+                        <div class="elz p-abs d-flex a-X mEA24 s16 rRound bg bg-error bgLF15 bgFD fn fn-error-t">
+                            <div class="elz d-block p-rel mskBef s8 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/cross.svg');"></div>
+                        </div>
+                    </div>
+                    <div class="elz d-flex dir-y a-V al-center hmn36 evNone">
+                        <div class="elz d-block bold fn fn-error fnLF15 fnFD">Отсутствует <?=mb_strtolower($file['title'])?></div>
+                        <div class="elz d-block fn11">Нажмите или перетащите файл сюда</div>
+                    </div>
+                </div>
+                <a id="<?=$pluploadHtmlId?>Link" title="Скачать <?=mb_strtolower($file['title'])?>" href="<?=$file['file_path']?>" class="pluploadLoaded elz p-rel d-flex dir-y grow a-X p16 lh15<?if(!$fileId):?> hide<?endif;?>">
+                    <div class="elz p-rel d-flex a-X mB8">
+                        <div class="elz p-rel d-block p-rel mHAuto mskBef s32 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/<?=$file['icon']?>.svg');"></div>
+                        <div class="elz p-abs d-flex a-X mEA24 s16 rRound bg bg-success fn fn-success-t">
+                            <div class="elz d-block p-rel mskBef s8 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/checkmark.svg');"></div>
+                        </div>
+                    </div>
+                    <div class="elz d-flex dir-y a-V al-center hmn36">
+                        <div class="elz d-block bold fn fn-success"><?=$file['title']?></div>
+                        <div class="elz d-block fn11">от <span id="<?=$pluploadHtmlId?>Date"><?=$file['date']?></span></div>
+                    </div>
+                </a>
+                <label for="" class="pluploadLoaded elz p-abs d-flex p-EB a-X m16 r3 s36 cur-pointer opAct07 bg bg-black bgA50 bgHovA80 trns fn fn-white<?if(!$fileId):?> hide<?endif;?>">
+                    <div class="elz d-block p-rel mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/upload.svg');"></div>
+                </label>
+                <div class="elz p-abs d-flex p-F dir-y grow a-X p16 lh15 showSelIn">
+                    <div class="elz p-rel s48 mB8">
+                        <svg class="elz d-block s100p oV deg270" viewBox="0 0 31.831 31.831">
+                            <g class="origCM" stroke-width="1.5" stroke-linecap="round" fill="none" stroke="currentColor">
+                                <circle class="fn fn-primary-t fnA5" cx="50%" cy="50%" r="50%"></circle>
+                                <circle id="<?=$pluploadHtmlId?>Loader" class="fn fn-primary-t" stroke-dasharray="66, 100" cx="50%" cy="50%" r="50%"></circle>
+                            </g>
+                        </svg>
+                        <div id="<?=$pluploadHtmlId?>LoaderText" class="elz p-abs d-flex p-F a-X bold">14%</div>
+                    </div>
+                    <div class="elz d-flex dir-y a-V al-center">
+                        <div class="elz d-block bold">Подождите, идет загрузка</div>
+                    </div>
+                </div>
+
+<!--                <input id="--><?php //=$pluploadHtmlId?><!--Plupload" class="elzInputFile elz p-abs d-block p-EA s100p cur-pointer op0" type="file">-->
+            </div>
+<?endforeach;?>
+        </div>
+
+        <div class="elz d-block growX r3 w100p bg bg-primary bgL5 bsh-default1">
+            <div class="elz d-flex dir-y p16 fn12 lh15">
+                <div class="pmContentExpandBorder elz d-flex a-H gap8 pB8 fn16">
+                    <div class="elz d-block grow">Дополнительно</div>
+
+                </div>
+                <?$this->view->partial(
+                    'forms/entity_edit/content_line_textarea',
+                    [
+                        'name' => 'comment',
+                        'title' => 'Комментарий',
+                        'action' => '?act=contract_edit_comment',
+                        'empty' => 'Комментарий отсутствует',
+                        'placeholder' => 'Введите комментарий',
+                        'content' => $contractRow['contract_comment'],
+                    ]
+                )?>
+
+                <div class="elz d-flex a-H f-wrap gapH16 gapV8 pV16 borT1 br br-primary brL-10 brLInvD">
+                    <div class="elz d-block fb120 bold">Создал:</div>
+                    <div class="elz p-rel d-flex dir-y a-V fb320 grow hmn18">
+                        <div class="elz d-flex f-wrap gap8 a-H">
+                            <div class="elz d-flex a-H grow">
+                                <div class="elz d-flex a-H grow gap8 opAct07 fn fn-male">
+                                    <div class="elz p-rel d-block mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/user.svg');"></div>
+                                    <div class="elz d-block"><?=$contractRow['create_member_nick']?></div>
+                                </div>
+                            </div>
+                            <div class="elz d-block"><?=implode(' в ', explode(' ', $contractRow['contract_create_date']))?></div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="elz d-flex a-H f-wrap gapH16 gapV8 pV16 borT1 br br-primary brL-10 brLInvD">
+                    <div class="elz d-block fb120 bold">Обновил:</div>
+                    <div class="elz p-rel d-flex dir-y a-V fb320 grow hmn18">
+                        <div class="elz d-flex f-wrap gap8 a-H">
+                            <div class="elz d-flex a-H grow">
+                                <div class="elz d-flex a-H grow gap8 opAct07 fn fn-male">
+                                    <div class="elz p-rel d-block mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/user.svg');"></div>
+                                    <div id="counterAgentMetaUpdateNick" class="elz d-block"><?=$contractRow['update_member_nick']?></div>
+                                </div>
+                            </div>
+                            <div id="counterAgentMetaUpdateTime" class="elz d-block"><?=implode(' в ', explode(' ', $contractRow['contract_update_date']))?></div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <div class="elz d-flex dir-y gap8 grow fb320">
+
+        <div class="elz d-flex a-H hmn48">
+            <div class="elz d-block growX borB1 br br-primary brL-10 brLInvD"></div>
+            <div class="elz d-block fn16 lh12 pH16">История событий</div>
+            <div class="elz d-block growX borB1 br br-primary brL-10 brLInvD"></div>
+        </div>
+
+        <div class="elz d-flex dir-y gap8" style="filter: blur(2px)">
+            <div class="elz d-flex gap8">
+                <div class="elz d-flex a-X s40 rRound bg bg-primary bgL5 bsh-default1 noShrink">
+                    <div class="elz d-block p-rel mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/file-text.svg');"></div>
+                </div>
+                <div class="elz d-flex dir-y gap16 grow p16 hmn40 r3 bg bg-primary bgL5 bsh-default1">
+                    <div class="elz d-flex f-wrap a-H gap16">
+                        <div class="elz d-block bold">Запрос №56270</div>
+                        <div class="elz d-block pV6 pH8 rRound fn8 uppercase bold bg bg-success fn fn-success-t">Квалифицирован</div>
+                        <div class="elz d-block pV6 pH8 rRound fn8 uppercase bold bg bg-ok fn fn-ok-t">Изменение</div>
+                        <div class="elz d-block grow">Срок:2022-07-29</div>
+                        <div class="elz d-block rRound s32 bg bg-pink"></div>
+                        <div class="elz d-block rRound s32 bg bg-purple"></div>
+                    </div>
+                    <div class="elz d-flex dir-y gap16 lh15">
+                        <div class="elz d-block">К нам обратился отдел Решетова А.М. (Отдел разработки и сопровождения прикладного ПО) с «горящей» проблемой производительности при работе 1С с рядом баз.</div>
+
+                        <div class="elz d-block">Нам обозначили приоритет как очень критичный и горящий, поэтому хотелось бы приоритезировать задачу и у вас.</div>
+
+                        <div class="elz d-block">Хотим обсудить с вами пути решения, т.к. по опыту часто видим, что ряд проблем вы уже давно видите, знаете причины и предлагали варианты исправления.</div>
+
+                        <div class="elz d-block">Глобально, мы для себя видим в качестве решения выполнение следующих задач:</div>
+
+                        <div class="elz d-block">1. Организация SQL серверов с ресурсами, соразмерными нагрузке.</div>
+
+                        <div class="elz d-block">2. Организация серверов 1С с ресурсами, соразмерными нагрузке.</div>
+
+                        <div class="elz d-block">3. Разнесение продуктивных баз от тестовых.</div>
+
+                        <div class="elz d-block">Начать хотим в этом же порядке, запросили список баз, пока дали и подсветили только основные и проблемные.</div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="elz d-flex gap8">
+                <div class="elz d-flex a-X s40 rRound bg bg-success fn fn-success-t bgL5 bsh-default1 noShrink">
+                    <div class="elz d-block p-rel mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/file-text.svg');"></div>
+                </div>
+                <div class="elz d-flex dir-y gap16 grow p16 hmn40 r3 bg bg-primary bgL5 bsh-default1">
+                    <div class="elz d-flex f-wrap a-H gap16">
+                        <div class="elz d-block bold">Запрос №56270</div>
+                        <div class="elz d-block pV6 pH8 rRound fn8 uppercase bold bg bg-success fn fn-success-t">Квалифицирован</div>
+                        <div class="elz d-block pV6 pH8 rRound fn8 uppercase bold bg bg-ok fn fn-ok-t">Изменение</div>
+                        <div class="elz d-block grow">Срок:2022-07-29</div>
+                        <div class="elz d-block rRound s32 bg bg-pink"></div>
+                        <div class="elz d-block rRound s32 bg bg-purple"></div>
+                    </div>
+                    <div class="elz d-flex dir-y gap16 lh15">
+                        <div class="elz d-block">К нам обратился отдел Решетова А.М. (Отдел разработки и сопровождения прикладного ПО) с «горящей» проблемой производительности при работе 1С с рядом баз.</div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="elz d-flex gap8">
+                <div class="elz d-flex a-X s40 rRound bg bg-ok fn fn-ok-t bgL5 bsh-default1 noShrink">
+                    <div class="elz d-block p-rel mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/user.svg');"></div>
+                </div>
+                <div class="elz d-flex dir-y gap16 grow p16 hmn40 r3 bg bg-primary bgL5 bsh-default1">
+                    <div class="elz d-flex f-wrap a-H gap16">
+                        <div class="elz d-block bold">Запрос №56270</div>
+                        <div class="elz d-block pV6 pH8 rRound fn8 uppercase bold bg bg-success fn fn-success-t">Квалифицирован</div>
+                        <div class="elz d-block pV6 pH8 rRound fn8 uppercase bold bg bg-ok fn fn-ok-t">Изменение</div>
+                        <div class="elz d-block grow">Срок:2022-07-29</div>
+                        <div class="elz d-block rRound s32 bg bg-pink"></div>
+                    </div>
+
+                    <div class="elz d-flex dir-y gap16 lh15">
+                        <div class="elz d-block">1. Организация SQL серверов с ресурсами, соразмерными нагрузке.</div>
+
+                        <div class="elz d-block">2. Организация серверов 1С с ресурсами, соразмерными нагрузке.</div>
+
+                        <div class="elz d-block">3. Разнесение продуктивных баз от тестовых.</div>
+
+                        <div class="elz d-block">Начать хотим в этом же порядке, запросили список баз, пока дали и подсветили только основные и проблемные.</div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="elz d-flex gap8">
+                <div class="elz d-flex a-X s40 rRound bg bg-error fn fn-error-t bgL5 bsh-default1 noShrink">
+                    <div class="elz d-block p-rel mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/info.svg');"></div>
+                </div>
+                <div class="elz d-flex dir-y gap16 grow p16 hmn40 r3 bg bg-primary bgL5 bsh-default1">
+                    <div class="elz d-flex f-wrap a-H gap16">
+                        <div class="elz d-block bold">Запрос №56270</div>
+                        <div class="elz d-block pV6 pH8 rRound fn8 uppercase bold bg bg-success fn fn-success-t">Квалифицирован</div>
+                        <div class="elz d-block pV6 pH8 rRound fn8 uppercase bold bg bg-ok fn fn-ok-t">Изменение</div>
+                        <div class="elz d-block grow">Срок:2022-07-29</div>
+                        <div class="elz d-block rRound s32 bg bg-ok"></div>
+                    </div>
+
+                    <div class="elz d-flex dir-y gap16 lh15">
+                        <div class="elz d-block">Разнесение продуктивных баз от тестовых.</div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <div class="elz d-flex gap8">
+                <div class="elz d-flex a-X s40 rRound bg bg-success fn fn-success-t bgL5 bsh-default1 noShrink">
+                    <div class="elz d-block p-rel mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/file-text.svg');"></div>
+                </div>
+                <div class="elz d-flex dir-y gap16 grow p16 hmn40 r3 bg bg-primary bgL5 bsh-default1">
+                    <div class="elz d-flex f-wrap a-H gap16">
+                        <div class="elz d-block bold">Запрос №56270</div>
+                        <div class="elz d-block pV6 pH8 rRound fn8 uppercase bold bg bg-success fn fn-success-t">Квалифицирован</div>
+                        <div class="elz d-block pV6 pH8 rRound fn8 uppercase bold bg bg-ok fn fn-ok-t">Изменение</div>
+                        <div class="elz d-block grow">Срок:2022-07-29</div>
+                        <div class="elz d-block rRound s32 bg bg-pink"></div>
+                        <div class="elz d-block rRound s32 bg bg-purple"></div>
+                    </div>
+                    <div class="elz d-flex dir-y gap16 lh15">
+                        <div class="elz d-block">К нам обратился отдел Решетова А.М. (Отдел разработки и сопровождения прикладного ПО) с «горящей» проблемой производительности при работе 1С с рядом баз.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>

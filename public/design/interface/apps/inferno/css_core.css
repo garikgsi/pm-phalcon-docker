@@ -1,0 +1,143 @@
+/* Main settings */
+
+.winCSSNunit.app-inferno {
+    width:  1040px;
+    height:  720px;
+    min-width:  1040px;
+    min-height:  720px;
+}
+
+.winCSSNunit.app-infernopanel {
+    width: 320px;
+    max-width: 100%;
+}
+
+@media (min-width: 1025px) {
+    .winCSSNunit.app-inferno { background-color: rgba(0, 0, 0, 0.75); }
+
+    .winCSSNunit.app-inferno .tplGrItem.outerMain > .tplGrItem.rowWrap,
+    .winCSSNunit.app-inferno .tplGrItem.outerMain > .tplGrItem.subheader {
+        width: 100%;
+        align-self: center;
+    }
+
+    .winCSSNunit.app-inferno .tplGrItem.outerMain > .tplGrItem.rowWrap { background-color: #eeeeee; }
+
+    .winCSSNunit.app-inferno .tplGrItem.outerMain > .tplGrItem { position: relative; }
+
+    .winCSSNunit.app-inferno .tplGrItem.outerMain > .tplGrItem.rowWrap,
+    .winCSSNunit.app-inferno .tplGrItem.outerMain > .tplGrItem.subheader,
+    .winCSSNunit.app-inferno .elzCLSenginePanel.winHeader .tbWrap.contentCenter { max-width: 1024px; }
+
+    .winCSSNunit.app-inferno:before {
+        content: "";
+        position: absolute;
+        display: block;
+        top:    0;
+        left:   0;
+        bottom: 0;
+        right:  0;
+        max-width: 1024px;
+        margin: auto;
+        pointer-events: none;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.75);
+    }
+}
+
+@media (min-width: 600px) { .winCSSNunit.app-inferno .elzCLSenginePanel .tbGroup.infCharGroup:not(.subActive) > .tbTool    { display: none; } }
+@media (max-width: 599px) { .winCSSNunit.app-inferno .elzCLSenginePanel .tbGroup.infCharGroup:not(.subActive) > .tbGroupIn { display: none; } }
+
+@media (min-width: 720px) {
+    .winCSSNunit.app-inferno .elzCLSenginePanel .infCharTool { width: 320px; }
+}
+
+@media (max-width: 719px) {
+    .winCSSNunit.app-inferno .elzCLSenginePanel .winControls .tbTool.sep { display: none; }
+    .winCSSNunit.app-inferno .elzCLSenginePanel .infCharTool { width: 224px; }
+}
+
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* State character */
+
+.winCSSNunit.app-inferno.state-character .markMenuL { width: 320px; }
+
+@media (max-width: 639px) {
+    .winCSSNunit.app-inferno.state-character .tplGrid .outerMain > .rowWrap { overflow: auto; }
+
+    .winCSSNunit.app-inferno.state-character .tplGrid .tplGrItem > .tplContent,
+    .winCSSNunit.app-inferno.state-character .tplGrid .tplGrItem > .tplContent > .tplContent { position: relative !important; }
+
+    .winCSSNunit.app-inferno.state-character .tplGrid .outerMain > .rowWrap,
+    .winCSSNunit.app-inferno.state-character .tplGrid .outerMain > .rowWrap .tplGrItem.wrap { display: block; }
+
+    .winCSSNunit.app-inferno.state-character .tplGrid .outerMain > .rowWrap .tplGrItem.grow {
+        width:  auto;
+        height: auto;
+    }
+
+    .winCSSNunit.app-inferno.state-character .markMenuL { width: auto; }
+}
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* State trade */
+
+.winCSSNunit.app-inferno.state-trade .markSideL,
+.winCSSNunit.app-inferno.state-trade .markSideR { width: 160px; }
+
+.winCSSNunit.app-inferno.state-trade .markPartL,
+.winCSSNunit.app-inferno.state-trade .markPartR { width: 48px; }
+
+.winCSSNunit.app-inferno.state-trade .markMenuL,
+.winCSSNunit.app-inferno.state-trade .markMenuR { width: 0; flex-grow: 1; }
+
+.winCSSNunit.app-inferno.state-trade .markMenuL { border-right: 1px solid rgba(0, 0, 0, 0.3); }
+.winCSSNunit.app-inferno.state-trade .markMenuR { border-left:  1px solid rgba(0, 0, 0, 0.3); }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Media */
+/*
+@media (max-width: 467px) { .winCSSNunit.app-inferno.focus { z-index: var(--elzWinAbove9); } }
+@media (max-width: 427px) { .winCSSNunit.app-inferno.focus { z-index: var(--elzWinAbove8); } }
+@media (max-width: 387px) { .winCSSNunit.app-inferno.focus { z-index: var(--elzWinAbove7); } }
+@media (max-width: 347px) { .winCSSNunit.app-inferno.focus { z-index: var(--elzWinAbove6); } }
+@media (max-width: 307px) { .winCSSNunit.app-inferno.focus { z-index: var(--elzWinAbove5); } }
+
+@media (max-width: 100px) { .winCSSNunit.app-inferno.focus { z-index: var(--elzWinAbove4); } }
+@media (max-width: 100px) { .winCSSNunit.app-inferno.focus { z-index: var(--elzWinAbove3); } }
+@media (max-width: 100px) { .winCSSNunit.app-inferno.focus { z-index: var(--elzWinAbove2); } }
+@media (max-width: 100px) { .winCSSNunit.app-inferno.focus { z-index: var(--elzWinAbove1); } }
+
+@media (max-width: 515px) { .winCSSNunit.app-inferno .winControls .tbTool.sep:first-child { display: none; } }
+*/
+/* end */

@@ -1,0 +1,111 @@
+/* Main */
+
+.bb.nav.horizontal .navlist {
+    display: -webkit-flex;
+    display:         flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap:         wrap;
+    margin-left:   -10px;
+    margin-bottom: -10px;
+}
+
+.bb.nav.horizontal .navitem {
+    -webkit-flex-grow: 1;
+    flex-grow:         1;
+    padding-left:   10px;
+    padding-bottom: 10px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing:    border-box;
+    box-sizing:         border-box;
+    width: 140px;
+}
+
+.bb.nav.horizontal.col1 .navitem { min-width:           100%; }
+.bb.nav.horizontal.col2 .navitem { min-width:            50%; }
+.bb.nav.horizontal.col3 .navitem { min-width: 33.3333333333%; }
+.bb.nav.horizontal.col4 .navitem { min-width:            25%; }
+.bb.nav.horizontal.col5 .navitem { min-width:            20%; }
+.bb.nav.horizontal.col6 .navitem { min-width: 16.6666666667%; }
+
+.bb.nav.horizontal .navlink {
+    padding: 7px 5px 6px 48px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius:    2px;
+    border-radius:         2px;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.bb.nav.horizontal .navlink .description { font-size: 0.9em; }
+
+.bb.nav.horizontal .navlink {
+    padding-top:    7px;
+    padding-bottom: 6px;
+}
+
+.bb.nav.horizontal .navlink:hover,
+.bb.nav.horizontal .navlink:active,
+.bb.nav.horizontal .navlink.active {
+    background-color: rgba(0, 0, 0, 0.1);
+    /*color: #ffffff;*/
+}
+
+.bb.nav.horizontal .navlink:active { opacity: 0.7; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Titles */
+
+.bb.nav.horizontal .navlink .inner.title:not(:last-child) { font-weight: bold; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Icon */
+
+.bb.nav.horizontal .navlink .mT {
+    position: absolute;
+    width: 48px;
+    max-height: 3.04em;
+    top:    7px;
+    bottom: 6px;
+    left:     0;
+    padding-left:  8px;
+    padding-right: 8px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing:    border-box;
+    box-sizing:         border-box;
+}
+
+.bb.nav.horizontal .navlink .mT:before {
+    position: absolute;
+    display: block;
+    font-size: 24px;
+    top:  50%;
+    left: 50%;
+    margin-top:  -0.5em;
+    margin-left: -0.5em;
+    z-index: 1;
+    opacity: 0.65;
+}
+
+.bb.nav.horizontal .navlink .mT.ic-right:before,
+.bb.nav.horizontal .navlink .mT.ic-fastright:before { font-size: 9pt; }
+
+/* end */

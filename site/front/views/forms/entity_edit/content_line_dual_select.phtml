@@ -1,0 +1,43 @@
+<div class="pmContentExpandContainer formWrap elz d-flex a-H f-wrap gapH16 gapV8 pV16 borT1 br br-primary brL-10 brLInvD showSelOut hideSelOut invSelOut showHovOut" data-name="<?=$name?>">
+    <div class="elz d-block fb120 bold"><?=$title?>:</div>
+    <div class="elz p-rel d-flex dir-y a-V fb320 grow hmn18">
+        <div title="Редактировать" class="formToggle elz p-abs p-R d-flex a-X cur-pointer opAct07 s36 rRound bgHov bgHov-primary bgHovL-5 hideSelIn showHovIn">
+            <div class="mskIcon elz d-block p-rel noShrink mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/pencil.svg');"></div>
+        </div>
+
+        <form method="post" action="<?=$action?>" class="elz p-abs p-F d-flex a-H showSelIn">
+            <?$this->view->partial('forms/select_base', [
+                'name' => $select1['name'],
+                'options' => $select1['options'],
+                'value' => $select1['value'],
+                'class' => 'mR-1',
+                'inputClass' => 'h36 rL3'.(($select2['hidden'] ?? 0) ? ' rR3' : ''),
+                'arrowClass' => (($select2['hidden'] ?? 0) ? ' pR40' : '')
+            ])?>
+            <?$this->view->partial('forms/select_base', [
+                'name' => $select2['name'],
+                'options' => $select2['options'],
+                'value' => $select2['value'],
+                'class' => (($select2['hidden'] ?? 0) ? ' hide' : ''),
+                'inputClass' => 'h36 rR3',
+                'arrowClass' => (($select2['hidden'] ?? 0) ? '' : ' pR40')
+            ])?>
+            <button type="submit" class="elz p-abs d-flex a-X p-R s40 z10 cur-pointer opAct07 fn fn-primary-t fnL10 fnLInvD fnHovL0">
+                <span class="elz p-rel d-flex a-X s24 r2 evAuto">
+                    <span class="elz p-rel d-block mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/save.svg');"></span>
+                </span>
+            </button>
+        </form>
+
+        <div class="elz d-block invSelIn pR40">
+            <div class="elz p-rel d-flex dir-y a-V fb320 grow hmn18">
+                <div class="elz d-flex a-H lh10 f-wrap gap8 fn11">
+                    <div class="elz d-flex a-X gap8 al-center pV6 pH8 r3 fn11 bg bg-<?=$label_color?> fn fn-<?=$label_color?>-t">
+                        <div class="formResult1 elz d-block"><?=$select1['content']?></div>
+                        <div class="formResult2 elz d-block borL1 pL8 br-CC<?if($select2['hidden'] ?? 0):?> hide<?endif;?>"><?=$select2['content']?></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

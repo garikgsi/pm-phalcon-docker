@@ -1,0 +1,31 @@
+<?php $title = $title ?? '';?>
+<?php $placeholder = $placeholder ?? '';?>
+<?php $name = $name ?? '';?>
+<?php $type = $type ?? 'text';?>
+<?php $value = $value ?? '';?>
+<?php $search = $search ?? 'defaultSearchName';?>
+<?php $update = $update ?? 0;?>
+<?php $delay = $delay ?? 0;?>
+<?php $position = $position ?? 'middle'?>
+
+<?php
+list($labelClass, $inputClass) = [
+    'top'    => ['',     'rT3'],
+    'middle' => ['mT-1', ''],
+    'bottom' => ['mT-1', 'rB3'],
+][$position];
+?>
+
+<label class="elizaSearchFilterItem elz d-grid <?=$labelClass?> grPos fn fn-primary-t fnL20 fnLInvD fnHovL10 fnFow-focus fnFowL0" data-engine="<?=$search?>" data-type="input" data-name="<?=$name?>" data-update="<?=$update?>" data-delay="<?=(int)$delay?>">
+    <input type="<?=$type?>"
+           value="<?=$value?>"
+           name="<?=$name?>"
+           placeholder="<?=$placeholder?>"
+           class="elz elzInput d-block grPin grY2 w100p bor1 <?=$inputClass?> h40 pL96 pR16 fn12 ellipsis trns2 invPssSib
+                  bg bg-primary bgL10 bgLInvD
+                  br brLInvD br-primary brL-10 brHovL-20 brFoc-focus brFocL0
+                  fn fn-primary-t" />
+    <span class="elz d-flex grPin grY2 a-H pH16 z6 evNone">
+        <span class="elz p-rel a-H d-flex trns2"><?=$title?>:</span>
+    </span>
+</label>

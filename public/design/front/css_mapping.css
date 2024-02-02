@@ -1,0 +1,483 @@
+.mappingSec {
+    position: relative;
+}
+
+.infMappingSec {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.mappingSec .mappingWrap {
+    position: relative;
+    display: block;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 2px;
+    transition: 0.1s border-color;
+    box-sizing: border-box;
+}
+
+.mappingSec .mappingWrap.nohover { border: 1px solid rgba(255, 255, 255, 0.25); }
+
+@media (min-width: 1601px) {
+    .infMappingSec {
+        position: absolute;
+        top:    0;
+        bottom: 0;
+        left: 100%;
+        margin-left: 24px;
+        width: 487px;
+    }
+
+    .infoLight  .infMappingSec { left: calc(100% + 16px); }
+
+    .infoLight .mappingSec:first-child .infMappingSec { top: -16px; }
+
+    .mappingSec .mappingWrap {
+        position: sticky;
+        top: 72px;
+    }
+}
+
+@media (max-width: 1600px) {
+
+    .infMappingSec { margin: 1.6em auto; }
+    /*
+    .mappingSec .mappingWrap {
+        max-width: 100%;
+    }
+    */
+}
+
+.mappingSec .mappingWrap:hover,
+.mappingSec .mappingWrap:active { border: 1px solid rgba(255, 255, 255, 0.25); }
+
+.mappingSec .mappingPicWrap,
+.mappingSec .mappingPicWrap .image {
+    position: relative;
+    display: block;
+    max-width: 100%;
+}
+
+.mappingSec .mappingPicWrap {
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.mappingSec .mappingPicWrap .image {
+    width:  auto;
+    height: auto;
+}
+
+.mappingSec .mappingPicWrap .mappingMaskedPics {
+    display: block;
+}
+
+.mappingSec .mappingPicWrap .mappingMaskedPics .image {
+    position: absolute;
+    transition: 0.2s clip-path;
+}
+
+.mappingSec .mappingPicWrap .mappingMaskedPics .image:last-child {
+    position: relative;
+    clip-path: polygon(100% 0, 100% 100%, 40% 100%, 60% 0);
+}
+
+.mappingSec .mappingPicWrap .mappingMaskedPics .image:first-child:hover ~ .image {
+    clip-path: polygon(100% 0, 100% 100%, 100% 100%, 100% 0);
+}
+
+.mappingSec .mappingPicWrap .mappingMaskedPics .image:last-child:hover {
+    clip-path: polygon(100% 0, 100% 100%, 0% 100%, 0 0);
+}
+
+.mappingSec .mappingPicWrap:hover .mappingSep { opacity: 0; }
+
+.mappingSec .mappingPicWrap .mappingSep,
+.mappingSec .mappingPicWrap .infSvgMap,
+.artFigure .svgMap {
+    position: absolute;
+    display: block;
+    top:  0;
+    left: 0;
+    width:  100%;
+    height: 100%;
+}
+
+.mappingSec .mappingPicWrap .mappingSep {
+    pointer-events: none;
+    transition: 0.2s opacity;
+}
+
+.mappingSec .infMapLink,
+.artFigure  .infMapLink {
+    opacity: 0;
+    transition: 0.1s opacity;
+}
+
+.mappingSec .infMapLink a,
+.artFigure  .infMapLink a { fill: inherit; }
+
+.mappingSec .infMapLink.teal, .artFigure .infMapLink.teal { fill: #00d8ff; }
+.mappingSec .infMapLink.blue, .artFigure .infMapLink.blue { fill: #0080c0; }
+
+.mappingSec .infMapLink:hover,
+.mappingSec .infMapLink:active,
+.artFigure  .infMapLink:hover,
+.artFigure  .infMapLink:active { opacity: 0.5; }
+
+.infTextActive, .hoverMapLink:hover { color: #00d8ff; }
+
+.hoverMapLink { cursor: help; }
+
+.infMapActive { animation: infMapLinkBlink infinite linear 0.75s; }
+.infTextActive { animation: infMapTextBlink infinite linear 0.75s; }
+
+
+@keyframes infMapLinkBlink {
+    0%   { opacity: 0; }
+    50%  { opacity: 0.75; }
+    100% { opacity: 0; }
+}
+
+@keyframes infMapTextBlink {
+    0%   { opacity: 0.5; }
+    50%  { opacity: 1; }
+    100% { opacity: 0.5; }
+    /*
+    0%   { color: inherit; }
+    50%  { color: #00d8ff; }
+    100% { color: inherit; }
+    */
+}
+
+
+
+
+
+
+
+
+
+/* Layer widget */
+
+.layerWidget {
+    position: relative;
+    display: block;
+    margin-right: -512px;
+    padding-right: 512px;
+}
+
+.layerWidget .layersWrap {
+    display: block;
+    box-sizing: border-box;
+    padding: 2px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 3px;
+}
+
+.layerWidget .layersWrap .wrapIn {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    border-radius: 2px;
+}
+
+.layerWidget .layerPic {
+    position: absolute;
+    display: block;
+    top:  0;
+    left: 0;
+    margin: auto;
+    width:  auto;
+    height: auto;
+    max-width: 100%;
+    transition: 0.2s opacity, 0.2s visibility;
+}
+
+.layerWidget .layerPic:first-of-type { position: relative; }
+
+.layerWidget .picCheck { display: none; }
+
+.layerWidget .picCheck:checked + .layerPic { visibility: hidden; opacity: 0; }
+
+.layerWidget .layersMenu {
+    position: absolute;
+    display: block;
+    top:   0;
+    right: 0;
+    width: 512px;
+    box-sizing: border-box;
+}
+
+.layerWidget .layersMenu .listItem {
+    display: block;
+    list-style: none;
+}
+
+.layerWidget .layersMenu .itemLabel {
+    position: relative;
+    display: block;
+    cursor: pointer;
+    color: inherit;
+    padding: 12px 16px 12px 48px;
+    border-radius: 0 3px 3px 0;
+}
+
+.layerWidget .layersMenu .itemLabel .elzIcon {
+    position: absolute;
+    top: 50%;
+    left: 24px;
+    margin-top: -8px;
+}
+
+.layerWidget .layersMenu .itemLabel:not(.active) .elzIcon + .elzIcon,
+.layerWidget .layersMenu .itemLabel.active       .elzIcon:first-child  { display: none; }
+
+.layerWidget .layersMenu .itemLabel.active { opacity: 0.5; }
+
+.layerWidget .layersMenu .itemLabel:hover,
+.layerWidget .layersMenu .itemLabel:active {
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+.layerWidget .layersMenu .itemLabel:active { opacity: 0.7; }
+
+@media (min-width: 1601px) {
+    .layerWidget .layersMenu {
+        height: 100%;
+        overflow: auto;
+        -ms-overflow-style: none;
+        scrollbar-width:    none;
+    }
+
+    .layerWidget .layersMenu::-webkit-scrollbar { width: 0; height: 0; }
+}
+
+@media (max-width: 1600px) {
+    .layerWidget {
+        display: flex;
+        flex-direction: column;
+        padding-right: 0;
+        margin-right:  0;
+    }
+
+    .layerWidget .layersMenu {
+        position: relative;
+        width: auto;
+        margin-bottom: 16px;
+    }
+
+    .layerWidget .layersWrap { order: 1; }
+
+    .layerWidget .layersMenu .layersList {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .layerWidget .layersMenu .itemLabel {
+        border-radius: 3px;
+        padding-left: 32px;
+    }
+
+    .layerWidget .layersMenu .itemLabel .elzIcon { left: 8px; }
+}
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Skew widget */
+
+.skewWidget {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    padding-right: 512px;
+    margin-right: -512px;
+    box-sizing: border-box;
+}
+
+/* Prev */
+
+@media (min-width: 1601px) {
+    .skewWidget .skewPreviewer {
+        position: absolute;
+        display: flex;
+        right:  0;
+        top:    0;
+        bottom: 0;
+        justify-content: center;
+        width: 512px;
+    }
+
+    .skewWidget .skewPreviewer .skewPreviewerOut {
+        display: flex;
+        width: 320px;
+        padding: 2px;
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        border-radius: 3px;
+        box-sizing: border-box;
+    }
+
+    .skewWidget .skewPreviewer .skewPreviewerIn {
+        position: relative;
+        display: block;
+        flex-grow: 1;
+        overflow: hidden;
+        border-radius: 2px;
+    }
+
+    .skewWidget .skewPreviewer .prevWrap {
+        position: absolute;
+        display: flex;
+        width:  100%;
+        height: 100%;
+        justify-content: center;
+        top:  0;
+        left: 0;
+        overflow: hidden;
+        cursor: pointer;
+    }
+
+    .skewWidget .skewPreviewer .prevWrap .prevTitle {
+        position: absolute;
+        display: block;
+        top:    0;
+        right:  0;
+        bottom: 0;
+        left:   0;
+        background-color: #000000;
+        opacity: 0;
+        transition: 0.2s;
+        text-align: center;
+    }
+
+    .skewWidget .skewPreviewer .prevWrap:hover  .prevTitle,
+    .skewWidget .skewPreviewer .prevWrap:active .prevTitle,
+    .skewWidget .skewPreviewer .prevWrap.active .prevTitle { opacity: 0.75; }
+
+    .skewWidget .skewPreviewer.c3 .prevWrap:nth-child(3) { clip-path: polygon(0 0, 100% 0, 100% 20%, 0 40%); }
+    .skewWidget .skewPreviewer.c3 .prevWrap:nth-child(2) { clip-path: polygon(0 0, 100% 0, 100% 60%, 0 80%); }
+
+    .skewWidget .skewPreviewer .prevWrap img {
+        display: block;
+        width:  auto;
+        height: auto;
+    }
+
+    .skewWidget .skewPreviewer .prevWrap .prevTitle .titleText {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    .skewWidget .skewPreviewer.c3 .prevWrap .prevTitle .titleText { height: 33.3333333333%; }
+
+    .skewWidget .skewPreviewer.c3 .prevWrap:nth-child(2) .prevTitle .titleText { top: 33.3333333333%; }
+    .skewWidget .skewPreviewer.c3 .prevWrap:nth-child(1) .prevTitle .titleText { top: 66.6666666666%; }
+}
+
+
+@media (max-width: 1600px) {
+    .skewWidget {
+        margin-right:  0;
+        padding-right: 0;
+        flex-direction: column;
+    }
+
+    .skewWidget .skewMain { order: 1; }
+
+    .skewWidget .skewPreviewer { margin: -12px 0 16px -12px; }
+
+    .skewWidget .skewPreviewer img { display: none; }
+
+    .skewWidget .skewPreviewer .skewPreviewerIn {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .skewWidget .skewPreviewer .prevWrap {
+        position: relative;
+        display: block;
+        padding: 12px;
+        margin: 12px 0 0 12px;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+
+    .skewWidget .skewPreviewer .prevWrap.active { background-color: rgba(255, 255, 255, 0.25); }
+}
+
+/* Main */
+
+.skewWidget .skewMain {
+    position: relative;
+    display: block;
+    padding: 2px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+.skewWidget .skewMainOut {
+    position: relative;
+    overflow: hidden;
+    border-radius: 2px;
+}
+
+.skewWidget .skewMain .skewMainWrap { position: absolute; }
+.skewWidget .skewMain .skewMainWrap:last-child { position: relative; }
+
+.skewWidget .skewMain img {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+}
+
+.skewWidget .skewMain .skewMainWrap:not(.active) { visibility: hidden; opacity: 0; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Infoblocks */
+
+.rpgInfernoBody .bb.icoblock.info       { color: #8ccbf2; background-color: rgba(221, 238, 255, 0.05); }
+.rpgInfernoBody .bb.icoblock.success    { color: #40a400; background-color: rgba(233, 251, 233, 0.05); }
+.rpgInfernoBody .bb.icoblock.warning    { color: #bb8000; background-color: rgba(252, 250, 238, 0.05); }
+.rpgInfernoBody .bb.icoblock.error      { color: #e05252; background-color: rgba(251, 233, 233, 0.05); }
+.rpgInfernoBody .bb.icoblock.code       { background-color: rgba(255, 255, 255, 0.05); }
+.rpgInfernoBody .bb.icoblock.spoiler    { background-color: rgba(255, 255, 255, 0.05); }
+.rpgInfernoBody .bb.icoblock.blockquote { background-color: rgba(255, 255, 255, 0.05); }
+
+.rpgInfernoBody .bb.icoblock.info:before       { border-color: #0078d0; }                   .rpgInfernoBody .bb.icoblock.info:after       { background-color: #0078d0; }
+.rpgInfernoBody .bb.icoblock.success:before    { border-color: #40a400; }                   .rpgInfernoBody .bb.icoblock.success:after    { background-color: #40a400; }
+.rpgInfernoBody .bb.icoblock.warning:before    { border-color: #bb8000; }                   .rpgInfernoBody .bb.icoblock.warning:after    { background-color: #bb8000; }
+.rpgInfernoBody .bb.icoblock.error:before      { border-color: #e05252; }                   .rpgInfernoBody .bb.icoblock.error:after      { background-color: #e05252; }
+.rpgInfernoBody .bb.icoblock.code:before       { border-color: rgba(118, 118, 184,  0.5); } .rpgInfernoBody .bb.icoblock.code:after       { background-color: rgba(118, 118, 184,    1); }
+.rpgInfernoBody .bb.icoblock.spoiler:before    { border-color: rgba(0,   172, 193,  0.5); } .rpgInfernoBody .bb.icoblock.spoiler:after    { background-color: rgba(0,   172, 193,    1); }
+.rpgInfernoBody .bb.icoblock.blockquote:before { border-color: rgba(255, 255, 255,  0.2); } .rpgInfernoBody .bb.icoblock.blockquote:after { background-color: rgba(255, 255, 255,  0.4); }
+
+
+.rpgInfernoBody .bb.icoblock.litePad .blockContent { padding: 8px 8px 8px 12px; }
+/* end */

@@ -1,0 +1,131 @@
+/* Forms structure */
+
+.elzF.wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: stretch;
+}
+
+.elzF.wrap + .elzF.wrap { margin-top: 10px; }
+
+.elzF.wrap.compiled > .elzF.wrap + .elzF.wrap { margin-top: 0; }
+
+/* end */
+
+
+
+
+
+/* Wrap settings */
+
+.elzF.wrap.compiled.left    { justify-content:    flex-start; }
+.elzF.wrap.compiled.right   { justify-content:      flex-end; }
+.elzF.wrap.compiled.center  { justify-content:        center; }
+.elzF.wrap.compiled.justify { justify-content: space-between; }
+.elzF.wrap.compiled.around  { justify-content:  space-around; }
+
+/* end */
+
+
+
+
+
+/* Forms container compiled */
+
+.elzF.wrap.compiled {
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items:       flex-end;
+}
+
+.elzF.wrap.compiled > .elzF.wrap {
+    flex-grow:   1;
+    flex-shrink: 1;
+}
+
+.elzF.wrap.compiled.fixed > .elzF.wrap,
+.elzF.wrap.compiled       > .elzF.wrap.grow { width: 0; }
+
+.elzF.wrap.compiled         > .elzF.wrap.auto,
+.elzF.wrap.compiled.left    > .elzF.wrap,
+.elzF.wrap.compiled.right   > .elzF.wrap,
+.elzF.wrap.compiled.center  > .elzF.wrap,
+.elzF.wrap.compiled.justify > .elzF.wrap,
+.elzF.wrap.compiled.around  > .elzF.wrap {
+    width: auto;
+    flex-grow:   0;
+    flex-shrink: 0;
+}
+
+.elzF.wrap.compiled          > .elzF.wrap + .elzF.wrap { margin-left: 10px; }
+.elzF.wrap.compiled.flexible > .elzF.wrap + .elzF.wrap { margin-left:    0; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Forms container compiled flexible */
+
+.elzF.wrap.compiled.flexible > .elzF.wrap:not(:first-child) > .elzF.item,
+.elzF.wrap.compiled.flexible > .elzF.wrap:not(:first-child) > .elzF.item .elzF.wrap.compiled.flexible > .elzF.wrap:first-child > .elzF.item {
+    border-top-left-radius:    0;
+    border-bottom-left-radius: 0;
+}
+
+.elzF.wrap.compiled.flexible > .elzF.wrap:not(:last-child) > .elzF.item,
+.elzF.wrap.compiled.flexible > .elzF.wrap:not(:last-child) > .elzF.item .elzF.wrap.compiled.flexible > .elzF.wrap:last-child > .elzF.item {
+    border-top-right-radius:    0;
+    border-bottom-right-radius: 0;
+}
+
+/* end */
+
+
+
+
+
+/* Default items compiled */
+
+.elzF.wrap.compiled.flexible:not(.noborder) > .elzF.wrap:not(:first-child) > .elzF.item.default,
+.elzF.wrap.compiled.flexible:not(.noborder) > .elzF.wrap:not(:first-child) > .elzF.item.default ~ .elzFA,
+.elzF.wrap.compiled.flexible:not(.noborder) > .elzF.wrap:not(:first-child) > .elzF.item .elzF.wrap.compiled.flexible > .elzF.wrap:first-child > .elzF.item.default,
+.elzF.wrap.compiled.flexible:not(.noborder) > .elzF.wrap:not(:first-child) > .elzF.item .elzF.wrap.compiled.flexible > .elzF.wrap:first-child > .elzF.item.default ~ .elzFA { margin-left: -1px; }
+
+/* Костыль только для инпут тегов сделанный */
+.elzF.wrap.compiled.flexible:not(.noborder) > .elzF.wrap:not(:first-child) > input.elzF.item.default.text,
+.elzF.wrap.compiled.flexible:not(.noborder) > .elzF.wrap:not(:first-child) > .elzF.item .elzF.wrap.compiled.flexible > .elzF.wrap:first-child > input.elzF.item.default.text { width: calc(100% + 1px); }
+
+/* end */
+
+
+
+
+
+/* Noborder unique case */
+
+.elzF.wrap.compiled.flexible.noborder > .elzF.wrap:not(:first-child) > .elzF.item,
+.elzF.wrap.compiled.flexible.noborder > .elzF.wrap:not(:first-child) > .elzF.item .elzF.wrap.compiled.flexible > .elzF.wrap:first-child > .elzF.item { border-left: 0; }
+
+.elzF.wrap.compiled.flexible.noborder > .elzF.wrap:not(:last-child) > .elzF.item,
+.elzF.wrap.compiled.flexible.noborder > .elzF.wrap:not(:last-child) > .elzF.item .elzF.wrap.compiled.flexible > .elzF.wrap:last-child > .elzF.item { border-right: 0; }
+
+/* end */
+
+
+
+
+
+/* Default noborder case */
+
+.elzF.wrap.compiled.flexible.noborder > .elzF.wrap:not(:first-child) > .elzF.item.default,
+.elzF.wrap.compiled.flexible.noborder > .elzF.wrap:not(:first-child) > .elzF.item .elzF.wrap.compiled.flexible > .elzF.wrap:first-child > .elzF.item.default { margin-left: 0; }
+
+/* end */

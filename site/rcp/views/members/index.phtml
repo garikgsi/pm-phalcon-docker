@@ -1,0 +1,40 @@
+<?$membersList = $this->view->getVar('membersList')?>
+
+
+<div class="elz strCLSitem wrap flexible padBMedium padRMedium">
+    <div class="elz strCLSitem marLMedium marTMedium grow flexible">
+        <div class="elz admCLSwrap flexible shadowed admWBordered headBordered">
+            <div class="elz admBody">
+
+                <div class="elz elzCLStableWrap">
+                    <table class="elz elzCLStable">
+                        <thead class="thead pad padHMedium br-h">
+                        <tr class="elz fn-12 al-left elzPLT">
+                            <th class="h48 w240 compressed" colspan="2">
+                                <div class="elz strCLSitem fn-9">
+                                    <div class="elz elzF wrap compiled flexible">
+                                        <?=\Core\Builder\MustacheForms::input('text', 'Поиск пользователя', '', 'ic-search', 'rcpControllersAddName', 'name', '', 'small')?>
+                                    </div>
+                                </div>
+                            </th>
+                            <th class="w120">E-mail</th>
+                            <th class="w80 compressed">Язык</th>
+                            <th class="w140">Группа</th>
+                            <th>Дата регистрации</th>
+<!--                            <th>Дата активности</th>-->
+<!--                            <th>Дата рождения</th>-->
+                        </tr>
+                        </thead>
+
+                        <tbody id="rcpControllersIndexControllersList" class="tbody striped hovering pad padHMedium padVSmall">
+<?for($a = 0, $len = sizeof($membersList); $a < $len; $a++):?>
+    <?$this->view->partial('members/partials/member_tr', $membersList[$a])?>
+<?endfor;?>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

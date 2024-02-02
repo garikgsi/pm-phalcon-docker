@@ -1,0 +1,146 @@
+/* Admin grid body */
+
+@media (max-width: 480px) {
+    .admCLSbody > .strCLSitem.wrap               { padding-right: 0; display: block; }
+    .admCLSbody > .strCLSitem.wrap > .strCLSitem { margin-left:   0; width: auto; }
+}
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Admin wrap block */
+
+.admCLSwrap {
+    position: relative;
+    display: block;
+    flex-direction: column;
+    max-width: 100%;
+}
+
+.admCLSwrap.flexible { display: flex; }
+
+.strCLSitem > .admCLSwrap { width: 0; flex-grow: 1; }
+
+.strCLSitem > .admCLSwrap,
+.strCLSitem > .admCLSwrap.stretch { align-self:    stretch; }
+.strCLSitem > .admCLSwrap.top     { align-self: flex-start; }
+.strCLSitem > .admCLSwrap.middle  { align-self:     center; }
+.strCLSitem > .admCLSwrap.bottom  { align-self:   flex-end; }
+
+.admCLSwrap.transparent    { background-color: transparent; }
+.admCLSwrap:not([data-bg]) { background-color:     #fafafa; }
+
+.admCLSwrap.shadowed { box-shadow: 0 3px 3px rgba(0, 0, 0, 0.05); }
+
+.admWBordered { border-color: rgba(0, 0, 0, 0.1); }
+
+.admCLSwrap.headBordered {
+    border-top-width: 2px;
+    border-top-style: solid;
+}
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Wrap header */
+
+.admMainHeader { border-bottom: 1px solid rgba(0, 0, 0, 0.175); }
+
+.admCLSwrap .admHeader {
+    position: relative;
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    min-height: 48px;
+    border-width: 2px 0 1px 0;
+    border-style: solid;
+}
+
+.admCLSwrap .admHeader .admCaption {
+    display: block;
+    font-size: 12pt;
+    color: #555555;
+    flex-grow: 1;
+    width: 0;
+}
+
+.admCLSwrap .admHeader .admCaption .admTitle {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.2;
+    font-size: inherit;
+    font-weight: normal;
+    padding: 0 16px;
+}
+
+.admMainHeader .admCaption {
+    display: block;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 1.25;
+    color: #666666;
+}
+
+.admMainHeader .elzCLSbookmarks {
+    font-size: 12pt;
+    border-top: 1px solid rgba(0, 0, 0, 0.075);
+}
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Wrap body */
+
+.admCLSwrap .admBody {
+    position: relative;
+    display: block;
+    flex-grow: 1;
+}
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Wrap footer */
+
+.admCLSwrap .admFooter {
+    position: relative;
+    display: block;
+    flex-shrink: 0;
+    border-width: 1px 0 0 0;
+    border-style: solid;
+}
+
+/* end */

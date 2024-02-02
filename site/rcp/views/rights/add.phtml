@@ -1,0 +1,52 @@
+<?$parentId = (int)$this->view->getVar('right_parent_id')?>
+
+<div class="elz strCLSitem wrap flexible padBMedium padRMedium">
+    <?$this->view->partial('partials/forms/forms_section', [
+        'title'  => $t->_('right_add_label1'),
+        'formId' => 'rcpRightAddForm',
+        'formAction' => '/rights/api/right_add',
+        'submitTitle' => $t->_('right_add_submit'),
+        'langed' => ['list' => [[1, 'RU'], [2, 'EN']], 'id' => '', 'name' => 'lang', 'class' => ''],
+        'fieldList' => [
+            [
+                'field'  => 'input',
+                'ftitle' => $t->_('right_meta_name'),
+                'fdescr' => $t->_('right_meta_name_d'),
+                'wtitle' => 'wmn280',
+                'type'   => 'text',
+                'placeholder' => $t->_('right_meta_name_p'),
+                'value' => '',
+                'name'  => 'name'
+            ],
+            [
+                'field'  => 'select',
+                'ftitle' => $t->_('right_meta_parent'),
+                'fdescr' => $t->_('right_meta_parent_d'),
+                'wtitle' => 'wmn280',
+                'type'   => 'text',
+                'value' => $parentId,
+                'optionList' => $this->view->getVar('rights_select_list'),
+                'name'  => 'parent'
+            ],
+            [
+                'field'  => 'input',
+                'ftitle' => $t->_('right_meta_title'),
+                'fdescr' => $t->_('right_meta_title_d'),
+                'wtitle' => 'wmn280',
+                'type'   => 'text',
+                'placeholder' => $t->_('right_meta_title_p'),
+                'value' => '',
+                'name'  => 'title'
+            ],
+            [
+                'field'  => 'textarea',
+                'ftitle' => $t->_('right_meta_description'),
+                'fdescr' => $t->_('right_meta_description_d'),
+                'wtitle' => 'wmn280',
+                'placeholder' => $t->_('right_meta_description_p'),
+                'value' => '',
+                'name'  => 'description'
+            ]
+        ]
+    ])?>
+</div>

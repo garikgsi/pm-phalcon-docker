@@ -1,0 +1,38 @@
+{{#item_separator}}
+<li class="elz layerSep">{{item_separator}}</li>
+{{/item_separator}}
+{{^item_separator}}
+<li class="elz layerItem{{#is_sortable}} sortable{{/is_sortable}} {{item_class}}" {{{item_data}}}>
+
+    {{^item_labeless}}
+    <input class="elz layerExpChecker{{^child_html}} invisible{{/child_html}}" type="checkbox" {{#is_checked}}checked="checked"{{/is_checked}} />
+    <label class="elz layerExpTrigger" title="Развернуть"></label>
+    {{/item_labeless}}
+    <div class="elz layerWrap {{wrap_class}}">
+        <div class="elz layerInner">
+
+        {{#preview_html}}
+            <div class="elz layerTool layerPreview{{#is_sortable}} sortHandle{{/is_sortable}}">
+                <div class="elz toolInner">
+                    <div class="elz hxdLayerPreview">
+                    {{{preview_html}}}
+                    {{#is_sortable}}
+                        <div class="elz dragStat">
+                            <div class="elz elzIcon medium rad elzPLT">
+                                <i class="elz main smallest elzIc ic-move-v elzPLT"></i>
+                            </div>
+                        </div>
+                    {{/is_sortable}}
+                    </div>
+                </div>
+            </div>
+        {{/preview_html}}
+        {{#tool_list}}
+            {{> tools/app_hxd_layers_tool}}
+        {{/tool_list}}
+
+        </div>
+    </div>
+    {{{child_html}}}
+</li>
+{{/item_separator}}

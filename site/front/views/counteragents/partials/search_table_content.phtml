@@ -1,0 +1,21 @@
+<?$counteragentsList = $this->view->getVar('searchEngineContent') ?? []?>
+<?$columnsList = $this->view->getVar('searchEngineColumns') ?? []?>
+<?$counteragentsLen = sizeof($counteragentsList)?>
+<tr class="tr <?if($counteragentsLen):?> hide<?endif;?>">
+    <td class="td stripHoverNone" colspan="100">
+        <div class="elz d-flex dir-y a-X p16 gap16">
+            <div class="elz p-rel d-block mskBef s120 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/no_result2.svg');"></div>
+            <div class="elz d-block al-center fn16">Контрагенты не найдены</div>
+        </div>
+    </td>
+</tr>
+<?for($a = 0, $len = sizeof($counteragentsList); $a < $len; $a++):?>
+    <?$agent = $counteragentsList[$a]?>
+<tr class="tr">
+    <?for($b = 0, $lenB = sizeof($columnsList); $b < $lenB; $b++):?>
+        <?$column = $columnsList[$b]?>
+        <?php if(!$column['active']) {continue;}?>
+        <?$this->view->partial('counteragents/partials/search_table_column_'.$column['column'], ['row' => $agent, 'column' => $column])?>
+    <?endfor;?>
+</tr>
+<?endfor;?>

@@ -1,0 +1,81 @@
+<?$customer = $agent_map[2]?>
+<?$executor = $agent_map[1]?>
+<tr class="tr">
+    <td class="td">
+        <div class="elz d-block">
+            <a class="elz cur-pointer opAct07 fn fn-link-inline fnHovL10 fnHovLInvD underlineHov" title="<?=$contract_title?>" href="/contracts/<?=$contract_id?>" target="_blank">
+                <?=$contract_id?>
+            </a>
+        </div>
+    </td>
+    <td class="td">
+        <a href="/contracts/<?=$contract_id?>" class="elz d-block cur-pointer opAct07 underlineHovOut">
+            <div class="elz d-block bold underlineHovIn fn fn-link-inline"><?=$contract_number?></div>
+            <div class="elz d-block fn10 mT4 op05"><?=$contract_title?></div>
+        </a>
+    </td>
+    <td class="td">
+        <div class="elz d-block al-center pV6 pH8 r3 fn11 bold bg bg-success fn fn-success-t"><?=$status_title?></div>
+    </td>
+    <td class="td">
+        <div class="elz d-flex a-X gap8 al-center pV6 pH8 r3 fn11 bold bg bg-danger fn fn-danger-t">
+            <div class="elz d-block"><?=$prolongation_title?></div>
+<?if($duration_month):?>
+            <div class="elz d-block borL1 pL8 br-CC"><?=$duration_month?> мес.</div>
+<?endif;?>
+        </div>
+    </td>
+    <td class="td">
+        <div class="elz d-flex dir-y gap4">
+            <a href="/counteragents/<?=$customer['counteragent_id']?>"
+               class="elz d-flex a-H gap8 bold cur-pointer opAct07 underlineHov"
+               target="_blank">
+                <div class="elz p-rel d-block mskBef s16 noShrink cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/users.svg');"></div>
+                <div class="elz d-block"><?=$customer['counteragent_title']?></div>
+            </a>
+
+            <?if($customer['contact_id']):?>
+            <div class="elizaRightPanelTrigger elz d-flex a-H gap8 cur-pointer opAct07 underlineHov fn11 fn fn-male" data-panel="contact" data-widget="card" data-node="<?=$customer['contact_node_id']?>" data-id="<?=$customer['contact_id']?>" data-active="0">
+                <div class="elz d-block"><?=$customer['contact_nickname']?></div>
+            </div>
+            <?else:?>
+                <div class="elz d-block fn11 fn fn-error fnLF20 fnFD">Подписант не указан</div>
+            <?endif;?>
+        </div>
+    </td>
+    <td class="td">
+        <div class="elz d-flex dir-y gap4">
+            <a href="/counteragents/<?=$executor['counteragent_id']?>"
+               class="elz d-flex a-H gap8 bold cur-pointer opAct07 underlineHov"
+               target="_blank">
+                <div class="elz p-rel d-block mskBef s16 noShrink cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/users.svg');"></div>
+                <div class="elz d-block"><?=$executor['counteragent_title']?></div>
+            </a>
+            <?if($executor['contact_id']):?>
+            <div class="elizaRightPanelTrigger elz d-flex a-H gap8 cur-pointer opAct07 underlineHov fn11 fn fn-male" data-panel="contact" data-widget="card" data-node="<?=$executor['contact_node_id']?>" data-id="<?=$executor['contact_id']?>" data-active="0">
+
+                <div class="elz d-block"><?=$executor['contact_nickname']?></div>
+
+            </div>
+            <?else:?>
+            <div class="elz d-block fn11 fn fn-error fnLF20 fnFD">Подписант не указан</div>
+            <?endif;?>
+        </div>
+    </td>
+    <td class="td">
+        <div class="elz d-block nowrap"><?=explode(' ', $contract_finish_date)[0]?></div>
+    </td>
+    <td class="td">
+        <div class="elz d-flex a-H gap8 fn fn-male bold cur-pointer underlineHov opAct07">
+            <div class="elz p-rel d-block mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/user.svg');"></div>
+            <div class="elz d-block"><?=$responsible_member_nick?></div>
+        </div>
+    </td>
+    <td class="td">
+        <div class="elz d-flex a-H gap8 fn fn-male bold cur-pointer underlineHov opAct07">
+            <div class="elz p-rel d-block mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/user.svg');"></div>
+            <div class="elz d-block"><?=$create_member_nick?></div>
+        </div>
+    </td>
+
+</tr>

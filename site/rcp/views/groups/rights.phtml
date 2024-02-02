@@ -1,0 +1,9 @@
+<?$rightsList = $this->view->getVar('rightsList')?>
+<?$groupRow = $this->view->getVar('groupRow')?>
+
+<?$this->view->partial('rights/rights_set_widget', [
+    'rightsList' => $rightsList,
+    'rightsWidgetGetParam' => 'group_id='.$groupRow['group_id'],
+    'rightsWidgetId' => 'ipRcpEditGroupsRights'
+])?>
+

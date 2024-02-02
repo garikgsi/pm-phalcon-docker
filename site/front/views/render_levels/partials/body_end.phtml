@@ -1,0 +1,9 @@
+
+        <div class="elz uniScrollBody scrollSimple"></div>
+        <?$vueManifest = json_decode(file_get_contents(DIR_CONFIG.'manifest.json'), true)?>
+        <?if(is_array($vueManifest)):?>
+            <script src="/min/<?=$vueManifest['src/VueBuilder/builder.js']['file']?>"></script>
+        <?endif;?>
+        <?=$this->site->getResourcesJSHtml()?>
+    </body>
+</html>

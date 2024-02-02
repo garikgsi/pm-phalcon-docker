@@ -1,0 +1,23 @@
+<li class="elz menuItem {{item_li_class}}" {{{item_li_data}}}>
+    {{#is_sep}}
+        <div class="elz itemInner title">{{item_title}}</div>
+    {{/is_sep}}
+    {{^is_sep}}
+    <div class="elz itemInner default">
+        <{{item_tag}} class="elz itemLink link {{{item_class}}}" {{{item_data}}} title="{{item_title}}">
+            {{#icon}}{{> common/icon}}{{/icon}}
+            <div class="elz text">
+                <span class="elz inner title">{{item_title}}</span>
+                {{#item_descr}}<span class="elz inner description">{{item_descr}}</span>{{/item_descr}}
+            </div>
+        </{{item_tag}}>
+        {{#nest}}
+        <div class="elz itemNext link cur-pointer" title="{{nest_title}}" data-nest="{{nest_name}}"><i class="elz elzIc ic-arrow3 deg90"></i></div>
+        {{/nest}}
+    </div>
+        {{#nest}}
+            {{> tools/elz_menu_nest}}
+        {{/nest}}
+
+    {{/is_sep}}
+</li>

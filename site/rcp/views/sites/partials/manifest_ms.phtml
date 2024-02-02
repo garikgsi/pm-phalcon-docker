@@ -1,0 +1,32 @@
+<div class="elz strCLSitem marTMedium marLMedium">
+    <div class="elz admManiTabs">
+        <div class="elz tabsWrap">
+        <?$checked = ' checked="checked"'?>
+        <?for($a = 0, $len = sizeof($appList); $a < $len; $a++):?>
+            <?$group = $appList[$a]?>
+            <?$apps  = $group['app']?>
+            <input class="elz checker" id="rcpManifestMsSwitch<?=$a?>" type="radio" name="maniMsSwitch"<?=$checked?>>
+            <label class="elz checkerLabel" for="rcpManifestMsSwitch<?=$a?>"><?=$group['title']?></label>
+            <div class="elz admManiDevicePreview ms">
+                <div class="elz admMSgrid">
+                    <div class="elz gridList <?=$group['size']?>">
+                        <?for($b = 0, $len2 = sizeof($apps); $b < $len2; $b++):?>
+                            <?$app = $apps[$b]?>
+                        <div class="elz gridItem <?=$app['class']?><?=@$app['imgClass']?>"<?=$app['attr']?>>
+                            <div class="elz itemInner">
+                            <?if(!strpos($app['class'], 'yourapp')):?>
+                                <img class="elz image" alt="" src="<?=$app['src']?>">
+                            <?endif;?>
+                                <div class="elz title<?=@$app['titleClass']?>"><?=$app['name']?></div>
+                            </div>
+                        </div>
+
+                        <?endfor;?>
+                    </div>
+                </div>
+            </div>
+            <?$checked = ''?>
+        <?endfor;?>
+        </div>
+    </div>
+</div>

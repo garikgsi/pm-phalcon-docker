@@ -1,0 +1,51 @@
+<div class="elz winCSSNunit app-auth fullscreen standalone focus">
+
+    <div class="elz tplGrid tplGrItem wrap cells">
+
+        <div class="elz tplGrItem outerMain wrap rows grow">
+            <div class="elz tplGrItem section header">
+
+                <div class="elz elzCLSenginePanel light float winHeader">
+                    <div class="elz epBF elzCLStoolbar elzPLT" data-bg="grey 900"></div>
+                </div>
+
+            </div>
+            <div class="elz tplGrItem wrap rowWrap rows grow">
+                <div class="elz tplGrItem section content wrap cells grow">
+                <div class="elz tplGrItem markContent wrap rows grow">
+                    <div class="elz tplGrItem section content grow rel">
+                        <div class="elz tplContent elzScroll macosx dark">
+
+                            <div class="elz elzCLSauth">
+                                <div class="elz authHeader">
+                                    <div class="elz caption"><?=$t->_('idx_title')?></div>
+                                    <div class="elz picture">
+                                        <img class="elz image" alt="<?=$t->_('idx_title')?>" src="/design/interface/apps/auth/images/logo/rcp_logo.svg" width="256" height="256">
+                                    </div>
+                                </div>
+                                <div class="elz authFlex auth">
+                                    <form class="elz authWrap form" action="/index/api/rcp_login" method="post" id="rcpLoginForm">
+                                        <div class="elz wrapCaption"><?=$t->_('idx_subtitle')?></div>
+                                        <div class="elz formWrap input">
+                                            <?=\Core\Builder\MustacheForms::input('text', $t->_('idx_mail_place'), $t->_('idx_mail_title'), 'ic-mail', 'rcpLoginEmail', 'mail')?>
+                                        </div>
+                                        <div class="elz formWrap input">
+                                            <?=\Core\Builder\MustacheForms::input('password', $t->_('idx_pass_place'), $t->_('idx_pass_title'), 'ic-key', 'rcpLoginPassword', 'pass')?>
+                                        </div>
+                                        <div class="elz formWrap submit">
+                                            <?=\Core\Builder\MustacheForms::submit('rcpLoginButton', $t->_('idx_submit'))?>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>

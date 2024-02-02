@@ -1,0 +1,248 @@
+/* Outer container */
+
+.bb.table {
+    position: relative;
+    display: block;
+    overflow: auto;
+}
+
+/* end */
+
+
+
+
+
+
+
+
+
+/* Position */
+
+table.bb,
+table.bb.center { margin-left:  auto; margin-right: auto; }
+table.bb.left   { margin-right: auto; margin-left:     0; }
+table.bb.right  { margin-left:  auto; margin-right:    0; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Main */
+
+table.bb {
+    display: table;
+    border-spacing: 0;
+    border: 0 solid rgba(0, 0, 0, 0.1);
+    border-collapse: separate;
+}
+
+table.bb.fixed { table-layout: fixed; }
+
+table.bb td.compressed { width: 1px; }
+
+table.bb thead, table.bb tr,
+table.bb tbody, table.bb td,
+table.bb tfoot, table.bb th {
+    border-width: 0;
+    vertical-align: top;
+    -webkit-background-clip: padding-box;
+    background-clip:         padding-box;
+}
+
+table.bb > thead, table.bb > thead > tr, table.bb > thead > tr > td, table.bb > thead > tr > th,
+table.bb > tbody, table.bb > tbody > tr, table.bb > tbody > tr > td, table.bb > tbody > tr > th,
+table.bb > tfoot, table.bb > tfoot > tr, table.bb > tfoot > tr > td, table.bb > tfoot > tr > th {
+    border-style: solid;
+    border-color: inherit;
+}
+
+table.bb td,
+table.bb th {
+    position: relative;
+    padding: 10px;
+}
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Content vertical position */
+
+table.bb td.top,
+table.bb th.top,
+table.bb tr.top > td,
+table.bb tr.top > th,
+table.bb.top > thead > tr > td, table.bb.top > thead > tr > th,
+table.bb.top > tbody > tr > td, table.bb.top > tbody > tr > th,
+table.bb.top > tfoot > tr > td, table.bb.top > tfoot > tr > th { vertical-align: top; }
+
+table.bb td.middle,
+table.bb th.middle,
+table.bb tr.middle > td,
+table.bb tr.middle > th,
+table.bb.middle > thead > tr > td, table.bb.middle > thead > tr > th,
+table.bb.middle > tbody > tr > td, table.bb.middle > tbody > tr > th,
+table.bb.middle > tfoot > tr > td, table.bb.middle > tfoot > tr > th { vertical-align: middle; }
+
+table.bb tr.bottom > td,
+table.bb tr.bottom > th,
+table.bb.bottom > thead > tr > td, table.bb.bottom > thead > tr > th,
+table.bb.bottom > tbody > tr > td, table.bb.bottom > tbody > tr > th,
+table.bb.bottom > tfoot > tr > td, table.bb.bottom > tfoot > tr > th { vertical-align: bottom; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Table types settings **************************/
+
+/* Default table */
+
+table.bb > tbody > tr > td,
+table.bb > tbody > tr > th { border-top-width: 1px; }
+
+table.bb > tbody > tr:first-child > td,
+table.bb > tbody > tr:first-child > th { border-top: 0; }
+
+table.bb > thead > tr:last-child  > td, table.bb > thead > tr:last-child  > th { border-bottom-width: 2px; }
+table.bb > tfoot > tr:first-child > td, table.bb > tfoot > tr:first-child > th { border-top-width:    2px; }
+
+table.bb > tbody > tr > th:first-child:not(:last-child) { border-right-width: 2px; }
+table.bb > tbody > tr > th:last-child:not(:first-child) { border-left-width:  2px; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Bordered table */
+
+table.bb.bordered { border-width: 1px 1px 1px 0; }
+
+table.bb.bordered > thead > tr > td, table.bb.bordered > thead > tr > th { border-top-width:    1px; }
+table.bb.bordered > tfoot > tr > td, table.bb.bordered > tfoot > tr > th { border-bottom-width: 1px; }
+
+table.bb.bordered > thead > tr:first-child > td, table.bb.bordered > thead > tr:first-child > th { border-top:    0; }
+table.bb.bordered > tfoot > tr:last-child  > td, table.bb.bordered > tfoot > tr:last-child  > th { border-bottom: 0; }
+
+table.bb.bordered > thead > tr > td, table.bb.bordered > thead > tr > th,
+table.bb.bordered > tbody > tr > td, table.bb.bordered > tbody > tr > th,
+table.bb.bordered > tfoot > tr > td, table.bb.bordered > tfoot > tr > th { border-left-width: 1px; }
+
+table.bb.bordered > tbody > tr > th:first-child:not(:last-child) { border-right-width: 1px; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Transparent table */
+
+table.bb.transparent > thead > tr, table.bb.transparent > thead > tr > td, table.bb.transparent > thead > tr > th,
+table.bb.transparent > tbody > tr, table.bb.transparent > tbody > tr > td, table.bb.transparent > tbody > tr > th,
+table.bb.transparent > tfoot > tr, table.bb.transparent > tfoot > tr > td, table.bb.transparent > tfoot > tr > th { border: none; background: none; }
+
+table.bb.transparent > thead:first-child > tr:first-child > td, table.bb.transparent > thead:first-child > tr:first-child > th,
+table.bb.transparent > tbody:first-child > tr:first-child > td, table.bb.transparent > tbody:first-child > tr:first-child > th,
+table.bb.transparent > tfoot:first-child > tr:first-child > td, table.bb.transparent > tfoot:first-child > tr:first-child > th { padding-top: 0; }
+
+table.bb.transparent > thead:last-child > tr:last-child > td, table.bb.transparent > thead:last-child > tr:last-child > th,
+table.bb.transparent > tbody:last-child > tr:last-child > td, table.bb.transparent > tbody:last-child > tr:last-child > th,
+table.bb.transparent > tfoot:last-child > tr:last-child > td, table.bb.transparent > tfoot:last-child > tr:last-child > th { padding-bottom: 0; }
+
+table.bb.transparent > thead > tr > td:first-child, table.bb.transparent > thead > tr > th:first-child,
+table.bb.transparent > tbody > tr > td:first-child, table.bb.transparent > tbody > tr > th:first-child,
+table.bb.transparent > tfoot > tr > td:first-child, table.bb.transparent > tfoot > tr > th:first-child { padding-left: 0; }
+
+table.bb.transparent > thead > tr > td:last-child, table.bb.transparent > thead > tr > th:last-child,
+table.bb.transparent > tbody > tr > td:last-child, table.bb.transparent > tbody > tr > th:last-child,
+table.bb.transparent > tfoot > tr > td:last-child, table.bb.transparent > tfoot > tr > th:last-child { padding-right: 0; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Condensed table */
+
+table.bb.condensed > thead > tr > td, table.bb.condensed > thead > tr > th,
+table.bb.condensed > tbody > tr > td, table.bb.condensed > tbody > tr > th,
+table.bb.condensed > tfoot > tr > td, table.bb.condensed > tfoot > tr > th { padding: 5px; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Nopad table */
+
+table.bb.marked > thead > tr > td, table.bb.marked > thead > tr > th,
+table.bb.marked > tbody > tr > td, table.bb.marked > tbody > tr > th,
+table.bb.marked > tfoot > tr > td, table.bb.marked > tfoot > tr > th { padding: 0; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Striped table */
+
+table.bb.striped > tbody > tr:nth-of-type(odd) > td,
+table.bb.striped > tbody > tr:nth-of-type(odd) > th {
+    -webkit-box-shadow: inset 0 0 0 1024px rgba(0, 0, 0, 0.04);
+    -moz-box-shadow:    inset 0 0 0 1024px rgba(0, 0, 0, 0.04);
+    box-shadow:         inset 0 0 0 1024px rgba(0, 0, 0, 0.04);
+}
+
+/* end */

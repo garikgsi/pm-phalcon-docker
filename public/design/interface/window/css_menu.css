@@ -1,0 +1,413 @@
+/* Menu settings */
+
+.tplCLSmenu,
+.tplCLSmenu .menuList,
+.tplCLSmenu .menuItem,
+.tplCLSmenu .menuItem > .itemInner {
+    position: relative;
+    display: block;
+}
+
+.tplCLSmenu .menuList { list-style: none; }
+
+.tplCLSmenu.light { color: #cccccc; }
+.tplCLSmenu.dark  { color: #606060; }
+
+.tplCLSmenu .actDisabled { pointer-events: none; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Menu list settings */
+
+.tplCLSmenu > .menuList { padding: 10px 0 11px 0; }
+
+.tplCLSmenu > .menuList.nopad { padding: 0 0 1px 0; }
+
+.tplCLSmenu > .menuList:before {
+    content: "";
+    position: absolute;
+    display: block;
+    bottom: 0;
+    left:  16px;
+    right: 16px;
+    height: 0;
+    border-bottom: 1px solid;
+    opacity: 0.25;
+}
+
+.tplCLSmenu > .menuList:last-child        { padding-bottom: 10px; }
+.tplCLSmenu > .menuList.nopad:last-child  { padding-bottom:    0; }
+.tplCLSmenu > .menuList:last-child:before { display: none; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Item default */
+
+/* Bordered */
+
+.tplCLSmenu .menuItem.default.bordered:before {
+    content: "";
+    position: absolute;
+    display: none;
+    top:    0;
+    right:  0;
+    bottom: 0;
+    left:   0;
+    border-style: solid;
+    border-color: inherit;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.tplCLSmenu .menuItem.default.bordered.active:before { display: block; }
+
+.tplCLSmenu.left  .menuItem.default.bordered:before { border-width: 0 0 0 3px; }
+.tplCLSmenu.right .menuItem.default.bordered:before { border-width: 0 3px 0 0; }
+
+.tplCLSmenu .menuItem.default.small > .itemInner { min-height: 32px; }
+.tplCLSmenu .menuItem.default.large > .itemInner { min-height: 48px; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Link */
+
+.tplCLSmenu .menuItem.default > .itemInner > .itemLink {
+    position: relative;
+    display: flex;
+    align-items: center;
+    color: inherit;
+    cursor: pointer;
+    text-decoration: none;
+    min-height: inherit;
+}
+
+.tplCLSmenu .itemLink:active { opacity: 0.7; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Category */
+
+.tplCLSmenu .menuList .menuItem:not(.expanded) > .menuList { display: none; }
+
+.tplCLSmenu .menuItem.default.category > .itemInner { display: flex; }
+
+.tplCLSmenu .menuItem.default.category > .itemInner > .itemLink {
+    flex-grow: 1;
+    width: 0;
+    order: 1;
+}
+
+/* Expander */
+
+.tplCLSmenu .menuItem.default.category > .itemInner > .itemExpander {
+    position: relative;
+    display: block;
+    min-height: inherit;
+    width: 48px;
+    cursor: pointer;
+}
+
+.tplCLSmenu.left  .menuItem.default.category > .itemInner > .itemExpander { order: 2; }
+.tplCLSmenu.right .menuItem.default.category > .itemInner > .itemExpander { order: 0; }
+
+.tplCLSmenu.left  .menuItem.default.category > .itemInner:not(:hover):not(:active) > .itemExpander { margin-left:  -16px; }
+.tplCLSmenu.right .menuItem.default.category > .itemInner:not(:hover):not(:active) > .itemExpander { margin-right: -16px; }
+
+.tplCLSmenu .menuItem.default.category > .itemInner > .itemExpander:active { opacity: 0.7; }
+
+/* Border */
+
+.tplCLSmenu .menuItem.default.category > .itemInner > .itemExpander:before {
+    content: "";
+    position: absolute;
+    display: block;
+    height: 16px;
+    top: 50%;
+    margin-top: -8px;
+    border-left: 1px solid;
+    opacity: 0;
+    transition: 0.2s opacity;
+}
+
+.tplCLSmenu.left  .menuItem.default.category > .itemInner > .itemExpander:before { left:  0; }
+.tplCLSmenu.right .menuItem.default.category > .itemInner > .itemExpander:before { right: 0; }
+
+.tplCLSmenu .menuItem.default.category > .itemInner:hover > .itemExpander:before        { opacity: 0.5; }
+.tplCLSmenu .menuItem.default.category > .itemInner:hover > .itemExpander:hover:before,
+.tplCLSmenu .menuItem.default.category > .itemInner:hover > .itemExpander:active:before { opacity:   1; }
+
+/* Arrow */
+
+.tplCLSmenu .menuItem.default.category > .itemInner > .itemExpander:after {
+    content: "";
+    position: absolute;
+    width:  0;
+    height: 0;
+    top:  50%;
+    left: 50%;
+    margin-top:  -4px;
+    margin-left: -2px;
+    border-style: solid;
+}
+
+.tplCLSmenu.left  .menuItem.default.category > .itemInner > .itemExpander:after { border-width: 4px 4px 4px 0; border-color: transparent currentColor transparent transparent; }
+.tplCLSmenu.right .menuItem.default.category > .itemInner > .itemExpander:after { border-width: 4px 0 4px 4px; border-color: transparent transparent transparent currentColor; }
+
+.tplCLSmenu .menuItem.default.category.expanded > .itemInner > .itemExpander:after {
+    margin-top:  -1px;
+    margin-left: -4px;
+    border-width: 4px 4px 0 4px !important;
+    border-color: currentColor transparent transparent transparent !important;
+}
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Color light */
+
+.tplCLSmenu.light .menuItem.default        > .itemInner > .itemLink:hover,
+.tplCLSmenu.light .menuItem.default        > .itemInner > .itemLink:active,
+.tplCLSmenu.light .menuItem.default.active > .itemInner > .itemLink,
+
+.tplCLSmenu.light .menuItem.default.category > .itemInner > .itemExpander:hover,
+.tplCLSmenu.light .menuItem.default.category > .itemInner > .itemExpander:active {
+    color: #ffffff;
+    text-shadow: 0 0 4px rgba(255, 255, 255, 0.5); }
+
+.tplCLSmenu.light .menuItem.default > .itemInner:hover,
+.tplCLSmenu.light .menuItem.default > .itemInner:active { background-color: rgba(255, 255, 255, 0.025); }
+
+.tplCLSmenu.light .menuItem.default.expanded,
+.tplCLSmenu.light .menuItem.default.active > .itemInner { background-color: rgba(0, 0, 0, 0.1); }
+
+/* Color dark */
+
+.tplCLSmenu.dark .menuItem.default        > .itemInner > .itemLink:hover,
+.tplCLSmenu.dark .menuItem.default        > .itemInner > .itemLink:active,
+.tplCLSmenu.dark .menuItem.default.active > .itemInner > .itemLink,
+
+.tplCLSmenu.dark .menuItem.default.category > .itemInner > .itemExpander:hover,
+.tplCLSmenu.dark .menuItem.default.category > .itemInner > .itemExpander:active {
+    color: #000000;
+    text-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+}
+
+.tplCLSmenu.dark .menuItem.default > .itemInner:hover,
+.tplCLSmenu.dark .menuItem.default > .itemInner:active { background-color: rgba(0, 0, 0, 0.025); }
+
+.tplCLSmenu.dark .menuItem.default.expanded,
+.tplCLSmenu.dark .menuItem.default.active > .itemInner { background-color: rgba(0, 0, 0, 0.1); }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Icon settings */
+
+.tplCLSmenu .menuItem.default > .itemInner > .itemLink .elzIcon { order: 1; }
+
+.tplCLSmenu .menuItem.default > .itemInner > .itemLink .elzIcon[data-bg]:before {
+    display: block;
+    background-color: #ffffff;
+    opacity: 0;
+}
+
+.tplCLSmenu .menuItem.default > .itemInner > .itemLink:hover  .elzIcon[data-bg]:before,
+.tplCLSmenu .menuItem.default > .itemInner > .itemLink:active .elzIcon[data-bg]:before,
+.tplCLSmenu .menuItem.default > .itemInner > .itemLink.active .elzIcon[data-bg]:before { opacity: 0.15; }
+
+.tplCLSmenu .menuItem.default > .itemInner > .itemLink .elzIcon.smallest { margin-left: 16px; margin-right: 16px; }
+.tplCLSmenu .menuItem.default > .itemInner > .itemLink .elzIcon.medium   { margin-left: 12px; margin-right: 12px; }
+.tplCLSmenu .menuItem.default > .itemInner > .itemLink .elzIcon.larger   { margin-left:  8px; margin-right:  8px; }
+.tplCLSmenu .menuItem.default > .itemInner > .itemLink .elzIcon.largest  { margin-left:  6px; margin-right:  6px; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Text settings */
+
+.tplCLSmenu .menuItem.default > .itemInner > .itemLink .text {
+    position: relative;
+    flex-grow: 1;
+    width: 0;
+}
+
+.tplCLSmenu .menuItem.default > .itemInner > .itemLink .text,
+.tplCLSmenu .menuItem.default > .itemInner > .itemLink .text .item {
+    display: block;
+    line-height: 1.6;
+    padding-left:  16px;
+    padding-right: 16px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.tplCLSmenu .menuItem.default > .itemInner > .itemLink .text .item {
+    margin-left:  -16px;
+    margin-right: -16px;
+}
+
+.tplCLSmenu.left  .menuItem.default > .itemInner > .itemLink .text { order: 2; text-align:  left; }
+.tplCLSmenu.right .menuItem.default > .itemInner > .itemLink .text { order: 0; text-align: right; }
+
+.tplCLSmenu.left  .menuItem.default > .itemInner > .itemLink .elzIcon + .text { margin-left:  -16px; }
+.tplCLSmenu.right .menuItem.default > .itemInner > .itemLink .elzIcon + .text { margin-right: -16px; }
+
+.tplCLSmenu .menuItem.default > .itemInner > .itemLink .text .title:not(:only-child) { font-weight: bold; }
+.tplCLSmenu .menuItem.default > .itemInner > .itemLink .text .description { font-size: 8pt; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Title settings */
+
+.tplCLSmenu .menuItem.title {
+    line-height: 1.6;
+    font-size: 0.9em;
+    padding-top:    8px;
+    padding-bottom: 7px;
+    text-transform: uppercase;
+    text-overflow: ellipsis;
+    white-space:  nowrap;
+    overflow: hidden;
+    opacity: 0.8;
+}
+
+.tplCLSmenu.left .menuItem.title {
+    padding-left:  16px;
+    padding-right: 10px;
+    text-align: left;
+}
+
+.tplCLSmenu.right .menuItem.title {
+    padding-left:  10px;
+    padding-right: 16px;
+    text-align: right;
+}
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Compressor settings */
+
+.tplCLSmenu .menuItem.compressor .itemLink {
+    height: 32px;
+    padding: 0;
+    cursor: pointer;
+}
+
+.tplCLSmenu .menuItem.compressor .itemLink:before {
+    content: "";
+    position: absolute;
+    display: block;
+    width:  0;
+    height: 0;
+    border-left:   5px solid transparent !important;
+    border-right:  5px solid transparent !important;
+    border-bottom: 5px solid;
+    left: 50%;
+    top:  50%;
+    margin-top:  -2px;
+    margin-left: -5px;
+}
+
+.tplCLSmenu .menuList.compressed .menuItem.compressor .itemLink:before {
+    border-bottom: none;
+    border-top: 5px solid;
+}
+
+.tplCLSmenu .menuList.compressed .menuItem.compress { display: none; }
+
+/* Light */
+
+.tplCLSmenu.dark  .menuItem.compressor .itemLink:hover,
+.tplCLSmenu.dark  .menuItem.compressor .itemLink:active {
+    background-color: rgba(0, 0, 0, 0.05);
+    color: #000000;
+}
+
+/* Dark */
+
+.tplCLSmenu.light .menuItem.compressor .itemLink:hover,
+.tplCLSmenu.light .menuItem.compressor .itemLink:active {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #ffffff;
+}
+
+/* end */

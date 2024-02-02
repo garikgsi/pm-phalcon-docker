@@ -1,0 +1,12 @@
+<?$map = $map ?? []?>
+<?$rootList = $map[0] ?? []?>
+<div class="elz uExplorer br br-primary brL-20 brLInvD">
+    <ul class="elz uExpList root">
+<?for($a = 0, $len = sizeof($rootList); $a < $len; $a++):?>
+    <?$node = $rootList[$a]?>
+    <?$node['list'] = $map[$node['value']] ?? []?>
+    <?$node['map'] = $map?>
+        <?$this->view->partial('contracts/search_engine/extend_tree', $node)?>
+<?endfor;?>
+    </ul>
+</div>

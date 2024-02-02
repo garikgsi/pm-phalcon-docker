@@ -1,0 +1,77 @@
+<?php list($statusColor, $statusLockMap) = [
+    1 => ['danger', []],
+    2 => ['success', [1 => 1]],
+    3 => ['error',   [1 => 1, 2 => 1]]
+][$service_status_id]?>
+<li class="serviceItem elz uExpItem" data-id="<?=$service_id?>">
+    <div class="elz uExpWrap d-block pEDVar">
+        <div class="serviceWrap elz uExpWrap d-block pVar r3 bg bg-primary bgL5 bsh-default1 showSelOut">
+            <div class="elz d-flex f-wrap gapH24 gapV8">
+
+
+                <div class="elz p-rel d-flex a-H grow fb200">
+                    <a href="/services/<?=$service_id?>" title="<?=$service_title?>" class="elz p-rel d-flex a-H s-S cur-pointer grow opAct07">
+                        <span class="elz d-flex a-X s32">
+                            <span class="mskIcon elz d-block p-rel noShrink mskBef s14 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/service.svg');"></span>
+                        </span>
+                        <span class="serviceTitle elz d-block fn16 grow"><?=$service_title?></span>
+                    </a>
+                    <form action="?act=service_update&id=<?=$service_id?>"
+                          method="post"
+                          class="serviceUpdateForm elz p-abs p-H d-grid grPos grTV010 fn fn-primary-t fnL20 fnLInvD fnHovL10 fnFow-focus fnFowL0 showSelIn">
+                        <input type="text"
+                               name="title"
+                               value="<?=$service_title?>"
+                               placeholder="Введине название категории"
+                               class="elz elzInput d-block grPin grY2 w100p bor1 r3 h40 pL40 pR16 fn12 ellipsis trns2 invPssSib
+                                  bg bg-primary bgL10 bgLInvD
+                                  br brLInvD br-primary brL-10 brHovL-20 brFoc-focus brFocL0
+                                  fn fn-primary-t">
+                        <span class="elz d-flex a-H grPin grY2 bor1 pH7 z6 evNone">
+                        <span class="elz p-rel d-flex a-X s24 trns2">
+                            <span class="elz p-rel d-block mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/font.svg');"></span>
+                        </span>
+                        <span class="elz p-rel growX d-flex a-PR">
+                            <button type="submit" class="elz p-rel d-flex a-H cur-pointer opAct07">
+                                <span class="elz p-rel d-flex a-X s24 r2 evAuto">
+                                    <span class="elz p-rel d-block mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/save.svg');"></span>
+                                </span>
+                            </button>
+                        </span>
+                    </span>
+
+
+                    </form>
+                </div>
+                <div class="elz d-flex a-H f-wrap gapH24 gapV8">
+                    <div class="elz d-flex a-H gap8 cur-help" title="Количество экземпляров услуг">
+                        <div class="mskIcon elz d-block p-rel noShrink mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/archive.svg');"></div>
+                        <div class="elz d-block bold"><?=$instance_count ?? 0?></div>
+                    </div>
+                    <div class="elz d-flex a-H gap8 cur-help" title="Количество компонентов">
+                        <div class="mskIcon elz d-block p-rel noShrink mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/box.svg');"></div>
+                        <div class="elz d-block bold"><?=$component_total ?? 0?></div>
+                    </div>
+                    <div class="elz d-flex a-H gap8 cur-help" title="Количество активных компонентов">
+                        <div class="mskIcon elz d-block p-rel noShrink mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/checkmark2.svg');"></div>
+                        <div class="elz d-block bold"><?=$count_map['2'] ?? 0?></div>
+                    </div>
+                </div>
+
+                <div class="elz d-flex a-H f-wrap gap8 fb120">
+<?php $this->view->partial('services/partials/status_select', ['select_class' => 'serviceStatusChange', 'service_status_id' => $service_status_id, 'linked_count' => $count_map['2'] ?? 0])?>
+                </div>
+
+                <div class="elz d-flex f-wrap gap8">
+                    <div title="Редактировать" class="categoryServiceEdit  elz d-flex a-X cur-pointer opAct07 s36 rRound bgHov bgHov-primary bgHovL-5 bgSel bgSel-ok fnSel fnSel-t-ok">
+                        <div class="mskIcon evNone elz d-block p-rel noShrink mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/pencil.svg');"></div>
+                    </div>
+                    <div title="Удалить" class="serviceDelete elz d-flex a-X cur-pointer opAct07 s36 rRound bgHov bgHov-primary bgHovL-5">
+                        <div class="mskIcon elz d-block p-rel noShrink mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/cross1.svg');"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</li>

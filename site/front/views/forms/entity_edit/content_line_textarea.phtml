@@ -1,0 +1,34 @@
+<?php $empty = $empty ?? ''?>
+<div class="pmContentExpandContainer formWrap elz d-flex a-H f-wrap gapH16 gapV8 pV16 borT1 br br-primary brL-10 brLInvD showSelOut hideSelOut invSelOut showHovOut" data-name="<?=$name?>">
+    <div class="elz d-block fb120 bold s-T"><?=$title?>:</div>
+
+    <div class="elz p-rel d-flex dir-y a-V fb320 grow hmn18">
+        <div title="Редактировать" class="formToggle elz p-abs p-R d-flex a-X cur-pointer opAct07 s36 rRound bgHov bgHov-primary bgHovL-5 hideSelIn showHovIn">
+            <div class="mskIcon elz d-block p-rel noShrink mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/pencil.svg');"></div>
+        </div>
+
+        <div class="elz p-abs p-AT hmn100p d-flex dir-y a-V mV-8 showSelIn z1">
+            <form method="post" action="<?=$action?>" class="adaptTxtWrap p-abs p-AT elz d-grid grTV010 grPos fn fn-primary-t fnL20 w100p hmn100p fnLInvD fnHovL10 fnFow-focus fnFowL0">
+                <textarea type="text"
+                          rows="1"
+                          name="<?=$name?>"
+                          placeholder="<?=$placeholder?>"
+                          class="elz elzInput res-none d-block res-y grPin grY2 w100p hmn100p bor1 pL16 pV8 pR40 r3 fn12 oAuto trns2 trnsStyle invPssSib
+                                 bg bg-primary bgL10 bgLInvD
+                                 br brLInvD br-primary brL-10 brHovL-20 brFoc-focus brFocL0
+                                 fn fn-primary-t"><?=$content?></textarea>
+                <div class="adaptReplication elz elzInput d-block grPin grY2  bor1 pL16 pV8  w100p hmn100p pR40 r3 fn12 prewrap evNone invisible"></div>
+                <span class="elz d-flex grPin grY2 a-H bor1 pH7 z6 evNone">
+                    <span class="elz p-rel growX d-flex a-PR s-T mT6">
+                        <button type="submit" class="elz p-rel d-flex a-H cur-pointer opAct07">
+                            <span class="elz p-rel d-flex a-X s24 r2 evAuto">
+                                <span class="elz p-rel d-block mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/save.svg');"></span>
+                            </span>
+                        </button>
+                    </span>
+                </span>
+            </form>
+        </div>
+        <div class="formResult elz d-block invSelIn pR40"><?=$content ? nl2br(htmlspecialchars($content)) : $empty?></div>
+    </div>
+</div>

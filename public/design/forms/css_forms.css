@@ -1,0 +1,184 @@
+/***************************************/
+/* FORMS SETTINGS                      */
+/***************************************/
+
+.elzF {
+    position: relative;
+    padding: 0;
+    margin:  0;
+    font-family: inherit;
+    font-size:   inherit;
+    color:       inherit;
+    outline:         none;
+    text-decoration: none;
+    text-shadow:     none;
+    box-sizing: border-box;
+
+    -webkit-appearance: none;                 /* ANTI WEBKIT IOS ROUND SETTINGS */
+    -moz-appearance:    none;
+
+    -webkit-tap-highlight-color: transparent; /* MOBILE HIGHLIGHT ON ACTIVE */
+}
+
+.elzF::-moz-focus-inner { border: 0; padding: 0; }
+
+.elzF::-ms-clear,  .elzF-fake::-ms-clear,
+.elzF::-ms-reveal, .elzF-fake::-ms-reveal,
+.elzF::-ms-expand, .elzF-fake::-ms-expand { display: none; }
+
+.elzFT { display: none; } /* Касательный элемент, который всегда невидим. Применим для чекбоксов и радио */
+
+.elzFA {  } /* Элементы внутри WRAP, класс необходим, чтобы не перечислять все элементы такого типа, которых может быть переменное количество */
+
+/**************************************************************************/
+
+
+
+
+
+
+
+
+
+
+/* Main settings */
+
+.elzF.item:disabled, .elzF.item:disabled ~ .elzFA,
+.elzF.item.disabled, .elzF.item.disabled ~ .elzFA {
+	opacity: 0.4;
+	cursor: not-allowed;
+    pointer-events: none;
+}
+
+.elzF.item.nopad {
+	padding-left:  0 !important;
+	padding-right: 0 !important;
+}
+
+/************************************/
+
+
+
+
+
+
+
+
+
+
+/* Item settings */
+
+.elzF.item {
+    display: block;
+    line-height: 18px;
+    text-overflow: ellipsis;
+    order: 10;
+}
+
+.elzF.item.allMiddle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.elzF.clip { text-overflow: clip !important; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Radius */
+
+.elzF.item.lite.rad    { border-radius:  2px; }
+.elzF.item.default.rad { border-radius:  3px; }
+.elzF.item.circle      { border-radius: 36px; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+
+/* Z-index ************************************************************************************************************/
+
+.elzF.item.default { z-index: 1; }
+
+.elzF.item.text.default:hover,  .elzF.parent:hover  .elzF.item.text.default,
+.elzF.item.text.default.hover,  .elzF.parent.hover  .elzF.item.text.default,
+.elzF.item.text.default:active, .elzF.parent:active .elzF.item.text.default { z-index: 2; }
+
+.elzF.item.button.default:hover, .elzF.parent:hover .elzF.item.button.default,
+.elzF.item.button.default.hover, .elzF.parent.hover .elzF.item.button.default { z-index: 3; }
+
+                  .elzF.item.button.default:active, .elzF.parent:active .elzF.item.button.default,
+                  .elzF.item.button.default.active, .elzF.parent.active .elzF.item.button.default,
+.elzFT:checked  ~ .elzF.item.button.default,        .elzF.parent.active .elzF.item.button.default  { z-index: 4; }
+
+.elzF.item.text.default:focus, .elzF.parent:focus .elzF.item.text.default,
+.elzF.item.text.default.focus, .elzF.parent.focus .elzF.item.text.default { z-index: 5; }
+
+/* end ****************************************************************************************************************/
+
+
+
+
+
+
+
+
+/* Transition settings */
+
+.elzF.item,
+.elzF.item.check .checker.box:before,
+.elzF.wrap .elzF-icon,
+.elzF.wrap .elzF-text {
+	transition-duration: 0.2s;
+	transition-property: color, background-color, border, text-shadow, padding, margin, box-shadow;
+}
+
+.elzF.parent:active .elzF.item.button,
+.elzF.parent        .elzF.item.button:active,
+.elzF.item.button:active,
+.elzF.item.check:active .checker.box:before { transition: 0s; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Overdescr settings */
+
+.elzF.wrap .elzCLSoverDescr { width: 300px; }
+
+.elzF.wrap > .elzF.item:hover      ~ .elzCLSoverDescr,
+.elzF.wrap > .elzF.item.text:focus ~ .elzCLSoverDescr {
+    visibility: visible;
+    opacity: 1;
+}
+
+.elzF.wrap > .elzF.item:hover  ~ .elzCLSoverDescr,
+.elzF.wrap > .elzF.item:active ~ .elzCLSoverDescr { z-index: 31; }
+
+.elzF.wrap > .elzF.item ~ .elzF-text.title       ~ .elzCLSoverDescr.top    { top:    18px; }
+.elzF.wrap > .elzF.item ~ .elzF-text.description ~ .elzCLSoverDescr.bottom { bottom: 18px; }
+
+/* end */

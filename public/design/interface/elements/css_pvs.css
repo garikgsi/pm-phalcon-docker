@@ -1,0 +1,103 @@
+/* Wrap settings */
+
+.elzPvsWrap {
+    position: absolute;
+    display: block;
+}
+
+.pvsInv .elzPvsWrap { display: none; }
+
+.pvsInv:hover  .elzPvsWrap,
+.pvsInv:active .elzPvsWrap { display: block; }
+
+.elzPvsWrap.top,
+.elzPvsWrap.bottom {
+    left:  5px;
+    right: 5px;
+    font-size: 0;
+    text-align: center;
+}
+
+.elzPvsWrap.top    { top:    5px; }
+.elzPvsWrap.bottom { bottom: 5px; }
+
+.elzPvsWrap.left,
+.elzPvsWrap.right { max-width: calc(100% - 10px); }
+
+.elzPvsWrap.left  { text-align:  left; right: auto; }
+.elzPvsWrap.right { text-align: right; left:  auto; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Item settings */
+
+.elzPvsWrap .pvsItem {
+    position: relative;
+    font-size: 8pt;
+    padding:   5px;
+    line-height: 1.6;
+    text-decoration: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: bottom;
+    list-style: none;
+
+    background-color: rgba(0, 0, 0, 0.3);
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.75);
+    color: #ffffff;
+
+    -webkit-border-radius: 2px;
+    -moz-border-radius:    2px;
+    border-radius:         2px;
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing:    border-box;
+    box-sizing:         border-box;
+
+    z-index: 2;
+    cursor: help;
+}
+
+.pvsHover:hover  .elzPvsWrap .pvsItem,
+.pvsHover:active .elzPvsWrap .pvsItem { background-color: rgba(0, 0, 0, 0.75); }
+
+.elzPvsWrap .pvsItem + .pvsItem { margin-top: 5px; }
+
+.elzPvsWrap.left   .pvsItem,
+.elzPvsWrap.right  .pvsItem { white-space: nowrap; }
+
+.elzPvsWrap.top    .pvsItem, .elzPvsWrap.bottom .pvsItem { display: inline-block; }
+.elzPvsWrap.left   .pvsItem, .elzPvsWrap.right  .pvsItem { display:        block; }
+
+.elzPvsWrap.left  .pvsItem.iconed { padding-left:  26px; }
+.elzPvsWrap.right .pvsItem.iconed { padding-right: 26px; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Icon settings */
+
+.elzPvsWrap .pvsItem .elzIcon { position: absolute; }
+
+.elzPvsWrap       .pvsItem .elzIcon.small { top:   5px; }
+.elzPvsWrap.left  .pvsItem .elzIcon.small { left:  5px; }
+.elzPvsWrap.right .pvsItem .elzIcon.small { right: 5px; }
+
+/* end */

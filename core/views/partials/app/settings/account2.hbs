@@ -1,0 +1,193 @@
+<div class="elz setCLSwrap" data-stettings="account">
+    <div class="elz elzCLScaption fn-16">{{lang.account_title}}</div>
+
+    <div class="elz setCLSlist">
+
+        <div class="elz setSection row editable">
+            <div class="elz setSection cell title act">{{lang.account_nick_title}}</div>
+
+            <div class="elz setSection cell content noEdit act">
+                <div class="elz setInner current">
+                    <b class="bb bold">{{nickname.name}}</b>
+                </div>
+            </div>
+
+            <form id="{{id_form_nick}}" method="post" class="elz setSection cell content forEdit">
+
+            <!--{{#nickname.enable}}-->
+                <!--<div class="elz setInner">-->
+
+                <!--<div class="elz elzCLStable smaller nopadH">-->
+                    <!--{{#nickname.list}}-->
+                    <!--{{> app/setts/account_log_row}}-->
+                        <!--{{/nickname.list}}-->
+                <!--</div>-->
+                <!--</div>-->
+            <!--{{/nickname.enable}}-->
+                <div class="elz setInner">
+
+                    <div class="elz elzCLStable nopadH">
+                        <div class="elz tableRow">
+
+                            <div class="elz elzMD tableCell compressed" data-xhide="480">
+                                <div class="elz cellText description nowrap">{{lang.account_nick_current}}:</div>
+                            </div>
+
+                            <div class="elz tableCell">
+                                <div class="elz cellText bold nicknameInsert">{{nickname.name}}</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                {{#forms.nickname}}{{> app/setts/account_standard_fields}}{{/forms.nickname}}
+
+            </form>
+
+            <div class="elz setSection cell icon noEdit act">
+                <i class="elz elzIc ic-pencil"></i>
+            </div>
+        </div>
+
+        <div class="elz setSection row editable" style="display: none !important;">
+            <div class="elz setSection cell title act">{{lang.account_email_title}}</div>
+
+            <div class="elz setSection cell content noEdit act">
+                <div class="elz setInner current">
+                    <div class="elz elzCLStable nopad">
+                        <div class="elz tableRow">
+                            <div class="elz tableCell">
+                                <div class="elz elzText bold">{{email.name}}</div>
+                            </div>
+                            <div class="elz tableCell compressed">
+                                {{#email.label}}{{> common/label_single}}{{/email.label}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <form id="{{id_form_mail}}" method="post" class="elz setSection cell content forEdit">
+                <div class="elz setInner">
+
+                    <div class="elz elzCLStable nopadH">
+                        <div class="elz tableRow">
+
+                            <div class="elz elzMD tableCell compressed" data-xhide="480">
+                                <div class="elz cellText description nowrap">{{lang.account_email_current}}:</div>
+                            </div>
+
+                            <div class="elz tableCell">
+                                <div class="elz cellText bold">{{email.name}}</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                {{#forms.email}}{{> app/setts/account_standard_fields}}{{/forms.email}}
+            </form>
+
+            <div class="elz setSection cell icon noEdit act">
+                <i class="elz elzIc ic-pencil"></i>
+            </div>
+        </div>
+
+        <div class="elz setSection row editable" data-isavatar="1">
+            <div class="elz setSection cell title act">{{lang.account_avatar_title}}</div>
+
+            <div class="elz setSection cell content noEdit act">
+                <div class="elz setInner current">
+                    <figure class="elz elzBG elzCLSuAvatar rad x100 online">
+                        <div class="elz avLink link">
+                            <img id="{{id_preview}}" class="elz image" src="{{avatar}}" alt="{{lang.account_avatar_current}}" />
+                        </div>
+                    </figure>
+                </div>
+            </div>
+
+            <div class="elz setSection cell content forEdit">
+                <div class="elz setInner">
+                    <div class="elz setAvatar">
+                        <div id="{{id_supcrop}}" class="elz elzCLSupCrop upload">
+                            <div class="elz elzCLSuploader rad">
+                                {{#upload}}{{> common/upload_zone}}{{/upload}}
+                            </div>
+
+                            {{#cropbox}}{{> common/cropbox}}{{/cropbox}}
+                        </div>
+                    </div>
+                </div>
+
+                {{#forms.avatar}}{{> app/setts/account_standard_fields}}{{/forms.avatar}}
+
+            </div>
+
+            <div class="elz setSection cell icon noEdit act">
+                <i class="elz elzIc ic-pencil"></i>
+            </div>
+        </div>
+
+
+
+        <div class="elz setSection row editable">
+            <div class="elz setSection cell title act">{{lang.account_pass_title}}</div>
+
+            <div class="elz setSection cell content noEdit act">
+                <div class="elz setInner current">
+                    {{#pass.count}}
+                        {{lang.account_pass_str1}} {{pass.count}} {{lang.account_pass_str2}} {{pass.days}} {{lang.account_pass_str3}} - <b class="bb bold">{{pass.date}}</b>.
+                    {{/pass.count}}
+                    {{^pass.count}}
+                        {{lang.account_pass_str4}}
+                    {{/pass.count}}
+                </div>
+            </div>
+
+            <form id="{{id_form_pass}}" method="post" class="elz setSection cell content forEdit">
+                {{#forms.password}}{{> app/setts/account_standard_fields}}{{/forms.password}}
+            </form>
+
+            <div class="elz setSection cell icon noEdit act">
+                <i class="elz elzIc ic-pencil"></i>
+            </div>
+        </div>
+
+        <div class="elz setSection row">
+            <div class="elz setSection cell title act">{{lang.account_birth_title}}</div>
+
+            <div class="elz setSection cell content noEdit act">
+                <div class="elz setInner current">
+                    <div class="elz elzCLStable nopad">
+                        <div class="elz tableRow">
+                            <div class="elz tableCell">
+                                <div class="elz elzText">{{birth.date}} <b class="bb bold">({{birth.years}} {{lang.account_birth_year}})</b></div>
+                            </div>
+                            <div class="elz elzMD tableCell compressed" data-xhide="320">
+                                {{#birth.label}}{{> common/label_group}}{{/birth.label}}
+                            </div>
+                            <!--{{#birth.restricts}}-->
+                                <!--<div class="elz tableCell compressed">-->
+                                    <!--<div class="elz elzCLSlabel" title="{{descr}}" data-elz-bg="{{color}}">{{title}}</div>-->
+                                <!--</div>-->
+                            <!--{{/birth.restricts}}-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="elz setSection row">
+            <div class="elz setSection cell title act">{{lang.account_lang_title}}</div>
+
+            <div class="elz setSection cell content noEdit act">
+                <div class="elz setInner current">
+                    <b class="bb bold">Русский</b>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>

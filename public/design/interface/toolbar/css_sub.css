@@ -1,0 +1,147 @@
+/* Sub group wrap */
+
+.elzCLSenginePanel .tbGroup.subActive          { justify-content:     center; }
+.elzCLSenginePanel .tbGroup.subActive.subLeft  { justify-content:   flex-end; }
+.elzCLSenginePanel .tbGroup.subActive.subRight { justify-content: flex-start; }
+
+.elzCLSenginePanel .tbGroup.exClick > .tbGroupIn,
+.elzCLSenginePanel .tbGroup.subActive .tbTool .elzTTwrap { display: none; }
+
+.elzCLSenginePanel .tbGroup.subActive > .tbGroupIn {
+    position: absolute;
+    display: block;
+    max-height: calc(100vh - 126px);
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding-top:    5px;
+    padding-bottom: 5px;
+    min-width: 272px;
+    max-width: 640px;
+    color: #444444;
+    background-color: #f5f5f5;
+    border-radius: 1px;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 1px 10px rgba(0, 0, 0, 0.25);
+    z-index: 160;
+}
+
+.elzCLSenginePanel .tbGroup.subActive.subTop    > .tbGroupIn,
+.elzCLSenginePanel .tbGroup.subTop              > .subArrow { bottom: 58px; }
+.elzCLSenginePanel .tbGroup.subActive.subBottom > .tbGroupIn,
+.elzCLSenginePanel .tbGroup.subBottom           > .subArrow { top:    58px; }
+
+@media (max-width: 640px) {
+    .elzCLSenginePanel .tbGroup.subActive > .tbGroupIn {
+        position: fixed;
+        left:  11px;
+        right: 11px;
+        max-width: none;
+        width: auto;
+    }
+}
+
+/* Пример как на медии показывать всплывалку */
+/*
+@media (min-width: 1601px) { .elzCLSenginePanel .tbGroup.testTRIG:not(.subActive) > .tbTool    { display: none; } }
+@media (max-width: 1600px) { .elzCLSenginePanel .tbGroup.testTRIG:not(.subActive) > .tbGroupIn { display: none; } }
+*/
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Arrow */
+
+.elzCLSenginePanel .tbGroup > .subArrow {
+    position: absolute;
+    display: none;
+    width: 12px;
+    height: 6px;
+    left: 50%;
+    margin-left: -6px;
+    z-index: 160;
+}
+
+.elzCLSenginePanel .tbGroup > .subArrow.left  {
+    left:  24px;
+    right: auto;
+    margin-left: -6px;
+    margin-right:   0;
+}
+
+.elzCLSenginePanel .tbGroup > .subArrow.right {
+    right: 24px;
+    left:  auto;
+    margin-right: -6px;
+    margin-left:     0;
+}
+
+.elzCLSenginePanel .tbGroup.subTop    > .subArrow { bottom: 52px; }
+.elzCLSenginePanel .tbGroup.subBottom > .subArrow { top:    52px; }
+
+.elzCLSenginePanel .tbGroup.subActive > .subArrow { display: block; }
+
+.elzCLSenginePanel .tbGroup > .subArrow:before,
+.elzCLSenginePanel .tbGroup > .subArrow:after {
+    content: "";
+    position: absolute;
+    display: block;
+    width:  0;
+    height: 0;
+    border-width: 6px;
+    border-style: solid;
+    border-left-color:  transparent !important;
+    border-right-color: transparent !important;
+}
+
+.elzCLSenginePanel .tbGroup > .subArrow:before { z-index: 1; border-color: rgba(0, 0, 0, 0.2); }
+.elzCLSenginePanel .tbGroup > .subArrow:after  { z-index: 2; border-color: #f5f5f5; }
+
+.elzCLSenginePanel .tbGroup.subBottom > .subArrow:before,
+.elzCLSenginePanel .tbGroup.subBottom > .subArrow:after { border-top-width: 0; }
+
+.elzCLSenginePanel .tbGroup.subTop > .subArrow:before,
+.elzCLSenginePanel .tbGroup.subTop > .subArrow:after { border-bottom-width: 0; }
+
+.elzCLSenginePanel .tbGroup.subBottom > .subArrow:before { margin-top: -1px; }
+.elzCLSenginePanel .tbGroup.subTop    > .subArrow:before { margin-top:  1px; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Tool */
+
+.elzCLSenginePanel .tbGroup.subActive > .tbGroupIn .tbTool {
+    text-shadow: none;
+    height: 48px;
+}
+
+.elzCLSenginePanel .tbGroup.subActive > .tbGroupIn .tbTool .tbText {
+    display: block;
+    white-space: nowrap;
+}
+
+.elzCLSenginePanel .tbGroup.subActive > .tbGroupIn .tbTool:hover,
+.elzCLSenginePanel .tbGroup.subActive > .tbGroupIn .tbTool:active,
+.elzCLSenginePanel .tbGroup.subActive > .tbGroupIn .tbTool.active {
+    color: #000000;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* end */
+
+

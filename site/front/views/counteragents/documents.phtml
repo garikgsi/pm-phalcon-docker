@@ -1,0 +1,103 @@
+<?php $filesMap = $this->view->getVar('documentsMap')?>
+<?php $isEnabled = sizeof($filesMap)?>
+<div class="elz p-rel d-flex grow">
+    <div class="elz uniScroll scrollSimple p-abs p-F d-grid grow r3 oH bg bg-primary bgL5 bsh-default1">
+        <div class="elz uniScrollIn oAuto d-block scrollHideFine">
+
+
+            <table class="elz elzTable w100p lh12 va-M<?if(!$isEnabled):?> hmn100p<?endif;?>">
+                <thead class="tbody p-sticky p-T pad pH16 nowrap z1">
+                <tr class="tr bor borB1 bold h48 br br-secondary brL-10 bg bg-secondary fn fn-secondary-t">
+                    <th class="td wmn240">
+                        <div class="elz d-block"></div>
+                    </th>
+                    <th class="td wmn150">
+                        <div class="elz d-block">Тип файла</div>
+                    </th>
+                    <th class="td">
+                        <div class="elz d-block">Название файла</div>
+                    </th>
+                    <th class="td wmn200">
+                        <div class="elz d-block">Автор</div>
+                    </th>
+                    <th class="td w1">
+                        <div class="elz d-block">Дата добавления</div>
+                    </th>
+                    <th class="td">
+                        <div class="elz d-block">Признак</div>
+                    </th>
+                </tr>
+                </thead>
+<?if(!$isEnabled):?>
+                <tbody class="tbody pad pV12 pH16 uStrip stripEven strip005 stripHover">
+
+                    <tr class="tr stripHoverNone">
+                        <td class="td p-rel" colspan="100">
+                            <div class="elz p-rel d-block mAuto mskBef s64 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/no_result2.svg');"></div>
+                            <div class="elz d-flex a-X al-center mT16 lh15 fn16">Нет данных</div>
+                        </td>
+                    </tr>
+
+                </tbody>
+<?endif;?>
+<?foreach ($filesMap as $typeName => $typeData):?>
+
+
+
+                <tbody class="tbody pad pV12 pH16 uStrip stripEven strip005 stripHover">
+                <tr class="tr p-sticky z1 bg bg-primary bgL-5 stripHoverNone" style="top: 48px;">
+                    <td class="td" colspan="100">
+                        <div class="elz d-flex a-H">
+                            <div class="elz p-sticky mH-16 pH16 p-L d-block bold"><?=$typeData['title']?></div>
+                        </div>
+                    </td>
+                </tr>
+    <?for($a = 0, $len = sizeof($typeData['list']); $a < $len; $a++):?>
+        <?$file = $typeData['list'][$a]?>
+                <tr class="tr">
+                    <td class="td">
+                        <div class="elz d-block bold"><?=$file['entity_title']?></div>
+                    </td>
+                    <td class="td">
+                        <div class="elz d-block"><?=$file['type_title']?></div>
+                    </td>
+                    <td class="td">
+                        <a class="elz d-block underlineHovOut opAct07" title="Скачать файл" href="/uploads/files/<?=$file['file_hash']?>.<?=$file['file_extension']?>" target="_blank">
+                            <div class="elz d-block bold fn fn-link-inline underlineHovIn"><?=$file['file_name']?></div>
+                        </a>
+                        <div class="elz d-block"></div>
+                    </td>
+                    <td class="td">
+                        <div class="elz d-flex a-H gap8 fn fn-male bold cur-pointer underlineHov opAct07">
+                            <div class="elz p-rel d-block mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/user.svg');"></div>
+                            <div class="elz d-block"><?=$file['member_nick']?></div>
+                        </div>
+                    </td>
+                    <td class="td">
+                        <div class="elz d-block nowrap"><?=str_replace(' ', ' в ', $file['file_create_date'])?></div>
+                    </td>
+                    <td class="td">
+                        <div class="elz d-flex f-wrap gap8 lh10">
+        <?if($file['file_trait']):?>
+            <?$fileTraits = explode(',', $file['file_trait'])?>
+            <?for($b = 0, $lenB = sizeof($fileTraits); $b < $lenB; $b++):?>
+                            <div class="elz d-block grow al-center pV6 pH8 r3 fn11 bold cur-pointer opAct07 bg bg-ok fn fn-ok-t"><?=$fileTraits[$b]?></div>
+            <?endfor;?>
+        <?endif;?>
+                        </div>
+                    </td>
+
+                </tr>
+    <?endfor;?>
+                </tbody>
+<?endforeach;?>
+
+
+
+            </table>
+
+        </div>
+    </div>
+</div>
+
+

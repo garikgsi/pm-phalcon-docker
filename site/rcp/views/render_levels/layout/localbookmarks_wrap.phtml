@@ -1,0 +1,94 @@
+<? use Core\Builder\MustacheForms;?>
+
+<?$localBooks  = $this->view->getVar('res_local_books')?>
+<?$localTitle  = $this->view->getVar('res_local_title')?>
+<?$localFooter = $this->view->getVar('res_local_footer')?>
+
+<div class="elz strCLSitem wrap flexible padBMedium padRMedium">
+    <div class="elz strCLSitem marLMedium marTMedium grow flexible">
+        <div class="elz admCLSwrap flexible shadowed">
+<?if($localTitle || is_array($localBooks)):?>
+            <div class="elz admHeader admWBordered">
+                <div class="elz admCaption">
+    <?if($localTitle):?>
+                    <h2 class="elz admTitle"><?=$localTitle?></h2>
+    <?elseif(is_array($localBooks)):?>
+                    <?$this->view->partial('partials/bookmarks_type1', ['list' => $this->view->getVar('res_local_books')])?>
+    <?endif;?>
+                </div>
+            </div>
+<?endif;?>
+            <div class="elz admBody" id="<?=$this->hapi->genRenderContainerId('action')?>">
+                <?=$this->getContent()?>
+            </div>
+
+<?if($localFooter && is_array($localFooter) && sizeof($localFooter)):?>
+            <div class="admFooter admWBordered">
+                <div class="elz strCLSitem flexible wrap center padRMedium padBMedium">
+    <?foreach($localFooter as $footerButton):?>
+        <?$footerButtonType = $footerButton['element_type']?>
+
+                    <div class="elz strCLSitem marTMedium marLMedium<?=$footerButton['element_width']?>">
+        <?if($footerButtonType == 'input'):?>
+            <?=MustacheForms::input(
+                @$footerButton['type'],
+                @$footerButton['placeholder'],
+                @$footerButton['title'],
+                @$footerButton['icon'],
+                @$footerButton['id'],
+                @$footerButton['name'],
+                @$footerButton['value']
+            )?>
+        <?elseif($footerButtonType == 'button'):?>
+            <?=MustacheForms::button(
+                @$footerButton['id'],
+                @$footerButton['text'],
+                @$footerButton['icon'],
+                @$footerButton['variant'],
+                @$footerButton['disabled'],
+                @$footerButton['icon_only']
+            )?>
+        <?elseif($footerButtonType == 'button_link'):?>
+            <?=MustacheForms::buttonLink(
+                @$footerButton['text'],
+                @$footerButton['href'],
+                @$footerButton['variant'],
+                @$footerButton['title'],
+                @$footerButton['icon'],
+                @$footerButton['id'],
+                @$footerButton['classes'],
+                @$footerButton['data']
+            )?>
+        <?endif;?>
+                    </div>
+    <?endforeach;?>
+<!---->
+<!--                    <div class="elz strCLSitem marTMedium marLMedium w300">-->
+<!---->
+<!--                        <div class="elz elzF wrap">-->
+<!--                            <input type="text" class="elz elzF item text input default medium rad dark elzPLT" data-bg="grey 200" value="" placeholder="Resource style group name" />-->
+<!--                        </div>-->
+<!---->
+<!--                    </div>-->
+<!--                    <div class="elz strCLSitem marTMedium marLMedium">-->
+<!--                        <div class="elz elzF wrap">-->
+<!--                            <input type="submit" value="Добавить группу" class="elz elzF item button default medium rad light elzPLT" data-bg="blue" />-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="elz strCLSitem marTMedium marLMedium">-->
+<!--                        <div class="elz elzF wrap icLeft icOnly">-->
+<!--                            <div class="elz elzF item button default medium dark rad elzPLT" data-bg="grey 200" title="Отменить выделение файлов"></div>-->
+<!--                            <label class="elz elzFA elzF-icon left elzPLT">-->
+<!--                                                            <span class="elz elzIcon rad medium">-->
+<!--                                                                <i class="elz main smallest elzIc ic-selectremove elzPLT"></i>-->
+<!--                                                            </span>-->
+<!--                            </label>-->
+<!--                        </div>-->
+<!--                    </div>-->
+                </div>
+            </div>
+<?endif;?>
+
+        </div>
+    </div>
+</div>

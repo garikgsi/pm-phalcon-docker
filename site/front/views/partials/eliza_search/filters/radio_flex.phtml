@@ -1,0 +1,35 @@
+<?php $title = $title ?? '';?>
+<?php $name = $name ?? '';?>
+<?php $search = $search ?? 'defaultSearchName';?>
+<?php $update = $update ?? 0;?>
+<?php $delay = $delay ?? 0;?>
+<?php $uri = $uri ?? 0;?>
+<?php $list = $list ?? [];?>
+
+<?php $titleTemplate = $uri ? 'radio_flex_link' : 'radio_flex_title'?>
+
+
+<div class="elizaSearchFilterItem elz d-block grow fb320 pVVar r3 bg bg-primary bgL5 bsh-default1" data-engine="<?=$search?>" data-type="radio_flex" data-name="<?=$name?>" data-update="<?=$update?>" data-delay="<?=(int)$delay?>">
+    <h3 class="elz d-block fn16 pH16 pV8"><?=$title?></h3>
+    <div class="elz d-block">
+    <?php for($a = 0, $len = sizeof($list); $a < $len; $a++):?>
+        <?php $radio = $list[$a];?>
+        <?php $radio['key'] = $name;?>
+        <?php $radio['uri'] = $uri;?>
+        <label class="elz d-flex a-H cur-pointer pV8 bgHov bgHov-primary bgHovL-10 bgLInvD selNone">
+            <span class="elz d-flex a-X w40">
+                <input type="checkbox"
+                       class="elz elzCheck radio p-rel d-flex cur-inh s16 rCircle p4
+                              cLInvD bg bg-primary bgL10
+                              fn fn-primary-t fnHovL-5
+                              bshLD bshHov-default2" name="<?=$radio['name']?>"<?php if($radio['checked']):?> checked="checked"<?php endif;?>/>
+            </span>
+            <?php $this->view->partial('partials/eliza_search/filters/'.$titleTemplate, $radio);?>
+            <span class="elz p-rel d-block  pH6 pV4 mH8 fn11">
+            <span class="elz p-abs p-F d-block op02 r3 bg-CC"></span>
+            <span class="elz p-rel d-block chrLHFix"><?=$radio['count']?></span>
+        </span>
+        </label>
+    <?php endfor;?>
+    </div>
+</div>

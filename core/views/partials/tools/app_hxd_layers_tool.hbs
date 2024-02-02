@@ -1,0 +1,36 @@
+<div class="elz layerTool {{tool_class}}" {{{tool_data}}}>
+    <div class="elz toolInner">
+        {{#tool_text}}<div class="elz toolText">{{tool_text}}</div>{{/tool_text}}
+
+        {{#tool_icon}}
+        <div class="elz elzIcon medium rad elzPLT">
+            <i class="elz main smallest elzIc {{tool_icon}} elzPLT"></i>
+        </div>
+        {{/tool_icon}}
+
+        {{#tool_ticon}}
+        <div class="elz toolIcon">
+            <div class="elz elzIcon smallest">
+                <i class="elz main smallest elzIc {{tool_ticon}}"></i>
+            </div>
+        </div>
+        {{/tool_ticon}}
+
+        {{#tool_color}}
+        <div class="elz hxdPickrLayerColor {{tool_color_class}}" {{{tool_color_data}}} style="color: {{{tool_color}}};">
+            <div class="elz colorIn colorOpacity elzPLT" data-tx="ps-opacity-dark"></div>
+            <div class="elz colorIn colorItself"></div>
+            <div class="elz elzSight">
+                <i class="elz sH tr"></i>
+                <i class="elz sH tl"></i>
+                <i class="elz sH br"></i>
+                <i class="elz sH bl"></i>
+            </div>
+        </div>
+
+        {{/tool_color}}
+    </div>
+
+    {{{tool_sup}}}
+</div>
+

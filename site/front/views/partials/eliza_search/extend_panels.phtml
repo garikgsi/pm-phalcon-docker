@@ -1,0 +1,5 @@
+<?php $panelsList = $panels_list ?? []?>
+<?php for($a = 0, $len = sizeof($panelsList); $a < $len; $a++):?>
+    <?php $panel = $panelsList[$a]?>
+    <?php $this->view->partial('partials/eliza_search/panels/'.$panel['type'], $panel['data'])?>
+<?php endfor;?>

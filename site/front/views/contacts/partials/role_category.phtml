@@ -1,0 +1,49 @@
+<div class="roleType elz d-block r3 bg bg-primary bgL5 bsh-default1" data-id="<?=$contact_type_id?>">
+
+    <div class="elz d-block">
+        <div class="elz d-flex f-wrap a-H gap8 pAR8 pL16 hmn56 borB1 br br-primary brL-10 brLInvD">
+            <div class="elz d-block grow fn16 bold"><?=$type_title?></div>
+            <div class="elz d-flex f-wrap a-H">
+                <!--                <div class="elz d-flex a-H gap4 p4 r3 fn11 bold bg bg-primary bgL-5 cur-help" title="Количество контрагентов">-->
+                <!--                    <div class="mskIcon elz d-block p-rel noShrink mskBef s12 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/users.svg');"></div>-->
+                <!--                    <div class="elz d-block">0</div>-->
+                <!--                </div>-->
+            </div>
+            <div class="elz d-flex a-X gap8">
+                <?if($can_edit ?? 0):?>
+                    <div class="roleAddWrap elz p-rel d-flex a-X">
+                        <div title="Добавить роль" class="roleAddToggle elz d-flex a-X cur-pointer opAct07 s36 rRound bgHov bgHov-primary bgHovL-5">
+                            <div class="mskIcon elz d-block p-rel noShrink mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/plus2.svg');"></div>
+                        </div>
+                        <form method="post" action="?act=role_create&type=<?=$contact_type_id?>" class="roleAddForm elz p-abs p-R d-block r3 w240 p8 bsh-default3 bgp bg bg-primary bgL10 bor1 br br-black brA10 hide">
+                            <div class="roleAddForm elz d-grid grPos fn fn-primary-t fnL20 fnLInvD fnHovL10 fnFow-focus fnFowL0">
+                                <input type="text" name="title" value="" placeholder="Название роли"
+                                       class="elz elzInput d-block grPin grY2 w100p bor1 h32 pH8 r3 fn12 ellipsis trns2 invPssSib
+                                          bg bg-primary bgL10 bgLInvD
+                                          br brLInvD br-primary brL-10 brHovL-20 brFoc-focus brFocL0
+                                          fn fn-primary-t" />
+                                <span class="elz d-flex grPin grY2 a-H bor1 pH7 z6 evNone">
+                                <span class="elz p-rel growX d-flex a-PR">
+                                    <button type="submit" class="elz p-rel d-flex a-H cur-pointer opAct07">
+                                        <span class="elz p-rel d-flex a-X s24 r2 evAuto">
+                                            <span class="elz p-rel d-block mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/plus2.svg');"></span>
+                                        </span>
+                                    </button>
+                                </span>
+                            </span>
+                            </div>
+                        </form>
+                    </div>
+                <?endif;?>
+            </div>
+        </div>
+
+        <?$list = $list ?? [];?>
+        <div class="rolesList elz d-grid grH320 p16 gap16<?if(!sizeof($list)):?> hide<?endif;?>">
+            <?for($a = 0, $len = sizeof($list); $a < $len; $a++):?>
+                <?$this->view->partial('contacts/partials/role_item', $list[$a])?>
+            <?endfor;?>
+        </div>
+    </div>
+
+</div>

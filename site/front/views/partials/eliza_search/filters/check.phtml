@@ -1,0 +1,32 @@
+<?php $title = $title ?? '';?>
+<?php $name = $name ?? '';?>
+<?php $search = $search ?? 'defaultSearchName';?>
+<?php $update = $update ?? 0;?>
+<?php $delay = $delay ?? 0;?>
+<?php $list = $list ?? [];?>
+
+<div class="elizaSearchFilterItem elz d-block grow fb320 pVVar r3 bg bg-primary bgL5 bsh-default1" data-engine="<?=$search?>" data-type="check" data-name="<?=$name?>" data-update="<?=$update?>" data-delay="<?=(int)$delay?>">
+    <h3 class="elz d-block fn16 pH16 pV8"><?=$title?></h3>
+    <div class="elz d-block">
+        <?php for($a = 0, $len = sizeof($list); $a < $len; $a++):?>
+            <?php $check = $list[$a];?>
+            <label class="elz d-flex a-H cur-pointer pV8 bgHov bgHov-primary bgHovL-10 bgLInvD selNone">
+            <span class="elz d-flex a-X w40">
+                <input type="checkbox"
+                       name="<?=$check['name']?>"
+                       <?php if($check['checked']):?> checked="checked"<?php endif;?>
+                       class="elz elzCheck checkbox p-rel d-flex cur-inh bor1 s18 r2 p2
+                              cLInvD bg bg-primary bgL10
+                              br br-primary brL-15 brHovL-20
+                              fn fn-primary-t fnHovL-5
+                              bshAct-inset1" />
+            </span>
+                <span class="elz d-block growX"><?=$check['title']?></span>
+                <span class="elz p-rel d-block  pH6 pV4 mH8 fn11">
+            <span class="elz p-abs p-F d-block op02 r3 bg-CC"></span>
+            <span class="elz p-rel d-block chrLHFix"><?=$check['count']?></span>
+        </span>
+            </label>
+        <?php endfor;?>
+    </div>
+</div>

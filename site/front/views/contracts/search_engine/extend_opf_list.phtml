@@ -1,0 +1,6 @@
+<?$list = $list ?? []?>
+<div class="elz d-grid grH200 p8 gap8">
+    <?for($a = 0, $len = sizeof($list); $a < $len; $a++):?>
+        <?$this->view->partial('contracts/search_engine/extend_opf', $list[$a])?>
+    <?endfor;?>
+</div>

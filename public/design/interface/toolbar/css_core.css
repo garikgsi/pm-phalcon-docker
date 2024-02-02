@@ -1,0 +1,239 @@
+/* Core settings */
+
+.elzCLSenginePanel {
+    position: relative;
+    display: block;
+    height: var(--elzEPHeight);
+    left:  0;
+    right: 0;
+}
+
+.elzCLSenginePanel.hide { display: none; }
+
+.elzCLSenginePanel.abs { position: absolute; }
+
+.elzCLSenginePanel.abs.absTop    { top:    0; }
+.elzCLSenginePanel.abs.absBottom { bottom: 0; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Toolbar settings *****************/
+
+.elzCLStoolbar {
+    position: relative;
+    height: inherit;
+    left:  0;
+    right: 0;
+}
+
+.elzCLSenginePanel .epBF,
+.elzCLSenginePanel .tbGroup { display: flex; }
+
+.elzCLSenginePanel .tbGroup { position: relative; }
+
+.elzCLSenginePanel .tbGroupIn { justify-content: center; }
+
+.elzCLSenginePanel       .tbWrap,
+.elzCLSenginePanel.float .elzCLStoolbar { display: block; }
+
+.elzCLSenginePanel.float .elzCLStoolbar.epBF:before,
+.elzCLSenginePanel.float .elzCLStoolbar.epBF:after,
+.elzCLSenginePanel      .tbIt.hide { display: none !important; }
+
+.elzCLSenginePanel.bordered:before {
+    content: "";
+    position: absolute;
+    display: block;
+    top:    0;
+    right:  0;
+    left:   0;
+    height: inherit;
+    border-width: 1px 0;
+    border-style: solid;
+    border-color: transparent;
+    color: rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.elzCLSenginePanel.bordered.brTop:before    { border-top-color:    currentColor; }
+.elzCLSenginePanel.bordered.brBottom:before { border-bottom-color: currentColor; }
+
+/* Growers */
+
+.elzCLSenginePanel .tbIt.epGrow,
+.elzCLSenginePanel .epBF:before,
+.elzCLSenginePanel .epBF:after {
+    width:       0;
+    flex-grow:   1;
+    flex-shrink: 1;
+}
+
+.elzCLSenginePanel .epBF:before,
+.elzCLSenginePanel .epBF:after {
+    content: "";
+    display: block;
+    flex-basis: 0;
+}
+
+.elzCLSenginePanel .epGrow { flex-basis: 100%; }
+
+.elzCLSenginePanel .epBF:before { order: 20; }
+.elzCLSenginePanel .epBF:after  { order: 40; }
+
+.elzCLSenginePanel .tbIt {
+    box-sizing: border-box;
+    flex-shrink: 0;
+    order: 30;
+}
+
+.elzCLSenginePanel .tbIt.left  { order: 10; }
+.elzCLSenginePanel .tbIt.right { order: 50; }
+
+.elzCLSenginePanel .tbIt.contentCenter {
+    margin-left:  auto;
+    margin-right: auto;
+}
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Wrap settings */
+
+.elzCLSenginePanel .tbWrap,
+.elzCLSenginePanel .tbWrapFlex { height: 100%; }
+
+.elzCLSenginePanel .tbWrap.left  { float:  left; }
+.elzCLSenginePanel .tbWrap.right { float: right; }
+
+.elzCLSenginePanel.float .tbWrap.epGrow { width: auto; }
+
+.elzCLSenginePanel       .tbWrapIn,
+.elzCLSenginePanel.float .tbWrap.epGrow .tbWrapFlex { position: relative; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Header settings */
+
+.elzCLSenginePanel.header .elzCLStoolbar {
+    top:   0;
+    right: 0;
+    left:  0;
+    z-index: 20;
+}
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Font colors */
+
+.elzCLSenginePanel { color: var(--ep-main-color); }
+
+.elzCLSenginePanel .tbTool.link:hover,
+.elzCLSenginePanel .tbTool.link:active,
+.elzCLSenginePanel .tbTool.active,
+.elzCLSenginePanel .tbGroup.subActive > .tbTool {
+    color: var(--ep-hov-color);
+    text-shadow: var(--ep-hov-shadow);
+}
+
+.elzCLSenginePanel .tbTool .elzIcon:before { background-color: var(--ep-ic-hov-shadow); }
+
+/* Light */
+
+.elzCLSenginePanel.light {
+    --ep-main-color: #e0e0e0;                          /* Стандартный цвет шрифта */
+    --ep-hov-color: #ffffff;                           /* Цвет шрифта по ховеру на тулзу */
+    --ep-hov-shadow: 0 0 4px rgba(255, 255, 255, 0.5); /* Тень по ховеру на тулзу */
+    --ep-ic-hov-shadow: #ffffff;                       /* Цвет подсветки иконки тулзы по ховеру */
+}
+
+/* Dark */
+
+.elzCLSenginePanel.dark {
+    --ep-main-color: #606060;                    /* Стандартный цвет шрифта */
+    --ep-hov-color: #000000;                     /* Цвет шрифта по ховеру на тулзу */
+    --ep-hov-shadow: 0 0 4px rgba(0, 0, 0, 0.2); /* Тень по ховеру на тулзу */
+    --ep-ic-hov-shadow: #000000;                 /* Цвет подсветки иконки тулзы по ховеру */
+}
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Panel Warning */
+
+.elzCLSWarningPanel {
+    position: relative;
+    height: auto;
+    text-align: center;
+    overflow: hidden;
+    padding: 10px;
+    line-height: 1.5;
+    box-sizing: border-box;
+    transition: 0.4s visibility, 0.4s opacity;
+    left:  0;
+    right: 0;
+    z-index: 150;
+}
+
+.elzCLSWarningPanel.hide  { display: none; }
+.elzCLSWarningPanel:empty { display: none !important; } /* Чтоб не моргал транзишен когда нажимаешь ф5 */
+
+.elzCLSWarningPanel.abs.hide {
+    display: block;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.elzCLSWarningPanel.abs { position: absolute; }
+
+.elzCLSWarningPanel.abs.absTop    { top:    0; }
+.elzCLSWarningPanel.abs.absBottom { bottom: 0; }
+
+.elzCLSWarningPanel.shD { text-shadow: 0 1px 1px rgba(0,     0,   0, 0.5); }
+.elzCLSWarningPanel.shL { text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5); }
+
+/* end */

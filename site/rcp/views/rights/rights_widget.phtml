@@ -1,0 +1,33 @@
+<div class="elz strCLSitem marLMedium marRMedium marTMedium marBMedium wmn760 grow flexible" id="<?=$rightsWidgetId?>" data-param="<?=$rightsWidgetGetParam?>">
+    <div class="elz admCLSwrap flexible shadowed">
+
+        <div class="elz admHeader admWBordered">
+            <div class="elz admCaption">
+                <h2 class="elz admTitle">Список прав</h2>
+            </div>
+            <form class="elz strCLSitem marLMedium w280" method="post" action="/rights/api/right_add?right_id=0&lang_id=1&<?=$rightsWidgetGetParam?>" data-action="/rights/api/right_add?right_id=0&<?=$rightsWidgetGetParam?>">
+                <div class="elz elzF wrap compiled flexible">
+                    <?=\Core\Builder\MustacheForms::input('text', 'Введите уникальное название', '', '', $rightsWidgetId.'RootName', 'name')?>
+
+                    <?=\Core\Builder\MustacheForms::button($rightsWidgetId.'RootSubmit', '', 'ic-plus2', 'default', 0, 1, ' auto')?>
+
+                </div>
+            </form>
+
+            <div class="elz admLangChange w64 marLMedium marRMedium">
+                <?$this->view->partial('partials/forms/forms_langs_select', ['id' => $rightsWidgetId.'Lang'])?>
+            </div>
+        </div>
+
+        <div class="elz admBody">
+            <div style="padding: 16px;">
+                <?$this->view->partial('rights/partials/rights_explorer', [
+                    'rightsList' => $rightsList,
+                    'rightsListId' => $rightsWidgetId.'List',
+                    'rightsGetParam' => $rightsWidgetGetParam,
+                    'rightsLang' => 1
+                ])?>
+            </div>
+        </div>
+    </div>
+</div>

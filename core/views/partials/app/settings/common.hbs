@@ -1,0 +1,51 @@
+{{#list}}
+    {{#isSep}}
+        {{#title}}
+            <div class="elz strCLSitem flexible marVMedium">
+                <div class="elz strCLSitem fn-12 padLMedium">{{title}}</div>
+            </div>
+        {{/title}}
+    {{/isSep}}
+    {{^isSep}}
+        <div class="elz setSection row active settingContainer" data-id="{{id}}" data-name="{{name}}">
+            <div class="elz setSection cell title"><p class="bb p fn-8 bold">{{title}}</p></div>
+
+            <div class="elz setSection cell content forEdit content">
+                {{#isSortable}}
+                    <div class="elz strCLSitem mar-TSmall wmx300 elzPLT sortableContainer" data-fn="grey 800">
+
+                    {{#sortable}}
+                        <div class="elz strCLSitem marTSmall sortableItem" data-val="{{val}}">
+                            <div class="elz strCLSitem rad3 elzPLT flexible middle cur-move setCLSsortable hmn36" data-bg="white">
+                                <div class="elz elzIcon largest rad">
+                                    <i class="elz main smallest elzIc ic-move-v elzPLT"></i>
+                                </div>
+                                <div class="elz strCLSitem grow w0 lh-10">{{label}}</div>
+                            </div>
+                        </div>
+                    {{/sortable}}
+                    </div>
+                {{/isSortable}}
+                {{^isSortable}}
+                    <div class="elz strCLSitem{{#isSelect}} wmx300{{/isSelect}}">
+                        {{#isRadio}}
+                            <input class="elizaIFormsInit" type="checkbox" data-style="switch" data-text="{{radio}}" {{#selected}}checked="checked"{{/selected}}/>
+                        {{/isRadio}}
+                        {{#isSelect}}
+                            <select class="elizaIFormsInit" {{#icon}} data-icon="{{icon}}"{{/icon}}>
+                                {{#options}}
+                                    <option value="{{value}}"{{#checked}} selected="selected"{{/checked}}>{{text}}</option>
+                                {{/options}}
+                            </select>
+                        {{/isSelect}}
+                    </div>
+                    {{#description}}
+                        <div class="elz strCLSitem marTSmall">
+                            <div class="bb p fn-8 elzPLT" data-fn="grey 700">{{{description}}}</div>
+                        </div>
+                    {{/description}}
+                {{/isSortable}}
+            </div>
+        </div>
+    {{/isSep}}
+{{/list}}

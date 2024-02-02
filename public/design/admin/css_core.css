@@ -1,0 +1,92 @@
+/* Main settings */
+
+.winCSSNunit.app-admin {
+    width:  1040px;
+    height:  720px;
+    min-width:  1040px;
+    min-height:  720px;
+}
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Index */
+
+.admIndexWrap {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100%;
+    color: #555555;
+    box-sizing: border-box;
+}
+
+.admIndexWrap .acpLogo {
+    font-size: 192px;
+}
+
+.admIndexWrap .admIndexContent { margin-bottom: 128px; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Left menu */
+
+.winCSSNunit.app-admin .markMenuL { width: 240px; }
+
+@media (max-width: 959px) {
+    .winCSSNunit.app-admin .markMenuL {
+        transition: margin-right 0.2s, width 0.2s;
+        width: 48px;
+        z-index: 20;
+    }
+
+    .winCSSNunit.app-admin .markMenuL:hover {
+        width: 240px;
+        margin-right: -192px;
+    }
+
+    /* Touch screen detection */
+
+    @media (pointer: coarse), (-moz-touch-enabled) {
+        .winCSSNunit.app-admin .markMenuL > .content:before {
+            content: "";
+            position: absolute;
+            top:    0;
+            right:  0;
+            bottom: 0;
+            left:   0;
+            transition: 0.1s;
+            z-index: 1;
+        }
+
+        .winCSSNunit.app-admin .markMenuL:hover > .content:before { visibility: hidden; }
+    }
+
+    .winCSSNunit.app-admin .markMenuL:not(:hover) .tplCLSmenu .menuItem.title,
+    .winCSSNunit.app-admin .markMenuL:not(:hover) .tplCLSmenu .menuItem.default .text,
+    .winCSSNunit.app-admin .markMenuL:not(:hover) .tplCLSmenu .menuItem.default.category > .itemInner > .itemExpander { display: none; }
+
+    .winCSSNunit.app-admin .markMenuL:not(:hover) .tplCLSmenu > .menuList:before { left: 8px; right: 8px; }
+}
+
+@media (max-width: 577px) { .winCSSNunit.app-admin .markMenuL { display: none; } }
+
+/* end */

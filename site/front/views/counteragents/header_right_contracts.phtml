@@ -1,0 +1,33 @@
+<?$counterAgentRow = $this->view->getVar('counterAgentRow');?>
+<div class="elz d-flex f-wrap grow a-H gap8">
+    <div class="elz p-rel d-flex a-X fb160 showHovOut">
+        <div class="elizaRightPanelTrigger elz elzButton grow d-flex a-X al-center r3 bor1 h36 pH12 wmx100p fn12 lh12 cur-pointer trnsStyle trns
+                    bg bg-success bgHovL3 bgActL-10 bgSelL-10
+                    br br-success brFD brLF-10 brL-10 brHovL-15 brSelL-15
+                    fn fn-success-t fnHovL10 fnSelL10
+                    bsh bsh-btn bshHov-btnhov bshAct-inset bshSel-inset"
+             data-panel="contract" data-widget="add" data-role="none" data-agent="0">
+            <div class="elz d-block">Добавить договор</div>
+            <div class="elz d-flex a-X h12 mL8 pL8 borL1 br br-success-t brA50">
+                <div class="elz p-rel d-block mskBef s8 cFillBef bgBef-CC deg180" style="--elzMsk: url('/design/icons/arrow2.svg');"></div>
+            </div>
+        </div>
+        <div class="pmCommentBubble elz p-abs pi-T z10 p-EB pT4 wmn100p">
+            <div class="elz d-block p8 r5 bg bg-primary bgL10 bor1 br br-black brA10 bgp bsh-default showHovIn">
+
+                <div class="elizaRightPanelTrigger elz p-rel d-flex a-H gap8 p8 r3 cur-pointer opAct07 bgHov bgHov-primary"
+                     data-panel="contract" data-widget="add" data-role="customer" data-agent="<?=$counterAgentRow['counteragent_id']?>">
+                    <div class="elz p-rel d-block mskBef s18 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/user-tie.svg');"></div>
+                    <div class="elz d-block">Заказчик</div>
+                </div>
+
+                <div class="elizaRightPanelTrigger elz p-rel d-flex a-H gap8 p8 r3 cur-pointer opAct07 bgHov bgHov-primary"
+                     data-panel="contract" data-widget="add" data-role="executor" data-agent="<?=$counterAgentRow['counteragent_id']?>">
+                    <div class="elz p-rel d-block mskBef s18 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/hammer-wrench.svg');"></div>
+                    <div class="elz d-block">Исполнитель</div>
+                </div>
+            </div>
+        </div>
+        <div class="elz elzTriangle bordered pad1 tr-T p-abs pi-T z10 borBef4 borAft4 brBef br-black brA10 fn fn-primary fnL10 showHovIn"></div>
+    </div>
+</div>

@@ -1,0 +1,34 @@
+<?php $name = $name ?? 'SET NAME'?>
+<?php $data_attr = $data_attr ?? ''?>
+<?php $id = $id ?? \Core\Builder\MustacheForms::getNextId();?>
+<?php $stateDefault = $titleDefault ?? 'Файл не выбран'?>
+<?php $fileIcon = $fileIcon ?? 'file-text'?>
+<?php $buttonTitle = $buttonTitle ?? 'Выберите файл'?>
+<div class="elizaIForm2 elz elzF parent p-rel d-flex pL1 cHovOut cActOut cSelOut">
+    <div class="elz d-grid mL-1 growX grPos fn fn-primary-t fnL20 fnLInvD fnHovInL10 fnSelInL10 fnFow-focus fnFowL0">
+
+        <div class="elz elzInput d-flex grPin a-H grY2 w100p bor1 rL3 h40 pH40 fn12 ellipsis trns2 invPssSib
+                                                        bg bg-primary bgL10 bgLF-5 bgFD
+                                                        br br-primary brL-10 brHovInL-20 brSelInL-20 brFoc-focus brFocL0
+                                                        fn fn-primary-t">
+            <div class="elizaIFormText elz d-block growX" data-default="<?=htmlentities($stateDefault)?>"><?=$stateDefault?></div>
+        </div>
+
+        <span class="elz d-flex grPin grY2 a-H bor1 pH7 z6 evNone">
+
+            <span class="elz p-rel d-flex a-X s24 trns2">
+                <span class="elz p-rel d-block mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/<?=$fileIcon?>.svg');"></span>
+            </span>
+
+        </span>
+
+    </div>
+    <div class="elz d-grid mL-1 w150">
+        <div class="elz elzButton d-flex a-X rR3 bor1 h40 w100p wmx100p pH16 fn12 cur-pointer trnsStyle trns
+                                                        bg bg-primary bgL0 bgHovInL3 bgActInL-10 bgSelInL-10
+                                                        br br-primary brL-10 brHovInL-15 brSelInL-15
+                                                        fn fn-primary-t fnLInvD fnHovInL-10 fnSelInL-10
+                                                        bsh bsh-btn bshHovIn-btnhov bshActIn-inset bshSelIn-inset"><?=$buttonTitle?></div>
+    </div>
+    <input id="<?=$id?>" name="<?=$name?>" type="file" class="elizaIFormFile elzInputFile elz p-abs d-block p-EA s100p op0 pH16 z7 cur-pointer fn12 bg bg-primary bgL10 bgLInvD fn fn-primary-t" <?=$data_attr?>>
+</div>

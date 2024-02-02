@@ -1,0 +1,53 @@
+<?php $containUnitId = $contain_unit_id ?? 0?>
+<form action="?act=<?if($containUnitId):?>conversion_update<?else:?>conversion_create<?endif;?>" method="post" class="conversionItem elz d-flex a-H gap8 pV4 pH8 f-wrap <?if($containUnitId):?> bgHov bgHov-primary bgHovL10<?endif;?>">
+    <input type="hidden" name="unit_id" value="<?=$unit_id?>" />
+    <div class="elz d-flex a-H f-wrap gap8 growMax">
+        <?$this->view->partial('forms/input_base', [
+            'name' => 'title',
+            'value' => $title_short,
+            'widthInput' => '',
+            'labelClass' => 'evNone',
+            'inputClass' => 'pL16 r3 uDisabled conversionUnitTitle',
+            'placeholder' => 'Введите название свойства'
+        ])?>
+        <div class="elz d-flex a-X noShrink pH16 bold">=</div>
+        <div class="elz d-flex a-H fb640 grow">
+            <?$this->view->partial('forms/input_compiled', [
+                'name' => 'conversion_units',
+                'title' => 'Количество',
+                'value' => $conversion_units ?? '',
+                'widthInput' => '',
+                'labelClass' => 'mR-1',
+                'inputClass' => 'pL96 rL3',
+                'placeholder' => 'Введите количество единиц'
+            ])?>
+            <?$this->view->partial('forms/select_base', [
+                'name' => 'contain_unit_id',
+                'options' => $conversion_options,
+                'value' => $containUnitId,
+                'width' => 'fb240',
+                'data_attr' => $containUnitId ? ' readonly="readonly"' : '',
+                'class' => 'conversionUnitSelectWrap'.($containUnitId ? ' evNone' : ''),
+                'inputClass' => 'rR3 h36'.($containUnitId ? ' uDisabled' : ''),
+                'inputClassBG' => 'bg bg-primary bgL10 bgLInvD',
+                'inputClassBR' => 'br brLInvD br-primary brL-10 brHovL-20 brFoc-focus brFocL0'
+            ])?>
+        </div>
+    </div>
+    <div class="elz d-flex f-wrap gap8">
+<?if($containUnitId):?>
+        <button type="submit" title="Сохранить" class="elz d-flex a-X cur-pointer opAct07 s36 rRound bgHov bgHov-primary bgHovL-5">
+            <span class="mskIcon elz d-block p-rel noShrink mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/save.svg');"></span>
+        </button>
+        <div title="Удалить" class="conversionDelete elz d-flex a-X cur-pointer opAct07 s36 rRound bgHov bgHov-primary bgHovL-5">
+            <div class="mskIcon evNone elz d-block p-rel noShrink mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/cross1.svg');"></div>
+        </div>
+<?else:?>
+    <div class="elz d-block s36"></div>
+    <button type="submit" title="Добавить" class="elz d-flex a-X cur-pointer opAct07 s36 rRound bgHov bgHov-primary bgHovL-5">
+        <span class="mskIcon elz d-block p-rel noShrink mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/plus2.svg');"></span>
+    </button>
+<?endif;?>
+    </div>
+
+</form>

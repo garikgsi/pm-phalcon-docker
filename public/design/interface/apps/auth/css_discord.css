@@ -1,0 +1,146 @@
+.elzCLSdiscordAuth, .elzCLSdiscordAuth body {
+    display: block;
+    height: 100%;
+    box-sizing: border-box;
+    margin:  0;
+    padding: 0;
+}
+
+.elzCLSdiscordAuth::-webkit-scrollbar { width: 0; height: 0; }
+
+.elzCLSdiscordAuth {
+    -ms-overflow-style: none;
+    scrollbar-width:    none;
+    overflow-x: hidden;
+    overflow-y: auto;
+    font-family: var(--mainIntFontFamily);
+    font-size: 12pt;
+    background-color: #212121;
+    color: #eeeeee;
+}
+
+.elzCLSdiscordAuth body {
+    padding-top: var(--elzEPHeight);
+}
+
+.elzDiscordAuthWrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100%;
+    box-sizing: border-box;
+    padding: 24px;
+}
+
+.elzDiscordWindow {
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+    width: 720px;
+}
+
+@media (min-width: 441px) {
+    .elzDiscordWindow {
+        border-radius: 5px;
+        background-color: #36393f;
+        box-shadow: 2px 2px 10px 0 rgba(0, 0, 0, 1);
+        padding: 32px;
+    }
+}
+
+.elzDiscordWindow .discordPic {
+    display: block;
+    width:  128px;
+    height: 128px;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 100%;
+}
+
+.elzDiscordWindow .discordPic .image {
+    display: block;
+    width:  auto;
+    height: auto;
+    max-width: 100%;
+    margin: auto;
+}
+
+.elzDiscordWindow .elzDiscordVariants {
+    margin-top: 32px;
+}
+
+.elzDiscordWindow .variantItem {
+    position: relative;
+}
+
+.elzDiscordWindow .infoDiv {
+    border: 1px solid rgba(245, 128, 24, 0.5);
+    background-color: rgba(245, 128, 24, 0.1);
+    color: rgb(255, 166, 87);
+    padding: 8px;
+}
+
+.elzDiscordWindow .elzF.item.text.default {
+    background-color: rgba(0, 0, 0, 0.2);
+    color: #eeeeee;
+}
+
+.elzDiscordWindow .elzF.wrap:nth-last-child(3) { max-width: 80px; }
+.elzDiscordWindow .elzF.wrap:nth-child(3) { max-width: 92px; }
+
+.elzDiscordWindow .footerLink {
+    text-decoration: none;
+    cursor: pointer;
+    color: #2196f3;
+}
+
+.elzDiscordWindow .elzF.button.default[data-bg="grey 900"] { background-color: #25262b; }
+.elzDiscordWindow .elzF.button.default[data-bg="blue"],
+.elzDiscordWindow .elzF.button.default[data-bg="green"] { border-color: rgba(0, 0 ,0, 0.7); }
+
+.elzDiscordWindow .footerLink:hover,
+.elzDiscordWindow .footerLink:active {
+    color: #53a6ec;
+    text-decoration: underline;
+}
+
+.elzDiscordWindow .footerLink:active { opacity: 0.7; }
+
+@media (min-width: 768px) {
+    .elzDiscordWindow .variantItem:last-child {
+        margin-left: 48px;
+    }
+
+    .elzDiscordWindow .variantItem:last-child .variantIn:before {
+        content: "";
+        position: absolute;
+        left: -24px;
+        top:    0;
+        bottom: 0;
+        border-left: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .elzDiscordAuthWrap:before {
+        content: "";
+        position: absolute;
+        top:    0;
+        right:  0;
+        bottom: 0;
+        left:   0;
+        background-image: url('images/hmap_25_36.jpg');
+        background-repeat: no-repeat;
+        background-position: center center;
+        opacity: 0.25;
+    }
+}
+
+@media (max-width: 767px) {
+    .elzDiscordWindow .elzDiscordVariants {
+        display: block;
+    }
+
+    .elzDiscordWindow .variantItem { width: auto; }
+
+    .elzDiscordWindow .variantItem:last-child { margin-top: 48px; }
+}

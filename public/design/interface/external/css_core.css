@@ -1,0 +1,49 @@
+#elzRpgInferno {
+    position: absolute;
+    display: block;
+    top:    0;
+    left:   0;
+    width:  0;
+    height: 0;
+    z-index: 1000000;
+}
+
+#elzRpgInferno * {
+    margin:  0;
+    padding: 0;
+    border:  0;
+    outline:   none;
+    animation: none;
+    background: transparent;
+    vertical-align: baseline;
+    color:          inherit;
+    font:           inherit;
+    text-shadow:    inherit;
+    text-transform: inherit;
+
+    position:       initial;
+    top:            initial;
+    right:          initial;
+    bottom:         initial;
+    left:           initial;
+    z-index:        initial;
+    width:          initial;
+    height:         initial;
+    max-width:      initial;
+    max-height:     initial;
+    transform:      initial;
+    box-sizing:     initial;
+    list-style:     initial;
+    float:          initial;
+    visibility:     initial;
+    clip:           initial;
+    clear:          initial;
+    flex:           initial;
+    border-radius:  initial;
+    box-shadow:     initial;
+
+
+    border-collapse: initial;
+    border-spacing:  initial;
+    table-layout:    initial;
+}

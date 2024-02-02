@@ -1,0 +1,98 @@
+/* Tool settings */
+
+.elzCLSenginePanel .tbTool.default {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.elzCLSenginePanel .tbTool.default.link:active { opacity: 0.7; }
+
+.elzCLSenginePanel .tbGroup.subActive > .tbGroupIn .tbTool.default { height: 48px; }
+
+/* 48px */
+
+.elzCLSenginePanel .tbTool.default.large { min-width: 48px; }
+
+.elzCLSenginePanel .tbTool.default.large .elzIcon.smallest { margin-left: 16px; margin-right: 16px; }
+.elzCLSenginePanel .tbTool.default.large .elzIcon.medium   { margin-left: 12px; margin-right: 12px; }
+.elzCLSenginePanel .tbTool.default.large .elzIcon.larger   { margin-left:  8px; margin-right:  8px; }
+.elzCLSenginePanel .tbTool.default.large .elzIcon.largest  { margin-left:  6px; margin-right:  6px; }
+
+/* 40px */
+
+.elzCLSenginePanel .tbTool.default.medium { min-width: 40px; }
+
+.elzCLSenginePanel .tbTool.default.medium .elzIcon.smallest { margin-left: 12px; margin-right: 12px; }
+.elzCLSenginePanel .tbTool.default.medium .elzIcon.medium   { margin-left:  8px; margin-right:  8px; }
+.elzCLSenginePanel .tbTool.default.medium .elzIcon.larger   { margin-left:  4px; margin-right:  4px; }
+.elzCLSenginePanel .tbTool.default.medium .elzIcon.largest  { margin-left:  2px; margin-right:  2px; }
+
+/* Специальный отступ, чтобы тулза не улетала слишком влево или вправо от общего списка тулзов */
+
+.elzCLSenginePanel .tbTool.default.medium.wrapStarter,
+.elzCLSenginePanel .tbGroup.subActive .tbGroupIn.textRight .tbTool.default.medium,
+.elzCLSenginePanel .tbGroup.subActive .tbGroupIn.textLeft  .tbTool.default.medium { padding-left: 4px; }
+
+.elzCLSenginePanel .tbTool.default.medium.wrapEnder,
+.elzCLSenginePanel .tbGroup.subActive .tbGroupIn.textLeft  .tbTool.default.medium,
+.elzCLSenginePanel .tbGroup.subActive .tbGroupIn.textRight .tbTool.default.medium { padding-right: 4px; }
+
+
+
+.elzCLSenginePanel .tbTool.default .elzIcon[data-bg]:before {
+    display: block;
+    opacity: 0;
+}
+
+.elzCLSenginePanel .tbTool.default.link:hover  .elzIcon[data-bg]:before,
+.elzCLSenginePanel .tbTool.default.link:active .elzIcon[data-bg]:before,
+.elzCLSenginePanel .tbTool.default.link.active .elzIcon[data-bg]:before,
+.elzCLSenginePanel .tbGroup.subActive > .tbTool.default .elzIcon[data-bg]:before { opacity: 0.15; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Text */
+
+.elzCLSenginePanel .tbTool.default.large .tbText {
+    padding-left:  16px;
+    padding-right: 16px;
+}
+
+.elzCLSenginePanel .tbTool.default.medium .tbText {
+    padding-left:  12px;
+    padding-right: 12px;
+}
+
+.elzCLSenginePanel .tbGroup.subActive .tbGroupIn.textRight .tbTool.default .tbText { text-align: left;  order: 2; }
+.elzCLSenginePanel .tbGroup.subActive .tbGroupIn.textLeft  .tbTool.default .tbText { text-align: right; order: 0; }
+
+/* Large */
+
+.elzCLSenginePanel .tbGroup.subActive .tbGroupIn.textRight .tbTool.default .tbText { margin-right: 0 !important; text-align:  left; }
+.elzCLSenginePanel .tbGroup.subActive .tbGroupIn.textLeft  .tbTool.default .tbText { margin-left:  0 !important; text-align: right; }
+
+.elzCLSenginePanel                                         .tbTool.default.large .elzIcon + .tbText.right,
+.elzCLSenginePanel .tbGroup.subActive .tbGroupIn.textRight .tbTool.default.large .elzIcon + .tbText { margin-left: -16px; }
+
+.elzCLSenginePanel                                         .tbTool.default.large .elzIcon + .tbText.left,
+.elzCLSenginePanel .tbGroup.subActive .tbGroupIn.textLeft  .tbTool.default.large .elzIcon + .tbText { margin-right: -16px; }
+
+/* Medium */
+
+.elzCLSenginePanel                                         .tbTool.default.medium .elzIcon + .tbText.right,
+.elzCLSenginePanel .tbGroup.subActive .tbGroupIn.textRight .tbTool.default.medium .elzIcon + .tbText { margin-left:  -8px; }
+
+.elzCLSenginePanel                                         .tbTool.default.medium .elzIcon + .tbText.left,
+.elzCLSenginePanel .tbGroup.subActive .tbGroupIn.textLeft  .tbTool.default.medium .elzIcon + .tbText { margin-right: -8px; }
+
+/* end */

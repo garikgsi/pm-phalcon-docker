@@ -1,0 +1,271 @@
+.hxdCurveOverlay,
+.hxdCurveOverlay .operOver {
+    position: absolute;
+    display: block;
+    top:    0;
+    left:   0;
+    box-sizing: border-box;
+}
+
+.hxdCurveOverlay {
+    right:  0;
+    bottom: 0;
+}
+
+.hxdCurveOverlay .operOver {
+    width:  100%;
+    height: 100%;
+    overflow: visible;
+}
+
+
+
+
+
+
+
+
+
+
+/* Curve operations */
+
+.hxdCurveOverlay .curveHandler,
+.hxdCurveOverlay .curveHandler .inner {
+    position: absolute;
+    display: flex;
+    align-items:     center;
+    justify-content: center;
+    width:  0;
+    height: 0;
+    transform-origin: 50% 50%;
+}
+
+.hxdCurveOverlay .curveGuides,
+.hxdCurveOverlay .curveHandlers { pointer-events: auto; }
+
+.hxdCurveOverlay .curveHandlers .points,
+.hxdCurveOverlay .curveHandlers .manipulators { position: relative; }
+
+.hxdCurveOverlay .curveHandler { cursor: pointer; }
+
+.hxdCurveOverlay .curveHandler .inner { pointer-events: none; }
+
+.hxdCurveOverlay .curveHandler.selected { z-index: 1; }
+
+.hxdCurveOverlay .curveHandler:before,
+.hxdCurveOverlay .curveHandler:after,
+.hxdCurveOverlay .curveHandler .inner:before,
+.hxdCurveOverlay .curveHandler .inner:after {
+    content: "";
+    position: absolute;
+    display: block;
+    box-sizing: border-box;
+}
+
+.hxdCurveOverlay .curveHandler:before {
+    width:  17px;
+    height: 17px;
+}
+
+.hxdCurveOverlay .curveHandler:active:before {
+    width:  37px;
+    height: 37px;
+}
+
+.hxdCurveOverlay .curveHandler:after {
+    border: 1px solid #4f80ff;
+    background-color: #ffffff;
+}
+
+.hxdCurveOverlay .curveHandler.fixed:after {
+    border: 1px solid #800000;
+    background-color: #ff4040;
+}
+
+.hxdCurveOverlay .curveHandler.cursor:after {
+    border-color: #007f00;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.hxdCurveOverlay .curveHandler.point:hover:after,
+.hxdCurveOverlay .curveHandler.point:active:after,
+.hxdCurveOverlay .curveHandler.point.selected:after{
+    width:  11px;
+    height: 11px;
+}
+
+.hxdCurveOverlay .curveHandler.point:after,
+.hxdCurveOverlay .curveHandler.point.cursor:after {
+    width:  7px;
+    height: 7px;
+}
+
+.hxdCurveOverlay .curveHandler.manipulator:after {
+    width:  11px;
+    height: 11px;
+    border-radius: 100%;
+}
+
+.hxdCurveOverlay .curveHandler.manipulator:hover:after,
+.hxdCurveOverlay .curveHandler.manipulator:active:after,
+.hxdCurveOverlay .curveHandler.manipulator.selected:after,
+.hxdCurveOverlay .curveHandler.point.selected:after { background-color: #4f80ff; }
+/*
+.hxdCurveOverlay .curveHandler.manipulator.selected:after,
+.hxdCurveOverlay .curveHandler.point.selected:after { border-color: #000080; }
+*/
+/* Modes */
+
+.hxdCurveOverlay .curvesOperationPoints.modeOutcur { cursor: none; }
+
+.hxdCurveOverlay .curvesOperationPoints.modeDraw { cursor: crosshair; }
+
+.hxdCurveOverlay .curvesOperationPoints.modeDraw .curveHandler.edge { cursor: copy; }
+
+.hxdCurveOverlay .curveHandler.point.edge .inner:before,
+.hxdCurveOverlay .curveHandler.point.edge .inner:after {
+    width: 25px;
+    height: 0;
+    border-top: 1px solid #ff00ff;
+}
+
+.hxdCurveOverlay .curveHandler.point.edge .inner:before { transform: rotate(45deg); }
+.hxdCurveOverlay .curveHandler.point.edge .inner:after  { transform: rotate(-45deg); }
+
+/* end */
+
+
+
+
+
+/* Guides */
+
+.hxdCurveOverlay .curveGuide {
+    position: absolute;
+    display: block;
+    box-sizing: border-box;
+    border-width: 0;
+}
+
+.hxdCurveOverlay .curveGuide.vertical {
+    width:  0;
+    top:    0;
+    bottom: 0;
+}
+
+.hxdCurveOverlay .curveGuide.horizontal {
+    height: 0;
+    left:   0;
+    right:  0;
+}
+
+.hxdCurveOverlay .curveGuide:before {
+    content: "";
+    display: none;
+    border: 0 dashed;
+    border-color: inherit;
+    box-sizing: border-box;
+    opacity: 0.75;
+}
+
+.hxdCurveOverlay .curveGuide.show:before,
+.hxdCurveOverlay .curveGuides.show .curveGuide:before { display: block; }
+
+.hxdCurveOverlay .curveGuide.vertical:before {
+    border-left-width: 1px;
+    height: 100%;
+}
+
+.hxdCurveOverlay .curveGuide.horizontal:before {
+    border-top-width: 1px;
+    width: 100%;
+}
+
+/* Point guide */
+
+.hxdCurveOverlay .curveGuide.point {
+    width:  0;
+    height: 0;
+}
+
+.hxdCurveOverlay .curveGuide.point:before { display: none; }
+
+/* end */
+
+
+
+
+
+/* Frames */
+
+.hxdCurveOverlay .curveFrame {
+    position: absolute;
+    display: block;
+    cursor: move;
+}
+
+/* end */
+
+
+
+
+
+/* SVG */
+
+.curveOperationHelperLines .curveHelperWrap {
+    stroke: #000000;
+    stroke-width: 2;
+    opacity: 0.5;
+}
+
+.curveOperationHelperLines .curveHelperManiLines .maniLine { stroke-width: 0.5; }
+
+.curveOperationHelperLines .curveHelperBehindWrap .helperBehind       { stroke-width: 4; }
+.curveOperationHelperLines .curveHelperBehindWrap .helperBehind.thick { stroke-width: 6; }
+
+.curveOperationHelperLines .curveHelperManiLines,
+.curveOperationHelperLines .curveHelperWrap .helperItself,
+.curveOperationHelperLines .curveHelperManiLines .maniLine,
+.curveOperationHelperLines .curveHelperBehindWrap .helperBehind { fill: none; }
+
+.curveOperationHelperLines .curveHelperBehindWrap .helperBehind.onhover { stroke: rgba(0, 0, 0, 0); }
+
+.curveOperationHelperLines .curveHelperManiLines,
+.curveOperationHelperLines .curveHelperBehindWrap.hover,
+.curveOperationHelperLines .curveHelperBehindWrap .helperBehind.hover,
+.curveOperationHelperLines .curveHelperBehindWrap .helperBehind.onhover:hover { stroke: #4f80ff; }
+
+.curveOperationHelperLines .curveHelperBehindWrap.snap,
+.curveOperationHelperLines .curveHelperBehindWrap .helperBehind.snap { stroke: #ff0000; }
+
+.curveOperationHelperLines .curveHelperBehindWrap.selected,
+.curveOperationHelperLines .curveHelperBehindWrap .helperBehind.selected { stroke: #800080; }
+
+.curveOperationHelperLines .curveHelperBehindWrap.addpoint .helperBehind { cursor: crosshair; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Shapes */
+
+.shapeOperationSelectable .shapesHelper { pointer-events: none; }
+
+.shapeOperationSelectable .shapeItself { cursor: pointer; }
+
+.shapeOperationSelectable .shapeItself:hover,
+.shapeOperationSelectable .shapeItself.hover {
+    fill: rgba(51, 153, 255, 0.4);
+    stroke: #3399FF;
+    stroke-width: 2px;
+    opacity: 1;
+}
+
+/* end */

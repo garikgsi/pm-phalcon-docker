@@ -1,0 +1,20 @@
+<div class="elz strCLSitem marLMedium marRMedium marTMedium marBMedium wmn760 grow flexible" id="<?=$rightsWidgetId?>" data-param="<?=$rightsWidgetGetParam?>">
+    <div class="elz admCLSwrap flexible shadowed">
+
+        <div class="elz admHeader admWBordered">
+            <div class="elz admCaption">
+                <h2 class="elz admTitle">Список прав</h2>
+            </div>
+        </div>
+
+        <div class="elz admBody">
+            <div style="padding: 16px;">
+                <?$this->view->partial('rights/partials/rights_set_explorer', [
+                    'rightsList' => $rightsList,
+                    'rightsListId' => $rightsWidgetId.'List',
+                    'rightsGetParam' => $rightsWidgetGetParam
+                ])?>
+            </div>
+        </div>
+    </div>
+</div>

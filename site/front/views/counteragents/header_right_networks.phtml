@@ -1,0 +1,53 @@
+<div id="counteragentNetworkForms" class="elz d-flex f-wrap grow a-H gap8">
+    <div class="formWrap elz p-rel d-flex a-X w150 grow showSelOut ">
+        <div class="formToggle elz elzButton d-flex grow a-X al-center r3 bor1 h36 pH12 fn12 lh12 cur-pointer trnsStyle trns
+                    bg bg-ok bgHovL3 bgActL-10 bgSelL-10
+                    br br-ok brFD brLF-10 brL-10 brHovL-15 brSelL-15
+                    fn fn-ok-t fnHovL10 fnSelL10
+                    bsh bsh-btn bshHov-btnhov bshAct-inset bshSel-inset" data-type="link">Добавить ссылку</div>
+        <form method="post" action="?act=network_add_link" class="formCreate elz p-abs d-block p-EB mEB-4 z10 w400 r3 bg bg-primary bgL10 bor1 br br-black brA10 bgp bsh-default showSelIn">
+
+
+            <div class="elz d-flex dir-y gap16 p16">
+
+                <?$this->view->partial('forms/input_base', ['name' => 'url',   'widthInput' => '', 'inputClass' => 'pL16 r3', 'placeholder' => 'Введите адрес ссылки'])?>
+                <?$this->view->partial('forms/input_base', ['name' => 'title', 'widthInput' => '', 'inputClass' => 'pL16 r3', 'placeholder' => 'Введите название ссылки'])?>
+
+                <div class="elz d-flex a-R">
+                    <button type="submit" class="elz elzButton d-flex w150 a-X al-center r3 bor1 h36 pH12 fn12 lh12 cur-pointer trnsStyle trns
+                                bg bg-ok bgHovL3 bgActL-10 bgSelL-10
+                                br br-ok brFD brLF-10 brL-10 brHovL-15 brSelL-15
+                                fn fn-ok-t fnHovL10 fnSelL10
+                                bsh bsh-btn bshHov-btnhov bshAct-inset bshSel-inset">Добавить</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+    <div class="formWrap elz p-rel d-flex a-X w150 grow showSelOut">
+        <div class="formToggle elz elzButton d-flex grow a-X al-center r3 bor1 h36 pH12 fn12 lh12 cur-pointer trnsStyle trns
+                    bg bg-success bgHovL3 bgActL-10 bgSelL-10
+                    br br-success brFD brLF-10 brL-10 brHovL-15 brSelL-15
+                    fn fn-success-t fnHovL10 fnSelL10
+                    bsh bsh-btn bshHov-btnhov bshAct-inset bshSel-inset" data-type="file">Добавить файл</div>
+        <form method="post" action="?act=network_add_file" enctype="multipart/form-data" class="formCreate elz p-abs d-block p-EB mEB-4 z10 w400 r3 bg bg-primary bgL10 bor1 br br-black brA10 bgp bsh-default showSelIn">
+
+
+            <div class="elz d-flex dir-y gap16 p16">
+
+                <?$this->view->partial('forms/file_base', ['name' => 'file'])?>
+                <?$this->view->partial('forms/input_base', ['name' => 'title', 'widthInput' => '', 'inputClass' => 'pL16 r3', 'placeholder' => 'Введите название ссылки'])?>
+
+
+                <div class="elz d-flex a-R">
+                    <button type="submit" class="elz elzButton d-flex w150 a-X al-center r3 bor1 h36 pH12 fn12 lh12 cur-pointer trnsStyle trns
+                                bg bg-ok bgHovL3 bgActL-10 bgSelL-10
+                                br br-ok brFD brLF-10 brL-10 brHovL-15 brSelL-15
+                                fn fn-ok-t fnHovL10 fnSelL10
+                                bsh bsh-btn bshHov-btnhov bshAct-inset bshSel-inset">Добавить</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>

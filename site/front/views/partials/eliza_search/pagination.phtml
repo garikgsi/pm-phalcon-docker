@@ -1,0 +1,56 @@
+<?php $search = $search ?? 'defaultSearchName';?>
+<?php $paginationUri = $paginationData['pagination_uri'] ?? ''?>
+<div class="elizaSearchPagination elz p-sticky d-block p-B pV8 mV-8<?if(!$paginationData['pagination_enabled']):?> hide<?endif;?>" data-engine="<?=$search?>">
+    <div class="elz elzPagination large d-flex h36 pV8 cbx mV-8 fn12">
+        <div class="elz d-flex growX a-R">
+            <div class="elz pageAbs left d-flex r3 bor1 bgp bg bg-primary bgL5 br br-grey brLF-50 brFInvD brA10">
+                <div class="elz p-rel d-flex oH a-X wmn32 pH12 cur-pointer opAct07 fnHov fnHov-primary-t fnHovL-20 fnHovLInvD">
+                    <div class="elz d-block">Всего найдено: <b class="elizaSearchPaginationTotal elz bold"><?=$paginationData['items_total']?></b></div>
+                </div>
+            </div>
+            <div class="elz d-block growX"></div>
+            <div class="elz d-flex rL3 borAL1 bgp bg bg-primary bgL5 br br-grey brLF-50 brFInvD brA10 pL16">
+                <div class="elz d-flex mL-8">
+                    <a href="<?=$paginationUri?>1" class="elizaSearchPaginationPage elz pageLvl lvlCap p-rel d-flex oH a-X wmn36 pH12 cur-pointer opAct07 fnHov fnHov-primary-t fnHovL-20 fnHovLInvD<?php if(!$paginationData['start_enabled']):?> hide<?php endif;?>" title="Страница: 1" data-type="start" data-page="1">
+                        <div class="elz p-abs p-R borR1 h12 br br-primary brL-5 brLF5 brFD brLInvD"></div>
+                        <div class="elz d-block bold">Начало</div>
+                    </a>
+                    <?$leftLen = sizeof($paginationData['left_side'])?>
+                    <?php for($a = 0; $a < $leftLen; $a++):?>
+                        <?php $pageNumber = $paginationData['left_side'][$a]?>
+                        <a href="<?=$paginationUri.$pageNumber?>" class="elizaSearchPaginationPage elz pageLvl lvl<?=($leftLen-$a)?>   p-rel d-flex oH a-X wmn36 pH12 cur-pointer opAct07 fnHov fnHov-primary-t fnHovL-20 fnHovLInvD" title="Страница: <?=$pageNumber?>" data-type="page" data-page="<?=$pageNumber?>">
+                            <div class="elz p-abs p-R borR1 h12 br br-primary brL-5 brLF5 brFD brLInvD"></div>
+                            <div class="elz d-block"><?=$pageNumber?></div>
+                        </a>
+                    <?php endfor;?>
+
+                </div>
+            </div>
+        </div>
+        <!--            <form class="searchEngineFilterPaginationPageForm" method="post">-->
+        <form class="elizaSearchPaginationForm elz p-rel d-flex borV1 bgp bg bg-primary bgL5 br br-grey brLF-50 brFInvD brA10 brHovA40 brFow brFow-focus showHovOut opFowOut opHovOut" method="post">
+            <label class="elz p-rel d-flex mV-1">
+                <span class="elizaSearchPaginationFormTitle elz d-flex a-X pH12 opHovIn0 opFowIn0">Страница: <?=$paginationData['current_page']?></span>
+                <input class="elizaSearchPaginationFormInput elz p-abs p-F s100p d-block al-center op0 opHovIn10 opFowIn10" type="number" placeholder="<?=$paginationData['current_page']?>" data-pages="<?=$paginationData['pages_total']?>">
+            </label>
+            <input class="elz hide" type="submit">
+        </form>
+        <div class="elz d-flex growX a-L">
+            <div class="elz d-flex rR3 borAR1 bgp bg bg-primary bgL5 br br-grey brLF-50 brFInvD brA10 pR16">
+                <div class="elz d-flex mR-8">
+                    <?php for($a = 0, $len = sizeof($paginationData['right_side']); $a < $len; $a++):?>
+                        <?php $pageNumber = $paginationData['right_side'][$a]?>
+                        <a href="<?=$paginationUri.$pageNumber?>" class="elizaSearchPaginationPage elz pageLvl lvl<?=($a+1)?>   p-rel d-flex oH a-X wmn36 pH12 cur-pointer opAct07 fnHov fnHov-primary-t fnHovL-20 fnHovLInvD" title="Страница: <?=$pageNumber?>" data-type="page" data-page="<?=$pageNumber?>">
+                            <div class="elz p-abs p-L borL1 h12 br br-primary brL-5 brLF5 brFD brLInvD"></div>
+                            <div class="elz d-block"><?=$pageNumber?></div>
+                        </a>
+                    <?php endfor;?>
+                    <a  href="<?=$paginationUri.$paginationData['pages_total']?>" class="elizaSearchPaginationPage elz pageLvl lvlCap p-rel d-flex oH a-X wmn36 pH12 cur-pointer opAct07 fnHov fnHov-primary-t fnHovL-20 fnHovLInvD<?php if(!$paginationData['end_enabled']):?> hide<?php endif;?>" title="Страница: <?=$paginationData['pages_total']?>" data-type="end" data-page="<?=$paginationData['pages_total']?>">
+                        <div class="elz p-abs p-L borL1 h12 br br-primary brL-5 brLF5 brFD brLInvD"></div>
+                        <div class="elz d-block bold">Конец</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

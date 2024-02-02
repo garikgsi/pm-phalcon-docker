@@ -1,0 +1,280 @@
+.hxdPickFrame {
+    position: absolute;
+    display: block;
+    cursor: move;
+}
+
+.hxdPickFrame .frameWrap,
+.hxdPickMultiselect {
+    position: absolute;
+    display: block;
+    top:    0;
+    right:  0;
+    bottom: 0;
+    left:   0;
+}
+
+.hxdPickFrame .frameWrap.pickFrameDrag {
+    cursor: move;
+    z-index: 2;
+}
+
+
+
+
+
+/* Resize */
+
+.hxdPickFrame .frameWrap.resize { z-index: 10; }
+
+.hxdPickFrame .ui-resizable-handle {
+    position: absolute;
+    display: block;
+}
+
+.hxdPickFrame .ui-resizable-handle.ui-resizable-n { top:    -8px; cursor: n-resize; height: 16px; left: 8px; right:  8px; }
+.hxdPickFrame .ui-resizable-handle.ui-resizable-e { right:  -8px; cursor: e-resize; width:  16px; top:  8px; bottom: 8px; }
+.hxdPickFrame .ui-resizable-handle.ui-resizable-s { bottom: -8px; cursor: s-resize; height: 16px; left: 8px; right:  8px; }
+.hxdPickFrame .ui-resizable-handle.ui-resizable-w { left:   -8px; cursor: w-resize; width:  16px; top:  8px; bottom: 8px; }
+
+.hxdPickFrame .ui-resizable-handle.ui-resizable-ne { right: -8px; top:    -8px; cursor: ne-resize; width: 16px; height: 16px; }
+.hxdPickFrame .ui-resizable-handle.ui-resizable-se { right: -8px; bottom: -8px; cursor: se-resize; width: 16px; height: 16px; }
+.hxdPickFrame .ui-resizable-handle.ui-resizable-sw { left:  -8px; bottom: -8px; cursor: sw-resize; width: 16px; height: 16px; }
+.hxdPickFrame .ui-resizable-handle.ui-resizable-nw { left:  -8px; top:    -8px; cursor: nw-resize; width: 16px; height: 16px; }
+
+.hxdPickFrame .ui-resizable-handle:before,
+.hxdPickFrame .ui-resizable-handle:after {
+    content: "";
+    position: absolute;
+    display: block;
+    width:  5px;
+    height: 5px;
+    border: 1px solid currentColor;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.2s visibility, 0.2s opacity;
+}
+
+.hxdPickFrame:hover .ui-resizable-handle:before, .hxdPickFrame:active .ui-resizable-handle:before,
+.hxdPickFrame:hover .ui-resizable-handle:after,  .hxdPickFrame:active .ui-resizable-handle:after {
+    visibility: visible;
+    opacity: 1;
+}
+
+.hxdPickFrame .ui-resizable-handle:before { color: #000000; }
+
+.hxdPickFrame .ui-resizable-handle:after {
+    box-sizing: border-box;
+    color: #ffffff;
+    margin-top:  1px;
+    margin-left: 1px;
+}
+
+.hxdPickFrame .ui-resizable-handle.ui-resizable-se:before {
+    color: #ff00ff;
+    box-shadow: 0 0 10px currentColor;
+}
+
+.hxdPickFrame .ui-resizable-handle.ui-resizable-e:before, .hxdPickFrame .ui-resizable-handle.ui-resizable-e:after,
+.hxdPickFrame .ui-resizable-handle.ui-resizable-w:before, .hxdPickFrame .ui-resizable-handle.ui-resizable-w:after { top: 50%; transform: translateY(-3px); }
+
+.hxdPickFrame .ui-resizable-handle.ui-resizable-n:before, .hxdPickFrame .ui-resizable-handle.ui-resizable-n:after,
+.hxdPickFrame .ui-resizable-handle.ui-resizable-s:before, .hxdPickFrame .ui-resizable-handle.ui-resizable-s:after { left: 50%; transform: translateX(-3px); }
+
+.hxdPickFrame .ui-resizable-handle.ui-resizable-n:before,  .hxdPickFrame .ui-resizable-handle.ui-resizable-n:after,
+.hxdPickFrame .ui-resizable-handle.ui-resizable-ne:before, .hxdPickFrame .ui-resizable-handle.ui-resizable-ne:after,
+.hxdPickFrame .ui-resizable-handle.ui-resizable-nw:before, .hxdPickFrame .ui-resizable-handle.ui-resizable-nw:after { top: 4px; }
+.hxdPickFrame .ui-resizable-handle.ui-resizable-s:before,  .hxdPickFrame .ui-resizable-handle.ui-resizable-s:after,
+.hxdPickFrame .ui-resizable-handle.ui-resizable-se:before, .hxdPickFrame .ui-resizable-handle.ui-resizable-se:after,
+.hxdPickFrame .ui-resizable-handle.ui-resizable-sw:before, .hxdPickFrame .ui-resizable-handle.ui-resizable-sw:after { top: 5px; }
+
+.hxdPickFrame .ui-resizable-handle.ui-resizable-w:before,  .hxdPickFrame .ui-resizable-handle.ui-resizable-w:after,
+.hxdPickFrame .ui-resizable-handle.ui-resizable-sw:before, .hxdPickFrame .ui-resizable-handle.ui-resizable-sw:after,
+.hxdPickFrame .ui-resizable-handle.ui-resizable-nw:before, .hxdPickFrame .ui-resizable-handle.ui-resizable-nw:after { left: 4px; }
+.hxdPickFrame .ui-resizable-handle.ui-resizable-e:before,  .hxdPickFrame .ui-resizable-handle.ui-resizable-e:after,
+.hxdPickFrame .ui-resizable-handle.ui-resizable-se:before, .hxdPickFrame .ui-resizable-handle.ui-resizable-se:after,
+.hxdPickFrame .ui-resizable-handle.ui-resizable-ne:before, .hxdPickFrame .ui-resizable-handle.ui-resizable-ne:after { left: 5px; }
+
+/* end */
+
+
+
+
+
+/* Rotate */
+
+.hxdPickFrame .noRotateSecure,
+.hxdPickFrame .ui-rotatable-handle {
+    top:    0;
+    right:  0;
+    bottom: 0;
+    left:   0;
+}
+
+/* Чтобы ресайз сразу не переходил в ротейт, а через несколько пикселей, чтобы случайно не заруинить фигуру */
+
+.hxdPickFrame .noRotateSecure {
+    position: absolute;
+    display: block;
+    margin: -16px;
+    cursor: auto;
+    z-index: 1;
+}
+
+.hxdPickFrame .ui-rotatable-handle {
+    margin: -48px;
+    width: auto  !important;
+    height: auto !important;
+}
+
+.hxdPickFrame .rH,
+.hxdPickFrame .ui-rotatable-handle {
+    position: absolute;
+    display: block;
+}
+
+.hxdPickFrame .rH.r-tr, .hxdPickFrame .rH.r-tl { top:    -36px; }
+.hxdPickFrame .rH.r-tr, .hxdPickFrame .rH.r-br { right:  -36px; }
+.hxdPickFrame .rH.r-br, .hxdPickFrame .rH.r-bl { bottom: -36px; }
+.hxdPickFrame .rH.r-tl, .hxdPickFrame .rH.r-bl { left:   -36px; }
+
+.hxdPickFrame .ui-rotatable-handle {
+    cursor: url(cursors/cur_rotate.cur), all-scroll; /* for edge */
+    cursor: url(cursors/cur_rotate.svg) 12 10, all-scroll; /* for all browsers */
+}
+
+.hxdPickFrame .ui-rotatable-handle:active { z-index: 11; }
+
+.hxdPickFrame .rH {
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    width:  41px;
+    height: 41px;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.2s opacity, 0.2s visibility;
+    pointer-events: none;
+}
+
+.hxdPickFrame:hover  .rH,
+.hxdPickFrame:active .rH { opacity: 0.4; visibility: visible; }
+
+.hxdPickFrame .rH.r-tr { border-left:  none; border-bottom: none; border-top-right-radius:    100%; }
+.hxdPickFrame .rH.r-tl { border-right: none; border-bottom: none; border-top-left-radius:     100%; }
+.hxdPickFrame .rH.r-br { border-left:  none; border-top:    none; border-bottom-right-radius: 100%; }
+.hxdPickFrame .rH.r-bl { border-right: none; border-top:    none; border-bottom-left-radius:  100%; }
+
+.hxdPickFrame .rH:before {
+    content: "";
+    display: block;
+    height: 100%;
+    border: inherit;
+    border-color: #ffffff;
+    border-radius: inherit;
+    box-sizing: border-box;
+}
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Dashed border */
+
+.hxdPickFrame .frameBorder {
+    margin: -1px;
+    pointer-events: none;
+}
+
+.hxdPickFrame.multiTransform .frameBorder { margin: 0; }
+
+.hxdPickFrame       .frameBorder      .wrap,
+.hxdPickMultiselect .hxdFrameSelector .wrap {
+    display: block;
+    width:  100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.hxdPickFrame.multiTransform .frameBorder      .wrap,
+.hxdPickMultiselect          .hxdFrameSelector .wrap {
+    width:  calc(100% + 8px);
+    height: calc(100% + 8px);
+    margin: -4px 0 0 -4px;
+}
+
+.hxdPickFrame .frameBorder .wrap rect {
+    fill: none;
+    stroke-width: 2;
+    stroke-dasharray: 4, 4;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-duration: 2s;
+}
+
+.hxdPickFrame .frameBorder .white { stroke: #ffffff; stroke-dashoffset: 4; }
+.hxdPickFrame .frameBorder .black { stroke: #000000; }
+
+.hxdPickFrame.multiTransform        .frameBorder .white { fill: rgba(255, 0, 255, 0.05); }
+.hxdPickFrame.multiTransform:hover  .frameBorder .white,
+.hxdPickFrame.multiTransform:active .frameBorder .white { fill: rgba(255, 0, 255, 0.15); }
+.hxdPickFrame.multiTransform        .frameBorder .black { stroke: #ff00ff; }
+
+.hxdPickFrame:hover .frameBorder .white { animation-name: pickFrameDashWhite; }
+.hxdPickFrame:hover .frameBorder .black { animation-name: pickFrameDashBlack; }
+
+@keyframes pickFrameDashWhite { to { stroke-dashoffset: -4; } }
+@keyframes pickFrameDashBlack { to { stroke-dashoffset: -8; } }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Pick multiselect */
+
+.hxdPickMultiselect { cursor: crosshair; }
+
+.hxdPickMultiselect .hxdFrameSelector {
+    position: absolute;
+    display: block;
+    color: rgba(255, 87, 34, 0.25);
+    transform-origin: 50% 50%;
+    cursor: pointer;
+}
+
+.hxdPickMultiselect .hxdFrameSelector .wrap {
+    pointer-events: none;
+    opacity: 0;
+}
+
+.hxdPickMultiselect .hxdFrameSelector .wrap rect {
+    fill: none;
+    stroke-width: 2;
+    stroke-dasharray: 3, 3;
+}
+
+.hxdPickMultiselect .hxdFrameSelector .wrap .solid { stroke: #ffffff; stroke-dashoffset: 3; }
+.hxdPickMultiselect .hxdFrameSelector .wrap .dash  { stroke: #ff4000; }
+
+.hxdPickMultiselect .hxdFrameSelector.ui-selecting .wrap .solid { fill: rgba(255, 64, 0, 0.5); }
+
+.hxdPickMultiselect .hxdFrameSelector.ui-selecting .wrap,
+.hxdPickMultiselect .hxdFrameSelector.ui-selected  .wrap { opacity: 1; }
+
+.hxdPickMultiselect .hxdFrameSelector.ui-selecting { cursor: inherit; }
+.hxdPickMultiselect .hxdFrameSelector.ui-selected { z-index: 1; }
+
+/* end */

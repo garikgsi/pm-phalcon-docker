@@ -1,0 +1,853 @@
+/* Icons to upload */
+
+.admManiIcons,
+.admManiIcons .iconsOuter,
+.admManiIcons .iconItem {
+    position: relative;
+    display: block;
+}
+
+.admManiIcons .iconsOuter:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.admManiIcons .icgroup,
+.admManiIcons .iconItem { float: left; }
+
+.admManiIcons .iconItem {
+    position: relative;
+    display: block;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+}
+
+.admManiIcons .iconItem .iconWrap {
+    position: relative;
+    display: block;
+}
+
+.admManiIcons .iconItem .iconInner {
+    position: absolute;
+    top:    0;
+    right:  0;
+    bottom: 0;
+    left:   0;
+    display: flex;
+    flex-direction: column;
+    align-items:     center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.admManiIcons .iconItem .iconInner:before,
+.admManiIcons .iconItem .iconInner:after {
+    display: block;
+    line-height: 1.2;
+    font-size: 8pt;
+    color: #777777;
+}
+
+.admManiIcons .iconItem .iconInner:empty:before { content: attr(data-title); }
+.admManiIcons .iconItem .iconInner:empty:after { content: attr(data-size); font-weight: bold; }
+
+
+.admManiIcons .iconItem .image {
+    display: block;
+    width:  auto;
+    height: auto;
+    max-width:  100%;
+    max-height: 100%;
+}
+
+.admManiIcons .cntrlItem  { width:       28px; height:       28px; }
+.admManiIcons .iconsOuter { margin-top: -16px; margin-left: -16px; }
+.admManiIcons .iconItem   { margin-top:  16px; margin-left:  16px; }
+
+/* end */
+
+
+
+/* Android */
+
+.admManiIcons.android .iconItem .iconWrap { width: 132px; height: 132px; }
+
+/* end */
+
+
+
+/* IOS */
+
+.admManiIcons.ios { max-width: 380px; }
+.admManiIcons.ios .iconItem        .iconWrap { width: 115px; height: 115px; }
+.admManiIcons.ios .iconItem.splash .iconWrap { width: 246px; height: 246px; }
+
+.admManiIcons.ios .iconItem.svg .iconInner,
+.admManiIcons.ios .iconItem.svg .image {
+    width:  100%;
+    height: 100%;
+}
+
+/* end */
+
+
+
+/* MS */
+
+.admManiIcons.ms { max-width: 414px; }
+.admManiIcons.ms .icgroup { max-width: 208px; }
+
+.admManiIcons.ms .iconsOuter { margin-top: -4px; margin-left: -4px; }
+.admManiIcons.ms .iconItem   { margin-top:  4px; margin-left:  4px; }
+
+.admManiIcons.ms .iconItem.small  .iconWrap,
+.admManiIcons.ms .iconItem.medium .iconWrap { width: 100px; height: 100px; }
+.admManiIcons.ms .iconItem.wide   .iconWrap { width: 204px; height: 100px; }
+.admManiIcons.ms .iconItem.large  .iconWrap { width: 204px; height: 204px; }
+
+/* end */
+
+
+
+/* Desktop */
+
+.admManiIcons.desktop .iconItem .iconWrap { width: 100px; height: 100px; }
+
+/* end */
+
+
+
+/* TW and OG */
+
+.admOGTCdemo .admManiIcons .iconItem { float: none; }
+
+.admOGTCdemo.small          .admManiIcons .iconItem .iconWrap { padding-top:  100%; }
+.admOGTCdemo.large.twitter  .admManiIcons .iconItem .iconWrap { padding-top:   50%; }
+.admOGTCdemo.large.facebook .admManiIcons .iconItem .iconWrap { padding-top: 52.5%; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Device preview */
+
+.admManiDevicePreview {
+    position: relative;
+    display: block;
+}
+
+.admManiDevicePreview:after {
+    content: "";
+    position: absolute;
+    display: block;
+    top:    0;
+    right:  0;
+    bottom: 0;
+    left:   0;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    pointer-events: none;
+}
+
+.admManiTabs,
+.admManiDevicePreview {
+    background-size: cover;
+    width: 240px;
+}
+
+.admManiDevicePreview .helpinfo { cursor: help; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Applications grid */
+
+.admManiDevicePreview .appsGrid {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 6px 8px 0 0;
+}
+
+.admManiDevicePreview .appsGrid .appItem {
+    position: relative;
+    display: block;
+    width:  64px;
+    height: 80px;
+    margin-top:  16px;
+    margin-left:  8px;
+}
+
+.admManiDevicePreview .appsGrid .appIcon {
+    position: relative;
+    display: block;
+    font-size: 0;
+    text-align: center;
+    overflow: hidden;
+    margin: auto;
+}
+
+.admManiDevicePreview .appsGrid .appIcon .image,
+.admManiDevicePreview.android .switchItem .switchHeader .appIcon .image,
+.admManiDevicePreview.android .splashScreen .splashIcon .image {
+    display: inline-block;
+    vertical-align: middle;
+    width:  auto;
+    height: auto;
+    max-width:  100%;
+    max-height: 100%;
+}
+
+.admManiDevicePreview .appsGrid .appTitle {
+    display: block;
+    font-size: 8pt;
+    text-align: center;
+    line-height: 1.2;
+    height: 2.45em;
+    padding-top: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #ffffff;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 1);
+}
+
+/* Android */
+
+.admManiDevicePreview.android {
+    height: 300px;
+    background: url("devicepreview/android/background.jpg") no-repeat center center;
+}
+
+.admManiDevicePreview.android .appsGrid .appIcon {
+    width:       48px;
+    height:      48px;
+    line-height: 48px;
+}
+
+/* IOS */
+
+.admManiDevicePreview.ios {
+    height: 310px;
+    background: url("devicepreview/ios/background.jpg") no-repeat center center;
+}
+
+.admManiDevicePreview.ios .appsGrid .appIcon {
+    width:       60px;
+    height:      60px;
+    line-height: 60px;
+}
+
+.admManiDevicePreview.ios .appsGrid .appItem.yourapp .appIcon .image {
+    background-color: #000000;
+    border-radius: 14px;
+}
+
+/* MS */
+
+.admManiDevicePreview.ms {
+    height: 240px;
+    background-color: #004050;
+}
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Переключатель приложений */
+
+.admManiDevicePreview.android .switchItem {
+    position: absolute;
+    display: block;
+    background-color: #ffffff;
+    border-radius: 3px;
+    height: 190px;
+    width:  200px;
+    left: 50%;
+    margin-left: -100px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    transform-origin: 50% 0;
+}
+
+.admManiDevicePreview.android .switchItem:nth-child(1) { top: 18px; transform: scale(0.9); }
+.admManiDevicePreview.android .switchItem:nth-child(2) { top: 54px; transform: scale(0.95); }
+.admManiDevicePreview.android .switchItem.yourapp      { top: 92px; z-index: 1; }
+
+.admManiDevicePreview.android .switchItem .switchHeader {
+    display: flex;
+    align-items: center;
+    padding: 0 16px 0 8px;
+    background-color: #e5e5e5;
+    border-radius: 2px 2px 0 0;
+    height: 36px;
+}
+
+.admManiDevicePreview.android .switchItem .switchHeader .appIcon {
+    position: relative;
+    display: block;
+}
+
+.admManiDevicePreview.android .switchItem .switchHeader .appIcon .iconWrap {
+    position: relative;
+    display: block;
+    width:       20px;
+    height:      20px;
+    line-height: 20px;
+    text-align: center;
+    font-size: 0;
+}
+
+.admManiDevicePreview.android .switchItem .switchHeader .appTitle {
+    display: block;
+    color: #808080;
+    font-size: 8pt;
+    font-weight: bold;
+    width: 0;
+    flex-grow: 1;
+    padding-left: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.6;
+}
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Загрузочный экран */
+
+.admManiDevicePreview .splashScreen {
+    position: absolute;
+    display: block;
+    top:    0;
+    right:  0;
+    bottom: 0;
+    left:   0;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+}
+
+.admManiDevicePreview.android .splashScreen .tray {
+    display: block;
+    height: 24px;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.admManiDevicePreview.android .splashScreen .title {
+    position: absolute;
+    display: block;
+    left:   0;
+    right:  0;
+    bottom: 0;
+    padding: 16px;
+    color: #808080;
+}
+
+.admManiDevicePreview.android .splashScreen .splashIcon {
+    position: absolute;
+    display: block;
+    width:       96px;
+    height:      96px;
+    line-height: 96px;
+    top: 80px;
+    left: 50%;
+    margin-left: -48px;
+}
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Мак и тачбар */
+
+.admManiDevicePreview.ios .macTabs {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    padding-top: 16px;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    overflow: hidden;
+}
+
+.admManiDevicePreview.ios .macTabs .tabLine {
+    position: relative;
+    display: block;
+}
+
+.admManiDevicePreview.ios .macTabs .tabLine .title {
+    display: block;
+    padding: 10px 5px;
+    text-align: center;
+    font-weight: bold;
+    line-height: 1.25;
+}
+
+.admManiDevicePreview.ios .macTabs .lineWrap {
+    position: relative;
+    display: block;
+    height: 52px;
+}
+
+.admManiDevicePreview.ios .macTabs .lineList {
+    position: relative;
+    display: flex;
+    list-style: none;
+    height: 100%;
+}
+
+.admManiDevicePreview.ios .macTabs .lineList .listItem {
+    position: relative;
+    display: block;
+    width: 0;
+    flex-grow: 1;
+}
+
+.admManiDevicePreview.ios .macTabs .tabLine .listItem .elzIc,
+.admManiDevicePreview.ios .macTabs .tabLine .listItem svg {
+    display: block;
+    margin-left:  auto;
+    margin-right: auto;
+}
+
+/* Mac */
+
+.admManiDevicePreview.ios .macTabs .tabLine.mac .lineWrap { background-color: #a0a0a0; }
+
+.admManiDevicePreview.ios .macTabs .tabLine.mac .listItem {
+    margin-top:    2px;
+    margin-bottom: 2px;
+    color: #777777;
+    background-color: #bbbbbb;
+    box-shadow: inset 0 120px 50px -100px rgba(255, 255, 255, 0.3);
+    line-height: 48px;
+}
+
+.admManiDevicePreview.ios .macTabs .tabLine.mac .listItem.focus { background-color: #d0d0d0; }
+
+.admManiDevicePreview.ios .macTabs .tabLine.mac .listItem + .listItem { margin-left: 2px; }
+
+.admManiDevicePreview.ios .macTabs .tabLine.mac .listItem .elzIc { font-size: 32px; }
+
+.admManiDevicePreview.ios .macTabs .tabLine.mac .listItem .elzIc,
+.admManiDevicePreview.ios .macTabs .tabLine.mac .listItem svg {
+    margin-top: 8px;
+    width:     32px;
+    height:    32px;
+}
+
+/* Touchbar */
+
+.admManiDevicePreview.ios .macTabs .tabLine.touch .lineWrap { background-color: #000000; }
+
+.admManiDevicePreview.ios .macTabs .tabLine.touch .lineList {
+    margin-left:  -10px;
+    margin-right: -10px;
+}
+
+.admManiDevicePreview.ios .macTabs .tabLine.touch .listItem {
+    margin-top:    8px;
+    margin-bottom: 8px;
+    color: #ffffff;
+    border-radius: 5px;
+}
+
+.admManiDevicePreview.ios .macTabs .tabLine.touch .listItem.ios     { background-color: #963d97; }
+.admManiDevicePreview.ios .macTabs .tabLine.touch .listItem.youtube { background-color: #ee1c1b; }
+
+.admManiDevicePreview.ios .macTabs .tabLine.touch .listItem + .listItem { margin-left: 5px; }
+
+.admManiDevicePreview.ios .macTabs .tabLine.touch .listItem .elzIc { font-size: 28px; }
+
+.admManiDevicePreview.ios .macTabs .tabLine.touch .listItem .elzIc,
+.admManiDevicePreview.ios .macTabs .tabLine.touch .listItem svg {
+    margin-top: 4px;
+    width:     28px;
+    height:    28px;
+}
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Браузер сафари */
+
+.admManiDevicePreview.ios .admManiSafari {
+    position: absolute;
+    display: block;
+    top:    0;
+    right:  0;
+    bottom: 0;
+    left:   0;
+    background-color: #ffffff;
+}
+
+.admManiDevicePreview.ios .admManiSafari .bar {
+    position: relative;
+    display: block;
+    background-color: #ffffff;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    background-clip: padding-box;
+    overflow: hidden;
+}
+
+.admManiDevicePreview.ios .admManiSafari .bar .statusbar {
+    display: block;
+    height: 15px;
+    background: url("devicepreview/ios/statusbar.png") no-repeat top center;
+    background-size: cover;
+}
+
+.admManiDevicePreview.ios .admManiSafari .bar .adressbar {
+    display: block;
+    margin: 5px;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.1);
+    height: 24px;
+}
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Microsoft Win 8 - 10 */
+
+.admManiDevicePreview.ms .admMSgrid {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:  100%;
+    height: 100%;
+}
+
+.admManiDevicePreview.ms .gridList {
+    margin-top:  -4px;
+    margin-left: -4px;
+    width: 208px;
+}
+
+.admManiDevicePreview.ms .gridList.small { width: 104px; }
+
+.admManiDevicePreview.ms .gridItem {
+    position: relative;
+    float: left;
+    margin-top:  4px;
+    margin-left: 4px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.admManiDevicePreview.ms .gridItem.small  { width:  48px; height:  48px; } .admManiDevicePreview.ms .gridItem.small  .image { width: 20px; height: 20px; }
+.admManiDevicePreview.ms .gridItem.medium { width: 100px; height: 100px; } .admManiDevicePreview.ms .gridItem.medium .image { width: 32px; height: 32px; }
+.admManiDevicePreview.ms .gridItem.wide   { width: 204px; height: 100px; } .admManiDevicePreview.ms .gridItem.wide   .image { width: 32px; height: 32px; }
+.admManiDevicePreview.ms .gridItem.large  { width: 204px; height: 204px; } .admManiDevicePreview.ms .gridItem.large  .image { width: 64px; height: 64px; }
+
+.admManiDevicePreview.ms .gridItem.lightblue { background-color: #298fcc; }
+.admManiDevicePreview.ms .gridItem.darkblue  { background-color: #0078d7; }
+.admManiDevicePreview.ms .gridItem.green     { background-color: #107c10; }
+
+.admManiDevicePreview.ms .itemInner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:  100%;
+    height: 100%;
+}
+
+.admManiDevicePreview.ms .itemInner:after {
+    content: "";
+    position: absolute;
+    top:    0;
+    right:  0;
+    bottom: 0;
+    left:   0;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    pointer-events: none;
+}
+
+.admManiDevicePreview.ms .gridItem .title {
+    position: absolute;
+    display: block;
+    left:   0;
+    bottom: 0;
+    right:  0;
+    padding: 5px 8px;
+    line-height: 1.25;
+    color: #ffffff;
+    font-size: 8pt;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.admManiDevicePreview.ms .gridItem.small .title { display: none; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Закладки */
+
+.admManiTabs { display: block; }
+
+.admManiTabs .tabsWrap {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -4px;
+}
+
+.admManiTabs .admManiDevicePreview { margin-left: 4px; }
+
+.admManiTabs .checkerLabel { order: 1; }
+
+.admManiTabs .checker,
+.admManiTabs .checker:not(:checked) + .checkerLabel + .admManiDevicePreview { display: none; }
+
+.admManiTabs .checkerLabel {
+    position: relative;
+    flex-grow: 1;
+    cursor: pointer;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-decoration: none;
+    margin: 5px 0 0 5px;
+    padding: 0 5px;
+    height:      36px;
+    line-height: 37px;
+    border-radius: 2px;
+    background-color: #337ab7;
+    font-size: 8pt;
+    font-weight: bold;
+    color: #eeeeee;
+}
+
+.admManiTabs .checkerLabel:hover { background-color: #3994e2; }
+
+.admManiTabs .checker:checked + .checkerLabel {
+    background-color: #235179;
+    color: #ffffff;
+}
+
+.admManiTabs .admManiDevicePreview.ios:nth-child(9):after,
+.admManiTabs .admManiDevicePreview.android:nth-child(9):after { border-top: none; }
+
+.admManiTabs .admManiDevicePreview.android:nth-child(9):after { top: 24px; }
+.admManiTabs .admManiDevicePreview.ios:nth-child(9):after     { top: 50px; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* OGTC */
+
+.admOGTCdemo {
+    position: relative;
+    display: flex;
+    background-color: #ffffff;
+    margin: auto;
+}
+
+.admOGTCdemo .ogtcIconWrap {
+    position: relative;
+    display: block;
+}
+
+.admOGTCdemo:before,
+.admOGTCdemo .ogtcIconWrap:before {
+    content: "";
+    position: absolute;
+    border: 0 solid rgba(0, 0, 0, 0.1);
+    pointer-events: none;
+    z-index: 2;
+}
+
+.admOGTCdemo:before {
+    top:    0;
+    right:  0;
+    bottom: 0;
+    left:   0;
+    border-radius: inherit;
+    border-width: 1px;
+}
+
+.admOGTCdemo.small { flex-direction: row;    }
+.admOGTCdemo.large { flex-direction: column; }
+
+.admOGTCdemo.small .ogtcContent {
+    width: 0;
+    flex-grow: 1;
+}
+
+.admOGTCdemo.small .ogtcIconWrap:before {
+    right:    0;
+    top:    1px;
+    bottom: 1px;
+    border-right-width: 1px;
+}
+
+.admOGTCdemo.large .ogtcIconWrap:before {
+    bottom:  0;
+    left:  1px;
+    right: 1px;
+    border-bottom-width: 1px;
+}
+
+.admOGTCdemo .admManiIcons .iconItem { box-shadow: none; }
+
+.admOGTCdemo .ogtcContent { padding: 16px; }
+
+.admOGTCdemo .ogtcTitle {
+    display: block;
+    font-weight: normal;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    line-height: 1.2;
+}
+
+.admOGTCdemo .ogtcDescription {
+    display: block;
+    line-height: 1.4;
+    max-height: 2.8em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-top: 0.5em;
+}
+
+.admOGTCdemo .ogtcUrl {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    line-height: 1.6em;
+    margin-top: 0.25em;
+    color: #888888;
+}
+
+/* end */
+
+
+
+/* Twitter */
+
+.admOGTCdemo.twitter {
+    max-width: 520px;
+    border-radius: 8px;
+}
+
+.admOGTCdemo.twitter.small { height: 124px; }
+
+.admOGTCdemo.twitter.small .ogtcIconWrap { width: 124px; }
+
+.admOGTCdemo.twitter .admManiIcons .iconItem { background-color: rgba(0, 0, 0, 0.075); }
+
+.admOGTCdemo.twitter.small .admManiIcons .iconItem,
+.admOGTCdemo.twitter.small .admManiIcons .iconItem .iconInner { border-radius: 8px 0 0 8px; }
+
+.admOGTCdemo.twitter.large .admManiIcons .iconItem,
+.admOGTCdemo.twitter.large .admManiIcons .iconItem .iconInner { border-radius: 8px 8px 0 0; }
+
+.admOGTCdemo.twitter .ogtcTitle { font-size: 14px; font-weight: bold; }
+
+.admOGTCdemo.twitter .ogtcDescription,
+.admOGTCdemo.twitter .ogtcUrl { font-size: 14px; }
+
+
+/* Facebook */
+
+.admOGTCdemo.facebook {
+    max-width: 476px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.admOGTCdemo.facebook.small .ogtcIconWrap { width: 158px; }
+
+.admOGTCdemo.facebook .ogtcContent { padding: 10px 12px; }
+
+.admOGTCdemo.facebook .ogtcTitle { font-size: 18px; }
+
+.admOGTCdemo.facebook .ogtcDescription,
+.admOGTCdemo.facebook .ogtcUrl { font-size: 9pt; }
+
+.admOGTCdemo.facebook .ogtcUrl { text-transform: uppercase; }
+
+.admOGTCdemo.facebook.small .ogtcUrl {
+
+    position: absolute;
+    bottom: 16px;
+}
+
+
+/* end */

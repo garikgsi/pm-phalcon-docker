@@ -1,0 +1,166 @@
+<?php $counterAgentRequisites = $this->view->getVar('counterAgentRequisites') ?? []?>
+<?php $counterAgentRequisitesActive = sizeof($counterAgentRequisites)?>
+<?php
+$managementPost = $counterAgentRequisites['management']['post'] ?? '';
+$managementName = $counterAgentRequisites['management']['name'] ?? '';
+
+$organizationActiveColor = 'red';
+$organizationActiveTitle = 'Закрытая организация';
+
+$isOpened = 0;
+$expandContClass = '';
+
+if ($counterAgentRequisitesActive) {
+    $isIndividual = $counterAgentRequisites['type'] == 'INDIVIDUAL';
+
+    if ($counterAgentRequisites['state']['status'] == 'ACTIVE') {
+        $organizationActiveColor = 'success';
+        $organizationActiveTitle = 'Действующая организация';
+
+        if ($isIndividual) {
+            $organizationActiveTitle = 'Действующий предприниматель';
+        }
+    }
+    else {
+        if ($isIndividual) {
+            $organizationActiveTitle = 'Предприниматель прекратил деятельность';
+        }
+    }
+
+    if ($isIndividual) {
+        $fio = $counterAgentRequisites['fio'];
+
+        $managementPost = 'Предприниматель';
+        $managementName = implode(' ', [$fio['surname'], $fio['name'], $fio['patronymic']]);
+    }
+
+
+    $isOpened = (int)$this->user->getSetting('counteragent_show_requisite');
+    $expandContClass = $isOpened ? '' : ' hide';
+}
+?>
+
+
+<div id="pmCounteragentsAddDataInfo" class="pmContentExpandWrap elz d-block growX r3 bg bg-primary bgL5 bsh-default1<?if(!$counterAgentRequisitesActive):?> hide<?endif;?>" data-id="2" data-name="counteragent_show_requisite" data-val="<?=$isOpened?>">
+    <div class="elz d-flex dir-y gap20 p16 fn<?if(!$counterAgentRequisitesActive):?>16<?else:?>12<?endif;?> lh15 mAuto wmx1024">
+        <?if(!$counterAgentRequisitesActive):?>
+            <div class="elz d-flex dir-y gap8 pB20 borB1 br br-primary brL-10 brLInvD">
+                <div class="daDataFillField elz d-block fn32" data-name="name.short_with_opf">ПАО "НАУКА-СВЯЗЬ"</div>
+                <div class="daDataFillField elz d-block" data-name="name.full_with_opf"><?=$counterAgentRequisites['name']['full_with_opf'] ?? ''?></div>
+            </div>
+
+        <?else:?>
+            <div class="pmContentExpandBorder elz d-flex a-H gap8<?=(!$counterAgentRequisitesActive || $isOpened) ? ' pB8 borB1' : ''?> fn16 br br-primary brL-10 brLInvD">
+                <div class="elz d-block grow">Реквизиты</div>
+                <div class="pmContentExpandToggle elz d-flex a-X mV-8 s32 noShrink rCircle cur-pointer opAct07 bgHov bgHov-primary bgHovL-5 bgHovLF5 bgHovFD bgLInvD">
+                    <div class="mskIcon elz p-rel d-block mskBef s12 cFillBef bgBef-CC<?if(!$isOpened):?> deg180<?endif;?>" style="--elzMsk: url('/design/icons/arrow2.svg');"></div>
+                </div>
+            </div>
+        <?endif;?>
+        <div class="pmContentExpandContainer<?=$expandContClass?> elz d-flex dir-y gap20">
+            <div class="elz d-flex f-wrap gapV20 gapH48">
+
+                <div class="elz d-flex dir-y gap20 growMax fb240">
+                    <?if($counterAgentRequisitesActive):?>
+                        <div class="elz d-flex dir-y gap8">
+                            <div class="elz d-block bold op075">Название по уставу</div>
+                            <div class="elz d-block"><?=$counterAgentRequisites['name']['full_with_opf'] ?? ''?></div>
+                        </div>
+                    <?endif;?>
+
+                    <!--                            <div class="elz d-flex dir-y gap8">-->
+                    <!--                                <div class="elz d-block bold op075">Основной вид деятельности</div>-->
+                    <!--                                <div class="elz d-block">Деятельность холдинговых компаний (64.20)</div>-->
+                    <!--                            </div>-->
+                    <div class="elz d-flex dir-y gap8">
+                        <div class="elz d-block bold op075">Юридический адрес</div>
+                        <div class="daDataFillField elz d-block" data-name="address.value"><?=$counterAgentRequisites['address']['value'] ?? ''?></div>
+                        <!--                                <div class="elz d-flex a-H">-->
+                        <!--                                    <a title="Показать на карте" href="#" class="elz d-block underlineHov cur-pointer opAct07 fn fn-link-inline fnHovL-10 fnHovLInvD">На карте</a>-->
+                        <!--                                </div>-->
+                    </div>
+                    <div class="elz d-flex dir-y gap8">
+                        <div class="daDataFillField elz d-block bold op075" data-name="management.post"><?=$managementPost?></div>
+                        <div class="daDataFillField elz d-block" data-name="management.name"><?=$managementName?></div>
+                        <!--                                <div class="elz d-flex f-wrap a-H gap8">-->
+                        <!--                                    <div class="elz d-block">ИНН:</div>-->
+                        <!--                                    <div class="elz d-block">771815958376</div>-->
+                        <!--                                </div>-->
+                    </div>
+                    <div class="elz d-flex dir-y gap8">
+                        <div class="elz d-block bold op075">Статус</div>
+                        <div class="daDataFillFieldActive elz d-block fn fn-<?=$organizationActiveColor?>"><?=$organizationActiveTitle?></div>
+                    </div>
+                    <!--                            <div class="elz d-flex dir-y gap8">-->
+                    <!--                                <div class="elz d-block bold op075">Реестр МСП</div>-->
+                    <!--                                <div class="elz d-block">Микропредприятие, с 10.08.2016</div>-->
+                    <!--                            </div>-->
+                </div>
+
+                <div class="elz d-flex dir-y gap20 grow fb240">
+
+                    <div class="elz d-flex dir-y gap8">
+                        <div class="elz d-block bold op075">Коды статистики</div>
+                        <div class="elz d-grid grTH01 gap8 a-H">
+                            <div class="elz d-contents">
+                                <div class="elz d-block">ОКАТО:</div>
+                                <div class="daDataFillField elz d-block" data-name="okato"><?=$counterAgentRequisites['okato'] ?? ''?></div>
+                            </div>
+                            <div class="elz d-contents">
+                                <div class="elz d-block">ОКТМО:</div>
+                                <div class="daDataFillField elz d-block" data-name="oktmo"><?=$counterAgentRequisites['oktmo'] ?? ''?></div>
+                            </div>
+                            <div class="elz d-contents">
+                                <div class="elz d-block">ОКПО:</div>
+                                <div class="daDataFillField elz d-block" data-name="okpo"><?=$counterAgentRequisites['okpo'] ?? ''?></div>
+                            </div>
+                            <div class="elz d-contents">
+                                <div class="elz d-block">ОКОГУ:</div>
+                                <div class="daDataFillField elz d-block" data-name="okogu"><?=$counterAgentRequisites['okogu'] ?? ''?></div>
+                            </div>
+                            <div class="elz d-contents">
+                                <div class="elz d-block">ОКФС:</div>
+                                <div class="daDataFillField elz d-block" data-name="okfs"><?=$counterAgentRequisites['okfs'] ?? ''?></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="elz d-flex f-wrap a-between gapV20 gapH48">
+
+                <div class="elz d-flex dir-y gap20 fb240">
+                    <div class="elz d-flex dir-y gap8">
+                        <div class="elz d-block bold op075">ИНН</div>
+                        <div class="daDataFillField elz d-block" data-name="inn"><?=$counterAgentRequisites['inn'] ?? ''?></div>
+                    </div>
+                    <div class="elz d-flex dir-y gap8">
+                        <div class="elz d-block bold op075">КПП</div>
+                        <div class="daDataFillField elz d-block" data-name="kpp"><?=$counterAgentRequisites['kpp'] ?? ''?></div>
+                    </div>
+                </div>
+
+                <div class="elz d-flex dir-y gap20 fb240">
+                    <div class="elz d-flex dir-y gap8">
+                        <div class="elz d-block bold op075">ОКВЭД</div>
+                        <div class="daDataFillField elz d-block" data-name="okved"><?=$counterAgentRequisites['okved'] ?? ''?></div>
+                    </div>
+                    <div class="elz d-flex dir-y gap8">
+                        <div class="elz d-block bold op075">Тип ОКВЭД</div>
+                        <div class="daDataFillField elz d-block" data-name="okved_type"><?=$counterAgentRequisites['okved_type'] ?? ''?></div>
+                    </div>
+                </div>
+
+                <div class="elz d-flex dir-y gap20 fb240">
+                    <div class="elz d-flex dir-y gap8">
+                        <div class="elz d-block bold op075">ОГРН</div>
+                        <div class="daDataFillField elz d-block" data-name="ogrn"><?=$counterAgentRequisites['ogrn'] ?? ''?></div>
+                        <!--                                <div class="elz d-block">от 01.11.2007</div>-->
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,75 @@
+.authWrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:     center;
+    box-sizing: border-box;
+    min-height: 100%;
+}
+
+.authWrap .authFormWrap,
+.authWrap .authFormShow,
+.authWrap .authCircle {
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+    animation-duration: 0.5s;
+}
+
+.authWrap .authFormWrap {
+    display: block;
+    width: 288px;
+    height: 0;
+    overflow: hidden;
+    animation-name: elzAuthFormExpand;
+    animation-delay: 1.85s;
+}
+
+@keyframes elzAuthFormExpand {
+    from { height: 0; }
+    to   { height: 360px; }
+}
+
+.authWrap .authFormShow {
+    opacity: 0;
+    animation-name: elzAuthInputShow;
+}
+
+.authWrap .authFormShow:nth-child(1) { animation-delay: 2s; }
+.authWrap .authFormShow:nth-child(2) { animation-delay: 2.25s; }
+.authWrap .authFormShow:nth-child(3) { animation-delay: 2.5s; }
+.authWrap .authFormShow:nth-child(4) { animation-delay: 2.75s; }
+.authWrap .authFormShow:nth-child(5) { animation-delay: 3s; }
+
+@keyframes elzAuthInputShow {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+
+
+
+
+
+
+/* Logo settings */
+
+.authWrap .authCircle {
+    position: relative;
+    display: block;
+    width:  160px;
+    height: 160px;
+    border-radius: 1024px;
+    transform: scale(1.75);
+    overflow: hidden;
+    animation-name: elzAuthLogoScale;
+    animation-delay: 1.75s;
+}
+
+.authCircle .letter { fill: currentColor; }
+
+@keyframes elzAuthLogoScale {
+    from { transform: scale(1.75); }
+    to   { transform: scale(1); }
+}
+
+/* end */

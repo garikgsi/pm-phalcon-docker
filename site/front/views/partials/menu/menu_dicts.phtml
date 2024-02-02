@@ -1,0 +1,27 @@
+<?$menuData = require(DIR_CACHE_SITES.'5_main_menu_ru.php')?>
+<?$mainMenuData = $this->view->getVar('mainMenuData')?>
+<?$menuActive = $mainMenuData['active'] ?? ''?>
+
+<?for($a = 0, $lenA = sizeof($menuData); $a < $lenA; $a++):?>
+    <?$category = $menuData[$a]?>
+    <?if($category['type'] != 'dictionaries'): continue; endif;?>
+    <div class="elz d-block grow fb320 pVVar r3 bg bg-primary bgL5 bsh-default1">
+        <h2 class="elz d-flex a-X gap8 fn16 pV8 pL16 hmn36">
+            <span class="elz d-block growX"><?=$category['text']?></span>
+        </h2>
+        <ul class="elz d-block">
+            <?for($b = 0, $lenB = sizeof($category['list']); $b < $lenB; $b++):?>
+                <?$item = $category['list'][$b]?>
+                <li class="elz d-block">
+                    <a href="<?=$item['href']?>" title="<?=$item['text']?>" class="elz d-flex a-H cur-pointer pV8 hmn36 bgHov bgSel bgHov-primary bgHovL-10 bgLInvD opAct07 bgSel-secondary fnSel fnSel-secondary-t<?if($menuActive == $item['name']):?> sel<?endif;?>">
+                        <div class="elz d-flex a-X w40">
+                            <div class="elz d-block p-rel mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/<?=$item['icon']?>');<?=($item['icon_size'] ?? '')?>"></div>
+                        </div>
+                        <div class="elz d-block growX"><?=$item['text']?></div>
+                    </a>
+                </li>
+            <?endfor;?>
+
+        </ul>
+    </div>
+<?endfor;?>

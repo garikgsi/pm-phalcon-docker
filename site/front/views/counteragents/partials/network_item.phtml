@@ -1,0 +1,28 @@
+<?php
+$network_address = $network_address ?? '';
+
+if ($counteragent_network_type_id == 2) {
+    $network_address = '/uploads/networks/'.$network_address;
+}
+?>
+
+<div class="networkItem elz d-flex a-H r3 bg bg-primary bgL5 bgHovL10 bsh-default1 showHovOut" data-id="<?=$counteragent_network_id?>">
+
+    <a class="elz d-flex a-H grow p16 gap16 cur-pointer opAct07" href="<?=$network_address?>" target="_blank" title="<?=$network_title?>">
+        <span class="elz p-rel d-block mskBef s32 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/<?=$type_icon?>.svg');"></span>
+        <span class="elz d-block grow">
+            <span class="elz d-block fn16"><?=$network_title?></span>
+            <span class="elz d-block fn12 mT8 op075"><?=$network_create_date?></span>
+        </span>
+    </a>
+    <div class="elz d-flex a-H gap8 pAR16">
+<?if(!($hide_controls ?? 0)):?>
+        <div title="Закрепить на главной" class="networkPin elz d-flex a-X cur-pointer opAct07 s36 mAR-8 rRound bgHov bgHov-primary bgHovL-5<?if(!($network_pin ?? 0)):?> showHovIn<?else:?> sel<?endif;?> bgSel bgSel-ok fnSel fnSel-ok-t">
+            <div class="mskIcon elz d-block p-rel noShrink mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/pushpin.svg');"></div>
+        </div>
+        <div title="Удалить" class="networkDelete elz d-flex a-X cur-pointer opAct07 s36 mAR-8 rRound bgHov bgHov-primary bgHovL-5 showHovIn">
+            <div class="mskIcon elz d-block p-rel noShrink mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/cross1.svg');"></div>
+        </div>
+<?endif;?>
+    </div>
+</div>

@@ -1,0 +1,44 @@
+1. domains.sql
+
+*. tables/languages.sql
+*. tables/dict_ip.sql
+
+
+*. tables/groups.sql
+*. tables/groups_langs.sql
+
+
+*. tables/members.sql
+*. tables/members_auth.sql
+*. tables/members_avatars.sql
+*. tables/members_change_email.sql
+*. tables/members_cookies.sql
+*. tables/members_keys.sql
+*. tables/members_log_auth.sql
+*. tables/members_log_email.sql
+*. tables/members_log_ip.sql
+*. tables/members_log_nick.sql
+
+
+*. tables/settings_systems.sql
+*. tables/settings.sql
+
+
+*. tables/members_settings.sql
+
+
+*. tables/sites.sql
+*. tables/sites_controllers.sql
+*. tables/sites_controllers_to_site.sql
+*. tables/sites_domains.sql
+*. tables/sites_icons.sql
+*. tables/sites_meta.sql
+
+*. tables/sites_manifests_display.sql
+*. tables/sites_manifests_orientation.sql
+*. tables/sites_manifests_meta.sql
+*. tables/sites_manifests.sql
+
+
+
+*. triggers/members_triggers.sql

@@ -1,0 +1,220 @@
+.infCharSec,
+.infCharSec .secWrap,
+.infCharSec .charDoll {
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+}
+
+.infCharSec { padding: 16px 16px 0 16px; }
+
+
+
+
+
+/* Doll settings */
+
+.infCharSec .charDoll {
+    overflow: visible;
+    width: 100%;
+    height: auto;
+}
+
+.infCharSec .charDoll .mainDoll { fill: #777777; }
+
+.infCharSec .charDoll .part {
+    stroke-width: 1;
+    stroke: #222222;
+    opacity: 0;
+    transition: 0.2s;
+    stroke-linecap: round;
+}
+
+.infCharSec .charDoll .part:hover,  .infCharSec .charDoll .part.group:hover  .part,
+.infCharSec .charDoll .part.hover,  .infCharSec .charDoll .part.group.hover  .part,
+.infCharSec .charDoll .part.active, .infCharSec .charDoll .part.group.active .part { opacity: 1; }
+
+/* end */
+
+
+
+
+
+/* Character overlay items ********************************************************************************************/
+
+.infCharSec .charOverItems,
+.infCharSec .charOverItems .itemRoute {
+    position: absolute;
+    top:    0;
+    right:  0;
+    bottom: 0;
+    left:   0;
+}
+
+.infCharSec .charOverItems {
+    display: block;
+    pointer-events: none;
+}
+
+.infCharSec .charOverItems .itemWrap {
+    position: absolute;
+    display: block;
+}
+
+.infCharSec .charOverItems .itemWrap:hover,
+.infCharSec .charOverItems .itemWrap:active { z-index: 1; }
+
+
+
+
+
+/* Route */
+
+.infCharSec .charOverItems .itemRoute { display: flex; }
+
+.infCharSec .charOverItems .itemRoute .itemLine {
+    display: block;
+    flex-grow: 1;
+}
+
+.infCharSec .charOverItems .itemRoute .svgLine {
+    display: block;
+    width:  100%;
+    height: 100%;
+    overflow: visible;
+}
+
+.infCharSec .charOverItems .itemRoute .chSLine {
+    stroke-linecap: round;
+    stroke-width: 2;
+    /*stroke: #777777;*/
+}
+
+/* end */
+
+
+
+
+
+/* Item position */
+
+.infCharSec .charOverItems .itemPos {
+    position: absolute;
+    display: flex;
+    align-items:     center;
+    justify-content: center;
+    width:  0;
+    height: 0;
+    pointer-events: auto;
+}
+
+.infCharSec .charOverItems .itemPos.top     { top:    0; }
+.infCharSec .charOverItems .itemPos.bottom  { bottom: 0; }
+.infCharSec .charOverItems .itemPos.left    { left:   0; }
+.infCharSec .charOverItems .itemPos.right   { right:  0; }
+.infCharSec .charOverItems .itemPos.center  { left: 50%; }
+.infCharSec .charOverItems .itemPos.middle  { top:  50%; }
+
+.infCharSec .charOverItems .itemPos .posWrap {
+    position: absolute;
+    display: block;
+}
+
+/* end */
+
+
+
+
+
+/* Item reference */
+
+.infCharSec .charOverItems .itemRef {
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+    width:  12px;
+    height: 12px;
+    border-width: 2px;
+    border-style: solid;
+    transform-origin: 50% 50%;
+    transition: 0.2s width, 0.2s height, 0.2s transform;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.infCharSec .charOverItems .itemRef .refAbs {
+    position: absolute;
+    display: block;
+    top:    0;
+    right:  0;
+    bottom: 0;
+    left:   0;
+    transform-origin: 50% 50%;
+    transition: 0.2s transform;
+}
+
+.infCharSec .charOverItems .itemRef.doubleHanded .refAbs { opacity: 0.25; }
+
+.infCharSec .charOverItems .itemRef .invItemShowRule { transition: 0.2s margin; }
+
+.infCharSec .charOverItems .itemRef.circle { border-radius: 100%; }
+
+.infCharSec .charOverItems .itemRef.small { width: 12px; height: 12px; }
+.infCharSec .charOverItems .itemRef.large { width: 48px; height: 48px; }
+
+.infCharSec .charOverItems .itemRef.rhombus { transform: rotate(45deg); }
+
+.infCharSec .charOverItems  .itemRef .invItemShowRule { margin: 4px; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Items itself */
+
+.infCharSec .charOverItems .itemWrap.left  { right: 24px; }
+.infCharSec .charOverItems .itemWrap.right { left:  24px; }
+
+.infCharSec .charOverItems .itemWrap.weapon { width:  calc(31% - 24px); height: 48px; top:     55%; }
+.infCharSec .charOverItems .itemWrap.boots  { width:  calc(30% - 24px); height: 48px; bottom:    0; }
+.infCharSec .charOverItems .itemWrap.pants  { width:  calc(32% - 24px); height:  18%; bottom: 24px; }
+.infCharSec .charOverItems .itemWrap.chest  { width:  calc(32% - 24px); height:  18%; top:    24px; }
+.infCharSec .charOverItems .itemWrap.hands  { width:  calc(28% - 24px); height:  14%; bottom:  50%; }
+.infCharSec .charOverItems .itemWrap.head   { width:  calc(40% - 24px); height: 48px; top:       0; }
+
+
+
+
+/* For the best times */
+
+.charDoll .part.neck,
+.charDoll .part.clavicles,
+.charDoll .part.belt,
+.charDoll .part.straps,
+.charDoll .part.eyes,
+.charDoll .part.mask { display: none; }
+/*
+.infCharSec .charOverItems .itemWrap.left  { right: 0; }
+.infCharSec .charOverItems .itemWrap.right { left:  0; }
+
+.infCharSec .charOverItems .itemWrap.clavicle { width:  32%; height:   10%;    bottom:   70%;              }
+.infCharSec .charOverItems .itemWrap.hand     { width:  28%; height:   10%;    bottom:   50%;              }
+.infCharSec .charOverItems .itemWrap.weapon   { width:  31%; height:   10%;    top:      55%;              }
+.infCharSec .charOverItems .itemWrap.pants    { width:  28%; height:   10%;    bottom:   24%; left:  36%;  }
+.infCharSec .charOverItems .itemWrap.boots    { width:  30%; height:    8%;    bottom: -2.5%; left:  35%;  }
+.infCharSec .charOverItems .itemWrap.chest    { width:    0; height:     0;    top:      27%; left:  50%;  }
+.infCharSec .charOverItems .itemWrap.belt     { width:    0; height:     0;    top:      48%; left:  50%;  }
+.infCharSec .charOverItems .itemWrap.helmet   { width:  10%; height:  50px;    bottom:  102%; left:  45%;  }
+.infCharSec .charOverItems .itemWrap.amulet   { width:  43%; height: 13.5%;    top:        0;              }
+.infCharSec .charOverItems .itemWrap.straps   { width:  43%; height: 13.5%;    top:        0;              }
+.infCharSec .charOverItems .itemWrap.eyes     { width:  13%; height:   10%;    top:        0; left:  30%;  }
+.infCharSec .charOverItems .itemWrap.mask     { width:  13%; height:    5%;    top:       5%; right: 30%;  }
+*/
+/* end */

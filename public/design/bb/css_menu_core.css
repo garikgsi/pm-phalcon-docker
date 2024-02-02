@@ -1,0 +1,63 @@
+/* Main */
+
+.bb.nav {
+    position: relative;
+    display: block;
+    overflow: hidden;
+}
+
+.bb.nav .navlist {
+    position: relative;
+    text-align: left;
+}
+
+.bb.nav .navitem,
+.bb.nav .navlink,
+.bb.nav .navlink .inner {
+    position: relative;
+    display: block;
+}
+
+.bb.nav .navitem { list-style: none; }
+
+.bb.nav .navlink {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+.bb.nav .navlink .inner {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.bb.nav .navlink .mT {
+    position: absolute;
+    display: -webkit-flex;
+    display:         flex;
+    -webkit-align-items: center;
+    align-items:         center;
+    -webkit-justify-content: center;
+    justify-content:         center;
+    -webkit-border-radius: 2px;
+    -moz-border-radius:    2px;
+    border-radius:         2px;
+}
+
+.bb.nav .navlink .mT .image {
+    display: block;
+    width:  auto;
+    height: auto;
+    max-width:  100%;
+    max-height: 100%;
+    margin-left:  auto;
+    margin-right: auto;
+    -webkit-border-radius: inherit;
+    -moz-border-radius:    inherit;
+    border-radius:         inherit;
+}
+
+.bb.nav .navlink .mT:not(:empty):before,
+.bb.nav .navlink .mT:not(:empty):after { display: none !important; }
+
+/* end */

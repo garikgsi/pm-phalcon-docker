@@ -1,0 +1,103 @@
+.uRuler {
+    display: flex;
+    align-items:     center;
+    justify-content: center;
+    --rulerSize: 50;
+    --rulerDiv: 1;
+    --rulerIncr: 50;
+    --rulerStart: 0;
+}
+
+.uRuler.horizontal { --rulerDirection:  90deg; }
+.uRuler.vertical   { --rulerDirection: 180deg; }
+
+.uRuler.horizontal,
+.uRuler.horizontal:before,
+.uRuler.horizontal:after { background-size: calc(var(--rulerSize) * 1px) 100%; }
+
+.uRuler.vertical,
+.uRuler.vertical:before,
+.uRuler.vertical:after { background-size: 100% calc(var(--rulerSize) * 1px); }
+
+.uRuler:before,
+.uRuler:after {
+    content: "";
+    position: absolute;
+}
+
+.uRuler.horizontal:before,
+.uRuler.horizontal:after,
+.uRuler.vertical.left:before,
+.uRuler.vertical.left:after,
+.uRuler.vertical.right > .uRulerCounter,
+.uRuler.horizontal     > .uRulerCounter { left: 0; }
+
+.uRuler.horizontal:before,
+.uRuler.horizontal:after,
+.uRuler.vertical.right:before,
+.uRuler.vertical.right:after,
+.uRuler.vertical.left > .uRulerCounter,
+.uRuler.horizontal    > .uRulerCounter { right: 0; }
+
+.uRuler.vertical:before,
+.uRuler.vertical:after,
+.uRuler.horizontal.top:before,
+.uRuler.horizontal.top:after,
+.uRuler.horizontal.bottom > .uRulerCounter,
+.uRuler.vertical          > .uRulerCounter { top: 0; }
+
+.uRuler.vertical:before,
+.uRuler.vertical:after,
+.uRuler.horizontal.bottom:before,
+.uRuler.horizontal.bottom:after,
+.uRuler.horizontal.top > .uRulerCounter,
+.uRuler.vertical       > .uRulerCounter { bottom: 0; }
+
+.uRuler.horizontal:before { height: 50%; }
+.uRuler.horizontal:after  { height: 30%; }
+
+.uRuler.vertical:before { width: 50%; }
+.uRuler.vertical:after  { width: 30%; }
+
+.uRuler        { background-image: linear-gradient(var(--rulerDirection), currentColor 0%, currentColor calc(0% + calc(var(--rulerDiv) * 1px)), transparent calc(0% + calc(var(--rulerDiv) * 1px))); }
+.uRuler:before { background-image: linear-gradient(var(--rulerDirection), transparent 50%, currentColor 50%, currentColor calc(50% + calc(var(--rulerDiv) * 1px)), transparent calc(50% + calc(var(--rulerDiv) * 1px))); }
+.uRuler:after  { background-image:
+                                    linear-gradient(var(--rulerDirection), transparent 10%, currentColor 10%, currentColor calc(10% + calc(var(--rulerDiv) * 1px)), transparent calc(10% + calc(var(--rulerDiv) * 1px))),
+                                    linear-gradient(var(--rulerDirection), transparent 20%, currentColor 20%, currentColor calc(20% + calc(var(--rulerDiv) * 1px)), transparent calc(20% + calc(var(--rulerDiv) * 1px))),
+                                    linear-gradient(var(--rulerDirection), transparent 30%, currentColor 30%, currentColor calc(30% + calc(var(--rulerDiv) * 1px)), transparent calc(30% + calc(var(--rulerDiv) * 1px))),
+                                    linear-gradient(var(--rulerDirection), transparent 40%, currentColor 40%, currentColor calc(40% + calc(var(--rulerDiv) * 1px)), transparent calc(40% + calc(var(--rulerDiv) * 1px))),
+
+                                    linear-gradient(var(--rulerDirection), transparent 60%, currentColor 60%, currentColor calc(60% + calc(var(--rulerDiv) * 1px)), transparent calc(60% + calc(var(--rulerDiv) * 1px))),
+                                    linear-gradient(var(--rulerDirection), transparent 70%, currentColor 70%, currentColor calc(70% + calc(var(--rulerDiv) * 1px)), transparent calc(70% + calc(var(--rulerDiv) * 1px))),
+                                    linear-gradient(var(--rulerDirection), transparent 80%, currentColor 80%, currentColor calc(80% + calc(var(--rulerDiv) * 1px)), transparent calc(80% + calc(var(--rulerDiv) * 1px))),
+                                    linear-gradient(var(--rulerDirection), transparent 90%, currentColor 90%, currentColor calc(90% + calc(var(--rulerDiv) * 1px)), transparent calc(90% + calc(var(--rulerDiv) * 1px))); }
+
+.uRuler > .uRulerCounter {
+    position: absolute;
+    display: flex;
+    counter-reset: rulerCounter calc(var(--rulerStart) - var(--rulerIncr));
+}
+
+.uRuler.horizontal > .uRulerCounter { flex-direction:    row; }
+.uRuler.vertical   > .uRulerCounter { flex-direction: column; }
+
+
+.uRuler .counterItem {
+    display: flex;
+    flex-shrink: 0;
+}
+
+.uRuler.horizontal .counterItem { justify-content: center; }
+.uRuler.vertical   .counterItem { align-items:     center; }
+
+.uRuler .counterItem:before {
+    position: relative;
+    counter-increment: rulerCounter var(--rulerIncr);
+    content: counter(rulerCounter);
+}
+
+.uRuler.horizontal .counterItem { width:  calc(var(--rulerSize) * 1px); }
+.uRuler.vertical   .counterItem { height: calc(var(--rulerSize) * 1px); }
+
+.uRuler.vertical .counterItem:before { writing-mode: vertical-lr; }
+.uRuler.vertical.reverse .counterItem:before { transform: scale(-1); }

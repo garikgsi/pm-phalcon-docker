@@ -1,0 +1,90 @@
+/* Controls settings ************************/
+
+.elzCLSoverControls {
+    position: absolute;
+    display: block;
+    top:     0;
+    right:   0;
+    z-index: 3;
+    pointer-events: none;
+}
+
+.elzCLSoverControls.horizontal { left: 0; right: 0; /*height: 0;*/ }
+.elzCLSoverControls.horizontal.top     { top:    0; }
+.elzCLSoverControls.horizontal.bottom  { bottom: 0; top: auto; }
+
+.elzCLSoverControls.vertical { top: 0; bottom: 0; /*width: 0;*/ }
+.elzCLSoverControls.vertical.left   { left:    0; right: auto; }
+.elzCLSoverControls.vertical.right  { right:   0; }
+
+.elzCLSoverControls > .cntrlItem {
+    position: relative;
+    display: flex;
+    align-items: center;
+    list-style: none;
+    width:  36px;
+    height: 36px;
+    margin-right: 5px;
+    margin-top:   5px;
+    color: rgba(255, 255, 255, 0.75);
+    background-color: rgba(0, 0, 0, 0.25);
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+    border-radius: 2px;
+    box-sizing: border-box;
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+/* Touch screen detection */
+
+@media not all and (pointer: coarse), not all and (-moz-touch-enabled) {
+    .overCNTRLhover:not(:hover) .elzCLSoverControls.hidden > .cntrlItem:not(.show),
+    .overCNTRLhover:not(:hover) .elzCLSoverControls > .cntrlItem.hidden { display: none; }
+}
+
+.elzCLSoverControls > .cntrlItem:hover,
+.elzCLSoverControls > .cntrlItem:active,
+.elzCLSoverControls > .cntrlItem.active {
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.8);
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.75);
+}
+
+.elzCLSoverControls > .cntrlItem:active { opacity: 0.7; }
+
+.elzCLSoverControls > .cntrlItem .elzIcon { margin: auto; }
+
+.elzCLSoverControls > .cntrlItem.delete { background-color: rgba(244, 67, 54, 0.75); }
+
+.elzCLSoverControls > .cntrlItem.delete:hover,
+.elzCLSoverControls > .cntrlItem.delete:active,
+.elzCLSoverControls > .cntrlItem.delete.active { background-color: rgba(244, 67, 54, 1); }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Sizes */
+
+.elzCLSoverControls > .cntrlItem.smaller { width: 16px; height: 16px; }
+.elzCLSoverControls > .cntrlItem.small   { width: 24px; height: 24px; }
+.elzCLSoverControls > .cntrlItem.large   { width: 48px; height: 48px; }
+
+.elzCLSoverControls.horizontal.top    > .cntrlItem { margin-top:    5px; }
+.elzCLSoverControls.horizontal.bottom > .cntrlItem { margin-bottom: 5px; }
+
+.elzCLSoverControls.horizontal     > .cntrlItem.left  { float:  left; margin-left:  5px; }
+.elzCLSoverControls.horizontal     > .cntrlItem.right { float: right; margin-right: 5px; }
+
+.elzCLSoverControls.vertical       > .cntrlItem.left  { margin-top:   5px; }
+.elzCLSoverControls.vertical.left  > .cntrlItem       { margin-left:  5px; }
+.elzCLSoverControls.vertical.right > .cntrlItem       { margin-right: 5px; }
+
+/* end */

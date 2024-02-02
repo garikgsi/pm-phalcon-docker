@@ -1,0 +1,141 @@
+/* Deal top panel */
+
+.infTradeDeal { width: 346px; }
+
+.infTradeAv { width: 100px; }
+
+.infCharTraderBalloon {
+    margin-left: -362px;
+    height: 44px;
+}
+
+.infCharMyBalloon { height: 30px; }
+
+.infCharMyBalloon + .infCharMyBalloon { margin-top: 5px; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Submit trade */
+
+.infTradeSubmitWrap {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    width: 64px;
+    height: 116px;
+    margin-bottom: -8px;
+    margin-top: -60px;
+    box-sizing: border-box;
+    padding: 8px 0;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.infTradeSubmitWrap.libraEnabled:hover {
+    pointer-events: auto;
+    background-color: #eeeeee;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.infTradeSubmitWrap .submitButton {
+    position: relative;
+    display: block;
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+.infTradeSubmitWrap .submitButton.libra { display: none; }
+.infTradeSubmitWrap.libraEnabled:hover .submitButton.libra { display: block; }
+
+.infTradeSubmitWrap .submitButton:active {
+    opacity: 0.7;
+    z-index: 1;
+}
+
+.infTradeSubmitWrap .submitButton + .submitButton { margin-top: 4px; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Affinity */
+
+.infTradeAffinity {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-top: 8px;
+    height: 56px;
+    box-sizing: border-box;
+}
+
+.infTradeAffinity .affinityBar {
+    position: relative;
+    display: block;
+    height: 16px;
+    background-image: linear-gradient(to right, rgba(244,67,54,1) 0%,rgba(255,255,255,1) 50%,rgba(76,175,80,1) 100%);
+    flex-grow: 1;
+}
+
+.infTradeAffinity .affinityBar:before {
+    content: "";
+    position: absolute;
+    top:    0;
+    right:  0;
+    bottom: 0;
+    left:   0;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    z-index: 1;
+}
+
+.infTradeAffinity .affinityMeter {
+    position: absolute;
+    display: block;
+    height: 18px;
+    top: 23px;
+    left:   0;
+}
+
+.infTradeAffinity .affinityMeter:before,
+.infTradeAffinity .affinityMeter:after {
+    content: "";
+    position: absolute;
+    display: block;
+    width:  0;
+    height: 0;
+    border-style: solid;
+    left: -4px;
+}
+
+.infTradeAffinity .affinityMeter:before {
+    top: -4px;
+    border-width: 4px 4px 0 4px;
+    border-color: rgba(0, 0, 0, 0.65) transparent transparent transparent;
+}
+
+
+.infTradeAffinity .affinityMeter:after {
+    bottom: -4px;
+    border-width: 0 4px 4px 4px;
+    border-color: transparent transparent rgba(0, 0, 0, 0.65) transparent;
+}
+
+/* end */

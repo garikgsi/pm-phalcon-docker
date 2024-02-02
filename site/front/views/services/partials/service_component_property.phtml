@@ -1,0 +1,180 @@
+<?php $propertyId = $service_component_property_id ?? 0?>
+<?php $propertyTypesOptions = $this->view->getVar('propertyTypesOptions') ?? []?>
+<?php $dictsOptions = $this->view->getVar('dictsOptions') ?? []?>
+<?php $unitsGroupsOptions = $this->view->getVar('unitsGroupsOptions') ?? []?>
+<?php $unitsOptionsMap = $this->view->getVar('unitsOptionsMap') ?? []?>
+<?php
+$property_title = $property_title ?? '';
+$property_mandatory = $property_mandatory ?? 0;
+$property_multiple = $property_multiple ?? 0;
+
+$service_status_id = $service_status_id ?? 1;
+
+$service_dict_id = $service_dict_id ?? 0;
+$unit_id = $unit_id ?? 0;
+$unit_group_id = $unit_group_id ?? 0;
+
+$disableClass = $service_status_id > 1 ? ' uDisabled evNone' : '';
+?>
+<form action="?act=property_<?if($propertyId):?>update<?else:?>create<?endif;?>&component_id=<?=$service_component_id?>" method="post" class="propertyItem elz d-flex a-H gap8 pV4 pH8 f-wrap<?if($propertyId):?> bgHov bgHov-primary<?endif;?>" data-id="<?=$propertyId?>">
+<?if($service_status_id > 1):?>
+    <div class="elz d-flex a-H f-wrap gap8 growMax hmn36">
+        <div class="elz p-rel d-flex a-X pR8">
+            <div title="Сортировать" class="sortPropertyHandler elz d-flex a-X cur-move opAct07 s36 rRound bgHov bgHov-primary bgHovL-5 fnSel fnSel-ok-t bgSel bgSel-ok">
+                <div class="mskIcon evNone elz d-block p-rel noShrink mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/move-v.svg');"></div>
+            </div>
+            <div class="elz p-abs p-R h24 borR1 br br-primary-t op025"></div>
+        </div>
+        <div class="elz d-block pH16 grow"><?=$property_title?></div>
+
+        <div class="mskIcon elz d-block p-rel noShrink mskBef s16 noShrink cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/<?=$type_icon?>');"></div>
+
+    </div>
+    <div class="elz d-flex gap8 grow fb520">
+
+        <div class="elz d-flex a-H hmn36 gap8 grow bg bg-primary bgL-5 r3 pH8">
+            <div class="elz d-block grow"><?=$type_title?></div>
+        </div>
+
+    <?if($service_dict_id || $unit_group_id):?>
+        <div class="elz d-block w300">
+            <div class="elz d-flex a-H hmn36 gap8 grow bg bg-primary bgL-5 r3">
+        <?if($service_dict_id):?>
+                <div class="elz p-rel d-flex a-H pH16 fb24 grow">
+                    <div class="elz d-block grow"><?=$dict_title?></div>
+                </div>
+        <?elseif($unit_group_id):?>
+                <div class="elz p-rel d-flex a-H pH16 fb24 grow">
+                    <div class="elz d-block grow"><?=$group_title?></div>
+                </div>
+
+                <div class="elz p-rel d-flex a-H pH16 fb24 grow">
+                    <div class="elz d-block grow"><?=$unit_title?></div>
+                    <div class="elz p-abs p-L h18 borL1 br br-primary-t brA50"></div>
+                </div>
+        <?endif;?>
+            </div>
+        </div>
+    <?endif;?>
+    </div>
+    <div class="elz d-flex f-wrap gap8">
+        <div title="" class="elz d-flex a-X cur-help s36 r3<?if($property_multiple):?>  bg bg-ok fn fn-ok-t<?endif;?>">
+            <div class="mskIcon elz d-block p-rel noShrink mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/stack2.svg');"></div>
+        </div>
+        <div title="" class="elz d-flex a-X cur-help s36 r3<?if($property_mandatory):?> bg bg-error fn fn-error-t<?endif;?>">
+            <div class="mskIcon elz d-block p-rel noShrink mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/require.svg');"></div>
+        </div>
+    </div>
+<?else:?>
+    <div class="elz d-flex a-H f-wrap growMax gap8">
+    <?if($propertyId):?>
+        <div class="elz p-rel d-flex a-X pR8">
+            <div title="Сортировать" class="sortPropertyHandler elz d-flex a-X cur-move opAct07 s36 rRound bgHov bgHov-primary bgHovL-5 fnSel fnSel-ok-t bgSel bgSel-ok">
+                <div class="mskIcon evNone elz d-block p-rel noShrink mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/move-v.svg');"></div>
+            </div>
+            <div class="elz p-abs p-R h24 borR1 br br-primary-t op025"></div>
+        </div>
+    <?else:?>
+        <div class="elz p-rel d-block s36 mR8">
+
+
+        </div>
+    <?endif;?>
+        <div class="elz d-flex growMax">
+            <input type="hidden" name="property_id" value="<?=$propertyId?>" />
+            <?$this->view->partial('forms/input_base', ['value' => $property_title, 'name' => 'title', 'widthInput' => '', 'inputClass' => 'pL16 rL3', 'labelClass' => 'mR-1', 'placeholder' => 'Введите название свойства'])?>
+        </div>
+
+        <div class="elz d-flex fb520">
+            <?$this->view->partial('forms/select_base', [
+                'name' => 'type',
+                'options' => $propertyTypesOptions,
+                'value' => $propertyId ? (int)$service_property_type_id : 0,
+                'class' => 'propertyType growMax',
+                'width' => 'fb200',
+                'inputClass' => 'h36 rR3',
+                'inputClassBG' => 'bg bg-primary bgL10 bgLInvD',
+                'inputClassBR' => 'br brLInvD br-primary brL-10 brHovInL-20'
+            ])?>
+
+            <div class="elz d-flex a-H grow">
+
+                <?$this->view->partial('forms/select_base', [
+                    'name' => 'dict',
+                    'options' => $dictsOptions,
+                    'value' => $service_dict_id,
+                    'width' => '',
+                    'class' => 'propertyConfig configDict mL8 w300'.($service_dict_id ? '' : ' hide'),
+                    'inputClass' => 'h36 rL3 rR3',
+                    'inputClassBG' => 'bg bg-primary bgL10 bgLInvD',
+                    'inputClassBR' => 'br brLInvD br-primary brL-10 brHovL-20 brFoc-focus brFocL0'
+                ])?>
+                <?$this->view->partial('forms/select_base', [
+                    'name' => 'unit_group',
+                    'options' => $unitsGroupsOptions,
+                    'value' => $unit_group_id,
+                    'width' => '',
+                    'class' => 'propertyConfig configUnitGroup mL8 mR-1 w150'.($unit_group_id ? '' : ' hide'),
+                    'inputClass' => 'h36'.($unit_group_id ? ' rL3' : ' r3'),
+                    'inputClassBG' => 'bg bg-primary bgL10 bgLInvD',
+                    'inputClassBR' => 'br brLInvD br-primary brL-10 brHovL-20 brFoc-focus brFocL0'
+                ])?>
+                <?$this->view->partial('forms/select_base', [
+                    'name' => 'unit_value',
+                    'options' => $unit_group_id ? $unitsOptionsMap[$unit_group_id] : [],
+                    'value' => $unit_id,
+                    'width' => '',
+                    'class' => 'propertyConfig configUnit w150'.($unit_group_id ? '' : ' hide'),
+                    'inputClass' => 'h36 rR3',
+                    'inputClassBG' => 'bg bg-primary bgL10 bgLInvD',
+                    'inputClassBR' => 'br brLInvD br-primary brL-10 brHovL-20 brFoc-focus brFocL0'
+                ])?>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="elz d-flex f-wrap gap8">
+        <div class="elz d-grid grPos s36 cur-pointer opAct07 rRound bgHov bgHov-primary bgHovL-5" title="Свойство может быть использовано несколько раз">
+            <input name="multiple" type="checkbox" class="propertyToggleField elz d-block grPin cLblSib cur-pointer z1" data-field="multiple"<?if($property_multiple):?> checked="checked"<?endif;?>>
+            <div class="elz d-flex grPin a-X cur-pointer rRound opAct07 bgLblLing bgLblLing-ok fnLblLing fnLblLing-ok-t">
+                <div class="mskIcon elz d-block p-rel noShrink mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/stack2.svg');"></div>
+            </div>
+        </div>
+
+        <div class="elz d-grid grPos s36 cur-pointer opAct07 rRound bgHov bgHov-primary bgHovL-5" title="Свойство обязательно к использованию">
+            <input name="mandatory" type="checkbox" class="propertyToggleField elz d-block grPin cLblSib cur-pointer z1" data-field="mandatory"<?if($property_mandatory):?> checked="checked"<?endif;?>>
+            <div class="elz d-flex grPin a-X cur-pointer rRound opAct07 bgLblLing bgLblLing-error fnLblLing fnLblLing-error-t">
+                <div class="mskIcon elz d-block p-rel noShrink mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/require.svg');"></div>
+            </div>
+        </div>
+    </div>
+<?endif;?>
+    <?php $this->view->partial('services/partials/status_select', ['status_name' => 'status', 'select_class' => 'propertyStatusChange'.(!$propertyId ? ' uDisabled' : ''), 'service_status_id' => $service_status_id, 'linked_count' => -1])?>
+
+<?if($service_status_id > 1):?>
+    <div class="propertyActive elz d-flex f-wrap gap8">
+        <div class="elz d-flex a-X s36"></div>
+        <div title="Свойство заблокировано" class="elz d-flex a-X cur-help opAct07 s36 rRound bg bg-<?if($service_status_id == 2):?>success<?else:?>error<?endif;?>">
+            <div class="mskIcon elz d-block p-rel noShrink mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/lock2.svg');"></div>
+        </div>
+    </div>
+<?else:?>
+    <div class="elz d-flex f-wrap gap8">
+    <?if($propertyId):?>
+        <button type="submit" title="Сохранить изменения свойства" class="elz d-flex a-X cur-pointer opAct07 s36 rRound bgHov bgHov-primary bgHovL-5">
+            <span class="mskIcon elz d-block p-rel noShrink mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/save.svg');"></span>
+        </button>
+        <div title="Удалить свойство" class="propertyDelete elz d-flex a-X cur-pointer opAct07 s36 rRound bgHov bgHov-primary bgHovL-5">
+            <div class="mskIcon elz d-block p-rel noShrink mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/cross1.svg');"></div>
+        </div>
+    <?else:?>
+        <div class="elz d-flex a-X s36"></div>
+        <button type="submit"  title="Добавить свойство" class="elz d-flex a-X cur-help opAct07 s36 rRound bgHov bgHov-primary bgHovL-5">
+            <span class="mskIcon elz d-block p-rel noShrink mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/plus2.svg');"></span>
+        </button>
+    <?endif;?>
+    </div>
+<?endif;?>
+</form>

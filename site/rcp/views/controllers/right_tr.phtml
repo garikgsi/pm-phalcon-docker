@@ -1,0 +1,32 @@
+<tr class="rightItem" data-id="<?=@$right_id?>">
+    <td class="compressed">
+        <div class="elz strCLSitem mar-RMedium">
+            <i class="elz elzIcon medium cur-move">
+                <i class="elz elzIc main smallest ic-move-v"></i>
+            </i>
+        </div>
+    </td>
+    <td class="w280">
+        <?=\Core\Builder\MustacheForms::input('text', 'Введите уникальное название', '', '', '', 'name', $right_name, 'small')?>
+    </td>
+    <td>
+        <?=\Core\Builder\MustacheForms::input('text', 'Введите заголовок', '', '', '', 'title', $right_title, 'small')?>
+    </td>
+    <td>
+        <?=\Core\Builder\MustacheForms::textArea('Введите описание', '', '', '', 'description', $right_description, '', 'small')?>
+    </td>
+    <td class="compressed">
+        <div class="elz strCLSitem flexible mar-LLarge">
+            <div class="elz strCLSitem marLSmall">
+                <i class="rightItemSaver elz elzIcon medium rad elzPLT icLink link hovLight" data-bg="blue">
+                    <i class="elz elzIc main smallest ic-save shD elzPLT" data-fn="white"></i>
+                </i>
+            </div>
+            <div class="elz strCLSitem marLSmall">
+                <i class="rightItemDelete elz elzIcon medium rad elzPLT icLink link hovLight" data-bg="red">
+                    <i class="elz elzIc main smallest ic-cross shD elzPLT" data-fn="white"></i>
+                </i>
+            </div>
+        </div>
+    </td>
+</tr>

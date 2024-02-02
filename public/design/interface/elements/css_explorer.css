@@ -1,0 +1,273 @@
+/* Main settings */
+
+.elzCLSexplorer,
+.elzCLSexplorer .expList,
+.elzCLSexplorer .expList .expItem {
+	position: relative;
+    display: block;
+}
+
+.elzCLSexplorer .expList { list-style: none; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+
+/* Explorer item inner settings */
+
+.elzCLSexplorer .expInner,
+.elzCLSexplorer .expInner > .expSTR {
+    position: relative;
+    display: flex;
+    text-decoration: none;
+}
+
+.elzCLSexplorer .expInner:not([data-fn]),
+.elzCLSexplorer .expInner > .expSTR:not([data-fn]) { color: inherit; }
+
+.elzCLSexplorer .expInner.link, .elzCLSexplorer .expInner > .expSTR.link { cursor: pointer; }
+.elzCLSexplorer .expInner.move, .elzCLSexplorer .expInner > .expSTR.move { cursor:    move; }
+
+.elzCLSexplorer .expInner.link:active, .elzCLSexplorer .expInner > .expSTR.link:active { opacity: 0.7; }
+
+.elzCLSexplorer .expInner {
+    height: 32px;
+    border: 1px solid transparent;
+    text-decoration: none;
+}
+
+/* Border colors */
+
+.elzCLSexplorer .expInner.here:not(:hover):not(:active) { border-color: rgba(0, 0, 0, 0.1); }
+
+.elzCLSexplorer .expInner:hover,         .elzCLSexplorer .expInner:active         { border-color: rgba(0, 72, 255, 0.2);   background-color: rgba(0, 72, 255, 0.05); }
+.elzCLSexplorer .expInner.success:hover, .elzCLSexplorer .expInner.success:active { border-color: rgba(0, 128, 0, 0.2);    background-color: rgba(0, 192, 0, 0.05); }
+.elzCLSexplorer .expInner.warning:hover, .elzCLSexplorer .expInner.warning:active { border-color: rgba(255, 121, 26, 0.4); background-color: rgba(255, 121, 26, 0.1); }
+.elzCLSexplorer .expInner.error:hover,   .elzCLSexplorer .expInner.error:active   { border-color: rgba(255, 0, 0, 0.2);    background-color: rgba(255, 0, 0, 0.05); }
+
+/* Structure */
+
+.elzCLSexplorer .expInner > .expSTR {
+    align-items: center;
+    order: 1;
+}
+
+.elzCLSexplorer .expInner > .expSTR.left  { order: 0; }
+.elzCLSexplorer .expInner > .expSTR.right { order: 2; }
+
+.elzCLSexplorer .expInner > .expSTR.grow {
+    width:     0;
+    flex-grow: 1;
+}
+
+.elzCLSexplorer .expInner > .expSTR.icon {
+    display: flex;
+    justify-content: center;
+    min-width:  32px;
+    min-height: 32px;
+}
+
+.elzCLSexplorer .expInner > .expSTR.hide { display: none; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Lines settings */
+
+.elzCLSexplorer > .expList { margin-left: -16px; }
+
+.elzCLSexplorer .expItem { padding-left: 32px; }
+
+.elzCLSexplorer .expItem:before,
+.elzCLSexplorer .expItem:after {
+    content: "";
+    position: absolute;
+    display: block;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.1);
+}
+
+.elzCLSexplorer .expItem:before {
+    top:    0;
+    bottom: 0;
+    left: 16px;
+    border-width: 0 0 0 1px;
+}
+
+.elzCLSexplorer .expItem:after {
+    width: 15px;
+    top:   17px;
+    left:  17px;
+    border-width: 0 0 1px 0;
+}
+
+.elzCLSexplorer > .expList > .expItem:first-child:before { top:    17px; }
+.elzCLSexplorer              .expItem:last-child:before  { height: 18px; }
+
+.elzCLSexplorer > .expList > .expItem:only-child:before,
+.elzCLSexplorer > .expList > .expItem:only-child:after { display: none; }
+
+/* Root settings */
+
+.elzCLSexplorer .expList.root { margin-left: -32px; }
+
+.elzCLSexplorer .expList.root > .expItem:before,
+.elzCLSexplorer .expList.root > .expItem:after,
+.elzCLSexplorer .expList.root > .expItem > .expNode { display: none; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Nodes settings */
+
+.elzCLSexplorer .expNodeChecker ~ .expList          { display:  none; }
+
+.elzCLSexplorer .expNodeChecker:checked ~ .expList,
+.elzCLSexplorer .expList.root > .expItem > .expList { display: block; }
+
+.elzCLSexplorer .expNodeChecker {
+    position: absolute;
+    display: block;
+    width:  32px;
+    height: 34px;
+    top:     0;
+    left:    0;
+    z-index: 2;
+    opacity: 0;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance:    none;
+    appearance:         none;
+}
+
+.elzCLSexplorer .expNode {
+    position: absolute;
+    display: block;
+    width:  9px;
+    height: 9px;
+    left: 12px;
+    top:  13px;
+    border: 1px solid transparent;
+    box-sizing: border-box;
+    z-index: 1;
+}
+
+.elzCLSexplorer .expNode:before,
+.elzCLSexplorer .expNode:after {
+    content: "";
+    position: absolute;
+    display: block;
+}
+
+.elzCLSexplorer .expNodeChecker.hide,
+.elzCLSexplorer .expNodeChecker.hide + .expNode,
+.elzCLSexplorer .expNodeChecker:checked + .expNode:after { display: none; }
+
+.elzCLSexplorer .expNode:before {
+    top:  3px;
+    left: 1px;
+    width: 5px;
+    border-top: 1px solid currentColor;
+}
+
+.elzCLSexplorer .expNode:after {
+    top:  1px;
+    left: 3px;
+    height: 5px;
+    border-left: 1px solid currentColor;
+}
+
+/* Dark node */
+
+.elzCLSexplorer.nodeDark .expNode {
+    border-radius: 2px;
+    color: #ffffff;
+}
+
+.elzCLSexplorer.nodeDark .expNodeChecker:hover  + .expNode { background-color: #2e82be; }
+.elzCLSexplorer.nodeDark .expNode,
+.elzCLSexplorer.nodeDark .expNodeChecker:active + .expNode { background-color: #0f5c96; }
+
+/* Light node */
+
+.elzCLSexplorer.nodeLight .expNode {
+    background-color: #ffffff;
+    border-radius: 1px;
+    color: #444444;
+}
+
+.elzCLSexplorer.nodeLight .expNodeChecker:hover  + .expNode { border-color: rgba(0, 0, 0, 0.5); }
+.elzCLSexplorer.nodeLight .expNodeChecker:hover  + .expNode,
+.elzCLSexplorer.nodeLight .expNodeChecker:active + .expNode { color: #000000; }
+.elzCLSexplorer.nodeLight .expNode,
+.elzCLSexplorer.nodeLight .expNodeChecker:active + .expNode { border-color: rgba(0, 0, 0, 0.3); }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Edit mode */
+
+.elzCLSexplorer .expItem .expInner.editMode {
+    border-color: #42abff;
+    background-color: #ffffff;
+    box-shadow: 0 0 5px rgba(66, 171, 255, 1);
+}
+
+.elzCLSexplorer .expEditForm {
+    position: relative;
+    display: block;
+    align-self: stretch;
+    flex-grow: 1;
+    width: 0;
+}
+
+.elzCLSexplorer .expEditForm .expInput {
+    position: absolute;
+    display: block;
+    top:  0;
+    left: 0;
+    width:  100%;
+    height: 100%;
+    border:     none;
+    background: none;
+    font-family: inherit;
+    font-size:   inherit;
+}
+
+.elzCLSexplorer .expItem .expInner:not(.editMode) .expEditForm,
+.elzCLSexplorer .expEditForm .expSubmit,
+.elzCLSexplorer .expInner.editMode .expEditForm ~ * { display: none; }
+
+/* end */

@@ -1,0 +1,401 @@
+/* Eliza reset */
+/*
+.elz {
+    margin:  0;
+    padding: 0;
+    border:  0;
+    outline: none;
+    background: transparent;
+    vertical-align: baseline;
+    text-decoration: none;
+    color: inherit;
+}
+
+button.elz::-moz-focus-inner,
+input.elz::-moz-focus-inner,
+textarea.elz::-moz-focus-inner {
+    border:  0;
+    padding: 0;
+}
+
+input.elz::-ms-clear, input.elz::-ms-reveal,
+textarea.elz::-ms-clear, textarea.elz::-ms-reveal,
+select.elz::-ms-expand { display: none; }*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+input, button, textarea, select,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video,
+.elz,
+.elz:before,
+.elz:after {
+    margin:  0;
+    padding: 0;
+    border:  0 solid transparent;
+    background: transparent no-repeat;
+    background-attachment: initial;
+    outline:    none;
+    border-radius: 0;
+    box-shadow: none;
+
+    font:            inherit;
+    color:           inherit;
+    vertical-align: baseline;
+
+    -webkit-appearance: none;
+    -moz-appearance:    none;
+    appearance:         none;
+
+    -webkit-overflow-scrolling: touch;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-text-size-adjust: none;
+
+    border-collapse: separate;
+    border-spacing: 0;
+
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: auto;
+}
+
+.elz,
+.elz:before,
+.elz:after {
+    /* Only for elize reset */
+    box-sizing: border-box;
+    list-style:      none;
+    text-decoration: none;
+}
+
+q:before, .elz:before,
+q:after,  .elz:after { content: none; }
+
+/* Focus inner */
+input::-moz-focus-inner, button::-moz-focus-inner, .elz::-moz-focus-inner { border: 0; padding: 0; }
+
+/* Clear */
+input::-ms-clear,  textarea::-ms-clear,  select::-ms-clear,  .elz::-ms-clear,
+input::-ms-reveal, textarea::-ms-reveal, select::-ms-reveal, .elz::-ms-reveal,
+input::-ms-expand, textarea::-ms-expand, select::-ms-expand, .elz::-ms-expand { display: none; }
+
+/* Placeholder */
+input::placeholder, textarea::placeholder, select::placeholder, .elz::placeholder { opacity: 0.6; color: inherit; }
+
+/* Input type number */
+input[type="number"], .elz[type="number"] { -moz-appearance: textfield; }
+
+input[type="number"]::-webkit-inner-spin-button, .elz[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button, .elz[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Autocomplete for webkit fix */
+
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill { transition: background-color 5000s ease-in-out 0s, color 5000s ease-in-out 0s; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Fonts */
+
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: normal;
+    font-display: swap;
+    src: url('../../fonts/roboto400lat.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: normal;
+    font-display: swap;
+    src: url('../../fonts/roboto400cyr.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: bold;
+    font-display: swap;
+    src: url('../../fonts/roboto700lat.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: bold;
+    font-display: swap;
+    src: url('../../fonts/roboto700cyr.woff2') format('woff2');
+}
+
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Interface Instance */
+
+html:root {
+    --elzEPHeight: 48px;
+    --mainIntFontFamily: "Roboto", Arial, Helvetica, sans-serif;
+}
+
+.elzCSSNui {
+    position: fixed;
+    display: block;
+    top:    0;
+    left:   0;
+    right:  0;
+    /*width: 100vw;*/
+    color: #000000;
+    font-family: var(--mainIntFontFamily);
+    font-size: 9pt;
+    box-sizing: border-box;
+    -webkit-text-size-adjust: none;
+    -ms-text-size-adjust:     none;
+    z-index: 100;
+}
+
+.elzCSSNui.standalone {
+    position: absolute;
+    z-index: auto;
+}
+
+.elzUniRender {
+    display: block;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Scroll settings */
+
+.elzScroll {
+    overflow: auto;
+    -webkit-overflow-scrolling: touch; /* Инертный скроллбар для айфоноблядей */
+}
+
+@media (pointer: fine) {
+    .elzScroll {
+        -ms-overflow-style: none; /* For Edge desktop */
+        scrollbar-width:    none; /* For FireFox desktop */
+        margin-right:  0 !important;
+        margin-bottom: 0 !important;
+    }
+
+    /* Chrome desktop */
+    .elzScroll::-webkit-scrollbar {
+        width:  0;
+        height: 0;
+    }
+}
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Main frame eliza overlayed */
+
+.elzCSSNRoot,
+.elzCSSNRoot > body {
+    display: block;
+    height: 100%;
+    overflow: hidden;
+    padding: 0;
+    margin:  0;
+}
+
+.elzCSSNRoot.style-default {
+    color: #000000;
+    background-color: #eeeeee;
+    font-family: var(--mainIntFontFamily);
+    font-size: 9pt;
+}
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Eliza loading bar settings */
+
+.elzCSSNloadingBar {
+    position: fixed;
+    display: block;
+    left:  0;
+    top:   0;
+    width: 0;
+    height: 2px;
+    background-clip: padding-box;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.75) 100%);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+    transition: 0.2s width, 0.2s background-color;
+    pointer-events: none;
+    z-index: 2560;
+}
+
+.elzCSSNloadingBar.default { background-color: #5caedc; }
+.elzCSSNloadingBar.error   { background-color: #ff3333; }
+.elzCSSNloadingBar.warning { background-color: #ffac00; }
+.elzCSSNloadingBar.success { background-color: #00ff00; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Eliza overlay screen loading */
+
+.elzCSSNoverScreenLoading {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    top:    0;
+    right:  0;
+    bottom: 0;
+    left:   0;
+    z-index: 1000000;
+    cursor: wait;
+    background-color: rgba(0, 0, 0, 0.75);
+    color: #ffffff;
+    font-family: var(--mainIntFontFamily);
+    font-size: 12pt;
+    box-sizing: border-box;
+    -webkit-text-size-adjust: none;
+    -ms-text-size-adjust:     none;
+}
+
+.elzCSSNoverScreenLoading .overScreenWrap {
+    position: relative;
+    display: block;
+}
+
+.elzCSSNoverScreenLoading .elzIcon { margin: 0 auto 24px auto; }
+
+.elzCSSNoverScreenLoading .elzIcon,
+.elzCSSNoverScreenLoading .elzIcon > .main {
+    font-size:   80px;
+    line-height: 80px;
+    width:       80px;
+    height:      80px;
+}
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* UI selecting border ****************/
+
+.ui-selectable-helper {
+    position: absolute;
+    display: block;
+    border: 1px solid rgba(51, 153, 255, 1);
+    background-color: rgba(51, 153, 255, 0.4);
+    pointer-events: none;
+    z-index: 2000;
+}
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Clipboard paster ************/
+
+.elzCSSNcbPaster {
+    position: absolute;
+    display: block;
+    overflow: hidden;
+    opacity: 0;
+    width:   1px;
+    height:  1px;
+    z-index: -1000;
+    top:  -100%;
+    left: -100%;
+    pointer-events: none;
+}
+
+.elzCSSNcbPaster.show {
+    width:  200px;
+    height: 200px;
+    top:  0;
+    left: 0;
+    background-color: rgba(255, 0, 255, 0.5);
+    opacity: 1;
+    z-index: 500;
+}
+
+/* end */

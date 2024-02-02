@@ -1,0 +1,11 @@
+<div class="extendItem elz d-flex a-H gap8 p16 r3 bor1 br br-primary brL-10 brHovL-15 brSelL-20 brLInvD bg bg-primary bgSelL-15 bgSelLInvL cur-pointer opAct07<?if($selected):?> sel<?endif;?> <?=($class ?? '')?>" title="<?=$descr?>" data-parent="<?=($parent ?? 0)?>" data-value="<?=$value?>">
+    <div class="extendTitle elz d-block  grow lh15"><?=$title?></div>
+<?php $counts = $counts ?? []?>
+<?for($a = 0, $len = sizeof($counts); $a < $len; $a++):?>
+    <?$count = $counts[$a]?>
+    <div class="elz d-flex noShrink a-H gap4 p4 r3 fn11 bold bg bg-primary bgL-10 cur-help" title="<?=$count['title'].$count['count']?>">
+        <div class="mskIcon elz d-block p-rel noShrink mskBef s12 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/<?=$count['icon']?>.svg');"></div>
+        <div class="elz d-block"><?=$count['count']?></div>
+    </div>
+<?endfor;?>
+</div>

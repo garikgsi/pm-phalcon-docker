@@ -1,0 +1,76 @@
+.uContentPlaceholder {
+    --uContentPlaceholderRoute: 90deg;
+    --uContentPlaceholderIntense: 0.25;
+}
+
+.uContentPlaceholder:before {
+    content: "";
+    position: absolute;
+    top:    0;
+    right:  0;
+    bottom: 0;
+    left:   0;
+    background-size: 100%;
+    background-image: linear-gradient(var(--uContentPlaceholderRoute),
+    rgba(var(--uContentPlaceholderColor), 0) 0%,
+    rgba(var(--uContentPlaceholderColor), var(--uContentPlaceholderIntense)) 50%,
+    rgba(var(--uContentPlaceholderColor), 0) 100%);
+    animation-timing-function: inherit;
+    animation-duration: inherit;
+    animation-iteration-count: inherit;
+}
+
+.uContentPlaceholder.placeholder-tb,
+.uContentPlaceholder.placeholder-bt { --uContentPlaceholderRoute:  0deg; }
+.uContentPlaceholder.placeholder-lr,
+.uContentPlaceholder.placeholder-rl { --uContentPlaceholderRoute: 90deg; }
+
+.uContentPlaceholder.intense10 { --uContentPlaceholderIntense: 0.10; }
+.uContentPlaceholder.intense25 { --uContentPlaceholderIntense: 0.25; }
+.uContentPlaceholder.intense50 { --uContentPlaceholderIntense: 0.50; }
+.uContentPlaceholder.intense75 { --uContentPlaceholderIntense: 0.75; }
+
+.uContentPlaceholder.placeholder-tb.animit:before { animation-name: an-contentPlaceholder-tb; }
+.uContentPlaceholder.placeholder-bt.animit:before { animation-name: an-contentPlaceholder-bt; }
+.uContentPlaceholder.placeholder-lr.animit:before { animation-name: an-contentPlaceholder-lr; }
+.uContentPlaceholder.placeholder-rl.animit:before { animation-name: an-contentPlaceholder-rl; }
+
+.uContentPlaceholder.placeholderD,
+.elzTheme-light .uContentPlaceholder.placeholderDL,
+.elzTheme-dark  .uContentPlaceholder.placeholderDD { --uContentPlaceholderColor: 0, 0, 0; }
+
+.uContentPlaceholder.placeholderL,
+.elzTheme-light .uContentPlaceholder.placeholderLL,
+.elzTheme-dark  .uContentPlaceholder.placeholderLD { --uContentPlaceholderColor: 255, 255, 255; }
+
+@media (prefers-color-scheme: light) {
+    .elzTheme-device .uContentPlaceholder.placeholderDL { --uContentPlaceholderColor: 0, 0, 0; }
+    .elzTheme-device .uContentPlaceholder.placeholderLL { --uContentPlaceholderColor: 255, 255, 255; }
+}
+
+@media (prefers-color-scheme: dark) {
+    .elzTheme-device .uContentPlaceholder.placeholderDD { --uContentPlaceholderColor: 0, 0, 0; }
+    .elzTheme-device .uContentPlaceholder.placeholderLD { --uContentPlaceholderColor: 255, 255, 255; }
+}
+
+/* Animation frame */
+
+@keyframes an-contentPlaceholder-lr {
+    from { transform: translateX(-100%); }
+    to   { transform: translateX(100%); }
+}
+
+@keyframes an-contentPlaceholder-rl {
+    from { transform: translateX(100%); }
+    to   { transform: translateX(-100%); }
+}
+
+@keyframes an-contentPlaceholder-tb {
+    from { transform: translateY(-100%); }
+    to   { transform: translateY(100%); }
+}
+
+@keyframes an-contentPlaceholder-bt {
+    from { transform: translateY(100%); }
+    to   { transform: translateY(-100%); }
+}

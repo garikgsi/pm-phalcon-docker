@@ -1,0 +1,51 @@
+<?$appForAllSites = (int)$app_all_sites?>
+<?$appForGuests = !(int)($app_access & '100')?>
+<?$appForGroups = !(int)($app_access & '010')?>
+<?$appForMembers = !(int)($app_access & '001')?>
+<tr>
+    <td>
+        <a class="elz elzIcotext link elizaHApi" title="<?=$this->view->t->_('app_list_edit')?>" href="/apps/edit/<?=$app_id?>" data-level="3">
+            <i class="elz elzIcon medium rad elzPLT" data-bg="blue">
+                <i class="elz elzIc main smallest ic-play shD elzPLT" data-fn="white"></i>
+            </i>
+            <div class="elz elzText right marLSmaller nowrap"><?=$app_name?></div>
+        </a>
+    </td>
+    <td>
+        <div class="elz elzIcotext link" title="<?if($appForAllSites):?><?=$this->view->t->_('app_list_sites_all')?><?else:?><?=$this->view->t->_('app_list_sites_filter')?><?endif;?>">
+            <i class="elz elzIcon medium circle elzPLT" data-bg="<?if($appForAllSites):?>green<?else:?>red<?endif;?>">
+                <i class="elz elzIc main smallest ic-earth shD elzPLT" data-fn="white"></i>
+            </i>
+        </div>
+    </td>
+    <td>
+        <div class="elz elzIcotext link" title="<?if($appForGuests):?><?=$this->view->t->_('app_list_guest_all')?><?else:?><?=$this->view->t->_('app_list_guest_filter')?><?endif;?>">
+            <i class="elz elzIcon medium circle elzPLT" data-bg="<?if($appForGuests):?>green<?else:?>red<?endif;?>">
+                <i class="elz elzIc main smallest ic-home shD elzPLT" data-fn="white"></i>
+            </i>
+        </div>
+    </td>
+    <td>
+        <div class="elz elzIcotext link" title="<?if($appForMembers):?><?=$this->view->t->_('app_list_members_all')?><?else:?><?=$this->view->t->_('app_list_members_filter')?><?endif;?>">
+            <i class="elz elzIcon medium circle elzPLT" data-bg="<?if($appForMembers):?>green<?else:?>red<?endif;?>">
+                <i class="elz elzIc main smallest ic-user shD elzPLT" data-fn="white"></i>
+            </i>
+        </div>
+    </td>
+    <td>
+        <div class="elz elzIcotext link" title="<?if($appForGroups):?><?=$this->view->t->_('app_list_groups_all')?><?else:?><?=$this->view->t->_('app_list_groups_filter')?><?endif;?>">
+            <i class="elz elzIcon medium circle elzPLT" data-bg="<?if($appForGroups):?>green<?else:?>red<?endif;?>">
+                <i class="elz elzIc main smallest ic-users shD elzPLT" data-fn="white"></i>
+            </i>
+        </div>
+    </td>
+    <td>
+        <div class="elz right strCLSitem flexible mar-LMedium">
+            <div class="elz strCLSitem marLMedium">
+                <a class="elz elzCLSlabel small shD elzPLT link elizaHApi" data-fn="white" data-bg="blue" title="<?=$this->view->t->_('app_list_edit')?>" href="/apps/edit/<?=$app_id?>" data-level="3">
+                    <i class="elz elzIc ic-pencil"></i>
+                </a>
+            </div>
+        </div>
+    </td>
+</tr>

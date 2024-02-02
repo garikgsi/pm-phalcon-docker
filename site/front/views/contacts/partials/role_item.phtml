@@ -1,0 +1,38 @@
+<div class="roleItem elz d-flex a-H gap8 p16 r3 bor1 br br-primary brL-10 brLInvD bg bg-primary" data-id="<?=$contact_role_id?>">
+    <div class="roleTitle elz d-block  grow lh15"><?=$role_title?></div>
+    <?if(isset($contact_count)):?>
+        <div class="elz d-flex noShrink a-H gap4 p4 r3 fn11 bold bg bg-primary bgL-10">
+            <div class="mskIcon elz d-block p-rel noShrink mskBef s12 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/user.svg');"></div>
+            <div class="elz d-block"><?=$contact_count?></div>
+        </div>
+    <?endif;?>
+    <div class="elz d-flex a-H gap8 mAR-8">
+        <div class="roleEditWrap elz p-rel d-flex a-X">
+            <div title="Редактировать роль" class="roleEditToggle elz d-flex a-X cur-pointer opAct07 s36 mV-8 rRound bgHov bgHov-primary bgHovL-5">
+                <div class="mskIcon elz d-block p-rel noShrink mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/pencil.svg');"></div>
+            </div>
+            <form method="post" action="?act=role_update&id=<?=$contact_role_id?>" class="roleEditForm elz p-abs p-R d-block r3 w240 p8 bsh-default3 bgp bg bg-primary bgL10 bor1 br br-black brA10 hide">
+                <div class="roleEditForm elz d-grid grPos fn fn-primary-t fnL20 fnLInvD fnHovL10 fnFow-focus fnFowL0">
+                    <input type="text" name="title" value="<?=$role_title?>" placeholder="Название роли"
+                           class="elz elzInput d-block grPin grY2 w100p bor1 h32 pH8 r3 fn12 ellipsis trns2 invPssSib
+                                          bg bg-primary bgL10 bgLInvD
+                                          br brLInvD br-primary brL-10 brHovL-20 brFoc-focus brFocL0
+                                          fn fn-primary-t" />
+                    <span class="elz d-flex grPin grY2 a-H bor1 pH7 z6 evNone">
+                    <span class="elz p-rel growX d-flex a-PR">
+                        <button type="submit" class="elz p-rel d-flex a-H cur-pointer opAct07">
+                            <span class="elz p-rel d-flex a-X s24 r2 evAuto">
+                                <span class="elz p-rel d-block mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/save.svg');"></span>
+                            </span>
+                        </button>
+                    </span>
+                </span>
+                </div>
+            </form>
+
+        </div>
+        <div title="Удалить роль" class="roleDelete elz d-flex a-X cur-pointer opAct07 s36 rRound bgHov bgHov-primary bgHovL-5">
+            <div class="mskIcon elz d-block p-rel noShrink mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/cross1.svg');"></div>
+        </div>
+    </div>
+</div>

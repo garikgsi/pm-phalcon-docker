@@ -1,0 +1,49 @@
+
+<div class="elz p-rel d-flex grow">
+    <div class="elz uniScroll scrollSimple p-abs p-F d-grid grow r3 oH bg bg-primary bgL5 bsh-default1">
+        <div class="elz uniScrollIn oAuto d-block scrollHideFine">
+            <table class="elz elzTable w100p lh12 va-M">
+                <thead class="tbody p-sticky p-T pad pH16 nowrap z1">
+                    <tr class="tr bor borB1 bold h48 br br-secondary brL-10 bg bg-secondary fn fn-secondary-t">
+                        <th class="td w64">
+                            <div class="elz d-block">ID</div>
+                        </th>
+                        <th class="td">
+                            <div class="elz d-block">Номер договора</div>
+                        </th>
+                        <th class="td w150">
+                            <div class="elz d-block al-center">Статус</div>
+                        </th>
+                        <th class="td w150">
+                            <div class="elz d-block al-center">Пролонгация</div>
+                        </th>
+                        <th class="td w360">
+                            <div class="elz d-block">Заказчик</div>
+                        </th>
+                        <th class="td w360">
+                            <div class="elz d-block">Исполнитель</div>
+                        </th>
+                        <th class="td w100">
+                            <div class="elz d-block">Срок действия</div>
+                        </th>
+                        <th class="td w240">
+                            <div class="elz d-block">Ответственный</div>
+                        </th>
+                        <th class="td w240">
+                            <div class="elz d-block">Автор</div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id="gcpContractsList" class="tbody pad pV12 pH16 uStrip stripEven strip005 stripHover">
+<?$contractsList = $this->view->getVar('contractsList')?>
+<?foreach($contractsList as $contract):?>
+                    <?$this->view->partial('contracts/partials/contract_td', $contract)?>
+<?endforeach;?>
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</div>
+
+

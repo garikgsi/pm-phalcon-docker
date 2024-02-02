@@ -1,0 +1,136 @@
+/* Main */
+
+.bb.adaptmedia {
+    position: relative;
+    display: block;
+    overflow: hidden;
+}
+
+.bb.adaptmedia > .adaptwrap {
+    display: -webkit-flex;
+    display:         flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap:         wrap;
+    -webkit-align-content: flex-start;
+    align-content:         flex-start;
+    margin-left:   -10px;
+    margin-bottom: -10px;
+}
+
+.bb.adaptmedia + .bb.adaptmedia {
+    margin-top: -1.6em;
+    padding-top: 10px;
+}
+
+.bb.adaptmedia         > .adaptwrap,
+.bb.adaptmedia.center  > .adaptwrap { -webkit-justify-content:        center; justify-content:        center; }
+.bb.adaptmedia.left    > .adaptwrap { -webkit-justify-content:    flex-start; justify-content:    flex-start; }
+.bb.adaptmedia.right   > .adaptwrap { -webkit-justify-content:      flex-end; justify-content:      flex-end; }
+.bb.adaptmedia.justify > .adaptwrap { -webkit-justify-content: space-between; justify-content: space-between; }
+.bb.adaptmedia.around  > .adaptwrap { -webkit-justify-content:  space-around; justify-content:  space-around; }
+
+.bb.adaptmedia         > .adaptwrap,
+.bb.adaptmedia.top     > .adaptwrap { -webkit-align-items: flex-start; align-items: flex-start; }
+.bb.adaptmedia.middle  > .adaptwrap { -webkit-align-items:     center; align-items:     center; }
+.bb.adaptmedia.bottom  > .adaptwrap { -webkit-align-items:   flex-end; align-items:   flex-end; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Default state */
+
+.bb.adaptmedia > .adaptwrap  > .bb.figure { margin: 0 0 10px 10px; }
+
+.bb.adaptmedia > .adaptwrap  > .bb.figure .image { width: 100%; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Gallery state */
+
+.bb.adaptmedia.gallery > .adaptwrap  > .bb.figure {
+    -webkit-flex-grow: 1;
+    flex-grow:         1;
+    width: 140px;
+}
+
+.bb.figure.video .inner,
+.bb.adaptmedia.gallery > .adaptwrap > .bb.figure .inner { position: absolute; }
+
+.bb.figure.video .image,
+.bb.adaptmedia.gallery > .adaptwrap  > .bb.figure .image { min-height: 100%; }
+
+/* Edge and IE object-fit fix */
+
+_:-ms-lang(x),
+.bb.figure.video .image,
+.bb.adaptmedia.gallery > .adaptwrap  > .bb.figure .image {
+    position: absolute;
+    top:  50%;
+    -webkit-transform: translateY(-50%);
+    -moz-transform:    translateY(-50%);
+    -ms-transform:     translateY(-50%);
+    -o-transform:      translateY(-50%);
+    transform:         translateY(-50%);
+}
+
+/* Aspect ratio */
+
+.bb.adaptmedia.gallery.x1y1  > .adaptwrap  > .bb.figure:before,
+.bb.adaptmedia.gallery.x1y1  > .adaptwrap  > .bb.figure.video:before { padding-top: 100%; }
+
+
+
+.bb.figure.video:before,
+.bb.adaptmedia.gallery.x16y9 > .adaptwrap  > .bb.figure:before,
+.bb.adaptmedia.gallery.x16y9 > .adaptwrap  > .bb.figure.video:before { padding-top: 56.25%; }
+
+.bb.adaptmedia.gallery.x3y2  > .adaptwrap  > .bb.figure:before,
+.bb.adaptmedia.gallery.x3y2  > .adaptwrap  > .bb.figure.video:before { padding-top: 66.6666666667%; }
+
+.bb.adaptmedia.gallery.x4y3  > .adaptwrap  > .bb.figure:before,
+.bb.adaptmedia.gallery.x4y3  > .adaptwrap  > .bb.figure.video:before { padding-top: 75%; }
+
+.bb.adaptmedia.gallery.x5y4  > .adaptwrap  > .bb.figure:before,
+.bb.adaptmedia.gallery.x5y4  > .adaptwrap  > .bb.figure.video:before { padding-top: 80%; }
+
+
+
+.bb.adaptmedia.gallery.x9y16 > .adaptwrap  > .bb.figure:before,
+.bb.adaptmedia.gallery.x9y16 > .adaptwrap  > .bb.figure.video:before { padding-top: 177.7777777778%; }
+
+.bb.adaptmedia.gallery.x2y3  > .adaptwrap  > .bb.figure:before,
+.bb.adaptmedia.gallery.x2y3  > .adaptwrap  > .bb.figure.video:before { padding-top: 150%; }
+
+.bb.adaptmedia.gallery.x3y4  > .adaptwrap  > .bb.figure:before,
+.bb.adaptmedia.gallery.x3y4  > .adaptwrap  > .bb.figure.video:before { padding-top: 133.3333333333%; }
+
+.bb.adaptmedia.gallery.x4y5  > .adaptwrap  > .bb.figure:before,
+.bb.adaptmedia.gallery.x4y5  > .adaptwrap  > .bb.figure.video:before { padding-top: 125%; }
+
+/* Sizes */
+
+.bb.adaptmedia.gallery.col1 > .adaptwrap  > .bb.figure { min-width: calc(           100% - 10px ); }
+.bb.adaptmedia.gallery.col2 > .adaptwrap  > .bb.figure { min-width: calc(            50% - 10px ); }
+.bb.adaptmedia.gallery.col3 > .adaptwrap  > .bb.figure { min-width: calc( 33.3333333333% - 10px ); }
+.bb.adaptmedia.gallery.col4 > .adaptwrap  > .bb.figure { min-width: calc(            25% - 10px ); }
+.bb.adaptmedia.gallery.col5 > .adaptwrap  > .bb.figure { min-width: calc(            20% - 10px ); }
+.bb.adaptmedia.gallery.col6 > .adaptwrap  > .bb.figure { min-width: calc( 16.6666666667% - 10px ); }
+
+/* end */

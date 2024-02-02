@@ -1,0 +1,324 @@
+/* SCROLLBAR BASE CSS ***************************/
+
+.scroll-wrapper {
+    position: relative;
+    display: flex;
+    overflow: hidden !important;
+    padding: 0 !important;
+    flex-direction: column;
+}
+
+.scroll-wrapper > .scroll-content {
+    position: relative;
+    display: block;
+    flex-grow: 1;
+    border: none !important;
+    box-sizing: content-box !important;
+    width:  auto !important;
+    height: auto !important;
+    max-height: none !important;
+    max-width:  none !important;
+    overflow: scroll !important;
+    margin:  0 !important;
+    padding: 0 !important;
+    top:     0;
+    right:   0;
+    bottom:  0;
+    left:    0;
+}
+
+/* Absolute */
+.scroll-wrapper.abs > .scroll-content.abs { position: absolute; }
+
+/*  */
+
+.scroll-wrapper  > .scroll-content::-webkit-scrollbar,
+.scroll-textarea > .scroll-content > textarea::-webkit-scrollbar {
+    width:  0;
+    height: 0;
+}
+
+.scroll-wrapper .scroll-element { display: none; }
+
+.scroll-wrapper .scroll-element.scroll-x.scroll-scrollx_visible,
+.scroll-wrapper .scroll-element.scroll-y.scroll-scrolly_visible {
+    display: block;
+}
+
+.scroll-wrapper .scroll-element .scroll-bar,
+.scroll-wrapper .scroll-element .scroll-arrow {
+    cursor: default;
+}
+
+.scroll-textarea > .scroll-content { overflow: hidden !important; }
+
+.scroll-textarea > .scroll-content > textarea {
+    border: none !important;
+    box-sizing: border-box;
+    height: 100% !important;
+    margin: 0;
+    max-height: none !important;
+    max-width: none !important;
+    overflow: scroll !important;
+    outline: none;
+    padding: 2px;
+    position: relative !important;
+    top: 0;
+    width: 100% !important;
+}
+
+
+
+
+
+
+
+
+
+
+/* end */
+
+.scroll-wrapper > .scroll-element,
+.scroll-wrapper > .scroll-element div,
+.scroll-wrapper > .scroll-element div:before {
+    margin:  0;
+    padding: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: 10;
+}
+
+.scroll-wrapper > .scroll-element .scroll-element_size:before,
+.scroll-wrapper > .scroll-element .scroll-bar:before { content: ""; }
+
+.scroll-wrapper > .scroll-element div,
+.scroll-wrapper > .scroll-element div:before {
+    display: block;
+    height: 100%;
+    width:  100%;
+}
+
+.scroll-wrapper > .scroll-element div:before { position: relative; }
+
+.scroll-wrapper > .scroll-element.scroll-x {
+    left:   0;
+    bottom: 0;
+    height: 16px;
+    min-width: 100%;
+    width:     100%;
+}
+
+.scroll-wrapper > .scroll-element.scroll-y {
+    right: 0;
+    top:   0;
+    width: 16px;
+    min-height: 100%;
+    height:     100%;
+}
+
+.scroll-wrapper > .scroll-element div:before,
+.scroll-wrapper > .scroll-element .scroll-bar,
+.scroll-wrapper > .scroll-element .scroll-element_size,
+.scroll-wrapper > .scroll-element .scroll-element_outer {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing:    border-box;
+    box-sizing:         border-box;
+}
+
+/* update scrollbar offset if both scrolls are visible */
+
+.scroll-wrapper > .scroll-element.scroll-element.scroll-x.scroll-scrolly_visible.scroll-x .scroll-element_size { left: -16px; padding-left: 18px; }
+.scroll-wrapper > .scroll-element.scroll-element.scroll-y.scroll-scrollx_visible.scroll-y .scroll-element_size { top:  -16px; padding-top:  18px; }
+
+.scroll-wrapper > .scroll-element.scroll-x.scroll-scrolly_visible .scroll-element_track { left: -16px; }
+.scroll-wrapper > .scroll-element.scroll-y.scroll-scrollx_visible .scroll-element_track { top:  -16px; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Scrollbar default type ***************************/
+
+.scroll-wrapper.default > .scroll-element div:before {
+    -webkit-border-radius: 16px;
+    -moz-border-radius:    16px;
+    border-radius:         16px;
+}
+
+/* scrollbar height/width & offset from container borders */
+
+.scroll-wrapper.default > .scroll-element.scroll-x .scroll-element_size,
+.scroll-wrapper.default > .scroll-element.scroll-x .scroll-bar {
+    bottom: 0;
+    left:   0;
+    padding: 2px 2px 2px 4px;
+}
+
+.scroll-wrapper.default > .scroll-element.scroll-y .scroll-element_size,
+.scroll-wrapper.default > .scroll-element.scroll-y .scroll-bar {
+    top:   0;
+    right: 0;
+    padding: 2px 2px 2px 4px;
+}
+
+/* scrollbar effects */
+
+.scroll-wrapper.default > .scroll-element,
+.scroll-wrapper.default > .scroll-element .scroll-element_size,
+.scroll-wrapper.default > .scroll-element .scroll-bar {
+    -webkit-transition: 0.2s opacity, 0.2s padding;
+    -moz-transition:    0.2s opacity, 0.2s padding;
+    -o-transition:      0.2s opacity, 0.2s padding;
+    transition:         0.2s opacity, 0.2s padding;
+}
+
+.scroll-wrapper.default > .scroll-element,
+.scroll-wrapper.default > .scroll-element .scroll-element_size { opacity: 0; }
+
+.scroll-wrapper.default:hover > .scroll-element,
+.scroll-wrapper.default > .scroll-element.scroll-draggable,
+.scroll-wrapper.default > .scroll-element:hover .scroll-bar,
+.scroll-wrapper.default > .scroll-element.scroll-draggable .scroll-bar,
+.scroll-wrapper.default > .scroll-element:hover .scroll-element_size,
+.scroll-wrapper.default > .scroll-element.scroll-draggable .scroll-element_size { opacity: 1.0; }
+
+.scroll-wrapper.default > .scroll-element .scroll-bar:before {
+    background-color: #ffffff;
+    border: 1px solid #dbdbdb;
+    box-shadow: inset -5px 0 30px -18px rgba(0, 0, 0, 0.5);
+}
+
+.scroll-wrapper.default > .scroll-element .scroll-element_size:before {
+    background-color: #e8e8e8;
+    box-shadow: inset 5px 0 30px -18px rgba(0, 0, 0, 0.5);
+}
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Scrollbar MacOSX type ***************************/
+
+.scroll-wrapper.macosx > .scroll-element div:before {
+    -webkit-border-radius: 2px;
+    -moz-border-radius:    2px;
+    border-radius:         2px;
+}
+
+/* scrollbar height/width & offset from container borders */
+
+.scroll-wrapper.macosx > .scroll-element.scroll-x .scroll-element_size,
+.scroll-wrapper.macosx > .scroll-element.scroll-x .scroll-bar {
+    bottom: 0;
+    left:   0;
+    padding: 10px 2px 2px 2px;
+}
+
+.scroll-wrapper.macosx.exp > .scroll-element.scroll-x:hover .scroll-element_size,
+.scroll-wrapper.macosx.exp > .scroll-element.scroll-x:hover .scroll-bar,
+.scroll-wrapper.macosx.exp > .scroll-element.scroll-x.scroll-draggable .scroll-element_size,
+.scroll-wrapper.macosx.exp > .scroll-element.scroll-x.scroll-draggable .scroll-bar { padding-top: 6px; }
+
+.scroll-wrapper.macosx > .scroll-element.scroll-y .scroll-element_size,
+.scroll-wrapper.macosx > .scroll-element.scroll-y .scroll-bar {
+    top:   0;
+    right: 0;
+    padding: 2px 2px 2px 10px;
+}
+
+.scroll-wrapper.macosx.exp > .scroll-element.scroll-y:hover .scroll-element_size,
+.scroll-wrapper.macosx.exp > .scroll-element.scroll-y:hover .scroll-bar,
+.scroll-wrapper.macosx.exp > .scroll-element.scroll-y.scroll-draggable .scroll-element_size,
+.scroll-wrapper.macosx.exp > .scroll-element.scroll-y.scroll-draggable .scroll-bar { padding-left: 6px; }
+
+/* scrollbar effects */
+
+.scroll-wrapper.macosx > .scroll-element,
+.scroll-wrapper.macosx > .scroll-element .scroll-element_size,
+.scroll-wrapper.macosx > .scroll-element .scroll-bar {
+    -webkit-transition: 0.2s opacity, 0.2s padding;
+    -moz-transition:    0.2s opacity, 0.2s padding;
+    -o-transition:      0.2s opacity, 0.2s padding;
+    transition:         0.2s opacity, 0.2s padding;
+}
+
+.scroll-wrapper.macosx > .scroll-element,
+.scroll-wrapper.macosx > .scroll-element .scroll-element_size { opacity: 0; }
+
+.scroll-wrapper.macosx > .scroll-element .scroll-bar { opacity: 0.5; }
+
+.scroll-wrapper.macosx:hover > .scroll-element,
+.scroll-wrapper.macosx > .scroll-element.scroll-draggable,
+.scroll-wrapper.macosx > .scroll-element:hover .scroll-bar,
+.scroll-wrapper.macosx > .scroll-element.scroll-draggable .scroll-bar,
+.scroll-wrapper.macosx > .scroll-element:hover .scroll-element_size,
+.scroll-wrapper.macosx > .scroll-element.scroll-draggable .scroll-element_size { opacity: 1.0; }
+
+.scroll-wrapper.macosx > .scroll-element .scroll-element_size:before         { background-color: rgba(128, 128, 128, 0.25); }
+.scroll-wrapper.macosx > .scroll-element .scroll-bar:before                  { background-color: rgba(128, 128, 128, 0.75); }
+.scroll-wrapper.macosx > .scroll-element.scroll-draggable .scroll-bar:before { background-color: rgba(128, 128, 128,  1.0); }
+
+.scroll-wrapper.macosx.light > .scroll-element .scroll-element_size:before         { background-color: rgba(255, 255, 255, 0.25); }
+.scroll-wrapper.macosx.light > .scroll-element .scroll-bar:before                  { background-color: rgba(255, 255, 255, 0.75); }
+.scroll-wrapper.macosx.light > .scroll-element.scroll-draggable .scroll-bar:before { background-color: rgba(255, 255, 255,  1.0); }
+
+.scroll-wrapper.macosx.dark > .scroll-element .scroll-element_size:before         { background-color: rgba(0, 0, 0, 0.25); }
+.scroll-wrapper.macosx.dark > .scroll-element .scroll-bar:before                  { background-color: rgba(0, 0, 0, 0.75); }
+.scroll-wrapper.macosx.dark > .scroll-element.scroll-draggable .scroll-bar:before { background-color: rgba(0, 0, 0,  1.0); }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Other custom settings *********************************************/
+
+/* Transparent scroll */
+
+.scroll-wrapper.transparent > .scroll-element { display: none !important; }
+
+
+
+/* Transparent track */
+
+.scroll-wrapper.notrack > .scroll-element .scroll-element_size { opacity: 0 !important; }
+
+
+
+/* No padding scroll */
+
+.scroll-wrapper.nopad > .scroll-element .scroll-element_size,
+.scroll-wrapper.nopad > .scroll-element .scroll-bar {
+    padding: 0 !important;
+}
+
+.scroll-wrapper.nopad > .scroll-element div:before {
+    -webkit-border-radius: 0 !important;
+    -moz-border-radius:    0 !important;
+    border-radius:         0 !important;
+}
+
+.scroll-wrapper.nopad       .scroll-element { width: 4px; height: 4px; }
+.scroll-wrapper.nopad.onepx .scroll-element { width: 1px; height: 1px; }
+
+/* end */

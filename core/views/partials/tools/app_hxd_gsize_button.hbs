@@ -1,0 +1,27 @@
+{{#size_is_border}}
+    <div class="strCLSitem h100p borL1"></div>
+{{/size_is_border}}
+    {{^size_is_border}}
+    <div class="elz hxdGridSizeWrap {{size_class}}" {{{size_data}}}>
+        <div class="elz hxdGridSize x{{size_max}} y{{size_max}} {{size_class_w}}">
+            {{^grid_off}}<div class="elz in grid {{grid_class}}"></div>{{/grid_off}}
+            {{^sight_off}}<div class="elz in sight x{{size_max}} y{{size_max}} {{sight_class}}" {{{sight_data}}}></div>{{/sight_off}}
+            {{{size_html}}}
+    {{#size_cur}}
+            <div class="elz in field x{{size_cur}} y{{size_cur}} {{^field_type}}circle{{/field_type}}{{field_type}} {{field_class}}" {{{field_data}}}></div>
+            <div class="elz in value side">{{size_text}}</div>
+    {{/size_cur}}
+        </div>
+    </div>
+
+    {{#size_activator}}
+        <div class="elz icActivator {{size_activator_class}}">
+    {{/size_activator}}
+            <div class="elz elzIcon rad medium {{size_icon_wrap}}">
+                <i class="elz main smallest elzIc {{size_icon}}"></i>
+                {{#size_icon_second}}<i class="elz main smallest elzIc {{size_icon_second}}"></i>{{/size_icon_second}}
+            </div>
+    {{#size_activator}}
+        </div>
+    {{/size_activator}}
+{{/size_is_border}}

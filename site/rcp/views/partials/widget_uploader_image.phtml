@@ -1,0 +1,27 @@
+<?$size = $width.'×'.$height?>
+
+<?if(!isset($id)):?>
+    <?$id = \Core\Builder\MustacheForms::getNextId()?>
+<?endif;?>
+
+<div<?if(isset($id)):?> id="<?=$id?>"<?endif;?> class="elizaRcpUploaderSystemContainer notInited elz iconItem <?=isset($contSize) ? $contSize : 'x1200'?> dtb overCNTRLhover" data-elz-title="<?=$size?>">
+    <form style="display:none;" enctype="multipart/form-data" method="post" action="<?=$action?>" data-action="<?=$action?>"<?if(isset($imageSlave)):?> data-slave="<?=$imageSlave?>"<?endif;?>>
+        <input class="elizaRcpUploaderSystemInput" type="file" name="image" id="<?=$id?>" accept="image/*" />
+    </form>
+    <input class="elizaRcpUploaderSystemHidden" type="hidden" name="<?=$name?>" />
+    <ul class="elz elzCLSoverControls hidden horizontal top">
+        <li class="elizaRcpUploaderSystemLabelDelete elz cntrlItem right link<?if($imageDefault == $imageSrc):?> hide<?endif;?>" title="Удалить">
+            <div class="elz elzIcon small smallest">
+                <i class="elz main smallest elzIc ic-cross"></i>
+            </div>
+        </li>
+        <li class="elizaRcpUploaderSystemLabelUpload elz cntrlItem right link" title="Загрузить новое" data-for="<?=$id?>">
+            <div class="elz elzIcon smallest link">
+                <i class="elz main smallest elzIc ic-upload"></i>
+            </div>
+        </li>
+    </ul>
+    <div class="elz iconWrap">
+        <div class="elz iconInner" data-title="No image" data-size="<?=$size?>" data-default="<?=$imageDefault?>"><?if($imageSrc):?><img class="elz image" alt="<?=$size?>" src="<?=$imageSrc?>" width="<?=$width?>" height="<?=$height?>" /><?endif;?></div>
+    </div>
+</div>

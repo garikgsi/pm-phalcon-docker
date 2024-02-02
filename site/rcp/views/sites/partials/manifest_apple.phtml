@@ -1,0 +1,58 @@
+<div class="elz strCLSitem marTMedium marLMedium">
+    <div class="elz admManiTabs">
+        <div class="elz tabsWrap">
+            <input class="elz checker" id="appleSwitch1" type="radio" name="maniAppleSwitch" checked="checked">
+            <label class="elz checkerLabel" for="appleSwitch1">IOS</label>
+            <div class="elz admManiDevicePreview ios">
+
+                <div class="elz appsGrid">
+                <?for($i = 0, $len = sizeof($appListApple); $i < $len; $i++):?>
+                    <?$icon = $appListApple[$i]?>
+                    <div class="elz appItem<?=@$icon['itemClass']?>"<?=@$icon['itemData']?>>
+                        <div class="elz appIcon<?=$icon['class']?>"<?=$icon['data']?>><img class="elz image <?=@$icon['imgClass']?>" alt="" src="<?=$icon['src']?>"></div>
+                        <div class="elz appTitle<?=@$icon['titleClass']?>"><?=$icon['title']?></div>
+                    </div>
+                <?endfor;?>
+                </div>
+
+            </div>
+
+            <input class="elz checker" id="appleSwitch2" type="radio" name="maniAppleSwitch">
+            <label class="elz checkerLabel" for="appleSwitch2">Mac</label>
+            <div class="elz admManiDevicePreview ios">
+                <div class="elz macTabs">
+                <?for($i = 0, $len = sizeof($booksListApple); $i < $len; $i++):?>
+                    <?$book = $booksListApple[$i]?>
+                    <div class="elz tabLine<?=$book['line_class']?>">
+                        <div class="elz title"><?=$book['title']?></div>
+                        <div class="elz lineWrap">
+                            <ul class="elz lineList">
+                                <li class="elz listItem ios"><i class="elz elzIc ic-ios"></i></li>
+                                <li class="elz listItem yourapp helpinfo dtb<?=$book['li_class']?>"<?=$book['li_attr']?>><?=$book['svg']?></li>
+                                <li class="elz listItem youtube"><i class="elz elzIc ic-youtube"></i></li>
+                            </ul>
+                        </div>
+                    </div>
+                <?endfor;?>
+                </div>
+            </div>
+
+            <input class="elz checker" id="appleSwitch3" type="radio" name="maniAppleSwitch">
+            <label class="elz checkerLabel" for="appleSwitch3">Safari</label>
+            <div class="elz admManiDevicePreview ios">
+                <div class="elz admManiSafari">
+                    <div class="elz bar" style="background-color: <?=$addrColor?>;">
+                        <div class="elz statusbar"></div>
+                        <div class="elz adressbar"></div>
+                    </div>
+                </div>
+            </div>
+
+            <input class="elz checker" id="appleSwitch4" type="radio" name="maniAppleSwitch">
+            <label class="elz checkerLabel" for="appleSwitch4">Splash</label>
+            <div class="elz admManiDevicePreview ios">
+                <div class="elz splashScreen rcpManifestApple_1024x1024" style="background-image: url(<?=$splashSrc?>)"></div>
+            </div>
+        </div>
+    </div>
+</div>

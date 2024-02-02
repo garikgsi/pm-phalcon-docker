@@ -1,0 +1,16 @@
+<?$list = isset($list) && is_array($list) ? $list : []?>
+
+<div class="elz elzCLSbookmarks brDark left large dark grow">
+    <div class="elz elzScroll macosx dark nopad">
+        <div class="elz bookmarksWrap">
+    <?foreach($list as $index => $book):?>
+            <a class="elz bookmarkItem link dark<?=$book['res_classes']?>" href="<?=$book['href']?>" data-level="<?=$book['level']?>" title="<?=$book['title']?>" <?=$book['attrs']?>>
+                <div class="elz itemInner">
+                    <span class="elz text"><?=$book['title']?></span>
+                    <span class="elz num"><span class="elz numin"><?=$book['num']?></span></span>
+                </div>
+            </a>
+    <?endforeach;?>
+        </div>
+    </div>
+</div>

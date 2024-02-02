@@ -1,0 +1,130 @@
+/* Main */
+
+.bb.list {
+    padding-left: 3.2em;
+    text-align: left;
+}
+
+.bb.list,
+.bb.list > li.bb {
+	position: relative;
+	display: block;
+}
+
+.bb.list > li.bb {
+    margin-top:    0.8em;
+    margin-bottom: 0.8em;
+}
+
+.bb.list > li.bb:first-child { margin-top:    0; }
+.bb.list > li.bb:last-child  { margin-bottom: 0; }
+
+.bb.list > li.bb:before {
+    content: "";
+    position: absolute;
+    display:  block;
+    text-align: right;
+    white-space: nowrap;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing:    border-box;
+    box-sizing:         border-box;
+}
+
+.bb.list > li.bb.cat:before { display: none; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* UL settings */
+
+ul.bb.list > li.bb:before {
+    top: 0.8em;
+    right: 100%;
+    margin-top: -3px;
+    margin-right: 0.9em;
+    width:  5px;
+    height: 5px;
+}
+
+ul.bb.list.circle > li.bb:before,
+ul.bb.list.quad   > li.bb:before { border: 1px solid; }
+
+ul.bb.list.disc   > li.bb:before,
+ul.bb.list.square > li.bb:before { background-color: currentColor }
+
+ul.bb.list.disc   > li.bb:before,
+ul.bb.list.circle > li.bb:before {
+    -webkit-border-radius: 100%;
+    -moz-border-radius:    100%;
+    border-radius:         100%;
+}
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* OL settings */
+
+ol.bb.list.count-b > li.bb:before { font-weight:  bold; }
+ol.bb.list.count-i > li.bb:before { font-style: italic; }
+ol.bb.list.count-u > li.bb:before { text-decoration: underline; }
+ol.bb.list.count-s > li.bb:before { text-decoration: line-through; }
+
+ol.bb.list { counter-reset: bblistcouter; } /* ID счетчика */
+
+ol.bb.list > li.bb:before {
+    counter-increment: bblistcouter;
+    right: 100%;
+    margin-right: 0.5em;
+}
+
+ol.bb.list > li.bb.cat:before { counter-increment: none; }
+
+ol.bb.list.decimal     > li.bb:before { content: counter(bblistcouter, decimal) "."; }
+ol.bb.list.decimal-z   > li.bb:before { content: counter(bblistcouter, decimal-leading-zero) "."; }
+ol.bb.list.lower-alpha > li.bb:before { content: counter(bblistcouter, lower-alpha) "."; }
+ol.bb.list.lower-greek > li.bb:before { content: counter(bblistcouter, lower-greek) "."; }
+ol.bb.list.lower-roman > li.bb:before { content: counter(bblistcouter, lower-roman) "."; }
+ol.bb.list.upper-alpha > li.bb:before { content: counter(bblistcouter, upper-alpha) "."; }
+ol.bb.list.upper-roman > li.bb:before { content: counter(bblistcouter, upper-roman) "."; }
+
+ol.bb.list.inherit.decimal     > li.bb:before { content: counters(bblistcouter, ".", decimal) "."; }
+ol.bb.list.inherit.decimal-z   > li.bb:before { content: counters(bblistcouter, ".", decimal-leading-zero) "."; }
+ol.bb.list.inherit.lower-alpha > li.bb:before { content: counters(bblistcouter, ".", lower-alpha) "."; }
+ol.bb.list.inherit.lower-greek > li.bb:before { content: counters(bblistcouter, ".", lower-greek) "."; }
+ol.bb.list.inherit.lower-roman > li.bb:before { content: counters(bblistcouter, ".", lower-roman) "."; }
+ol.bb.list.inherit.upper-alpha > li.bb:before { content: counters(bblistcouter, ".", upper-alpha) "."; }
+ol.bb.list.inherit.upper-roman > li.bb:before { content: counters(bblistcouter, ".", upper-roman) "."; }
+
+ol.bb.list.bracket.decimal     > li.bb:before { content: counter(bblistcouter, decimal) ")"; }
+ol.bb.list.bracket.decimal-z   > li.bb:before { content: counter(bblistcouter, decimal-leading-zero) ")"; }
+ol.bb.list.bracket.lower-alpha > li.bb:before { content: counter(bblistcouter, lower-alpha) ")"; }
+ol.bb.list.bracket.lower-greek > li.bb:before { content: counter(bblistcouter, lower-greek) ")"; }
+ol.bb.list.bracket.lower-roman > li.bb:before { content: counter(bblistcouter, lower-roman) ")"; }
+ol.bb.list.bracket.upper-alpha > li.bb:before { content: counter(bblistcouter, upper-alpha) ")"; }
+ol.bb.list.bracket.upper-roman > li.bb:before { content: counter(bblistcouter, upper-roman) ")"; }
+
+ol.bb.list.inherit.bracket.decimal     > li.bb:before { content: counters(bblistcouter, ".", decimal) ")"; }
+ol.bb.list.inherit.bracket.decimal-z   > li.bb:before { content: counters(bblistcouter, ".", decimal-leading-zero) ")"; }
+ol.bb.list.inherit.bracket.lower-alpha > li.bb:before { content: counters(bblistcouter, ".", lower-alpha) ")"; }
+ol.bb.list.inherit.bracket.lower-greek > li.bb:before { content: counters(bblistcouter, ".", lower-greek) ")"; }
+ol.bb.list.inherit.bracket.lower-roman > li.bb:before { content: counters(bblistcouter, ".", lower-roman) ")"; }
+ol.bb.list.inherit.bracket.upper-alpha > li.bb:before { content: counters(bblistcouter, ".", upper-alpha) ")"; }
+ol.bb.list.inherit.bracket.upper-roman > li.bb:before { content: counters(bblistcouter, ".", upper-roman) ")"; }
+
+/* end */

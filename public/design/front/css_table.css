@@ -1,0 +1,163 @@
+.priceTableWrap {
+    position: relative;
+    display: block;
+    overflow: auto;
+    background-color: #212121;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    margin-top: 32px;
+}
+
+.priceTable {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.priceTable th {
+    text-align: left;
+    vertical-align: middle;
+}
+
+.priceTable thead th {
+    text-align: center;
+    background-color: #212121;
+}
+
+.priceTable td {
+    position: relative;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+}
+
+.priceTable td.big { font-size: 12pt; }
+
+.priceTable tbody td,
+.priceTable tbody th { background-color: #333333; }
+
+.priceTable td,
+.priceTable th { padding: 16px 32px; }
+
+.priceTable tr.bordered td,
+.priceTable tr.bordered th {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.priceTable tbody .elzIcon { margin: auto; }
+
+.priceTable tbody td,
+.priceTable tbody th {
+    box-shadow: inset 0 0 1024px rgba(255, 255, 255, 0);
+    transition: 0.1s box-shadow;
+}
+
+.priceTable td.best { background-color: #404040; }
+
+.priceTable td.best .bestState {
+    left: -32px;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.priceTable td.best .bestState,
+.priceTable td.best .bestState:before {
+    position: absolute;
+    display: block;
+    top:      0;
+    right:    0;
+    bottom:   0;
+}
+
+.priceTable td.best .bestState:before {
+    content: "";
+    left: 32px;
+    box-shadow: 8px 0 8px 16px rgba(0, 0, 0, 0.25);
+}
+
+/*.priceTable td { border-left: 1px solid rgba(255, 255, 255, 0.05); }*/
+
+.priceTable tbody tr:hover  td,
+.priceTable tbody tr:active td,
+.priceTable tbody tr:hover  th,
+.priceTable tbody tr:active th { box-shadow: inset 0 0 1024px rgba(255, 255, 255, 0.05); }
+
+
+
+
+
+
+
+
+
+
+.priceTable .priceBadge {
+    position: relative;
+    display: inline-block;
+    vertical-align: bottom;
+    border-radius: 3px;
+    padding: 8px 16px;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
+}
+
+.priceTable .priceBadge.guest   { background-image: linear-gradient(180deg,rgba(255, 255, 255, 0.05),rgba(255, 255, 255, 0.025)); }
+.priceTable .priceBadge.reg     { background-image: linear-gradient(180deg,#024561,#023d55); }
+.priceTable .priceBadge.premium { background-image: linear-gradient(-180deg,rgba(39,220,254,0.76) 0%,#13AFF0 100%); }
+.priceTable .priceBadge.vip     { background-image: linear-gradient(180deg,#ffae00,#cf8d00); }
+
+.priceTable .bestDealBadge {
+    position: absolute;
+    display: block;
+    text-transform: uppercase;
+    font-size: 8pt;
+    text-align: center;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
+    background-color: #008000;
+    padding: 2px 0;
+    top:   0;
+    right: 0;
+    width: 150px;
+    transform: rotate(35deg) translateX(40px);
+}
+
+.bestDeal { overflow: hidden; }
+
+.green { color: #17c54a; }
+
+.pricePolicy { padding: 16px 0; }
+
+
+
+
+
+
+
+
+.priceTable .payButton {
+    position: relative;
+    display: block;
+    font-size: 11pt;
+    padding: 8px 16px;
+    border: 1px solid #404040;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 2px;
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.2s background-color;
+    white-space: nowrap;
+}
+
+.priceTable .payButton:hover,
+.priceTable .payButton:active {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.priceTable .payButton:active { opacity: 0.7; }
+
+.priceTable .upgradeArrow {
+    position: absolute;
+    top: 50%;
+    margin-top: -8px;
+    right: -8px;
+}

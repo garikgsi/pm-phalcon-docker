@@ -1,0 +1,23 @@
+<?$explorerList = $this->view->getVar('explorerList')?>
+<?$explorerList = is_array($explorerList) ? $explorerList : []?>
+
+
+
+<div class="elz strCLSitem padMedium">
+
+
+
+    <div id="rcpResourcesExplorer" class="elz elzCLSexplorer nodeLight">
+        <form id="rcpResourcesExplorerUploadForm" action="" method="post" enctype="multipart/form-data" style="display:none;">
+            <input id="rcpResourcesExplorerUploadInput" type="file" name="files[]" multiple="multiple" />
+            <input id="rcpResourcesExplorerUploadDir"   type="hidden" name="dir" />
+            <input id="rcpResourcesExplorerUploadName"  type="hidden" name="name" />
+        </form>
+
+        <?$this->view->partial('partials/explorer/items', ['list' => $explorerList, 'data' => $this->view->getVar('explorerGroup')])?>
+
+    </div>
+
+
+
+</div>

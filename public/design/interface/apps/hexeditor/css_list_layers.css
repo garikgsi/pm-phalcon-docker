@@ -1,0 +1,753 @@
+.hxdLayers,
+.hxdLayers .layersList { position: relative; }
+
+.hxdLayers { display: block; }
+
+.hxdLayers .layerItem,
+.hxdLayers .layerWrap,
+.hxdLayers .layerInner {
+    position: relative;
+    display: flex;
+}
+
+.hxdLayers { padding-top: 1px; }
+
+.hxdLayers .layersList {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    color: #444444;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.hxdLayers .layersList[data-title]:empty:before {
+    content: attr(data-title);
+    position: relative;
+    display: block;
+    padding: 16px;
+    text-align: center;
+    color: #444444;
+    font-size: 8pt;
+    box-sizing: border-box;
+}
+
+.hxdLayers .layerItem,
+.hxdLayers .layerSep {
+    margin-top: -1px;
+    flex-wrap: wrap;
+}
+
+.hxdLayers .layerWrap {
+    padding: 1px 0;
+    flex-grow: 1;
+    width: 1px;
+    text-decoration: none;
+}
+
+.hxdLayers .layerInner {
+    min-height: 36px;
+    flex-grow: 1;
+}
+
+.hxdLayers .layerInner.wrap { flex-wrap: wrap; }
+
+.hxdLayers .layerWrap:hover    { z-index: 2; }
+.hxdLayers .layerItem.selected { z-index: 3; }
+
+.hxdLayers .layerSep {
+    display: block;
+    padding: 8px 16px;
+    line-height: 1.25;
+    font-size: 8pt;
+    font-weight: bold;
+    color: #777777;
+}
+
+.hxdLayers .layersList .layersList .layerItem,
+.hxdLayers .layersList .layersList .layerSep            { padding-left: 36px; }
+.hxdLayers .layerExpChecker ~ .layersList > .layerItem,
+.hxdLayers .layerExpChecker ~ .layersList > .layerSep   { padding-left: 52px; }
+
+.hxdLayers .layerWrap.link,
+.hxdLayers .layerItem.selectable > .layerWrap { cursor: pointer; }
+
+.hxdLayers .layerWrap:before {
+    content: "";
+    position: absolute;
+    top:    0;
+    right:  0;
+    bottom: 0;
+    width: 100vw;
+    border-width: 1px 0;
+    border-style: solid;
+    border-color: #cccccc;
+    background-color: #eeeeee;
+}
+
+.hxdLayers .layerWrap.hover:hover:before { background-color: #e5e5e5; }
+
+.hxdLayers .layerWrap.link:active { opacity: 0.7; }
+
+.hxdLayers .layerItem.active   > .layerWrap:before { background-color: #cccccc; }
+.hxdLayers .layerItem.selected > .layerWrap:before,
+.hxdLayers .layersList:not(.ui-selectable-disabled) .layerItem.ui-selecting > .layerWrap:before,
+.hxdLayers .layersList:not(.ui-selectable-disabled) .layerItem.ui-selected > .layerWrap:before { background-color: #64b5f6; border-color: #29a0ff; }
+
+.hxdLayers .layerItem.ui-sortable-helper > .layerWrap:before {
+    background-color: #64b5f6;
+    border-color:     #64b5f6;
+}
+
+.hxdLayers .layerItem.ui-sortable-helper > .layerWrap { color: #000000; }
+
+.hxdLayers .layerItem.ui-sortable-helper,
+.hxdLayers .layerItem.ui-sortable-helper > .layerWrap { z-index: 5; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Empty text */
+
+.hxdLayers .emptyText {
+    font-size: 8pt;
+    text-align: center;
+    line-height: 1.6;
+    pointer-events: none;
+    margin-top: 90px;
+    height: 0;
+}
+
+.hxdLayers .emptyText .textWrap {
+    position: absolute;
+    display: flex;
+    align-items:     center;
+    justify-content: center;
+    height: 90px;
+    padding: 0 16px;
+    bottom: 0;
+    left:   0;
+    right:  0;
+}
+
+.hxdLayers .layersList .layerItem.ui-sortable-placeholder:before {
+    content: "";
+    position: absolute;
+    display: block;
+    top:    0;
+    right:  0;
+    bottom: 0;
+    left:   0;
+    margin: 8px;
+    border: 1px dashed #004ff3;
+    visibility: visible;
+}
+
+.hxdLayers .layerItem.ui-sortable-placeholder:nth-child(2):nth-last-child(2) ~ .emptyText,
+.hxdLayers .layerItem:not(.ui-sortable-placeholder):not(.ui-sortable-helper) ~ .emptyText { display: none; }
+
+.hxdLayers .layerItem.ui-sortable-helper:nth-child(1):nth-last-child(3) + .layerItem.ui-sortable-placeholder:nth-child(2):nth-last-child(2) ~ .emptyText { display: block; }
+
+.hxdLayers .layersList .layerItem.ui-sortable-placeholder:nth-child(1):nth-last-child(2),
+.hxdLayers .layerItem.ui-sortable-helper:nth-child(1):nth-last-child(3) + .layerItem.ui-sortable-placeholder:nth-child(2):nth-last-child(2) {
+    height: 90px !important;
+    margin-bottom: -89px;
+}
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Expander */
+
+.hxdLayers .layerExpChecker,
+.hxdLayers .layerExpTrigger {
+    position: relative;
+    flex-shrink: 0;
+    width: 16px;
+}
+
+.hxdLayers .layerExpChecker {
+    display: block;
+    -webkit-appearance: none;
+    -moz-appearance:    none;
+    appearance:         none;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 4;
+}
+
+.hxdLayers .layerExpTrigger {
+    display: flex;
+    justify-content: center;
+    align-items:     center;
+    margin-left: -16px;
+    color: #555555;
+    cursor: pointer;
+    visibility: visible;
+    z-index: 3;
+}
+
+.hxdLayers .layerExpChecker.invisible,
+.hxdLayers .layerExpChecker.invisible + .layerExpTrigger { visibility: hidden; }
+
+.hxdLayers .layerExpChecker.hide,
+.hxdLayers .layerExpChecker.hide + .layerExpTrigger,
+.hxdLayers .layerExpChecker:not(:checked) ~ .layersList { display: none; }
+
+.hxdLayers .layerExpTrigger:before {
+    content: "";
+    position: relative;
+    display: block;
+    width:  0;
+    height: 0;
+    border-style: solid;
+    border-width: 4px 0 4px 4px;
+    border-color: transparent transparent transparent currentColor;
+}
+
+.hxdLayers .layerExpChecker:checked + .layerExpTrigger:before {
+    border-width: 4px 4px 0 4px;
+    border-color: currentColor transparent transparent transparent;
+}
+
+.hxdLayers .layerExpChecker:hover  +.layerExpTrigger,
+.hxdLayers .layerExpChecker:active +.layerExpTrigger {
+    background-color: #555555 !important;
+    color: #ffffff !important;
+}
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Template */
+
+.hxdLayers .layerTool .toolInner,
+.hxdLayers .layerTool .toolIcon { display: flex; }
+
+.hxdLayers .layerTool {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    color: inherit;
+    min-width:  36px;
+    min-height: 36px;
+    text-decoration: none;
+}
+
+.hxdLayers .layerTool.grow {
+    width: 0;
+    flex-grow: 1;
+}
+
+.hxdLayers .layerTool.hovOp       .toolInner { opacity: 0.5; }
+.hxdLayers .layerTool.hovOp:hover .toolInner,
+.hxdLayers .layerTool.hovOp.show  .toolInner { opacity: 1; }
+.hxdLayers .layerTool.link .toolInner:active { opacity: 0.7; }
+
+.hxdLayers .layerWrap:not(:hover):not(:active) .layerTool.hovShow:not(.show)    { display:      none; }
+.hxdLayers .layerWrap:not(:hover):not(:active) .layerTool.hovVisible:not(.show) { visibility: hidden; }
+
+.hxdLayers .layerTool.link:hover,
+.hxdLayers .layerTool.link:active { color: #000000; }
+
+.hxdLayers .layerTool .toolInner {
+    position: relative;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+}
+
+.hxdLayers .layerTool .toolSup {
+    display: block;
+    height: 0;
+}
+
+.hxdLayers .layerTool.link { cursor: pointer; }
+
+/* Text */
+
+.hxdLayers .layerTool .toolText {
+    display: block;
+    flex-grow: 1;
+    width: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0 10px;
+    line-height: 1.5;
+}
+
+/* Over description */
+
+.hxdLayers .layerTool .elzCLSoverDescr:before,
+.hxdLayers .layerTool .elzCLSoverDescr:after { display: none; }
+
+.hxdLayers .layerTool .elzCLSoverDarrow {
+    position: relative;
+    margin-top: -5px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+
+.hxdLayers .layerTool .elzCLSoverDescr {
+    margin-top: -1px;
+    right: 8px;
+}
+
+.hxdLayers .layerTool .elzCLSoverDescr:not(.wAuto) {
+    width: 304px;
+    max-width: calc(100vw - 20px);
+}
+
+/* Drag stat */
+
+.hxdLayers .layerTool .dragStat {
+    position: absolute;
+    display: none;
+    justify-content: center;
+    align-items:     center;
+    top:    0;
+    right:  0;
+    bottom: 0;
+    left:   0;
+}
+
+.hxdLayers .layerTool .dragStat .elzIcon {
+    color: #ffffff;
+    text-shadow: 0 0 4px rgba(0, 0, 0, 1), 0 0 4px rgba(0, 0, 0, 1), 0 0 4px rgba(0, 0, 0, 1), 0 0 8px rgba(0, 0, 0, 1), 0 0 8px rgba(0, 0, 0, 1), 0 0 8px rgba(0, 0, 0, 1);
+}
+
+.hxdLayers .layerWrap:hover  .layerTool.sortHandle .dragStat,
+.hxdLayers .layerWrap:active .layerTool.sortHandle .dragStat { display: flex; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Tool behind */
+
+.hxdLayers .layerTool.behind { margin-left: -36px; }
+
+
+.hxdLayers .layerExpChecker + .layerWrap .layerTool.behind {
+    margin-left: -52px;
+    margin-right: 16px;
+}
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Tool cutter */
+
+.hxdLayers .layerTool .layerCut {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top:     0;
+    right: 1px;
+    bottom:  0;
+    left:  1px;
+    pointer-events: none;
+    color: #ffffff;
+}
+
+.hxdLayers .layerTool .layerCut .item {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 100%;
+    width:  13px;
+    height: 13px;
+    top:    22px;
+    pointer-events: auto;
+    cursor: help;
+}
+
+.hxdLayers .layerTool .layerCut .item.l { left:  0; background-color: #3949ab; }
+.hxdLayers .layerTool .layerCut .item.r { right: 0; background-color: #c62828; }
+
+.hxdLayers .layerTool .layerCut .elzTooltip {
+    margin-left: -8px;
+    z-index: 31;
+}
+
+.hxdLayers .layerTool .layerCut .letter {
+    display: block;
+    font-size: 7pt;
+    margin-top: -0.15em;
+}
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Layer preview */
+
+.hxdLayers .layerTool.layerPreview.sortHandle { cursor: move; }
+
+.hxdLayers .hxdLayerPreview {
+    position: relative;
+    display: flex;
+    align-items:     center;
+    justify-content: center;
+    background-color: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    background-clip: padding-box;
+    box-sizing: border-box;
+    width:  30px;
+    height: 30px;
+    padding: 2px;
+    overflow: hidden;
+}
+
+.hxdLayers .hxdLayerPreview svg,
+.hxdLayers .hxdLayerPreview .previewImage {
+    display: block;
+    max-width:  100%;
+    max-height: 100%;
+}
+
+.hxdLayers .hxdLayerPreview svg           { width: 100%; height: 100%; }
+.hxdLayers .hxdLayerPreview .previewImage { width: auto; height: auto; }
+
+.hxdLayers .hxdLayerPreview .dragStat { background-color: rgba(0, 0, 0, 0.25); }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Pickr plugin sector */
+
+.hxdPickrLayerColor {
+    position: relative;
+    display: flex;
+    align-items:     center;
+    justify-content: center;
+}
+
+.hxdPickrLayerColor:before {
+    width:       100%;
+    padding-top: 100%;
+}
+
+.hxdPickrLayerColor:before,
+.hxdPickrLayerColor .colorOpacity:before {
+    content: "";
+    display: block;
+    z-index: 1;
+}
+
+.hxdPickrLayerColor .colorOpacity:before,
+.hxdPickrLayerColor .colorIn,
+.hxdPickrLayerColor .elzSight {
+    position: absolute;
+    top:    0;
+    right:  0;
+    bottom: 0;
+    left:   0;
+}
+
+.hxdPickrLayerColor.rad    { border-radius:  2.5px; }
+.hxdPickrLayerColor.circle { border-radius: 100%; }
+
+.hxdPickrLayerColor .colorOpacity,
+.hxdPickrLayerColor .colorOpacity:before,
+.hxdPickrLayerColor .colorItself { border-radius: inherit; }
+
+/* Sight */
+
+.hxdPickrLayerColor .elzSight { margin: -2px; }
+
+.hxdPickrLayerColor .elzSight > .sH {
+    width:  32%;
+    height: 32%;
+}
+
+/* Opacity */
+
+.hxdPickrLayerColor .colorOpacity { background-size: 8px 8px; }
+
+.hxdPickrLayerColor .colorOpacity:before { border: 1px solid rgba(0, 0, 0, 0.25); }
+
+.hxdPickrLayerColor.border .colorOpacity { background: none; }
+
+/* Color itself */
+
+.hxdPickrLayerColor .colorItself {
+    background-color: currentColor;
+    box-sizing: border-box;
+}
+
+.hxdPickrLayerColor.clear   .colorItself,
+.hxdPickrLayerColor.inherit .colorItself { background: none; border-color: transparent; }
+
+.hxdPickrLayerColor.border .colorItself {
+    background: none;
+    border: 4px solid currentColor;
+}
+
+/* Icons for statuses */
+
+.hxdPickrLayerColor .elzIcon {
+    position: absolute;
+    pointer-events: none;
+    color: #ffffff;
+    text-shadow: 0 0 3px #000000, 0 0 3px #000000, 0 0 3px #000000, 0 0 3px #000000, 0 0 3px #000000, 0 0 3px #000000;
+}
+
+.hxdPickrLayerColor:not(.inherit) .elzIcon.iconInherit,
+.hxdPickrLayerColor:not(.clear)   .elzIcon.iconClear { display: none; }
+
+/* Data numbers */
+
+.hxdPickrLayerColor .colorData {
+    position: absolute;
+    display: none;
+    text-decoration: none;
+    text-align: center;
+    color: #ffffff;
+    text-shadow: 0 0 3px #000000, 0 0 3px #000000, 0 0 3px #000000, 0 0 3px #000000, 0 0 3px #000000, 0 0 3px #000000;
+    font-size: 7pt;
+    line-height: 1;
+}
+
+.hxdPickrDataHover:hover  .colorData.hover,
+.hxdPickrDataHover:active .colorData.hover,
+.hxdPickrLayerColor:hover  .colorData.hover,
+.hxdPickrLayerColor:active .colorData.hover,
+.hxdPickrLayerColor.iconData .colorData { display: block; }
+
+/* For layer tool */
+
+.hxdLayers .layerTool > .toolInner .hxdPickrLayerColor { width: 18px; }
+
+.hxdLayers .layerTool:hover  > .toolInner .elzSight,
+.hxdLayers .layerTool:active > .toolInner .elzSight,
+.hxdLayers .layerTool.active > .toolInner .elzSight { display: block; }
+
+.hxdLayers .layerTool.active > .toolInner .elzSight .sH {
+    width:  50%;
+    height: 50%;
+}
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Color swatches grid */
+
+.hxdColorSwatches {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-gap: 8px;
+}
+
+.hxdColorSwatches .gridItem,
+.hxdColorSwatches .gridLink {
+    position: relative;
+    display: block;
+}
+
+.hxdColorSwatches .gridLink { cursor: pointer; }
+
+.hxdColorSwatches .gridLink:hover  .elzSight,
+.hxdColorSwatches .gridLink:active .elzSight,
+.hxdColorSwatches .gridLink.active .elzSight,
+.hxdColorSwatches .gridLink:hover  .colorData,
+.hxdColorSwatches .gridLink:active .colorData { display: block;  }
+
+.hxdColorSwatches .gridLink.active .elzSight .sH {
+    width:  50%;
+    height: 50%;
+}
+
+.hxdColorSwatches .gridAdd {
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 2.5px;
+    transition: 0.1s color, 0.1s background-color;
+}
+
+.hxdColorSwatches .gridAdd:after {
+    content: "";
+    display: block;
+    padding-top: 100%;
+}
+
+.hxdColorSwatches .gridAdd .elzIcon { position: absolute; }
+
+.hxdColorSwatches .gridAdd:hover,
+.hxdColorSwatches .gridAdd:active {
+    background-color: rgba(0, 0, 0, 0.65);
+    color: #ffffff;
+}
+
+.hxdColorSwatches .gridAdd:active { opacity: 0.7; }
+
+.hxdColorSwatches .gridAdd,
+.hxdColorSwatches .gridAction {
+    display: flex;
+    align-items:     center;
+    justify-content: center;
+    cursor: pointer
+}
+
+.hxdColorSwatches .gridAction {
+    position: absolute;
+    width:  16px;
+    height: 16px;
+    top:   -4px;
+    right: -4px;
+    background-color: rgba(0, 0, 0, 0.65);
+    border-radius: 2px;
+    color: #ffffff;
+    z-index: 1;
+    transition: 0.1s opacity, 0.1s visibility;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.hxdColorSwatches .gridItem:hover  .gridAction,
+.hxdColorSwatches .gridItem:active .gridAction {
+    visibility: visible;
+    opacity: 1;
+}
+
+.hxdColorSwatches .gridItem .gridAction:hover,
+.hxdColorSwatches .gridItem .gridAction:active {
+    background-color: rgba(0, 0, 0, 1);
+}
+
+.hxdColorSwatches .gridItem .gridAction:active {
+    opacity: 0.7;
+    transition: none;
+}
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Filter mask */
+
+.hxdLayers .layerMaskFilter {
+    display: flex;
+    width: 100%;
+    min-height: 36px;
+    box-sizing: border-box;
+    padding: 3px 6px 3px 3px;
+    cursor: default;
+}
+
+.hxdLayers .layerMaskFilter.overDescr { padding: 0; }
+
+.hxdLayers .layerMaskFilter .maskFilterIn {
+    flex-grow: 1;
+    border-radius: 3px;
+    background-color: rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 0 8px;
+}
+
+.hxdLayers .layerMaskFilter.overDescr .maskFilterIn {
+    padding: 0;
+    background: none;
+}
+
+.hxdLayerSelector {
+    display: block;
+    -webkit-appearance: none;
+    -moz-appearance:    none;
+    appearance:         none;
+    outline: none;
+    color:       inherit;
+    font-family: inherit;
+    font-size:   inherit;
+    font-weight: inherit;
+    box-sizing: border-box;
+    width:  100%;
+    height: 100%;
+    padding: 0 8px;
+    cursor: pointer;
+}
+
+.hxdLayerSelector option,
+.hxdLayerSelector optgroup {
+    font-size: 9pt;
+    font-weight: normal;
+    color: #000000;
+}
+
+.hxdLayers .layerMaskFilter           .hxdLayerSelector { height: 30px; }
+.hxdLayers .layerMaskFilter.overDescr .hxdLayerSelector { height: 36px; }
+
+/* end */

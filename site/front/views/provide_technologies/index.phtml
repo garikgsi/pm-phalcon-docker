@@ -1,0 +1,66 @@
+<div class="elz d-flex hmn100p dir-y gapVar pVar">
+    <div class="elz d-block pVar r3 bg bg-primary bgL5 bsh-default1">
+        <div class="elz d-flex a-H f-wrap gapH16 gapV8 hmn36">
+            <div class="elz d-flex a-H growMax fn20 lh12">
+
+                <div class="elz d-flex a-H growMax fn20 lh12">
+
+                    <a href="/" class="elz p-rel d-flex a-X w40 mL-Var">
+                        <div class="elz p-rel p8 m-8 rCircle cur-pointer opAct07 bgHov bgHov-primary bgHovL-5 bgHovLF5 bgHovFD bgLInvD" title="На главную">
+                            <div class="elz p-rel d-flex a-X s16">
+                                <div class="elz p-abs d-block mskBef s16 cFillBef bgBef-CC deg270" style="--elzMsk: url('/design/icons/arrow4.svg');"></div>
+                                <!--
+                                <div class="elz p-abs d-block rRound p2 mEA12 bg bg-ok fn fn-ok-t">
+                                    <div class="elz p-rel d-block mskBef s8 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/search.svg');"></div>
+                                </div>
+                                -->
+                            </div>
+                        </div>
+                    </a>
+
+                    <div class="elz d-flex grow">Справочник технологий предоставления услуг</div>
+                </div>
+            </div>
+            <div class="elz d-flex f-wrap grow fb240 a-H gap8">
+
+                <form id="provideTechnologiesTypeForm" method="post" action="?act=type_create" class="elz d-grid grPos w100p fn fn-primary-t fnL20 fnLInvD fnHovL10 fnFow-focus fnFowL0">
+                    <input type="text"
+                           name="title"
+                           value=""
+                           placeholder="Название типа"
+                           class="elz elzInput d-block grPin grY2 w100p bor1 h36 pH8 r3 fn12 ellipsis trns2 invPssSib
+                                  bg bg-primary bgL10 bgLInvD
+                                  br brLInvD br-primary brL-10 brHovL-20 brFoc-focus brFocL0
+                                  fn fn-primary-t">
+                    <span class="elz d-flex grPin grY2 a-H bor1 pH7 z6 evNone">
+                        <span class="elz p-rel growX d-flex a-PR">
+                            <button type="submit" class="elz p-rel d-flex a-H cur-pointer opAct07" title="Добавить тип услуг">
+                                <span class="elz p-rel d-flex a-X s24 r2 evAuto">
+                                    <span class="elz p-rel d-block mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/plus2.svg');"></span>
+                                </span>
+                            </button>
+                        </span>
+                    </span>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="provideTechnologiesList" class="elz d-flex grow dir-y gap8">
+<?php $typesMap = $this->view->getVar('technologyTypesMap') ?? []?>
+<?foreach($typesMap as $typeId => $typeDate):?>
+        <?$this->view->partial('provide_technologies/partials/tech_category', $typeDate)?>
+<?endforeach;?>
+    </div>
+
+
+
+
+
+
+
+
+
+</div>

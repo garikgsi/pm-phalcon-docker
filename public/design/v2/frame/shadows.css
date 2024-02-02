@@ -1,0 +1,764 @@
+/* Первая тень ближе к тебе по Z оси, последняя дальше, соответственно если идет порядок: розовая, синяя, зеленая, первую ты увидишь розовую, остальные будут под ней */
+
+.bshD,
+.bshHovD:is(:hover, :active),
+.cHovOut:is(:hover, :active)  .bshHovInD,
+.cHovOut1:is(:hover, :active) .bshHovIn1D,
+.cHovOut2:is(:hover, :active) .bshHovIn2D,
+.bshActD:active:active,
+.cActOut:active:active .bshActInD,
+.bshSelD.sel.sel.sel,
+.cSelOut.sel.sel.sel  .bshSelInD,
+.cSelOut1.sel.sel.sel .bshSelIn1D,
+.cSelOut2.sel.sel.sel .bshSelIn2D,
+.bshChkD:checked:checked,
+.cLblSib:checked:checked + .bshLblLingD,
+.cLbtSib:checked:checked ~ .bshLbtLingD,
+.bshFocD:focus:focus,
+.bshFowD:focus-within:focus-within,
+
+.elzTheme-light :is(
+    .bshDL,
+    .bshHovDL:is(:hover, :active),
+    .cHovOut:is(:hover, :active)  .bshHovInDL,
+    .cHovOut1:is(:hover, :active) .bshHovIn1DL,
+    .cHovOut2:is(:hover, :active) .bshHovIn2DL,
+    .bshActDL:active:active,
+    .cActOut:active:active .bshActInDL,
+    .bshSelDL.sel.sel.sel,
+    .cSelOut.sel.sel.sel  .bshSelInDL,
+    .cSelOut1.sel.sel.sel .bshSelIn1DL,
+    .cSelOut2.sel.sel.sel .bshSelIn2DL,
+    .bshChkDL:checked:checked,
+    .cLblSib:checked:checked + .bshLblLingDL,
+    .cLbtSib:checked:checked ~ .bshLbtLingDL,
+    .bshFocDL:focus:focus,
+    .bshFowDL:focus-within:focus-within
+),
+
+.elzTheme-dark :is(
+    .bshDD,
+    .bshHovDD:is(:hover, :active),
+    .cHovOut:is(:hover, :active)  .bshHovInDD,
+    .cHovOut1:is(:hover, :active) .bshHovIn1DD,
+    .cHovOut2:is(:hover, :active) .bshHovIn2DD,
+    .bshActDD:active:active,
+    .cActOut:active:active .bshActInDD,
+    .bshSelDD.sel.sel.sel,
+    .cSelOut.sel.sel.sel  .bshSelInDD,
+    .cSelOut1.sel.sel.sel .bshSelIn1DD,
+    .cSelOut2.sel.sel.sel .bshSelIn2DD,
+    .bshChkDD:checked:checked,
+    .cLblSib:checked:checked + .bshLblLingDD,
+    .cLbtSib:checked:checked ~ .bshLbtLingDD,
+    .bshFocDD:focus:focus,
+    .bshFowDD:focus-within:focus-within
+) { --bsh-color: 0%; }
+
+
+
+.bshL,
+.bshHovL:is(:hover, :active),
+.cHovOut:is(:hover, :active)  .bshHovInL,
+.cHovOut1:is(:hover, :active) .bshHovIn1L,
+.cHovOut2:is(:hover, :active) .bshHovIn2L,
+.bshActL:active:active,
+.cActOut:active:active .bshActInL,
+.bshSelL.sel.sel.sel,
+.cSelOut.sel.sel.sel  .bshSelInL,
+.cSelOut1.sel.sel.sel .bshSelIn1L,
+.cSelOut2.sel.sel.sel .bshSelIn2L,
+.bshChkL:checked:checked,
+.cLblSib:checked:checked + .bshLblLingL,
+.cLbtSib:checked:checked ~ .bshLbtLingL,
+.bshFocL:focus:focus,
+.bshFowL:focus-within:focus-within,
+
+.elzTheme-light :is(
+    .bshLL,
+    .bshHovLL:is(:hover, :active),
+    .cHovOut:is(:hover, :active)  .bshHovInLL,
+    .cHovOut1:is(:hover, :active) .bshHovIn1LL,
+    .cHovOut2:is(:hover, :active) .bshHovIn2LL,
+    .bshActLL:active:active,
+    .cActOut:active:active .bshActInLL,
+    .bshSelLL.sel.sel.sel,
+    .cSelOut.sel.sel.sel  .bshSelInLL,
+    .cSelOut1.sel.sel.sel .bshSelIn1LL,
+    .cSelOut2.sel.sel.sel .bshSelIn2LL,
+    .bshChkLL:checked:checked,
+    .cLblSib:checked:checked + .bshLblLingLL,
+    .cLbtSib:checked:checked ~ .bshLbtLingLL,
+    .bshFocLL:focus:focus,
+    .bshFowLL:focus-within:focus-within
+),
+
+.elzTheme-dark :is(
+    .bshLD,
+    .bshHovLD:is(:hover, :active),
+    .cHovOut:is(:hover, :active)  .bshHovInLD,
+    .cHovOut1:is(:hover, :active) .bshHovIn1LD,
+    .cHovOut2:is(:hover, :active) .bshHovIn2LD,
+    .bshActLD:active:active,
+    .cActOut:active:active .bshActInLD,
+    .bshSelLD.sel.sel.sel,
+    .cSelOut.sel.sel.sel  .bshSelInLD,
+    .cSelOut1.sel.sel.sel .bshSelIn1LD,
+    .cSelOut2.sel.sel.sel .bshSelIn2LD,
+    .bshChkLD:checked:checked,
+    .cLblSib:checked:checked + .bshLblLingLD,
+    .cLbtSib:checked:checked ~ .bshLbtLingLD,
+    .bshFocLD:focus:focus,
+    .bshFowLD:focus-within:focus-within
+) { --bsh-color: 100%; }
+
+
+
+
+
+
+
+
+
+
+.tshD,
+.tshHovD:is(:hover, :active),
+.cHovOut:is(:hover, :active)  .tshHovInD,
+.cHovOut1:is(:hover, :active) .tshHovIn1D,
+.cHovOut2:is(:hover, :active) .tshHovIn2D,
+.tshActD:active:active,
+.cActOut:active:active .tshActInD,
+.tshSelD.sel.sel.sel,
+.cSelOut.sel.sel.sel  .tshSelInD,
+.cSelOut1.sel.sel.sel .tshSelIn1D,
+.cSelOut2.sel.sel.sel .tshSelIn2D,
+.tshChkD:checked:checked,
+.cLblSib:checked:checked + .tshLblLingD,
+.cLbtSib:checked:checked ~ .tshLbtLingD,
+.tshFocD:focus:focus,
+.tshFowD:focus-within:focus-within,
+
+.elzTheme-light :is(
+    .tshDL,
+    .tshHovDL:is(:hover, :active),
+    .cHovOut:is(:hover, :active)  .tshHovInDL,
+    .cHovOut1:is(:hover, :active) .tshHovIn1DL,
+    .cHovOut2:is(:hover, :active) .tshHovIn2DL,
+    .tshActDL:active:active,
+    .cActOut:active:active .tshActInDL,
+    .tshSelDL.sel.sel.sel,
+    .cSelOut.sel.sel.sel  .tshSelInDL,
+    .cSelOut1.sel.sel.sel .tshSelIn1DL,
+    .cSelOut2.sel.sel.sel .tshSelIn2DL,
+    .tshChkDL:checked:checked,
+    .cLblSib:checked:checked + .tshLblLingDL,
+    .cLbtSib:checked:checked ~ .tshLbtLingDL,
+    .tshFocDL:focus:focus,
+    .tshFowDL:focus-within:focus-within
+),
+
+.elzTheme-dark :is(
+    .tshDD,
+    .tshHovDD:is(:hover, :active),
+    .cHovOut:is(:hover, :active)  .tshHovInDD,
+    .cHovOut1:is(:hover, :active) .tshHovIn1DD,
+    .cHovOut2:is(:hover, :active) .tshHovIn2DD,
+    .tshActDD:active:active,
+    .cActOut:active:active .tshActInDD,
+    .tshSelDD.sel.sel.sel,
+    .cSelOut.sel.sel.sel  .tshSelInDD,
+    .cSelOut1.sel.sel.sel .tshSelIn1DD,
+    .cSelOut2.sel.sel.sel .tshSelIn2DD,
+    .tshChkDD:checked:checked,
+    .cLblSib:checked:checked + .tshLblLingDD,
+    .cLbtSib:checked:checked ~ .tshLbtLingDD,
+    .tshFocDD:focus:focus,
+    .tshFowDD:focus-within:focus-within
+) { --tsh-color: 0%; }
+
+
+
+.tshL,
+.tshHovL:is(:hover, :active),
+.cHovOut:is(:hover, :active)  .tshHovInL,
+.cHovOut1:is(:hover, :active) .tshHovIn1L,
+.cHovOut2:is(:hover, :active) .tshHovIn2L,
+.tshActL:active:active,
+.cActOut:active:active .tshActInL,
+.tshSelL.sel.sel.sel,
+.cSelOut.sel.sel.sel  .tshSelInL,
+.cSelOut1.sel.sel.sel .tshSelIn1L,
+.cSelOut2.sel.sel.sel .tshSelIn2L,
+.tshChkL:checked:checked,
+.cLblSib:checked:checked + .tshLblLingL,
+.cLbtSib:checked:checked ~ .tshLbtLingL,
+.tshFocL:focus:focus,
+.tshFowL:focus-within:focus-within,
+
+.elzTheme-light :is(
+    .tshLL,
+    .tshHovLL:is(:hover, :active),
+    .cHovOut:is(:hover, :active)  .tshHovInLL,
+    .cHovOut1:is(:hover, :active) .tshHovIn1LL,
+    .cHovOut2:is(:hover, :active) .tshHovIn2LL,
+    .tshActLL:active:active,
+    .cActOut:active:active .tshActInLL,
+    .tshSelLL.sel.sel.sel,
+    .cSelOut.sel.sel.sel  .tshSelInLL,
+    .cSelOut1.sel.sel.sel .tshSelIn1LL,
+    .cSelOut2.sel.sel.sel .tshSelIn2LL,
+    .tshChkLL:checked:checked,
+    .cLblSib:checked:checked + .tshLblLingLL,
+    .cLbtSib:checked:checked ~ .tshLbtLingLL,
+    .tshFocLL:focus:focus,
+    .tshFowLL:focus-within:focus-within
+),
+
+.elzTheme-dark :is(
+    .tshLD,
+    .tshHovLD:is(:hover, :active),
+    .cHovOut:is(:hover, :active)  .tshHovInLD,
+    .cHovOut1:is(:hover, :active) .tshHovIn1LD,
+    .cHovOut2:is(:hover, :active) .tshHovIn2LD,
+    .tshActLD:active:active,
+    .cActOut:active:active .tshActInLD,
+    .tshSelLD.sel.sel.sel,
+    .cSelOut.sel.sel.sel  .tshSelInLD,
+    .cSelOut1.sel.sel.sel .tshSelIn1LD,
+    .cSelOut2.sel.sel.sel .tshSelIn2LD,
+    .tshChkLD:checked:checked,
+    .cLblSib:checked:checked + .tshLblLingLD,
+    .cLbtSib:checked:checked ~ .tshLbtLingLD,
+    .tshFocLD:focus:focus,
+    .tshFowLD:focus-within:focus-within
+) { --tsh-color: 100%; }
+
+
+
+
+
+
+
+
+
+
+.dshD,
+.dshHovD:is(:hover, :active),
+.cHovOut:is(:hover, :active)  .dshHovInD,
+.cHovOut1:is(:hover, :active) .dshHovIn1D,
+.cHovOut2:is(:hover, :active) .dshHovIn2D,
+.dshActD:active:active,
+.cActOut:active:active .dshActInD,
+.dshSelD.sel.sel.sel,
+.cSelOut.sel.sel.sel  .dshSelInD,
+.cSelOut1.sel.sel.sel .dshSelIn1D,
+.cSelOut2.sel.sel.sel .dshSelIn2D,
+.dshChkD:checked:checked,
+.cLblSib:checked:checked + .dshLblLingD,
+.cLbtSib:checked:checked ~ .dshLbtLingD,
+.dshFocD:focus:focus,
+.dshFowD:focus-within:focus-within,
+
+.elzTheme-light :is(
+    .dshDL,
+    .dshHovDL:is(:hover, :active),
+    .cHovOut:is(:hover, :active)  .dshHovInDL,
+    .cHovOut1:is(:hover, :active) .dshHovIn1DL,
+    .cHovOut2:is(:hover, :active) .dshHovIn2DL,
+    .dshActDL:active:active,
+    .cActOut:active:active .dshActInDL,
+    .dshSelDL.sel.sel.sel,
+    .cSelOut.sel.sel.sel  .dshSelInDL,
+    .cSelOut1.sel.sel.sel .dshSelIn1DL,
+    .cSelOut2.sel.sel.sel .dshSelIn2DL,
+    .dshChkDL:checked:checked,
+    .cLblSib:checked:checked + .dshLblLingDL,
+    .cLbtSib:checked:checked ~ .dshLbtLingDL,
+    .dshFocDL:focus:focus,
+    .dshFowDL:focus-within:focus-within
+),
+
+.elzTheme-dark :is(
+    .dshDD,
+    .dshHovDD:is(:hover, :active),
+    .cHovOut:is(:hover, :active)  .dshHovInDD,
+    .cHovOut1:is(:hover, :active) .dshHovIn1DD,
+    .cHovOut2:is(:hover, :active) .dshHovIn2DD,
+    .dshActDD:active:active,
+    .cActOut:active:active .dshActInDD,
+    .dshSelDD.sel.sel.sel,
+    .cSelOut.sel.sel.sel  .dshSelInDD,
+    .cSelOut1.sel.sel.sel .dshSelIn1DD,
+    .cSelOut2.sel.sel.sel .dshSelIn2DD,
+    .dshChkDD:checked:checked,
+    .cLblSib:checked:checked + .dshLblLingDD,
+    .cLbtSib:checked:checked ~ .dshLbtLingDD,
+    .dshFocDD:focus:focus,
+    .dshFowDD:focus-within:focus-within
+) { --dsh-color: 0%; }
+
+
+
+.dshL,
+.dshHovL:is(:hover, :active),
+.cHovOut:is(:hover, :active)  .dshHovInL,
+.cHovOut1:is(:hover, :active) .dshHovIn1L,
+.cHovOut2:is(:hover, :active) .dshHovIn2L,
+.dshActL:active:active,
+.cActOut:active:active .dshActInL,
+.dshSelL.sel.sel.sel,
+.cSelOut.sel.sel.sel  .dshSelInL,
+.cSelOut1.sel.sel.sel .dshSelIn1L,
+.cSelOut2.sel.sel.sel .dshSelIn2L,
+.dshChkL:checked:checked,
+.cLblSib:checked:checked + .dshLblLingL,
+.cLbtSib:checked:checked ~ .dshLbtLingL,
+.dshFocL:focus:focus,
+.dshFowL:focus-within:focus-within,
+
+.elzTheme-light :is(
+    .dshLL,
+    .dshHovLL:is(:hover, :active),
+    .cHovOut:is(:hover, :active)  .dshHovInLL,
+    .cHovOut1:is(:hover, :active) .dshHovIn1LL,
+    .cHovOut2:is(:hover, :active) .dshHovIn2LL,
+    .dshActLL:active:active,
+    .cActOut:active:active .dshActInLL,
+    .dshSelLL.sel.sel.sel,
+    .cSelOut.sel.sel.sel  .dshSelInLL,
+    .cSelOut1.sel.sel.sel .dshSelIn1LL,
+    .cSelOut2.sel.sel.sel .dshSelIn2LL,
+    .dshChkLL:checked:checked,
+    .cLblSib:checked:checked + .dshLblLingLL,
+    .cLbtSib:checked:checked ~ .dshLbtLingLL,
+    .dshFocLL:focus:focus,
+    .dshFowLL:focus-within:focus-within
+),
+
+.elzTheme-dark :is(
+    .dshLD,
+    .dshHovLD:is(:hover, :active),
+    .cHovOut:is(:hover, :active)  .dshHovInLD,
+    .cHovOut1:is(:hover, :active) .dshHovIn1LD,
+    .cHovOut2:is(:hover, :active) .dshHovIn2LD,
+    .dshActLD:active:active,
+    .cActOut:active:active .dshActInLD,
+    .dshSelLD.sel.sel.sel,
+    .cSelOut.sel.sel.sel  .dshSelInLD,
+    .cSelOut1.sel.sel.sel .dshSelIn1LD,
+    .cSelOut2.sel.sel.sel .dshSelIn2LD,
+    .dshChkLD:checked:checked,
+    .cLblSib:checked:checked + .dshLblLingLD,
+    .cLbtSib:checked:checked ~ .dshLbtLingLD,
+    .dshFocLD:focus:focus,
+    .dshFowLD:focus-within:focus-within
+) { --dsh-color: 100%; }
+
+
+
+
+
+
+
+
+
+
+.bshBef-inset:before,
+.bshAft-inset:after,
+.bshHovBef-inset:is(:hover, :active):before,
+.bshHovAft-inset:is(:hover, :active):after,
+.bsh-inset,
+.bshHov-inset:is(:hover, :active),
+.cHovOut:is(:hover, :active)  .bshHovIn-inset,
+.cHovOut1:is(:hover, :active) .bshHovIn1-inset,
+.cHovOut2:is(:hover, :active) .bshHovIn2-inset,
+.bshAct-inset:active:active,
+.cActOut:active:active .bshActIn-inset,
+.bshSel-inset.sel.sel.sel,
+.cSelOut.sel.sel.sel .bshSelIn-inset,
+.bshChk-inset:checked:checked,
+.cLblSib:checked:checked + .bshLblLing-inset,
+.cLbtSib:checked:checked ~ .bshLbtLing-inset,
+.bshFoc-inset:focus:focus,
+.bshFow-inset:focus-within:focus-within  {
+    box-shadow:
+            0 0 0 hsla(0, 0%, var(--bsh-color, 0%), 0),
+            0 0 0 hsla(0, 0%, var(--bsh-color, 0%), 0),
+            0 0 0 hsla(0, 0%, var(--bsh-color, 0%), 0),
+            inset 0 1px 4px -1px hsla(0, 0%, var(--bsh-color, 0%), 0.1),
+            0 0 0 hsla(0, 0%, var(--bsh-color, 0%), 0),
+            0 0 0 hsla(0, 0%, var(--bsh-color, 0%), 0);
+}
+
+.bshBef-inset1:before,
+.bshAft-inset1:after,
+.bshHovBef-inset1:is(:hover, :active):before,
+.bshHovAft-inset1:is(:hover, :active):after,
+.bsh-inset1,
+.bshHov-inset1:is(:hover, :active),
+.cHovOut:is(:hover, :active)  .bshHovIn-inset1,
+.cHovOut1:is(:hover, :active) .bshHovIn1-inset1,
+.cHovOut2:is(:hover, :active) .bshHovIn2-inset1,
+.bshAct-inset1:active:active,
+.cActOut:active:active .bshActIn-inset1,
+.bshSel-inset1.sel.sel.sel,
+.cSelOut.sel.sel.sel .bshSelIn-inset1,
+.bshChk-inset1:checked:checked,
+.cLblSib:checked:checked + .bshLblLing-inset1,
+.cLbtSib:checked:checked ~ .bshLbtLing-inset1,
+.bshFoc-inset1:focus:focus,
+.bshFow-inset1:focus-within:focus-within {
+        box-shadow:
+                0 0 0 hsla(0, 0%, var(--bsh-color, 0%), 0),
+                0 0 0 hsla(0, 0%, var(--bsh-color, 0%), 0),
+                0 0 0 hsla(0, 0%, var(--bsh-color, 0%), 0),
+                inset 0 2px 4px hsla(0, 0%, var(--bsh-color, 0%), 0.1),
+                0 0 0 hsla(0, 0%, var(--bsh-color, 0%), 0),
+                0 0 0 hsla(0, 0%, var(--bsh-color, 0%), 0);
+}
+
+
+
+.bshBef-default:before,
+.bshAft-default:after,
+.bshHovBef-default:is(:hover, :active):before,
+.bshHovAft-default:is(:hover, :active):after,
+.bsh-default,
+.bshHov-default:is(:hover, :active),
+.cHovOut:is(:hover, :active)  .bshHovIn-default,
+.cHovOut1:is(:hover, :active) .bshHovIn1-default,
+.cHovOut2:is(:hover, :active) .bshHovIn2-default,
+.bshAct-default:active:active,
+.cActOut:active:active .bshActIn-default,
+.bshSel-default.sel.sel.sel,
+.cSelOut.sel.sel.sel .bshSelIn-default,
+.bshChk-default:checked:checked,
+.cLblSib:checked:checked + .bshLblLing-default,
+.cLbtSib:checked:checked ~ .bshLbtLing-default,
+.bshFoc-default:focus:focus,
+.bshFow-default:focus-within:focus-within {
+    box-shadow:
+            0 0 0 hsla(0, 0%, var(--bsh-color, 0%), 0),
+            0 0 0 hsla(0, 0%, var(--bsh-color, 0%), 0),
+            0 0 0 hsla(0, 0%, var(--bsh-color, 0%), 0),
+            0 0 0 hsla(0, 0%, var(--bsh-color, 0%), 0),
+            0 0 0 hsla(0, 0%, var(--bsh-color, 0%), 0),
+            0 1px 2px hsla(0, 0%, var(--bsh-color, 0%), 0.05);
+}
+
+.bshBef-default1:before,
+.bshAft-default1:after,
+.bshHovBef-default1:is(:hover, :active):before,
+.bshHovAft-default1:is(:hover, :active):after,
+.bsh-default1,
+.bshHov-default1:is(:hover, :active),
+.cHovOut:is(:hover, :active)  .bshHovIn-default1,
+.cHovOut1:is(:hover, :active) .bshHovIn1-default1,
+.cHovOut2:is(:hover, :active) .bshHovIn2-default1,
+.bshAct-default1:active:active,
+.cActOut:active:active .bshActIn-default1,
+.bshSel-default1.sel.sel.sel,
+.cSelOut.sel.sel.sel .bshSelIn-default1,
+.bshChk-default1:checked:checked,
+.cLblSib:checked:checked + .bshLblLing-default1,
+.cLbtSib:checked:checked ~ .bshLbtLing-default1,
+.bshFoc-default1:focus:focus,
+.bshFow-default1:focus-within:focus-within {
+    box-shadow:
+            0 0 0 hsla(0, 0%, var(--bsh-color, 0%), 0),
+            0 0 0 hsla(0, 0%, var(--bsh-color, 0%), 0),
+            0 0 0 hsla(0, 0%, var(--bsh-color, 0%), 0),
+            0 0 0 hsla(0, 0%, var(--bsh-color, 0%), 0),
+            0 1px 3px hsla(0, 0%, var(--bsh-color, 0%), 0.1),
+            0 1px 2px hsla(0, 0%, var(--bsh-color, 0%), 0.06);
+}
+
+.bshBef-default2:before,
+.bshAft-default2:after,
+.bshHovBef-default2:is(:hover, :active):before,
+.bshHovAft-default2:is(:hover, :active):after,
+.bsh-default2,
+.bshHov-default2:is(:hover, :active),
+.cHovOut:is(:hover, :active)  .bshHovIn-default2,
+.cHovOut1:is(:hover, :active) .bshHovIn1-default2,
+.cHovOut2:is(:hover, :active) .bshHovIn2-default2,
+.bshAct-default2:active:active,
+.cActOut:active:active .bshActIn-default2,
+.bshSel-default2.sel.sel.sel,
+.cSelOut.sel.sel.sel .bshSelIn-default2,
+.bshChk-default2:checked:checked,
+.cLblSib:checked:checked + .bshLblLing-default2,
+.cLbtSib:checked:checked ~ .bshLbtLing-default2,
+.bshFoc-default2:focus:focus,
+.bshFow-default2:focus-within:focus-within {
+    box-shadow:
+            0 0 0 hsla(0, 0%, var(--bsh-color, 0%), 0),
+            0 0 0 hsla(0, 0%, var(--bsh-color, 0%), 0),
+            0 0 0 hsla(0, 0%, var(--bsh-color, 0%), 0),
+            0 0 0 hsla(0, 0%, var(--bsh-color, 0%), 0),
+            0 4px 6px -1px  hsla(0, 0%, var(--bsh-color, 0%), 0.1),
+            0 2px 4px -1px hsla(0, 0%, var(--bsh-color, 0%), 0.06);
+}
+
+.bshBef-default3:before,
+.bshAft-default3:after,
+.bshHovBef-default3:is(:hover, :active):before,
+.bshHovAft-default3:is(:hover, :active):after,
+.bsh-default3,
+.bshHov-default3:is(:hover, :active),
+.cHovOut:is(:hover, :active)  .bshHovIn-default3,
+.cHovOut1:is(:hover, :active) .bshHovIn1-default3,
+.cHovOut2:is(:hover, :active) .bshHovIn2-default3,
+.bshAct-default3:active:active,
+.cActOut:active:active .bshActIn-default3,
+.bshSel-default3.sel.sel.sel,
+.cSelOut.sel.sel.sel .bshSelIn-default3,
+.bshChk-default3:checked:checked,
+.cLblSib:checked:checked + .bshLblLing-default3,
+.cLbtSib:checked:checked ~ .bshLbtLing-default3,
+.bshFoc-default3:focus:focus,
+.bshFow-default3:focus-within:focus-within {
+    box-shadow:
+            0 0 0 hsla(0, 0%, var(--bsh-color, 0%), 0),
+            0 0 0 hsla(0, 0%, var(--bsh-color, 0%), 0),
+            0 0 0 hsla(0, 0%, var(--bsh-color, 0%), 0),
+            0 0 0 hsla(0, 0%, var(--bsh-color, 0%), 0),
+            0 10px 15px -3px  hsla(0, 0%, var(--bsh-color, 0%), 0.1),
+            0 4px 6px -2px hsla(0, 0%, var(--bsh-color, 0%), 0.05);
+}
+
+.bshBef-default4:before,
+.bshAft-default4:after,
+.bshHovBef-default4:is(:hover, :active):before,
+.bshHovAft-default4:is(:hover, :active):after,
+.bsh-default4,
+.bshHov-default4:is(:hover, :active),
+.cHovOut:is(:hover, :active)  .bshHovIn-default4,
+.cHovOut1:is(:hover, :active) .bshHovIn1-default4,
+.cHovOut2:is(:hover, :active) .bshHovIn2-default4,
+.bshAct-default4:active:active,
+.cActOut:active:active .bshActIn-default4,
+.bshSel-default4.sel.sel.sel,
+.cSelOut.sel.sel.sel .bshSelIn-default4,
+.bshChk-default4:checked:checked,
+.cLblSib:checked:checked + .bshLblLing-default4,
+.cLbtSib:checked:checked ~ .bshLbtLing-default4,
+.bshFoc-default4:focus:focus,
+.bshFow-default4:focus-within:focus-within {
+    box-shadow:
+            0 0 0 hsla(0, 0%, var(--bsh-color, 0%), 0),
+            0 0 0 hsla(0, 0%, var(--bsh-color, 0%), 0),
+            0 0 0 hsla(0, 0%, var(--bsh-color, 0%), 0),
+            0 0 0 hsla(0, 0%, var(--bsh-color, 0%), 0),
+            0 20px 25px -5px hsla(0, 0%, var(--bsh-color, 0%), 0.1),
+            0 10px 10px -5px hsla(0, 0%, var(--bsh-color, 0%), 0.04);
+}
+
+.bshBef-default5:before,
+.bshAft-default5:after,
+.bshHovBef-default5:is(:hover, :active):before,
+.bshHovAft-default5:is(:hover, :active):after,
+.bsh-default5,
+.bshHov-default5:is(:hover, :active),
+.cHovOut:is(:hover, :active)  .bshHovIn-default5,
+.cHovOut1:is(:hover, :active) .bshHovIn1-default5,
+.cHovOut2:is(:hover, :active) .bshHovIn2-default5,
+.bshAct-default5:active:active,
+.cActOut:active:active .bshActIn-default5,
+.bshSel-default5.sel.sel.sel,
+.cSelOut.sel.sel.sel .bshSelIn-default5,
+.bshChk-default5:checked:checked,
+.cLblSib:checked:checked + .bshLblLing-default5,
+.cLbtSib:checked:checked ~ .bshLbtLing-default5,
+.bshFoc-default5:focus:focus,
+.bshFow-default5:focus-within:focus-within {
+    box-shadow:
+            0 0 0 hsla(0, 0%, var(--bsh-color, 0%), 0),
+            0 0 0 hsla(0, 0%, var(--bsh-color, 0%), 0),
+            0 0 0 hsla(0, 0%, var(--bsh-color, 0%), 0),
+            0 0 0 hsla(0, 0%, var(--bsh-color, 0%), 0),
+            0 0 0 hsla(0, 0%, var(--bsh-color, 0%), 0),
+            0 25px 50px -12px hsla(0, 0%, var(--bsh-color, 0%), 0.25);
+}
+
+.bshBef-default6:before,
+.bshAft-default6:after,
+.bshHovBef-default6:is(:hover, :active):before,
+.bshHovAft-default6:is(:hover, :active):after,
+.bsh-default6,
+.bshHov-default6:is(:hover, :active),
+.cHovOut:is(:hover, :active)  .bshHovIn-default6,
+.cHovOut1:is(:hover, :active) .bshHovIn1-default6,
+.cHovOut2:is(:hover, :active) .bshHovIn2-default6,
+.bshAct-default6:active:active,
+.cActOut:active:active .bshActIn-default6,
+.bshSel-default6.sel.sel.sel,
+.cSelOut.sel.sel.sel .bshSelIn-default6,
+.bshChk-default6:checked:checked,
+.cLblSib:checked:checked + .bshLblLing-default6,
+.cLbtSib:checked:checked ~ .bshLbtLing-default6,
+.bshFoc-default6:focus:focus,
+.bshFow-default6:focus-within:focus-within {
+    box-shadow:
+            0 0 0 hsla(0, 0%, var(--bsh-color, 0%), 0),
+            0 0 0 hsla(0, 0%, var(--bsh-color, 0%), 0),
+            0 0 0 hsla(0, 0%, var(--bsh-color, 0%), 0),
+            0 0 0 hsla(0, 0%, var(--bsh-color, 0%), 0),
+            0 0 0 hsla(0, 0%, var(--bsh-color, 0%), 0),
+            0 35px 60px -15px hsla(0, 0%, var(--bsh-color, 0%), 0.3);
+}
+
+
+
+.bshBef-default7:before,
+.bshAft-default7:after,
+.bshHovBef-default7:is(:hover, :active):before,
+.bshHovAft-default7:is(:hover, :active):after,
+.bsh-default7,
+.bshHov-default7:is(:hover, :active),
+.cHovOut:is(:hover, :active)  .bshHovIn-default7,
+.cHovOut1:is(:hover, :active) .bshHovIn1-default7,
+.cHovOut2:is(:hover, :active) .bshHovIn2-default7,
+.bshAct-default7:active:active,
+.cActOut:active:active .bshActIn-default7,
+.bshSel-default7.sel.sel.sel,
+.cSelOut.sel.sel.sel .bshSelIn-default7,
+.bshChk-default7:checked:checked,
+.cLblSib:checked:checked + .bshLblLing-default7,
+.cLbtSib:checked:checked ~ .bshLbtLing-default7,
+.bshFoc-default7:focus:focus,
+.bshFow-default7:focus-within:focus-within {
+        box-shadow: 0 0 10px hsla(0, 0%, var(--bsh-color, 0%), 0.5); }
+
+
+
+.bshBef-btn:before,
+.bshAft-btn:after,
+.bshHovBef-btn:is(:hover, :active):before,
+.bshHovAft-btn:is(:hover, :active):after,
+.bsh-btn,
+.bshHov-btn:is(:hover, :active),
+.cHovOut:is(:hover, :active)  .bshHovIn-btn,
+.cHovOut1:is(:hover, :active) .bshHovIn1-btn,
+.cHovOut2:is(:hover, :active) .bshHovIn2-btn,
+.bshAct-btn:active:active,
+.cActOut:active:active .bshActIn-btn,
+.bshSel-btn.sel.sel.sel,
+.cSelOut.sel.sel.sel .bshSelIn-btn,
+.bshChk-btn:checked:checked,
+.cLblSib:checked:checked + .bshLblLing-btn,
+.cLbtSib:checked:checked ~ .bshLbtLing-btn,
+.bshFoc-btn:focus:focus,
+.bshFow-btn:focus-within:focus-within {
+    box-shadow:
+            inset 0 1px 0 hsla(0, 0%, 100%, 0.2),
+            inset 0 40px 32px -32px hsla(0, 0%, 100%, 0.1),
+            inset 0 -32px 32px -32px hsla(0, 0%, 0%, 0.03),
+            0 0 0 hsla(0, 0%, var(--bsh-color, 0%), 0),
+            0 0 0 hsla(0, 0%, var(--bsh-color, 0%), 0),
+            0 0 0 hsla(0, 0%, var(--bsh-color, 0%), 0);
+}
+
+.bshBef-btnhov:before,
+.bshAft-btnhov:after,
+.bshHovBef-btnhov:is(:hover, :active):before,
+.bshHovAft-btnhov:is(:hover, :active):after,
+.bsh-btnhov,
+.bshHov-btnhov:is(:hover, :active),
+.cHovOut:is(:hover, :active)  .bshHovIn-btnhov,
+.cHovOut1:is(:hover, :active) .bshHovIn1-btnhov,
+.cHovOut2:is(:hover, :active) .bshHovIn2-btnhov,
+.bshAct-btnhov:active:active,
+.cActOut:active:active .bshActIn-btnhov,
+.bshSel-btnhov.sel.sel.sel,
+.cSelOut.sel.sel.sel .bshSelIn-btnhov,
+.bshChk-btnhov:checked:checked,
+.cLblSib:checked:checked + .bshLblLing-btnhov,
+.cLbtSib:checked:checked ~ .bshLbtLing-btnhov,
+.bshFoc-btnhov:focus:focus,
+.bshFow-btnhov:focus-within:focus-within  {
+    box-shadow:
+            inset 0 1px 0 hsla(0, 0%, 100%, 0.4),
+            inset 0 40px 32px -32px hsla(0, 0%, 100%, 0.15),
+            inset 0 -32px 32px -32px hsla(0, 0%, 0%, 0.06),
+            0 0 0 hsla(0, 0%, var(--bsh-color, 0%), 0),
+            0 0 0 hsla(0, 0%, var(--bsh-color, 0%), 0),
+            0 1px 2px hsla(0, 0%, var(--bsh-color, 0%), 0.05);
+}
+
+
+
+.bshBef-text:before,  .bshAft-text:after,  .bshHovBef-text:is(:hover, :active):before,  .bshHovAft-text:is(:hover, :active):after, .bsh-text,  .bshHov-text:is(:hover, :active),  .cHovOut:is(:hover, :active) .bshHovIn-text,  .cHovOut1:is(:hover, :active) .bshHovIn1-text,  .cHovOut2:is(:hover, :active) .bshHovIn2-text,  .bshAct-text:active:active,  .cActOut:active:active .bshActIn-text,  .bshSel-text.sel.sel.sel,  .cSelOut.sel.sel.sel .bshSelIn-text,  .bshChk-text:checked:checked,  .cLblSib:checked:checked + .bshLblLing-text,  .cLbtSib:checked:checked ~ .bshLbtLing-text,  .bshFoc-text:focus:focus,  .bshFow-text:focus-within:focus-within   { box-shadow: 0 1px 0     hsla(0, 0%, var(--bsh-color, 0%), 0.3); }
+.bshBef-text1:before, .bshAft-text1:after, .bshHovBef-text1:is(:hover, :active):before, .bshHovAft-text1:is(:hover, :active):after,.bsh-text1, .bshHov-text1:is(:hover, :active), .cHovOut:is(:hover, :active) .bshHovIn-text1, .cHovOut1:is(:hover, :active) .bshHovIn1-text1, .cHovOut2:is(:hover, :active) .bshHovIn2-text1, .bshAct-text1:active:active, .cActOut:active:active .bshActIn-text1, .bshSel-text1.sel.sel.sel, .cSelOut.sel.sel.sel .bshSelIn-text1, .bshChk-text1:checked:checked, .cLblSib:checked:checked + .bshLblLing-text1, .cLbtSib:checked:checked ~ .bshLbtLing-text1, .bshFoc-text1:focus:focus, .bshFow-text1:focus-within:focus-within  { box-shadow: 0 1px 1px   hsla(0, 0%, var(--bsh-color, 0%), 0.3); }
+.bshBef-text2:before, .bshAft-text2:after, .bshHovBef-text2:is(:hover, :active):before, .bshHovAft-text2:is(:hover, :active):after,.bsh-text2, .bshHov-text2:is(:hover, :active), .cHovOut:is(:hover, :active) .bshHovIn-text2, .cHovOut1:is(:hover, :active) .bshHovIn1-text2, .cHovOut2:is(:hover, :active) .bshHovIn2-text2, .bshAct-text2:active:active, .cActOut:active:active .bshActIn-text2, .bshSel-text2.sel.sel.sel, .cSelOut.sel.sel.sel .bshSelIn-text2, .bshChk-text2:checked:checked, .cLblSib:checked:checked + .bshLblLing-text2, .cLbtSib:checked:checked ~ .bshLbtLing-text2, .bshFoc-text2:focus:focus, .bshFow-text2:focus-within:focus-within  { box-shadow: 1px 1px 0   hsla(0, 0%, var(--bsh-color, 0%), 0.3); }
+.bshBef-text3:before, .bshAft-text3:after, .bshHovBef-text3:is(:hover, :active):before, .bshHovAft-text3:is(:hover, :active):after,.bsh-text3, .bshHov-text3:is(:hover, :active), .cHovOut:is(:hover, :active) .bshHovIn-text3, .cHovOut1:is(:hover, :active) .bshHovIn1-text3, .cHovOut2:is(:hover, :active) .bshHovIn2-text3, .bshAct-text3:active:active, .cActOut:active:active .bshActIn-text3, .bshSel-text3.sel.sel.sel, .cSelOut.sel.sel.sel .bshSelIn-text3, .bshChk-text3:checked:checked, .cLblSib:checked:checked + .bshLblLing-text3, .cLbtSib:checked:checked ~ .bshLbtLing-text3, .bshFoc-text3:focus:focus, .bshFow-text3:focus-within:focus-within  { box-shadow: 1px 1px 1px hsla(0, 0%, var(--bsh-color, 0%), 0.3); }
+
+.bshBef-itext:before,  .bshAft-itext:after,  .bshHovBef-itext:is(:hover, :active):before,  .bshHovAft-itext:is(:hover, :active):after,  .bsh-itext,  .bshHov-itext:is(:hover, :active),  .cHovOut:is(:hover, :active) .bshHovIn-itext   .cHovOut1:is(:hover, :active) .bshHovIn1-itext,  .cHovOut2:is(:hover, :active) .bshHovIn2-itext,  .bshHov-itext:active,  .bshAct-itext:active:active,  .cActOut:active:active .bshActIn-itext,  .bshSel-itext.sel.sel.sel,  .cSelOut.sel.sel.sel .bshSelIn-itext,  .bshChk-itext:checked:checked,  .cLblSib:checked:checked + .bshLblLing-itext,  .cLbtSib:checked:checked ~ .bshLbtLing-itext,  .bshFoc-itext:focus:focus,  .bshFow-itext:focus-within:focus-within   { box-shadow: 0 1px 0     hsla(0, 0%, var(--bsh-color, 0%), 0.8); }
+.bshBef-itext1:before, .bshAft-itext1:after, .bshHovBef-itext1:is(:hover, :active):before, .bshHovAft-itext1:is(:hover, :active):after, .bsh-itext1, .bshHov-itext1:is(:hover, :active), .cHovOut:is(:hover, :active) .bshHovIn-itext1, .cHovOut1:is(:hover, :active) .bshHovIn1-itext1, .cHovOut2:is(:hover, :active) .bshHovIn2-itext1, .bshHov-itext1:active, .bshAct-itext1:active:active, .cActOut:active:active .bshActIn-itext1, .bshSel-itext1.sel.sel.sel, .cSelOut.sel.sel.sel .bshSelIn-itext1, .bshChk-itext1:checked:checked, .cLblSib:checked:checked + .bshLblLing-itext1, .cLbtSib:checked:checked ~ .bshLbtLing-itext1, .bshFoc-itext1:focus:focus, .bshFow-itext1:focus-within:focus-within  { box-shadow: 0 1px 1px   hsla(0, 0%, var(--bsh-color, 0%), 0.8); }
+.bshBef-itext2:before, .bshAft-itext2:after, .bshHovBef-itext2:is(:hover, :active):before, .bshHovAft-itext2:is(:hover, :active):after, .bsh-itext2, .bshHov-itext2:is(:hover, :active), .cHovOut:is(:hover, :active) .bshHovIn-itext2, .cHovOut1:is(:hover, :active) .bshHovIn1-itext2, .cHovOut2:is(:hover, :active) .bshHovIn2-itext2, .bshHov-itext2:active, .bshAct-itext2:active:active, .cActOut:active:active .bshActIn-itext2, .bshSel-itext2.sel.sel.sel, .cSelOut.sel.sel.sel .bshSelIn-itext2, .bshChk-itext2:checked:checked, .cLblSib:checked:checked + .bshLblLing-itext2, .cLbtSib:checked:checked ~ .bshLbtLing-itext2, .bshFoc-itext2:focus:focus, .bshFow-itext2:focus-within:focus-within  { box-shadow: 1px 1px 0   hsla(0, 0%, var(--bsh-color, 0%), 0.8); }
+.bshBef-itext3:before, .bshAft-itext3:after, .bshHovBef-itext3:is(:hover, :active):before, .bshHovAft-itext3:is(:hover, :active):after, .bsh-itext3, .bshHov-itext3:is(:hover, :active), .cHovOut:is(:hover, :active) .bshHovIn-itext3, .cHovOut1:is(:hover, :active) .bshHovIn1-itext3, .cHovOut2:is(:hover, :active) .bshHovIn2-itext3, .bshHov-itext3:active, .bshAct-itext3:active:active, .cActOut:active:active .bshActIn-itext3, .bshSel-itext3.sel.sel.sel, .cSelOut.sel.sel.sel .bshSelIn-itext3, .bshChk-itext3:checked:checked, .cLblSib:checked:checked + .bshLblLing-itext3, .cLbtSib:checked:checked ~ .bshLbtLing-itext3, .bshFoc-itext3:focus:focus, .bshFow-itext3:focus-within:focus-within  { box-shadow: 1px 1px 1px hsla(0, 0%, var(--bsh-color, 0%), 0.8); }
+
+
+
+
+
+
+
+
+
+
+/* Text shadow */
+
+/*
+.tsh-inset1,
+.tsh-inset2
+*/
+
+.tsh-default,  .tshHov-default:is(:hover, :active),  .cHovOut:is(:hover, :active) .tshHovIn-default,  .cHovOut1:is(:hover, :active) .tshHovIn1-default,  .cHovOut2:is(:hover, :active) .tshHovIn2-default,  .tshAct-default:active:active,  .cActOut:active:active .tshActIn-default,  .tshSel-default.sel.sel.sel,  .cSelOut.sel.sel.sel .tshSelIn-default,  .tshChk-default:checked:checked,  .cLblSib:checked:checked + .tshLblLing-default,  .cLbtSib:checked:checked ~ .tshLbtLing-default,  .tshFoc-default:focus:focus,  .tshFow-default:focus-within:focus-within  { text-shadow: 0 1px 2px hsla(0, 0%, var(--tsh-color, 0%), 0.05); }
+.tsh-default1, .tshHov-default1:is(:hover, :active), .cHovOut:is(:hover, :active) .tshHovIn-default1, .cHovOut1:is(:hover, :active) .tshHovIn1-default1, .cHovOut2:is(:hover, :active) .tshHovIn2-default1, .tshAct-default1:active:active, .cActOut:active:active .tshActIn-default1, .tshSel-default1.sel.sel.sel, .cSelOut.sel.sel.sel .tshSelIn-default1, .tshChk-default1:checked:checked, .cLblSib:checked:checked + .tshLblLing-default1, .cLbtSib:checked:checked ~ .tshLbtLing-default1, .tshFoc-default1:focus:focus, .tshFow-default1:focus-within:focus-within { text-shadow: 0 1px 3px hsla(0, 0%, var(--tsh-color, 0%), 0.1), 0 1px 2px hsla(0, 0%, var(--tsh-color, 0%), 0.06); }
+
+/*
+.tsh-default2-6
+*/
+
+.tsh-text,  .tshHov-text:is(:hover, :active),  .cHovOut:is(:hover, :active) .tshHovIn-text,  .cHovOut1:is(:hover, :active) .tshHovIn1-text,  .cHovOut2:is(:hover, :active) .tshHovIn2-text,  .tshAct-text:active:active,  .cActOut:active:active .tshActIn-text,  .tshSel-text.sel.sel.sel,  .cSelOut.sel.sel.sel .tshSelIn-text,  .tshChk-text:checked:checked,  .cLblSib:checked:checked + .tshLblLing-text,  .cLbtSib:checked:checked ~ .tshLbtLing-text,  .tshFoc-text:focus:focus,  .tshFow-text:focus-within:focus-within   { text-shadow: 0 1px 0     hsla(0, 0%, var(--tsh-color, 0%), 0.3); }
+.tsh-text1, .tshHov-text1:is(:hover, :active), .cHovOut:is(:hover, :active) .tshHovIn-text1, .cHovOut1:is(:hover, :active) .tshHovIn1-text1, .cHovOut2:is(:hover, :active) .tshHovIn2-text1, .tshAct-text1:active:active, .cActOut:active:active .tshActIn-text1, .tshSel-text1.sel.sel.sel, .cSelOut.sel.sel.sel .tshSelIn-text1, .tshChk-text1:checked:checked, .cLblSib:checked:checked + .tshLblLing-text1, .cLbtSib:checked:checked ~ .tshLbtLing-text1, .tshFoc-text1:focus:focus, .tshFow-text1:focus-within:focus-within  { text-shadow: 0 1px 1px   hsla(0, 0%, var(--tsh-color, 0%), 0.3); }
+.tsh-text2, .tshHov-text2:is(:hover, :active), .cHovOut:is(:hover, :active) .tshHovIn-text2, .cHovOut1:is(:hover, :active) .tshHovIn1-text2, .cHovOut2:is(:hover, :active) .tshHovIn2-text2, .tshAct-text2:active:active, .cActOut:active:active .tshActIn-text2, .tshSel-text2.sel.sel.sel, .cSelOut.sel.sel.sel .tshSelIn-text2, .tshChk-text2:checked:checked, .cLblSib:checked:checked + .tshLblLing-text2, .cLbtSib:checked:checked ~ .tshLbtLing-text2, .tshFoc-text2:focus:focus, .tshFow-text2:focus-within:focus-within  { text-shadow: 1px 1px 0   hsla(0, 0%, var(--tsh-color, 0%), 0.3); }
+.tsh-text3, .tshHov-text3:is(:hover, :active), .cHovOut:is(:hover, :active) .tshHovIn-text3, .cHovOut1:is(:hover, :active) .tshHovIn1-text3, .cHovOut2:is(:hover, :active) .tshHovIn2-text3, .tshAct-text3:active:active, .cActOut:active:active .tshActIn-text3, .tshSel-text3.sel.sel.sel, .cSelOut.sel.sel.sel .tshSelIn-text3, .tshChk-text3:checked:checked, .cLblSib:checked:checked + .tshLblLing-text3, .cLbtSib:checked:checked ~ .tshLbtLing-text3, .tshFoc-text3:focus:focus, .tshFow-text3:focus-within:focus-within  { text-shadow: 1px 1px 1px hsla(0, 0%, var(--tsh-color, 0%), 0.3); }
+
+.tsh-itext,  .tshHov-itext:is(:hover, :active),  .cHovOut:is(:hover, :active) .tshHovIn-itext   .cHovOut1:is(:hover, :active) .tshHovIn1-itext,  .cHovOut2:is(:hover, :active) .tshHovIn2-itext,  .tshAct-itext:active:active,  .cActOut:active:active .tshActIn-itext,  .tshSel-itext.sel.sel.sel,  .cSelOut.sel.sel.sel .tshSelIn-itext,  .tshChk-itext:checked:checked,  .cLblSib:checked:checked + .tshLblLing-itext,  .cLbtSib:checked:checked ~ .tshLbtLing-itext,  .tshFoc-itext:focus:focus,  .tshFow-itext:focus-within:focus-within   { text-shadow: 0 1px 0     hsla(0, 0%, var(--tsh-color, 0%), 0.8); }
+.tsh-itext1, .tshHov-itext1:is(:hover, :active), .cHovOut:is(:hover, :active) .tshHovIn-itext1, .cHovOut1:is(:hover, :active) .tshHovIn1-itext1, .cHovOut2:is(:hover, :active) .tshHovIn2-itext1, .tshAct-itext1:active:active, .cActOut:active:active .tshActIn-itext1, .tshSel-itext1.sel.sel.sel, .cSelOut.sel.sel.sel .tshSelIn-itext1, .tshChk-itext1:checked:checked, .cLblSib:checked:checked + .tshLblLing-itext1, .cLbtSib:checked:checked ~ .tshLbtLing-itext1, .tshFoc-itext1:focus:focus, .tshFow-itext1:focus-within:focus-within  { text-shadow: 0 1px 1px   hsla(0, 0%, var(--tsh-color, 0%), 0.8); }
+.tsh-itext2, .tshHov-itext2:is(:hover, :active), .cHovOut:is(:hover, :active) .tshHovIn-itext2, .cHovOut1:is(:hover, :active) .tshHovIn1-itext2, .cHovOut2:is(:hover, :active) .tshHovIn2-itext2, .tshAct-itext2:active:active, .cActOut:active:active .tshActIn-itext2, .tshSel-itext2.sel.sel.sel, .cSelOut.sel.sel.sel .tshSelIn-itext2, .tshChk-itext2:checked:checked, .cLblSib:checked:checked + .tshLblLing-itext2, .cLbtSib:checked:checked ~ .tshLbtLing-itext2, .tshFoc-itext2:focus:focus, .tshFow-itext2:focus-within:focus-within  { text-shadow: 1px 1px 0   hsla(0, 0%, var(--tsh-color, 0%), 0.8); }
+.tsh-itext3, .tshHov-itext3:is(:hover, :active), .cHovOut:is(:hover, :active) .tshHovIn-itext3, .cHovOut1:is(:hover, :active) .tshHovIn1-itext3, .cHovOut2:is(:hover, :active) .tshHovIn2-itext3, .tshAct-itext3:active:active, .cActOut:active:active .tshActIn-itext3, .tshSel-itext3.sel.sel.sel, .cSelOut.sel.sel.sel .tshSelIn-itext3, .tshChk-itext3:checked:checked, .cLblSib:checked:checked + .tshLblLing-itext3, .cLbtSib:checked:checked ~ .tshLbtLing-itext3, .tshFoc-itext3:focus:focus, .tshFow-itext3:focus-within:focus-within  { text-shadow: 1px 1px 1px hsla(0, 0%, var(--tsh-color, 0%), 0.8); }
+
+
+
+
+
+
+
+
+
+
+/* Filder drop-shadow */
+
+/*
+.dsh-inset1,
+.dsh-inset2
+*/
+
+.dsh-default,  .dshHov-default:is(:hover, :active),  .cHovOut:is(:hover, :active) .dshHovIn-default,  .cHovOut1:is(:hover, :active) .dshHovIn1-default,  .cHovOut2:is(:hover, :active) .dshHovIn2-default,  .dshAct-default:active:active,  .cActOut:active:active .dshActIn-default,  .dshSel-default.sel.sel.sel,  .cSelOut.sel.sel.sel .dshSelIn-default,  .dshChk-default:checked:checked,  .cLblSib:checked:checked + .dshLblLing-default,  .cLbtSib:checked:checked ~ .dshLbtLing-default,  .dshFoc-default:focus:focus,  .dshFow-default:focus-within:focus-within  { filter: drop-shadow(0 1px 2px hsla(0, 0%, var(--dsh-color, 0%), 0.05)); }
+.dsh-default1, .dshHov-default1:is(:hover, :active), .cHovOut:is(:hover, :active) .dshHovIn-default1, .cHovOut1:is(:hover, :active) .dshHovIn1-default1, .cHovOut2:is(:hover, :active) .dshHovIn2-default1, .dshAct-default1:active:active, .cActOut:active:active .dshActIn-default1, .dshSel-default1.sel.sel.sel, .cSelOut.sel.sel.sel .dshSelIn-default1, .dshChk-default1:checked:checked, .cLblSib:checked:checked + .dshLblLing-default1, .cLbtSib:checked:checked ~ .dshLbtLing-default1, .dshFoc-default1:focus:focus, .dshFow-default1:focus-within:focus-within { filter: drop-shadow(0 1px 3px hsla(0, 0%, var(--dsh-color, 0%), 0.1)) drop-shadow(0 1px 2px hsla(0, 0%, var(--dsh-color, 0%), 0.06)); }
+/*
+.dsh-default2-6
+*/
+
+.dsh-text,  .dshHov-text:is(:hover, :active),  .cHovOut:is(:hover, :active) .dshHovIn-text,  .cHovOut1:is(:hover, :active) .dshHovIn1-text,  .cHovOut2:is(:hover, :active) .dshHovIn2-text,  .dshAct-text:active:active,  .cActOut:active:active .dshActIn-text,  .dshSel-text.sel.sel.sel,  .cSelOut.sel.sel.sel .dshSelIn-text,  .dshChk-text:checked:checked,  .cLblSib:checked:checked + .dshLblLing-text,  .cLbtSib:checked:checked ~ .dshLbtLing-text,  .dshFoc-text:focus:focus,  .dshFow-text:focus-within:focus-within   { filter: drop-shadow(0 1px 0     hsla(0, 0%, var(--dsh-color, 0%), 0.3)); }
+.dsh-text1, .dshHov-text1:is(:hover, :active), .cHovOut:is(:hover, :active) .dshHovIn-text1, .cHovOut1:is(:hover, :active) .dshHovIn1-text1, .cHovOut2:is(:hover, :active) .dshHovIn2-text1, .dshAct-text1:active:active, .cActOut:active:active .dshActIn-text1, .dshSel-text1.sel.sel.sel, .cSelOut.sel.sel.sel .dshSelIn-text1, .dshChk-text1:checked:checked, .cLblSib:checked:checked + .dshLblLing-text1, .cLbtSib:checked:checked ~ .dshLbtLing-text1, .dshFoc-text1:focus:focus, .dshFow-text1:focus-within:focus-within  { filter: drop-shadow(0 1px 1px   hsla(0, 0%, var(--dsh-color, 0%), 0.3)); }
+.dsh-text2, .dshHov-text2:is(:hover, :active), .cHovOut:is(:hover, :active) .dshHovIn-text2, .cHovOut1:is(:hover, :active) .dshHovIn1-text2, .cHovOut2:is(:hover, :active) .dshHovIn2-text2, .dshAct-text2:active:active, .cActOut:active:active .dshActIn-text2, .dshSel-text2.sel.sel.sel, .cSelOut.sel.sel.sel .dshSelIn-text2, .dshChk-text2:checked:checked, .cLblSib:checked:checked + .dshLblLing-text2, .cLbtSib:checked:checked ~ .dshLbtLing-text2, .dshFoc-text2:focus:focus, .dshFow-text2:focus-within:focus-within  { filter: drop-shadow(1px 1px 0   hsla(0, 0%, var(--dsh-color, 0%), 0.3)); }
+.dsh-text3, .dshHov-text3:is(:hover, :active), .cHovOut:is(:hover, :active) .dshHovIn-text3, .cHovOut1:is(:hover, :active) .dshHovIn1-text3, .cHovOut2:is(:hover, :active) .dshHovIn2-text3, .dshAct-text3:active:active, .cActOut:active:active .dshActIn-text3, .dshSel-text3.sel.sel.sel, .cSelOut.sel.sel.sel .dshSelIn-text3, .dshChk-text3:checked:checked, .cLblSib:checked:checked + .dshLblLing-text3, .cLbtSib:checked:checked ~ .dshLbtLing-text3, .dshFoc-text3:focus:focus, .dshFow-text3:focus-within:focus-within  { filter: drop-shadow(1px 1px 1px hsla(0, 0%, var(--dsh-color, 0%), 0.3)); }
+
+.dsh-itext,  .dshHov-itext:is(:hover, :active),  .cHovOut:is(:hover, :active) .dshHovIn-itext   .cHovOut1:is(:hover, :active) .dshHovIn1-itext,  .cHovOut2:is(:hover, :active) .dshHovIn2-itext,  .dshAct-itext:active:active,  .cActOut:active:active .dshActIn-itext,  .dshSel-itext.sel.sel.sel,  .cSelOut.sel.sel.sel .dshSelIn-itext,  .dshChk-itext:checked:checked,  .cLblSib:checked:checked + .dshLblLing-itext,  .cLbtSib:checked:checked ~ .dshLbtLing-itext,  .dshFoc-itext:focus:focus,  .dshFow-itext:focus-within:focus-within   { filter: drop-shadow(0 1px 0     hsla(0, 0%, var(--dsh-color, 0%), 0.8)); }
+.dsh-itext1, .dshHov-itext1:is(:hover, :active), .cHovOut:is(:hover, :active) .dshHovIn-itext1, .cHovOut1:is(:hover, :active) .dshHovIn1-itext1, .cHovOut2:is(:hover, :active) .dshHovIn2-itext1, .dshAct-itext1:active:active, .cActOut:active:active .dshActIn-itext1, .dshSel-itext1.sel.sel.sel, .cSelOut.sel.sel.sel .dshSelIn-itext1, .dshChk-itext1:checked:checked, .cLblSib:checked:checked + .dshLblLing-itext1, .cLbtSib:checked:checked ~ .dshLbtLing-itext1, .dshFoc-itext1:focus:focus, .dshFow-itext1:focus-within:focus-within  { filter: drop-shadow(0 1px 1px   hsla(0, 0%, var(--dsh-color, 0%), 0.8)); }
+.dsh-itext2, .dshHov-itext2:is(:hover, :active), .cHovOut:is(:hover, :active) .dshHovIn-itext2, .cHovOut1:is(:hover, :active) .dshHovIn1-itext2, .cHovOut2:is(:hover, :active) .dshHovIn2-itext2, .dshAct-itext2:active:active, .cActOut:active:active .dshActIn-itext2, .dshSel-itext2.sel.sel.sel, .cSelOut.sel.sel.sel .dshSelIn-itext2, .dshChk-itext2:checked:checked, .cLblSib:checked:checked + .dshLblLing-itext2, .cLbtSib:checked:checked ~ .dshLbtLing-itext2, .dshFoc-itext2:focus:focus, .dshFow-itext2:focus-within:focus-within  { filter: drop-shadow(1px 1px 0   hsla(0, 0%, var(--dsh-color, 0%), 0.8)); }
+.dsh-itext3, .dshHov-itext3:is(:hover, :active), .cHovOut:is(:hover, :active) .dshHovIn-itext3, .cHovOut1:is(:hover, :active) .dshHovIn1-itext3, .cHovOut2:is(:hover, :active) .dshHovIn2-itext3, .dshAct-itext3:active:active, .cActOut:active:active .dshActIn-itext3, .dshSel-itext3.sel.sel.sel, .cSelOut.sel.sel.sel .dshSelIn-itext3, .dshChk-itext3:checked:checked, .cLblSib:checked:checked + .dshLblLing-itext3, .cLbtSib:checked:checked ~ .dshLbtLing-itext3, .dshFoc-itext3:focus:focus, .dshFow-itext3:focus-within:focus-within  { filter: drop-shadow(1px 1px 1px hsla(0, 0%, var(--dsh-color, 0%), 0.8)); }

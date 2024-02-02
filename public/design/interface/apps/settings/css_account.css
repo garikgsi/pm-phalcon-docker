@@ -1,0 +1,41 @@
+/* Avatar settings */
+
+.setCLSwrap .setAvatar .elzCLSuploader { height: 300px; }
+
+.setCLSwrap .setAvatar .elzCLScropbox {
+    width:  300px;
+    height: 300px;
+}
+
+.elzCLScropWrap > .wrapOuter > .wrapItem:last-child:not(:first-child) {
+    flex-grow: 1;
+    min-width:  200px;
+    max-width:  300px;
+    min-height: 200px;
+}
+
+.setCLSwrap .setAvatar .elzCLScropRes {
+    position: absolute;
+    top:   0;
+    right: 0;
+    left:  0;
+}
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Birthday */
+
+.setCLSwrap .setSection.set-birthday .elzF.wrap.compiled.noborder > .elzF.wrap:nth-child(1) { max-width: 80px; }
+.setCLSwrap .setSection.set-birthday .elzF.wrap.compiled.noborder > .elzF.wrap:nth-child(2) { flex-grow: 1; width: 0; }
+.setCLSwrap .setSection.set-birthday .elzF.wrap.compiled.noborder > .elzF.wrap:nth-child(3) { max-width: 92px; }
+
+/* end */

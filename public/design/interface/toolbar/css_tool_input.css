@@ -1,0 +1,197 @@
+/* Tool settings */
+
+.elzCLStoolbar .group.search .tool.input,
+.elzCLStoolbar .group.search .tool.input .toolInner { position: static; }
+
+.elzCLStoolbar .group.search .tool.default { z-index: 2; }
+
+.elzCLStoolbar .group.search .tool.input {
+    -webkit-flex-basis: 100%;
+    flex-basis:         100%;
+    -webkit-flex-grow:     1;
+    flex-grow:             1;
+    -webkit-flex-shrink:   1;
+    flex-shrink:           1;
+    width: 0;
+    min-width: 48px;
+}
+
+.elzCLStoolbar .group.search .tool.input .toolInner {
+    padding: 8px;
+    margin-left:  -8px;
+    margin-right: -8px;
+}
+
+.elzCLStoolbar .group.search .tool.input.abs .toolInner {
+    margin-left:  -24px;
+    margin-right: -24px;
+}
+
+.elzCLStoolbar .group.search .tool.input:first-child .toolInner { margin-left:  0; }
+.elzCLStoolbar .group.search .tool.input:last-child  .toolInner { margin-right: 0; }
+
+.elzCLStoolbar .group.search .tool.input .inputField {
+    position: relative;
+    width:  100%;
+    height: 100%;
+    padding-left:  10px;
+    padding-right: 10px;
+    z-index: 1;
+}
+
+.elzCLStoolbar .group.search .tool.input .inputFake {
+    position: absolute;
+    display: none;
+    width:  auto;
+    height: auto;
+    top:    0;
+    right:  0;
+    bottom: 0;
+    left:   0;
+    margin: 8px;
+}
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Input */
+
+.elzCLStoolbar .group.search .tool.input .inputField,
+.elzCLStoolbar .group.search .tool.input.abs .inputFake {
+    display: block;
+    font-family: inherit;
+    color: #555555;
+    background-color: #ffffff;
+    line-height: 33px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing:    border-box;
+    box-sizing:         border-box;
+    -webkit-border-radius: 2px;
+    -moz-border-radius:    2px;
+    border-radius:         2px;
+    -webkit-transition: 0.2s;
+    -moz-transition:    0.2s;
+    -o-transition:      0.2s;
+    transition:         0.2s;
+    -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow:    0 0 8px rgba(0, 0, 0, 0.05);
+    box-shadow:         0 0 8px rgba(0, 0, 0, 0.05);
+}
+
+.elzCLStoolbar .group.search .tool.input .inputField:focus,
+.elzCLStoolbar .group.search .tool.input .inputField:focus + .inputFake {
+    -webkit-box-shadow: 0 0 8px rgba(77, 144, 254, 0.25);
+    -moz-box-shadow:    0 0 8px rgba(77, 144, 254, 0.25);
+    box-shadow:         0 0 8px rgba(77, 144, 254, 0.25);
+}
+
+.elzCLStoolbar .group.search .tool.input .inputField::-webkit-input-placeholder { color: #a0a0a0; opacity: 1; }
+.elzCLStoolbar .group.search .tool.input .inputField:-moz-placeholder           { color: #a0a0a0; opacity: 1; }
+.elzCLStoolbar .group.search .tool.input .inputField::-moz-placeholder          { color: #a0a0a0; opacity: 1; }
+.elzCLStoolbar .group.search .tool.input .inputField:-ms-input-placeholder      { color: #a0a0a0; opacity: 1; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Filled */
+
+.elzCLStoolbar .group.search .tool.input.filled .toolInner {
+    padding: 0;
+    margin:  0;
+}
+
+.elzCLStoolbar .group.search .tool.input.abs.filled .toolInner {
+    margin-left:  -16px;
+    margin-right: -16px;
+}
+
+.elzCLStoolbar .group.search .tool.input.filled .inputField,
+.elzCLStoolbar .group.search .tool.input.abs.filled .inputFake {
+    -webkit-border-radius: 0;
+    -moz-border-radius:    0;
+    border-radius:         0;
+    -webkit-box-shadow:  none;
+    -moz-box-shadow:     none;
+    box-shadow:          none;
+    margin: 0;
+    line-height: 49px;
+}
+
+.elzCLStoolbar .tool.input.filled .toolInner .inputField.bordered.top,
+.elzCLStoolbar .tool.input.filled .toolInner .inputField.bordered.top + .inputFake    { border-top:    1px solid rgba(0, 0, 0, 0.1); }
+
+.elzCLStoolbar .tool.input.filled .toolInner .inputField.bordered.bottom,
+.elzCLStoolbar .tool.input.filled .toolInner .inputField.bordered.bottom + .inputFake { border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
+
+.elzCLStoolbar .tool.input.filled .toolInner .inputField.bordered:focus,
+.elzCLStoolbar .tool.input.filled .toolInner .inputField.bordered:focus + .inputFake  { border-color: #4d90fe !important; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Absolute input field */
+
+.elzCLStoolbar .group.search .tool.input.abs .inputField {
+    -webkit-border-radius: 0 !important;
+    -moz-border-radius:    0 !important;
+    border-radius:         0 !important;
+    -webkit-transition: none !important;
+    -moz-transition:    none !important;
+    -o-transition:      none !important;
+    transition:         none !important;
+    background:  transparent !important;
+    -webkit-box-shadow: none !important;
+    -moz-box-shadow:    none !important;
+    box-shadow:         none !important;
+    border:             none !important;
+    padding:               0 !important;
+    margin-left:        10px !important;
+    margin-right:       10px !important;
+}
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Transparent input */
+
+.elzCLStoolbar .group.search .tool.input.transparent .inputFake { display: none; }
+
+.elzCLStoolbar.light .group.search .tool.input.transparent .inputField { color: #ffffff; }
+.elzCLStoolbar.dark  .group.search .tool.input.transparent .inputField { color: #000000; }
+
+/* end */

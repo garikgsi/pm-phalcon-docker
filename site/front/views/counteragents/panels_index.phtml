@@ -1,0 +1,106 @@
+<div id="pmCounteragentsSearchLinksPanel" class="elz pmAdvSec p-fixed d-flex dir-y r3 w960 h640 fn12 z5 bsh-default3 fn fn-primary-t bg bg-primary bgL5 hide">
+    <div class="elz d-flex a-R hEP pL8 borB1 br br-primary brLF10 brFD brLInvD brFow brFow-focus">
+
+        <div class="elz d-grid grTH01 grPos growX fn16">
+            <div class="elz p-rel d-flex evNone grPin grP1 grPW1 grPH1">
+                <div class="elz p-rel d-flex a-X gap8">
+                    <div class="elz p-rel d-flex a-X s40">
+                        <div class="elz p-rel d-block mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/filter.svg');"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="elz d-block h100p grPin grP1 grPW2 grPH1">
+                <div class="elz d-flex a-H s100p pL40 ellipsis">Список фильтров</div>
+            </div>
+        </div>
+
+        <div class="elz d-flex gap8 pH8 or3 noShrink">
+
+            <div class="elz p-rel d-flex">
+                <div class="pmCounteragentsSearchLinksPanelSwitch elz p-rel d-flex a-X gap8 cur-pointer opAct07 cSelOut" title="Добавить фильтр" data-name="add">
+                    <div class="elz p-rel d-flex a-X s40 rCircle fnHov fnHovL-10 fnHovLInvD bgSelIn bgSelIn-success fnSelIn fnSelIn-success-t">
+                        <div class="elz p-rel d-block mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/plus2.svg');"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="elz p-rel d-flex">
+                <div class="pmCounteragentsSearchLinksPanelSwitch elz p-rel d-flex a-X gap8 cur-pointer opAct07 cSelOut sel" title="Публичные фильтры" data-name="public">
+                    <div class="elz p-rel d-flex a-X s40 rCircle fnHov fnHovL-10 fnHovLInvD bgSelIn bgSelIn-ok fnSelIn fnSelIn-ok-t">
+                        <div class="elz p-rel d-block mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/users1.svg');"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="elz p-rel d-flex">
+                <div class="pmCounteragentsSearchLinksPanelSwitch elz p-rel d-flex a-X gap8 cur-pointer opAct07 cSelOut" title="Ваши фильтры" data-name="private">
+                    <div class="elz p-rel d-flex a-X s40 rCircle fnHov fnHovL-10 fnHovLInvD fnHovLInvD bgSelIn bgSelIn-warning fnSelIn fnSelIn-warning-t">
+                        <div class="elz p-rel d-block mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/user.svg');"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="elz p-rel d-flex">
+                <div id="pmCounteragentsSearchLinksPanelClose" class="elz p-rel d-flex a-X gap8 cur-pointer opAct07" title="Закрыть">
+                    <div class="elz p-rel d-flex a-X s40 rCircle fnHov fnHovL-10 fnHovLInvD fnHovLInvD">
+                        <div class="elz p-rel d-block mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/cross1.svg');"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="elz d-flex growY">
+
+        <div class="elz advContent uniScroll scrollSimple d-grid growX">
+            <div class="elz uniScrollIn oAuto scrollHideFine">
+                <form id="pmCounteragentsSearchLinksPanelAddForm" method="post" action="" class="elz d-flex f-wrap gap8 p8 hide">
+                    <label class="elz d-grid grPos grow fn fn-primary-t fnL20 fnLInvD fnHovL10 fnFow-focus fnFowL0">
+                        <input type="text" value="" name="title" placeholder="Введите название нового фильтра"
+                               class="elz elzInput d-block grPin grY2 w100p bor1 r3 h40 pL96 pR16 fn12 ellipsis trns2 invPssSib
+                                      bg bg-primary bgL10 bgLInvD
+                                      br brLInvD br-primary brL-10 brHovL-20 brFoc-focus brFocL0
+                                      fn fn-primary-t">
+                        <span class="elz d-flex grPin grY2 a-H pH16 z6 evNone">
+                            <span class="elz p-rel a-H d-flex trns2">Название:</span>
+                        </span>
+                    </label>
+
+                    <input type="hidden" name="public" value="1" />
+
+                    <div class="elz d-flex gap8">
+                        <div class="elz p-rel d-flex">
+                            <div class="publicSwitch elz p-rel d-flex a-X gap8 cur-pointer opAct07 cSelOut sel" title="Публичный фильтр" data-value="1">
+                                <div class="elz p-rel d-flex a-X s40 rCircle fnHov fnHovL-10 fnHovLInvD bgSelIn bgSelIn-ok fnSelIn fnSelIn-ok-t">
+                                    <div class="elz p-rel d-block mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/eye.svg');"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="elz p-rel d-flex">
+                            <div class="publicSwitch elz p-rel d-flex a-X gap8 cur-pointer opAct07 cSelOut" title="Персональный фильтр" data-value="0">
+                                <div class="elz p-rel d-flex a-X s40 rCircle fnHov fnHovL-10 fnHovLInvD fnHovLInvD bgSelIn bgSelIn-warning fnSelIn fnSelIn-warning-t">
+                                    <div class="elz p-rel d-block mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/eye-blocked.svg');"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="elz p-rel d-flex">
+                            <div id="pmCounteragentsSearchLinksPanelAddFormSend" class="elz p-rel d-flex a-X gap8 cur-pointer opAct07 cSelOut" title="Добавить фильтр">
+                                <div class="elz p-rel d-flex a-X s40 rCircle fnHov fnHovL-10 fnHovLInvD fnHovLInvD bgSelIn bgSelIn-ok fnSelIn fnSelIn-ok-t">
+                                    <div class="elz p-rel d-block mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/save.svg');"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <input type="submit" style="display: none;" />
+                </form>
+                <div id="pmCounteragentsSearchLinksPanelItems" class="elz d-flex dir-y"></div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<?php $this->view->partial('partials/eliza_search/extend_panels', ['panels_list' => $this->view->getVar('searchEnginePanelsList')]);?>

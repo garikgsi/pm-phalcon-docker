@@ -1,0 +1,123 @@
+<?php $service_status_id = $service_status_id ?? 1?>
+<?php $component_multiple = $component_multiple ?? 0?>
+<?php $component_mandatory = $component_mandatory ?? 0?>
+<?php $componentsList = $components ?? []?>
+<?php $propertiesList = $properties ?? []?>
+<?php $hasComponents = sizeof($componentsList)?>
+<?php $hasProperties = sizeof($propertiesList)?>
+<?php $componentDisableClass = $service_status_id == 3 ? ' uDisabled evNone' : ''?>
+<li class="serviceComponent elz uExpItem" data-id="<?=$service_component_id?>">
+    <div class="componentWrap elz uExpWrap d-block r3 bg bg-primary bgL5 bgHovL7 bsh-default1 showSelOut5 hideSelOut5<?/* sel*/?>">
+        <div class="elz d-flex f-wrap a-H gap8 p8">
+            <div class="elz p-rel d-flex growMax s-S fb200">
+                <div class="componentExpand elz d-flex grow a-H mAL-8 pAL8 cur-pointer opAct07">
+                    <div class="elz d-flex a-X s32">
+                        <div class="mskIcon elz d-block p-rel noShrink mskBef s12 cFillBef bgBef-CC deg180 hideSelIn5" style="--elzMsk: url('/design/icons/arrow2.svg');"></div>
+                        <div class="mskIcon elz d-block p-rel noShrink mskBef s12 cFillBef bgBef-CC showSelIn5" style="--elzMsk: url('/design/icons/arrow2.svg');"></div>
+                    </div>
+                    <div class="componentTitle elz d-block fn16 grow"><?=$component_title?></div>
+                </div>
+                <form action="?act=component_update&id=<?=$service_component_id?>"
+                      method="post"
+                      class="componentUpdateForm elz p-abs p-H d-grid grPos grTV010 fn fn-primary-t fnL20 fnLInvD fnHovL10 fnFow-focus fnFowL0 hide">
+                    <input type="text"
+                           name="title"
+                           value="<?=$component_title?>"
+                           placeholder="Введине название категории"
+                           class="elz elzInput d-block grPin grY2 w100p bor1 r3 h40 pL40 pR16 fn12 ellipsis trns2 invPssSib
+                                  bg bg-primary bgL10 bgLInvD
+                                  br brLInvD br-primary brL-10 brHovL-20 brFoc-focus brFocL0
+                                  fn fn-primary-t">
+                    <span class="elz d-flex a-H grPin grY2 bor1 pH7 z6 evNone">
+                        <span class="elz p-rel d-flex a-X s24 trns2">
+                            <span class="elz p-rel d-block mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/font.svg');"></span>
+                        </span>
+                        <span class="elz p-rel growX d-flex a-PR">
+                            <button type="submit" class="elz p-rel d-flex a-H cur-pointer opAct07">
+                                <span class="elz p-rel d-flex a-X s24 r2 evAuto">
+                                    <span class="elz p-rel d-block mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/save.svg');"></span>
+                                </span>
+                            </button>
+                        </span>
+                    </span>
+                </form>
+            </div>
+            <div class="elz d-flex f-wrap gap8">
+                <div title="Редактировать" class="componentEdit elz d-flex a-X cur-pointer opAct07 s36 rRound bgHov bgHov-primary bgHovL-5 fnSel fnSel-ok-t bgSel bgSel-ok componentDisabler<?=$componentDisableClass?>">
+                    <div class="mskIcon evNone elz d-block p-rel noShrink mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/pencil.svg');"></div>
+                </div>
+            </div>
+            <div class="elz d-flex f-wrap gap8">
+                <div class="elz d-grid grPos s36 cur-pointer opAct07 rRound bgHov bgHov-primary bgHovL-5 componentDisabler<?=$componentDisableClass?>"" title="Компонент может быть подключен несколько раз">
+                    <input type="checkbox" class="componentToggleField elz d-block grPin cLblSib cur-pointer z1" data-field="multiple" <?if($component_multiple):?> checked="checked"<?endif;?>>
+                    <div class="elz d-flex grPin a-X cur-pointer rRound opAct07 bgLblLing bgLblLing-ok fnLblLing fnLblLing-ok-t">
+                        <div class="mskIcon elz d-block p-rel noShrink mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/stack2.svg');"></div>
+                    </div>
+                </div>
+
+                <div class="elz d-grid grPos s36 cur-pointer opAct07 rRound bgHov bgHov-primary bgHovL-5 componentDisabler<?=$componentDisableClass?>"" title="Компонент обязателен к использованию">
+                    <input type="checkbox" class="componentToggleField elz d-block grPin cLblSib cur-pointer z1" data-field="mandatory" <?if($component_mandatory):?> checked="checked"<?endif;?>>
+                    <div class="elz d-flex grPin a-X cur-pointer rRound opAct07 bgLblLing bgLblLing-error fnLblLing fnLblLing-error-t">
+                        <div class="mskIcon elz d-block p-rel noShrink mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/require.svg');"></div>
+                    </div>
+                </div>
+            </div>
+            <?php $this->view->partial('services/partials/status_select', ['select_class' => 'componentStatusChange', 'service_status_id' => $service_status_id, 'linked_count' => ($properties_active ?? 0)])?>
+            <div class="elz d-flex f-wrap gap8">
+                <div class="elz p-rel d-flex a-X showSelOut1">
+                    <div title="Добавить" class="serviceComponentChildAdd elz d-flex a-X cur-pointer opAct07 s36 rRound bgHov bgHov-primary bgHovL-5 componentDisabler<?=$componentDisableClass?>">
+                        <div class="mskIcon evNone elz d-block p-rel noShrink mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/plus2.svg');"></div>
+                    </div>
+                    <form action="?act=component_create"
+                          method="post"
+                          class="serviceComponentChildForm elz p-abs p-R d-grid w360 grPos grTV010 fn fn-primary-t fnL20 fnLInvD fnHovL10 fnFow-focus fnFowL0 showSelIn1">
+                        <input type="hidden" name="parent" value="<?=$service_component_id?>" />
+                        <input type="text"
+                               name="title"
+                               value=""
+                               placeholder="Введите название компонента"
+                               class="elz elzInput d-block grPin grY2 w100p bor1 r3 h40 pL40 pR16 fn12 ellipsis trns2 invPssSib
+                                      bg bg-primary bgL10 bgLInvD
+                                      br brLInvD br-primary brL-10 brHovL-20 brFoc-focus brFocL0
+                                      fn fn-primary-t">
+                        <span class="elz d-flex a-H grPin grY2 bor1 pH7 z6 evNone">
+                            <span class="elz p-rel d-flex a-X s24 trns2">
+                                <span class="elz p-rel d-block mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/plus2.svg');"></span>
+                            </span>
+                            <span class="elz p-rel growX d-flex a-PR">
+                                <button type="submit" class="elz p-rel d-flex a-H cur-pointer opAct07">
+                                    <span class="elz p-rel d-flex a-X s24 r2 evAuto">
+                                        <span class="elz p-rel d-block mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/save.svg');"></span>
+                                    </span>
+                                </button>
+                            </span>
+                        </span>
+                    </form>
+                </div>
+                <div title="Удалить компонент" class="componentDelete elz d-flex a-X cur-pointer opAct07 s36 rRound bgHov bgHov-primary bgHovL-5">
+                    <div class="mskIcon elz d-block p-rel noShrink mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/cross1.svg');"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="elz d-block borT1 br br-primary brL-10 brLInvD brLF5 brFD showSelIn5">
+            <div class="propertyList elz d-flex dir-y pV4">
+<?foreach($propertiesList as $property):?>
+                <?$this->view->partial('services/partials/service_component_property', $property)?>
+<?endforeach;?>
+            </div>
+            <div class="propertyAddWrap elz d-flex dir-y pV4 mT-8 componentDisabler<?=$componentDisableClass?>">
+                <?$this->view->partial('services/partials/service_component_property', array_merge(['service_component_id' => $service_component_id], ['service_status_id' => 1]))?>
+            </div>
+        </div>
+    </div>
+    <input type="checkbox" class="components elz uExpCheck <?if(!$hasComponents):?> hide<?endif;?>" <?if($hasComponents):?>checked="checked" <?endif;?>data-id="<?=$service_component_id?>">
+    <div class="components elz uExpNode  bg bg-primary bgL10 bgLInvD br br-primary brL-10 brLInvD<?if(!$hasComponents):?> hide<?endif;?>" data-id="<?=$service_component_id?>"></div>
+    <ul class="components elz uExpList<?if(!$hasComponents):?> hide<?endif;?>" data-id="<?=$service_component_id?>">
+<?if($hasComponents):?>
+    <?foreach($componentsList as $component):?>
+        <?$this->view->partial('services/partials/service_component', $component)?>
+    <?endforeach;?>
+<?endif;?>
+    </ul>
+</li>

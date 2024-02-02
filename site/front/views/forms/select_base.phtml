@@ -1,0 +1,85 @@
+<?php $innerTitle = $innerTitle ?? null?>
+<?php $name = $name ?? 'SET NAME'?>
+<?php $width = $width ?? 'fb100'?>
+<?php $border = $border ?? 'bor1'?>
+<?php $data_attr = $data_attr ?? ''?>
+<?php $value = $value ?? ''?>
+<?php $options = $options ?? []?>
+<?php $id = $id ?? \Core\Builder\MustacheForms::getNextId();?>
+<?php $grow = $grow ?? 'grow'?>
+<?php $selectedTitle = ''?>
+<?php $class = $class ?? ''?>
+<?php $arrowClass = $arrowClass ?? 'pH7'?>
+<?php $inputClass = $inputClass ?? 'r3 h40'?>
+<?php $inputColor = $inputColor ?? 'bgLInvD'?>
+<?php $inputClassBG = $inputClassBG ?? 'bg bg-primary bgL10 bgLF5 bgFD'?>
+<?php $inputClassBR = $inputClassBR ?? 'br br-primary brL-10 brHovInL-20 brFoc-focus brFocL0'?>
+<?php $inputClassFN = $inputClassFN ?? 'fn fn-primary-t'?>
+<?php
+$html = '';
+
+for($i = 0, $len = sizeof($options); $i < $len; $i++) {
+    $option = $options[$i];
+
+    if (isset($option['label']) || isset($option['list'])) {
+        $html .= '<optgroup label="'.$option['label'].'">';
+
+        for($a = 0, $lenA = sizeof($option['list']); $a < $lenA; $a++) {
+            $opt = $option['list'][$a];
+
+            $selected = '';
+
+            if ($value == $opt[0]) {
+                $selected = 'selected="selected"';
+                $selectedTitle    = $opt[1];
+            }
+
+            $disabled = isset($opt[2]) && $opt[2] ? ' disabled="disabled"' : '';
+            $dataJson = isset($opt[3]) && $opt[3] ? ' data-json="'.$this->view->jsonBase64Encode($opt[3]).'" ' : '';
+
+            $html .= '<option value="'.$opt[0].'" '.$selected.$disabled.$dataJson.'>'.$opt[1].'</option>';
+        }
+
+        $html .= '</optgroup>';
+
+        continue;
+    }
+
+    $selected = '';
+    if ($value == $option[0]) {
+        $selected = 'selected="selected"';
+        $selectedTitle    = $option[1];
+    }
+
+    $disabled = isset($option[2]) && $option[2] ? ' disabled="disabled"' : '';
+    $dataJson = isset($option[3]) && $option[3] ? ' data-json="'.$this->view->jsonBase64Encode($option[3]).'" ' : '';
+
+    $html .= '<option value="'.$option[0].'" '.$selected.$disabled.$dataJson.'>'.$option[1].'</option>';
+
+}
+?>
+
+<div class="elizaIForm2 elz d-grid <?=$width?> <?=$grow?> grPos fn fn-primary-t fnL20 fnLInvD fnHovL10 fnFow-focus fnFowL0 cHovOut <?=$class?>">
+
+    <div class="elz elzInput d-flex grPin a-H grY2 w100p <?=$border?> pL16 pR24 fn12 ellipsis trns2 <?=$inputClass?>
+                <?=$inputClassBG?>
+                <?=$inputClassBR?>
+                <?=$inputClassFN?> <?=$inputColor?>">
+        <div class="elizaIFormText elz growX pV8 oH nowrap ellipsis"><?=$selectedTitle?></div>
+    </div>
+
+    <span class="elizaIFormArrow elz d-flex grPin grY2 a-H <?=$border?> <?=$arrowClass?> z6 evNone">
+        <?if($innerTitle):?><span class="elz p-rel a-H d-flex trns2"><?=$innerTitle?>:</span><?endif;?>
+        <span class="elz p-rel growX d-flex a-PR">
+            <span class="elz p-rel d-flex a-X s24 r2 trns2">
+                <span class="mskIcon elz p-rel d-block mskBef s8 cFillBef bgBef-CC deg180" style="--elzMsk: url('/design/icons/arrow2.svg');"></span>
+            </span>
+        </span>
+
+    </span>
+
+    <select id="<?=$id?>" name="<?=$name?>" class="elizaIFormSelect elz d-block grPin grY2 p-EA s100p op0 pH16 z7 cur-pointer fn12 bg bg-primary bgL10 bgLInvD fn fn-primary-t" <?=$data_attr?>>
+        <?=$html?>
+    </select>
+
+</div>

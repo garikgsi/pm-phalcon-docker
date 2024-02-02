@@ -1,0 +1,102 @@
+/* Main */
+
+.elzList {
+    display: flex;
+    flex-direction: column;
+    counter-reset: elzListCounter;
+    padding-left: calc(var(--uniFN, 12px) * 3);
+}
+
+.elzList:not(.gap) { gap: 1em; }
+
+.elzList > .li {
+    position: relative;
+    display: block;
+    flex-direction: column;
+}
+
+.elzList > .li.cat > .elzList { margin-top: 1em; }
+
+.elzList > .li:before {
+    position: absolute;
+    display: block;
+    right: 100%;
+    box-sizing: border-box;
+    margin-right: var(--uniFN, 12px);
+}
+
+.elzList > .li.cat:before {
+    display: none !important;
+    counter-increment: none !important;
+}
+
+
+
+/* UL settings */
+
+.elzList.ul > .li:before {
+    content: "";
+    width:  calc(var(--uniFN, 12px) / 2);
+    height: calc(var(--uniFN, 12px) / 2);
+}
+
+.elzList.ul.disc   > .li:before,
+.elzList.ul.square > .li:before { background-color: currentColor; }
+
+.elzList.ul.circle > .li:before,
+.elzList.ul.quad   > .li:before { border: 1px solid currentColor; }
+
+.elzList.ul.disc   > .li:before,
+.elzList.ul.circle > .li:before { border-radius: 1024px; }
+.elzList.ul.disc   > .li:before,
+.elzList.ul.circle > .li:before { border-radius: 1024px; }
+
+.elzList.ul > .li:before { top: calc((var(--uniLH, 1em) / 2) - ((var(--uniFN, 12px) / 2) / 2)); }
+
+/* end */
+
+
+
+
+
+/* OL settings */
+
+.elzList.ol > .li:before {
+    content: counter(elzListCounter);
+    counter-increment: elzListCounter;
+    top: 0;
+}
+
+.elzList.ol.decimal     > .li:before { content: counter(elzListCounter, decimal) "."; }
+.elzList.ol.decimal-z   > .li:before { content: counter(elzListCounter, decimal-leading-zero) "."; }
+.elzList.ol.lower-alpha > .li:before { content: counter(elzListCounter, lower-alpha) "."; }
+.elzList.ol.lower-greek > .li:before { content: counter(elzListCounter, lower-greek) "."; }
+.elzList.ol.lower-roman > .li:before { content: counter(elzListCounter, lower-roman) "."; }
+.elzList.ol.upper-alpha > .li:before { content: counter(elzListCounter, upper-alpha) "."; }
+.elzList.ol.upper-roman > .li:before { content: counter(elzListCounter, upper-roman) "."; }
+
+.elzList.ol.inherit.decimal     > .li:before { content: counters(elzListCounter, ".", decimal) "."; }
+.elzList.ol.inherit.decimal-z   > .li:before { content: counters(elzListCounter, ".", decimal-leading-zero) "."; }
+.elzList.ol.inherit.lower-alpha > .li:before { content: counters(elzListCounter, ".", lower-alpha) "."; }
+.elzList.ol.inherit.lower-greek > .li:before { content: counters(elzListCounter, ".", lower-greek) "."; }
+.elzList.ol.inherit.lower-roman > .li:before { content: counters(elzListCounter, ".", lower-roman) "."; }
+.elzList.ol.inherit.upper-alpha > .li:before { content: counters(elzListCounter, ".", upper-alpha) "."; }
+.elzList.ol.inherit.upper-roman > .li:before { content: counters(elzListCounter, ".", upper-roman) "."; }
+
+.elzList.ol.bracket.decimal     > .li:before { content: counter(elzListCounter, decimal) ")"; }
+.elzList.ol.bracket.decimal-z   > .li:before { content: counter(elzListCounter, decimal-leading-zero) ")"; }
+.elzList.ol.bracket.lower-alpha > .li:before { content: counter(elzListCounter, lower-alpha) ")"; }
+.elzList.ol.bracket.lower-greek > .li:before { content: counter(elzListCounter, lower-greek) ")"; }
+.elzList.ol.bracket.lower-roman > .li:before { content: counter(elzListCounter, lower-roman) ")"; }
+.elzList.ol.bracket.upper-alpha > .li:before { content: counter(elzListCounter, upper-alpha) ")"; }
+.elzList.ol.bracket.upper-roman > .li:before { content: counter(elzListCounter, upper-roman) ")"; }
+
+.elzList.ol.inherit.bracket.decimal     > .li:before { content: counters(elzListCounter, ".", decimal) ")"; }
+.elzList.ol.inherit.bracket.decimal-z   > .li:before { content: counters(elzListCounter, ".", decimal-leading-zero) ")"; }
+.elzList.ol.inherit.bracket.lower-alpha > .li:before { content: counters(elzListCounter, ".", lower-alpha) ")"; }
+.elzList.ol.inherit.bracket.lower-greek > .li:before { content: counters(elzListCounter, ".", lower-greek) ")"; }
+.elzList.ol.inherit.bracket.lower-roman > .li:before { content: counters(elzListCounter, ".", lower-roman) ")"; }
+.elzList.ol.inherit.bracket.upper-alpha > .li:before { content: counters(elzListCounter, ".", upper-alpha) ")"; }
+.elzList.ol.inherit.bracket.upper-roman > .li:before { content: counters(elzListCounter, ".", upper-roman) ")"; }
+
+/* end */

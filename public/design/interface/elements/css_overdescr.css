@@ -1,0 +1,213 @@
+/* Forms description */
+
+.elzCLSoverDescr {
+	position: absolute;
+	display: block;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+	background-color: #ffffff;
+	color: #000000;
+	box-sizing: border-box;
+	background-clip: padding-box;
+	border-radius: 3px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    cursor: auto;
+	z-index: 30;
+}
+
+.elzCLSoverDescr,
+.elzCLSoverDarrow {
+    transition: 0.2s opacity, 0.2s visibility;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.elzCLSoverDescr.shadowed { box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1), 0 0 16px rgba(0, 0, 0, 0.2); }
+
+.elzCLSoverDescr.show,
+.elzCLSoverDescr:hover,                  .elzCLSoverDescr:active,
+.overDescrHover:hover .elzCLSoverDescr,  .overDescrHover:active .elzCLSoverDescr,
+.overDescrHover:hover .elzCLSoverDarrow, .overDescrHover:active .elzCLSoverDarrow,
+
+.overDescrShow .elzCLSoverDescr,
+.overDescrShow .elzCLSoverDarrow,
+
+.elzCLSoverDescr.displayFix,
+.elzCLSoverDarrow.displayFix {
+    visibility: visible;
+    opacity: 1;
+}
+
+.elzCLSoverDescr.displayFix,
+.elzCLSoverDarrow.displayFix { display: none; }
+
+.elzCLSoverDescr.displayFix.show,
+.overDescrHover:hover .elzCLSoverDescr.displayFix,  .overDescrHover:active .elzCLSoverDescr.displayFix,
+.overDescrHover:hover .elzCLSoverDarrow.displayFix, .overDescrHover:active .elzCLSoverDarrow.displayFix { display: block; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Position */
+
+.elzCLSoverDescr:not(.horizontal).bottom { bottom: 100%; margin-bottom: 10px; }
+.elzCLSoverDescr:not(.horizontal).top    { top:    100%; margin-top:    10px; }
+
+.elzCLSoverDescr:not(.horizontal).left  { left:  0; }
+.elzCLSoverDescr:not(.horizontal).right { right: 0; }
+
+/* Horizontal */
+
+.elzCLSoverDescr.horizontal.left  { left:  100%; margin-left:  10px; }
+.elzCLSoverDescr.horizontal.right { right: 100%; margin-right: 10px; }
+
+.elzCLSoverDescr.horizontal.top    { top:    0; }
+.elzCLSoverDescr.horizontal.bottom { bottom: 0; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Arrow */
+
+.elzCLSoverDescr:before, .elzCLSoverDarrow:before,
+.elzCLSoverDescr:after,  .elzCLSoverDarrow:after {
+	content: "";
+	position: absolute;
+	display: block;
+	background: transparent;
+    width:  0;
+    height: 0;
+    border-style: solid;
+    z-index: 1;
+}
+
+.elzCLSoverDarrow {
+    position: absolute;
+    display: block;
+    z-index: 31;
+}
+
+.elzCLSoverDarrow.top,  .elzCLSoverDarrow.bottom { width: 10px; height:  6px; }
+.elzCLSoverDarrow.left, .elzCLSoverDarrow.right  { width:  6px; height: 10px; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Vertical position */
+
+.elzCLSoverDescr:not(.horizontal).top:before, .elzCLSoverDarrow.top:before { border-color: transparent transparent rgba(0, 0, 0, 0.2) transparent; }
+.elzCLSoverDescr:not(.horizontal).top:after,  .elzCLSoverDarrow.top:after  { border-color: transparent transparent #ffffff            transparent; margin-top: 1px; }
+
+.elzCLSoverDescr:not(.horizontal).bottom:before, .elzCLSoverDarrow.bottom:before { border-color: rgba(0, 0, 0, 0.2) transparent transparent transparent; }
+.elzCLSoverDescr:not(.horizontal).bottom:after,  .elzCLSoverDarrow.bottom:after  { border-color: #ffffff            transparent transparent transparent; margin-bottom: 1px; }
+
+.elzCLSoverDescr:not(.horizontal).top:before,    .elzCLSoverDescr:not(.horizontal).top:after,    .elzCLSoverDarrow.top:before,    .elzCLSoverDarrow.top:after     { border-width: 0 5px 5px 5px; }
+.elzCLSoverDescr:not(.horizontal).bottom:before, .elzCLSoverDescr:not(.horizontal).bottom:after, .elzCLSoverDarrow.bottom:before, .elzCLSoverDarrow.bottom:after  { border-width: 5px 5px 0 5px; }
+
+.elzCLSoverDescr:not(.horizontal).top:before,    .elzCLSoverDescr:not(.horizontal).top:after    { top:    -6px; left: 50%; margin-left: -5px; }
+.elzCLSoverDescr:not(.horizontal).bottom:before, .elzCLSoverDescr:not(.horizontal).bottom:after { bottom: -6px; left: 50%; margin-left: -5px; }
+
+.elzCLSoverDescr:not(.horizontal).top.left:before,    .elzCLSoverDescr:not(.horizontal).top.left:after,
+.elzCLSoverDescr:not(.horizontal).bottom.left:before, .elzCLSoverDescr:not(.horizontal).bottom.left:after {
+    left: 12px;
+    margin-left: 0;
+}
+
+.elzCLSoverDescr:not(.horizontal).top.right:before,    .elzCLSoverDescr:not(.horizontal).top.right:after,
+.elzCLSoverDescr:not(.horizontal).bottom.right:before, .elzCLSoverDescr:not(.horizontal).bottom.right:after {
+    left: auto;
+    right: 12px;
+    margin-left: 0;
+}
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Horizontal position */
+
+
+.elzCLSoverDescr.horizontal.left:before, .elzCLSoverDarrow.left:before  { border-color: transparent rgba(0, 0, 0, 0.2) transparent transparent; }
+.elzCLSoverDescr.horizontal.left:after,  .elzCLSoverDarrow.left:after   { border-color: transparent #ffffff            transparent transparent; margin-left: 1px; }
+
+.elzCLSoverDescr.horizontal.right:before, .elzCLSoverDarrow.right:before { border-color: transparent transparent transparent rgba(0, 0, 0, 0.2); }
+.elzCLSoverDescr.horizontal.right:after,  .elzCLSoverDarrow.right:after  { border-color: transparent transparent transparent            #ffffff; margin-left: -1px; }
+
+.elzCLSoverDescr.horizontal.left:before,  .elzCLSoverDescr.horizontal.left:after,  .elzCLSoverDarrow.left:before,  .elzCLSoverDarrow.left:after  { border-width: 5px 5px 5px 0; }
+.elzCLSoverDescr.horizontal.right:before, .elzCLSoverDescr.horizontal.right:after, .elzCLSoverDarrow.right:before, .elzCLSoverDarrow.right:after { border-width: 5px 0 5px 5px; }
+
+.elzCLSoverDescr.horizontal.left:before,  .elzCLSoverDescr.horizontal.left:after  { left:  -6px; top: 50%; margin-top: -5px; }
+.elzCLSoverDescr.horizontal.right:before, .elzCLSoverDescr.horizontal.right:after { right: -6px; top: 50%; margin-top: -5px; }
+
+
+.elzCLSoverDescr.horizontal.left.top:before,  .elzCLSoverDescr.horizontal.left.top:after,
+.elzCLSoverDescr.horizontal.right.top:before, .elzCLSoverDescr.horizontal.right.top:after {
+    top: 12px;
+    margin-top: 0;
+}
+
+.elzCLSoverDescr.horizontal.left.bottom:before,  .elzCLSoverDescr.horizontal.left.bottom:after,
+.elzCLSoverDescr.horizontal.right.bottom:before, .elzCLSoverDescr.horizontal.right.bottom:after {
+    top: auto;
+    bottom: 12px;
+    margin-top: 0;
+}
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Delay settings */
+
+.elzCLSoverDescr.delayed {
+    -webkit-transition-delay: 0.5s;
+    -moz-transition-delay:    0.5s;
+    -o-transition-delay:      0.5s;
+    transition-delay:         0.5s;
+}
+
+.overDescrHover:hover .elzCLSoverDescr.delayed {
+    -webkit-transition-delay: 1s;
+    -moz-transition-delay:    1s;
+    -o-transition-delay:      1s;
+    transition-delay:         1s;
+}
+
+/* end */

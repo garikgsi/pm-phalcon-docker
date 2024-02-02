@@ -1,0 +1,68 @@
+<?$counterAgentId = (int)$this->view->getVar('counterAgentId')?>
+
+<!--    <div class="elz p-rel d-block grow fb320 r3 pVVar fn16 cur-pointer opAct07 selNone bg bg-primary bgL5 bgHovL10 bsh-default1">-->
+<!--        <div class="elz d-flex a-X hmn36 pV8">-->
+<!--            <div class="elz p-rel d-flex a-X w40 noShrink">-->
+<!--                <div class="elz p-rel d-flex a-X s16">-->
+<!--                    <div class="elz p-abs d-block mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/user.svg');"></div>-->
+<!--                    <div class="elz p-abs d-block rRound p2 mEA12 bg bg-ok fn fn-ok-t">-->
+<!--                        <div class="elz p-rel d-block mskBef s8 cFillBef bgBef-CC deg90" style="--elzMsk: url('/design/icons/arrow.svg');"></div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="elz d-block growX">Сменить менеджера</div>-->
+<!--        </div>-->
+<!--    </div>-->
+
+
+
+
+
+    <div class="elz d-block grow fb320 pVVar r3 bg bg-primary bgL5 bsh-default1">
+<!--        <h2 class="elz d-flex a-X gap8 fn16 pV8 pL16 hmn36">-->
+<!--            <span class="elz d-block growX">Данные о клиенте</span>-->
+<!--        </h2>-->
+        <ul class="elz d-block">
+<?$sectionsList = $this->view->getVar('counterAgentSectionsList')?>
+<?for($a = 0, $len = sizeof($sectionsList); $a < $len; $a++):?>
+    <?$section = $sectionsList[$a]?>
+    <?if(isset($section['uri'])):?>
+            <li class="elz d-block">
+                <a href="/counteragents/<?=$counterAgentId?>/<?=$section['uri']?>" title="<?=$section['title']?>" class="elz d-flex a-H cur-pointer pV8 hmn36 bgHov bgSel bgHov-primary bgHovL-10 bgLInvD opAct07 bgSel-secondary fnSel fnSel-secondary-t <?=$section['selected']?>">
+                    <div class="elz d-flex a-X w40">
+                        <div class="elz d-block p-rel mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/<?=$section['icon']?>.svg');"></div>
+                    </div>
+                    <div class="elz d-block growX"><?=$section['title']?></div>
+                </a>
+            </li>
+    <?elseif(isset($section['sections'])):?>
+    <li class="elz d-block bgSel bgSel-primary hideSelOut showSelOut<?if($section['active']):?> sel<?endif;?>">
+        <div title="<?=$section['title']?>" class="pmAgentMenuExplode elz d-flex a-H cur-pointer pV8 hmn36 bgHov bgSel bgHov-primary bgHovL-10 bgLInvD opAct07 bgSel-secondary fnSel fnSel-secondary-t">
+            <div class="elz d-flex a-X w40">
+                <div class="elz d-block p-rel mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/<?=$section['icon']?>.svg');"></div>
+            </div>
+            <div class="elz d-block growX"><?=$section['title']?></div>
+            <div class="elz d-flex a-X w40">
+                <div class="elz d-block p-rel mskBef s8 cFillBef bgBef-CC deg180 hideSelIn" style="--elzMsk: url('/design/icons/arrow1.svg');"></div>
+                <div class="elz d-block p-rel mskBef s8 cFillBef bgBef-CC showSelIn" style="--elzMsk: url('/design/icons/arrow1.svg');"></div>
+            </div>
+        </div>
+        <ul class="elz d-block showSelIn">
+        <?for($b = 0, $lenB = sizeof($section['sections']); $b < $lenB; $b++):?>
+            <?$subSec = $section['sections'][$b]?>
+            <li class="elz d-block">
+                <a href="/counteragents/<?=$counterAgentId?>/<?=$subSec['uri']?>" title="<?=$subSec['title']?>" class="elz d-flex a-H cur-pointer pL24 pV8 hmn36 bgHov bgSel bgHov-primary bgHovL-10 bgLInvD opAct07 bgSel-secondary fnSel fnSel-secondary-t <?=$subSec['selected']?>">
+                    <div class="elz d-flex a-X w40">
+                        <div class="elz d-block p-rel mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/<?=$subSec['icon']?>.svg');"></div>
+                    </div>
+                    <div class="elz d-block growX"><?=$subSec['title']?></div>
+                </a>
+            </li>
+        <?endfor;?>
+        </ul>
+    </li>
+    <?endif;?>
+<?endfor;?>
+
+        </ul>
+    </div>

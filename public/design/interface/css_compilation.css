@@ -1,0 +1,280 @@
+/* Eliza settings **************************/
+
+/* eliza core */
+@import url('core/css_core.css');
+@import url('core/css_menu.css');
+/*
+@import url('eliza/eliza_core/css_calendar.css');
+*/
+
+
+@import url('core/css_colors.css');
+@import url('core/css_textures.css');
+
+/* eliza icons */
+
+@import url('icons/elizacssn/style.css');
+
+
+/* eliza libs */
+
+@import url('../libs/css_cropper.css');
+@import url('../libs/css_scrollbar.css');
+@import url('../libs/css_colorpicker.css');
+@import url('../libs/css_pickr.css');
+
+
+/* bb */
+
+/*@import url('../bb/_css_fortest.css');*/
+@import url('../bb/css_core.css');
+@import url('../bb/css_structure.css');
+@import url('../bb/css_blocks.css');
+@import url('../bb/css_sections.css');
+@import url('../bb/css_links.css');
+@import url('../bb/css_figure.css');
+@import url('../bb/css_gallery.css');
+@import url('../bb/css_lists.css');
+@import url('../bb/css_table.css');
+@import url('../bb/css_headers.css');
+@import url('../bb/css_menu_core.css');
+@import url('../bb/css_menu_vertical.css');
+@import url('../bb/css_menu_horizontal.css');
+@import url('../bb/css_format.css');
+
+/* eliza forms */
+
+@import url('../forms/css_forms.css');
+@import url('../forms/css_forms_style.css');
+@import url('../forms/css_forms_structure.css');
+@import url('../forms/css_forms_text.css');
+@import url('../forms/css_forms_text_lite.css');
+@import url('../forms/css_forms_text_default.css');
+@import url('../forms/css_forms_button.css');
+@import url('../forms/css_forms_button_lite.css');
+@import url('../forms/css_forms_button_default.css');
+@import url('../forms/css_forms_fake.css');
+@import url('../forms/css_forms_checkbox.css');
+@import url('../forms/css_forms_switcher.css');
+@import url('../forms/css_forms_icons.css');
+@import url('../forms/css_forms_titles.css');
+@import url('../forms/css_forms_autocomplete.css');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* eliza window */
+
+@import url('window/css_core.css');
+@import url('window/css_template.css');
+@import url('window/css_menu.css');
+
+
+/* eliza toolbar */
+
+@import url('toolbar/css_core.css');
+@import url('toolbar/css_tool.css');
+@import url('toolbar/css_text.css');
+@import url('toolbar/css_tool_default.css');
+@import url('toolbar/css_tool_button.css');
+@import url('toolbar/css_tool_input.css');
+@import url('toolbar/css_tool_sep.css');
+@import url('toolbar/css_sub.css');
+@import url('toolbar/css_tray.css');
+
+
+/* eliza notification */
+/*
+@import url('eliza/eliza_notifications/css_core.css');
+*/
+
+/* eliza elements */
+@import url('elements/css_icons.css');
+@import url('elements/css_text.css');
+@import url('elements/css_label.css');
+@import url('elements/css_progress.css');
+@import url('elements/css_overdescr.css');
+@import url('elements/css_tooltips.css');
+@import url('elements/css_titles.css');
+@import url('elements/css_uploader.css');
+@import url('elements/css_cropbox.css');
+@import url('elements/css_avatar.css');
+@import url('elements/css_name.css');
+@import url('elements/css_overcontrols.css');
+@import url('elements/css_address.css');
+@import url('elements/css_count.css');
+@import url('elements/css_bookmarks.css');
+@import url('elements/css_explorer.css');
+@import url('elements/css_table.css');
+@import url('elements/css_structure.css');
+@import url('elements/css_slider.css');
+@import url('elements/css_sight.css');
+@import url('elements/css_datepicker.css');
+@import url('elements/css_pvs.css');
+@import url('elements/css_picture.css');
+@import url('elements/css_propline.css');
+@import url('elements/css_pickframe.css');
+/*
+
+
+
+
+@import url('eliza/eliza_elements/css_tooltips.css');
+@import url('eliza/eliza_elements/css_pvs.css');
+@import url('eliza/eliza_elements/css_tags_added.css');
+@import url('eliza/eliza_elements/css_chain.css');
+@import url('eliza/eliza_elements/css_post.css');
+
+
+@import url('eliza/eliza_elements/css_progress.css');
+@import url('eliza/eliza_elements/css_label.css');
+
+
+@import url('eliza/eliza_elements/css_forbidden.css');
+@import url('eliza/eliza_elements/css_typing.css');
+@import url('eliza/eliza_elements/css_readstatus.css');
+
+@import url('eliza/eliza_elements/css_overnav.css');
+*/
+
+/* eliza context menu */
+/*
+@import url('eliza/eliza_context/css_core.css');
+@import url('eliza/eliza_context/css_item_default.css');
+@import url('eliza/eliza_context/css_item_sep.css');
+*/
+
+/* eliza emotes */
+/*
+@import url('eliza/eliza_emotes/css_section.css');
+@import url('eliza/eliza_emotes/css_statistics.css');
+*/
+
+/* eliza comments */
+/*
+@import url('eliza/eliza_comments/css_core.css');
+@import url('eliza/eliza_comments/css_item.css');
+@import url('eliza/eliza_comments/css_item_msg.css');
+@import url('eliza/eliza_comments/css_item_post.css');
+*/
+
+/* eliza events */
+/*
+@import url('eliza/eliza_events/css_core.css');
+@import url('eliza/eliza_events/css_item_msg.css');
+@import url('eliza/eliza_events/css_item_post.css');
+*/
+
+/* eliza people */
+/*
+@import url('eliza/eliza_people/css_core.css');
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+/* Applications **************************/
+
+/* eliza auth */
+
+@import url('apps/auth/css_core.css');
+@import url('apps/auth/css_auth.css');
+
+/* eliza pic */
+
+@import url('apps/pic/css_manager.css');
+@import url('apps/pic/css_show.css');
+/*
+@import url('eliza/eliza_apps/pic/css_manager.css');
+
+@import url('eliza/eliza_apps/pic/css_show_info.css');
+@import url('eliza/eliza_apps/pic/css_show_slider.css');
+@import url('eliza/eliza_apps/pic/css_editor.css');*/
+
+
+/* eliza settings */
+
+@import url('apps/settings/css_core.css');
+@import url('apps/settings/css_main.css');
+@import url('apps/settings/css_account.css');
+
+/* eliza inferno */
+
+@import url('apps/inferno/css_core.css');
+@import url('apps/inferno/css_main.css');
+@import url('apps/inferno/css_charactersec.css');
+@import url('apps/inferno/css_inventory.css');
+@import url('apps/inferno/css_trade.css');
+@import url('apps/inferno/css_city.css');
+@import url('apps/inferno/css_createchar.css');
+@import url('apps/inferno/css_tooltip.css');
+/*
+
+@import url('apps/settings/css_api.css');
+*/
+
+/* eliza messenger */
+/*
+@import url('eliza/eliza_apps/messages/css_core.css');
+@import url('eliza/eliza_apps/messages/css_contact.css');
+@import url('eliza/eliza_apps/messages/css_create.css');
+@import url('eliza/eliza_apps/messages/css_editor.css');
+@import url('eliza/eliza_apps/messages/css_editor_old.css');
+@import url('eliza/eliza_apps/messages/css_sep.css');
+@import url('eliza/eliza_apps/messages/css_typing.css');
+*/
+
+/* eliza editor */
+/*
+@import url('eliza/eliza_editor/eliza_lite_core.css');
+@import url('eliza/eliza_editor/eliza_lite_toolbar.css');
+*/
+
+/* eliza people */
+/*
+@import url('eliza/eliza_apps/people/css_core.css');
+*/
+
+/* eliza help */
+/*
+@import url('eliza/eliza_apps/help/css_core.css');
+*/
+
+/* eliza MFR */
+/*
+@import url('eliza/eliza_apps/mfr/css_core.css');
+@import url('eliza/eliza_apps/mfr/css_main.css');
+*/
+
+/* eliza icon editor */
+
+@import url('apps/hexeditor/css_core.css');
+@import url('apps/hexeditor/css_maplist.css');
+@import url('apps/hexeditor/css_list_layers.css');
+@import url('apps/hexeditor/css_list_grid.css');
+@import url('apps/hexeditor/css_fixedsections.css');
+@import url('apps/hexeditor/css_gridsize.css');
+@import url('apps/hexeditor/css_curve.css');
+@import url('apps/hexeditor/css_colorscheme.css');
+@import url('apps/hexeditor/css_workspace.css');
+@import url('apps/hexeditor/css_iceditadm.css');

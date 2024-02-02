@@ -1,0 +1,279 @@
+/* Main */
+
+.bb.icoblock {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    border-radius: 0 2px 2px 0;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.bb.icoblock.bordered { border-radius: 0; }
+
+.bb.icoblock > .blockContent {
+    position: relative;
+    display: block;
+    padding: 16px 16px 16px 20px;
+    margin: 0;
+}
+
+.bb.icoblock.closed > .blockContent { display:  none; }
+
+/* end */
+
+
+
+
+
+
+
+
+/* Decorations */
+
+.bb.icoblock:before,
+.bb.icoblock:after {
+    content: "";
+    position: absolute;
+    display: block;
+    top:  0;
+    left: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.bb.icoblock:before {
+    right:  0;
+    bottom: 0;
+    border-style: solid;
+}
+
+.bb.icoblock:before          { border-width: 0   0   0   4px; }
+.bb.icoblock.bordered:before { border-width: 1px 1px 1px 4px; }
+
+.bb.icoblock:before {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 0 18px, 6px 18px, 6px 0, 0 0);
+    clip-path:         polygon(0 0, 100% 0, 100% 100%, 0 100%, 0 18px, 6px 18px, 6px 0, 0 0);
+}
+
+.bb.icoblock.spoiler:before {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 0 15px, 4px 11px, 6px 11px, 6px 0, 0 0);
+    clip-path:         polygon(0 0, 100% 0, 100% 100%, 0 100%, 0 15px, 4px 11px, 6px 11px, 6px 0, 0 0);
+}
+
+.bb.icoblock.blockquote:before {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 0 11px, 4px 15px, 9px 15px, 9px 0, 0 0);
+    clip-path:         polygon(0 0, 100% 0, 100% 100%, 0 100%, 0 11px, 4px 15px, 9px 15px, 9px 0, 0 0);
+}
+
+.bb.icoblock:after {
+    width:   4px;
+    height: 16px;
+}
+
+.bb.icoblock.info:after,
+.bb.icoblock.success:after {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 4px, 0 4px, 0 6px, 100% 6px, 100% 100%, 0 100%);
+    clip-path:         polygon(0 0, 100% 0, 100% 4px, 0 4px, 0 6px, 100% 6px, 100% 100%, 0 100%);
+}
+
+.bb.icoblock.warning:after,
+.bb.icoblock.error:after {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 10px, 0 10px, 0 12px, 100% 12px, 100% 100%, 0 100%);
+    clip-path:         polygon(0 0, 100% 0, 100% 10px, 0 10px, 0 12px, 100% 12px, 100% 100%, 0 100%);
+}
+
+.bb.icoblock.code:after {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 4px, 0 4px, 0 6px, 100% 6px, 100% 10px, 0 10px, 0 12px, 100% 12px, 100% 12px, 100% 100%, 0 100%);
+    clip-path:         polygon(0 0, 100% 0, 100% 4px, 0 4px, 0 6px, 100% 6px, 100% 10px, 0 10px, 0 12px, 100% 12px, 100% 12px, 100% 100%, 0 100%);
+}
+
+.bb.icoblock.blockquote:after {
+    width:   7px;
+    height: 13px;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 4px, 4px 7px, 4px 100%, 0 9px);
+    clip-path:         polygon(0 0, 100% 0, 100% 4px, 4px 7px, 4px 100%, 0 9px);
+}
+
+.bb.icoblock.spoiler:after {
+    height: 13px;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 9px, 0 100%, 0 0);
+    clip-path:         polygon(0 0, 100% 0, 100% 9px, 0 100%, 0 0);
+}
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Colors */
+
+.bb.icoblock.info       { color: #0d47a1; background-color: #ddeeff; }
+.bb.icoblock.success    { color: #1b5e20; background-color: #e9fbe9; }
+.bb.icoblock.warning    { color: #e65100; background-color: #fcfaee; }
+.bb.icoblock.error      { color: #b71c1c; background-color: #fbe9e9; }
+.bb.icoblock.code       { background-color: rgba(255, 255, 255, 0.5); }
+.bb.icoblock.spoiler    { background-color: rgba(255, 255, 255, 0.5); }
+.bb.icoblock.blockquote { background-color: rgba(255, 255, 255, 0.5); }
+
+.bb.icoblock.info:before       { border-color: #8ccbf2; }                   .bb.icoblock.info:after       { background-color: #0078d0; }
+.bb.icoblock.success:before    { border-color: #52e052; }                   .bb.icoblock.success:after    { background-color: #40a400; }
+.bb.icoblock.warning:before    { border-color: #e0cb52; }                   .bb.icoblock.warning:after    { background-color: #bb8000; }
+.bb.icoblock.error:before      { border-color: #e79797; }                   .bb.icoblock.error:after      { background-color: #e05252; }
+.bb.icoblock.code:before       { border-color: rgba(118, 118, 184,  0.5); } .bb.icoblock.code:after       { background-color: rgba(118, 118, 184,    1); }
+.bb.icoblock.spoiler:before    { border-color: rgba(0,   172, 193,  0.5); } .bb.icoblock.spoiler:after    { background-color: rgba(0,   172, 193,    1); }
+.bb.icoblock.blockquote:before { border-color: rgba(0,     0,   0,  0.2); } .bb.icoblock.blockquote:after { background-color: rgba(0,     0,   0,  0.4); }
+
+/* Colors end */
+
+
+
+
+
+
+
+
+
+
+/* Title settings */
+
+.bb.icoblock > .blockTitle,
+.bb.icoblock > .blockTitle > .title {
+    position: relative;
+    font-size: inherit;
+    font-weight: normal;
+    text-decoration: none;
+    margin: 0;
+}
+
+.bb.icoblock > .blockTitle {
+    display: flex;
+    text-align: left;
+    background-color: rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+}
+
+.bb.icoblock > .blockTitle > .title {
+    display: block;
+    width:  0;
+    flex-grow: 1;
+    padding: 12px 16px 12px 20px;
+}
+
+.bb.icoblock > .blockTitle > .icoCloser + .title { padding-left: 32px; }
+
+.bb.icoblock > .blockTitle > .title > .elzCLSuName { font-weight: bold; }
+
+.bb.icoblock > .blockTitle > .title > .elzCLSuName > .elzIc { top: 0.15em; }
+
+/* Firefox fix */
+
+@media screen and (min--moz-device-pixel-ratio: 0) {
+    .bb.icoblock > .blockTitle > .title > .elzCLSuName > .elzIc { top: 0.125em; }
+}
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Link button settings */
+
+.bb.icoblock > .blockTitle > .icoLink {
+    position: relative;
+    display: block;
+    padding: 0 16px;
+    margin-left: -16px;
+    color: inherit;
+    text-decoration: none;
+    opacity: 0;
+    transition: opacity 0.2s, visibility 0.2s;
+    z-index: 2;
+}
+
+.bb.icoblock > .blockTitle > .icoLink:before {
+    position: relative;
+    display: block;
+    font-size: 12pt;
+    top: 50%;
+    margin-top: -0.5em;
+}
+
+.bb.icoblock > .blockTitle:hover > .icoLink { opacity: 0.5; }
+
+/* Touch screen detection */
+
+@media (pointer: coarse), (-moz-touch-enabled) {
+    .bb.icoblock > .blockTitle > .icoLink { opacity: 0.5; }
+}
+
+.bb.icoblock > .blockTitle > .icoLink:hover  { opacity: 1.0; }
+.bb.icoblock > .blockTitle > .icoLink:active { opacity: 0.7; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Closer button settings */
+
+.bb.icoblock > .blockTitle > .icoCloser {
+    position: absolute;
+    display: block;
+    width: 32px;
+    top:    0;
+    bottom: 0;
+    left:   0;
+    padding-left: 4px;
+    transition: 0.2s opacity;
+}
+
+.bb.icoblock > .blockTitle       > .icoCloser { opacity: 0.5; }
+.bb.icoblock > .blockTitle:hover > .icoCloser { opacity:   1; }
+
+.bb.icoblock > .blockTitle > .icoCloser:before {
+    content: "";
+    position: absolute;
+    display: block;
+    top:  50%;
+    width:  0;
+    height: 0;
+    border-style: solid;
+    border-right-color:  transparent;
+    border-bottom-color: transparent;
+}
+
+.bb.icoblock.closed > .blockTitle > .icoCloser:before {
+    left: 16px;
+    margin-top:  -4px;
+    border-width: 4px 0 4px 5px;
+    border-top-color: transparent;
+}
+
+.bb.icoblock:not(.closed) > .blockTitle > .icoCloser:before {
+    left: 14px;
+    margin-top:  -3px;
+    border-width: 5px 4px 0 4px;
+    border-left-color: transparent;
+}
+
+.bb.icoblock.closed > .blockTitle > .icoCloser:hover { opacity: 1; }
+
+/* end */

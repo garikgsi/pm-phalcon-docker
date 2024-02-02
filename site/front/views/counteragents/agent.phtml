@@ -1,0 +1,152 @@
+<?php $counterAgentRow = $this->view->getVar('counterAgentRow')?>
+<div class="elz d-flex f-wrap gap8 a-T">
+    <div id="counterAgentMeta" class="elz d-flex f-wrap gap8 grow fb320">
+
+<?$agentSections = [
+    1 => 'agent_index_about',
+    6 => 'agent_index_addresses',
+    2 => 'agent_index_contacts',
+    3 => 'agent_index_network',
+    4 => 'agent_index_requisites',
+    5 => 'agent_index_additional'
+]?>
+<?$sectionOrder = $this->user->getSetting('counteragent_show_order')?>
+<?for($a = 0, $len = sizeof($sectionOrder); $a < $len; $a++):?>
+    <?$this->view->partial('counteragents/partials/'.$agentSections[$sectionOrder[$a]])?>
+<?endfor;?>
+    </div>
+
+    <div class="elz d-flex dir-y gap8 grow fb320">
+
+        <div class="elz d-flex a-H hmn48">
+            <div class="elz d-block growX borB1 br br-primary brL-10 brLInvD"></div>
+            <div class="elz d-block fn16 lh12 pH16">История событий</div>
+            <div class="elz d-block growX borB1 br br-primary brL-10 brLInvD"></div>
+        </div>
+
+        <div class="elz d-flex dir-y gap8" style="filter: blur(2px)">
+            <div class="elz d-flex gap8">
+                <div class="elz d-flex a-X s40 rRound bg bg-primary bgL5 bsh-default1 noShrink">
+                    <div class="elz d-block p-rel mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/file-text.svg');"></div>
+                </div>
+                <div class="elz d-flex dir-y gap16 grow p16 hmn40 r3 bg bg-primary bgL5 bsh-default1">
+                    <div class="elz d-flex f-wrap a-H gap16">
+                        <div class="elz d-block bold">Запрос №56270</div>
+                        <div class="elz d-block pV6 pH8 rRound fn8 uppercase bold bg bg-success fn fn-success-t">Квалифицирован</div>
+                        <div class="elz d-block pV6 pH8 rRound fn8 uppercase bold bg bg-ok fn fn-ok-t">Изменение</div>
+                        <div class="elz d-block grow">Срок:2022-07-29</div>
+                        <div class="elz d-block rRound s32 bg bg-pink"></div>
+                        <div class="elz d-block rRound s32 bg bg-purple"></div>
+                    </div>
+                    <div class="elz d-flex dir-y gap16 lh15">
+                        <div class="elz d-block">К нам обратился отдел Решетова А.М. (Отдел разработки и сопровождения прикладного ПО) с «горящей» проблемой производительности при работе 1С с рядом баз.</div>
+
+                        <div class="elz d-block">Нам обозначили приоритет как очень критичный и горящий, поэтому хотелось бы приоритезировать задачу и у вас.</div>
+
+                        <div class="elz d-block">Хотим обсудить с вами пути решения, т.к. по опыту часто видим, что ряд проблем вы уже давно видите, знаете причины и предлагали варианты исправления.</div>
+
+                        <div class="elz d-block">Глобально, мы для себя видим в качестве решения выполнение следующих задач:</div>
+
+                        <div class="elz d-block">1. Организация SQL серверов с ресурсами, соразмерными нагрузке.</div>
+
+                        <div class="elz d-block">2. Организация серверов 1С с ресурсами, соразмерными нагрузке.</div>
+
+                        <div class="elz d-block">3. Разнесение продуктивных баз от тестовых.</div>
+
+                        <div class="elz d-block">Начать хотим в этом же порядке, запросили список баз, пока дали и подсветили только основные и проблемные.</div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="elz d-flex gap8">
+                <div class="elz d-flex a-X s40 rRound bg bg-success fn fn-success-t bgL5 bsh-default1 noShrink">
+                    <div class="elz d-block p-rel mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/file-text.svg');"></div>
+                </div>
+                <div class="elz d-flex dir-y gap16 grow p16 hmn40 r3 bg bg-primary bgL5 bsh-default1">
+                    <div class="elz d-flex f-wrap a-H gap16">
+                        <div class="elz d-block bold">Запрос №56270</div>
+                        <div class="elz d-block pV6 pH8 rRound fn8 uppercase bold bg bg-success fn fn-success-t">Квалифицирован</div>
+                        <div class="elz d-block pV6 pH8 rRound fn8 uppercase bold bg bg-ok fn fn-ok-t">Изменение</div>
+                        <div class="elz d-block grow">Срок:2022-07-29</div>
+                        <div class="elz d-block rRound s32 bg bg-pink"></div>
+                        <div class="elz d-block rRound s32 bg bg-purple"></div>
+                    </div>
+                    <div class="elz d-flex dir-y gap16 lh15">
+                        <div class="elz d-block">К нам обратился отдел Решетова А.М. (Отдел разработки и сопровождения прикладного ПО) с «горящей» проблемой производительности при работе 1С с рядом баз.</div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="elz d-flex gap8">
+                <div class="elz d-flex a-X s40 rRound bg bg-ok fn fn-ok-t bgL5 bsh-default1 noShrink">
+                    <div class="elz d-block p-rel mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/user.svg');"></div>
+                </div>
+                <div class="elz d-flex dir-y gap16 grow p16 hmn40 r3 bg bg-primary bgL5 bsh-default1">
+                    <div class="elz d-flex f-wrap a-H gap16">
+                        <div class="elz d-block bold">Запрос №56270</div>
+                        <div class="elz d-block pV6 pH8 rRound fn8 uppercase bold bg bg-success fn fn-success-t">Квалифицирован</div>
+                        <div class="elz d-block pV6 pH8 rRound fn8 uppercase bold bg bg-ok fn fn-ok-t">Изменение</div>
+                        <div class="elz d-block grow">Срок:2022-07-29</div>
+                        <div class="elz d-block rRound s32 bg bg-pink"></div>
+                    </div>
+
+                    <div class="elz d-flex dir-y gap16 lh15">
+                        <div class="elz d-block">1. Организация SQL серверов с ресурсами, соразмерными нагрузке.</div>
+
+                        <div class="elz d-block">2. Организация серверов 1С с ресурсами, соразмерными нагрузке.</div>
+
+                        <div class="elz d-block">3. Разнесение продуктивных баз от тестовых.</div>
+
+                        <div class="elz d-block">Начать хотим в этом же порядке, запросили список баз, пока дали и подсветили только основные и проблемные.</div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="elz d-flex gap8">
+                <div class="elz d-flex a-X s40 rRound bg bg-error fn fn-error-t bgL5 bsh-default1 noShrink">
+                    <div class="elz d-block p-rel mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/info.svg');"></div>
+                </div>
+                <div class="elz d-flex dir-y gap16 grow p16 hmn40 r3 bg bg-primary bgL5 bsh-default1">
+                    <div class="elz d-flex f-wrap a-H gap16">
+                        <div class="elz d-block bold">Запрос №56270</div>
+                        <div class="elz d-block pV6 pH8 rRound fn8 uppercase bold bg bg-success fn fn-success-t">Квалифицирован</div>
+                        <div class="elz d-block pV6 pH8 rRound fn8 uppercase bold bg bg-ok fn fn-ok-t">Изменение</div>
+                        <div class="elz d-block grow">Срок:2022-07-29</div>
+                        <div class="elz d-block rRound s32 bg bg-ok"></div>
+                    </div>
+
+                    <div class="elz d-flex dir-y gap16 lh15">
+                        <div class="elz d-block">Разнесение продуктивных баз от тестовых.</div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <div class="elz d-flex gap8">
+                <div class="elz d-flex a-X s40 rRound bg bg-success fn fn-success-t bgL5 bsh-default1 noShrink">
+                    <div class="elz d-block p-rel mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/file-text.svg');"></div>
+                </div>
+                <div class="elz d-flex dir-y gap16 grow p16 hmn40 r3 bg bg-primary bgL5 bsh-default1">
+                    <div class="elz d-flex f-wrap a-H gap16">
+                        <div class="elz d-block bold">Запрос №56270</div>
+                        <div class="elz d-block pV6 pH8 rRound fn8 uppercase bold bg bg-success fn fn-success-t">Квалифицирован</div>
+                        <div class="elz d-block pV6 pH8 rRound fn8 uppercase bold bg bg-ok fn fn-ok-t">Изменение</div>
+                        <div class="elz d-block grow">Срок:2022-07-29</div>
+                        <div class="elz d-block rRound s32 bg bg-pink"></div>
+                        <div class="elz d-block rRound s32 bg bg-purple"></div>
+                    </div>
+                    <div class="elz d-flex dir-y gap16 lh15">
+                        <div class="elz d-block">К нам обратился отдел Решетова А.М. (Отдел разработки и сопровождения прикладного ПО) с «горящей» проблемой производительности при работе 1С с рядом баз.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>

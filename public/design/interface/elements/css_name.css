@@ -1,0 +1,54 @@
+/*******************************/
+/* ELIZA USER NICK SETTINGS    */
+/*******************************/
+
+.elzCLSuName {
+    position: relative;
+    text-overflow: ellipsis;
+    text-decoration: none;
+}
+
+.elzCLSuName.block  { display:  block; }
+.elzCLSuName.inline { display: inline; }
+
+.elzCLSuName.link     { cursor: pointer; }
+.elzCLSuName.link:active { opacity: 0.7; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Icon */
+
+.elzCLSuName > .elzIc {
+    position: relative;
+    display: inline-block;
+    top: 0.095em;
+    margin-right: 0.2em;
+}
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* end */
+
+.elzCLSuName:not([data-elz-fn])        { color: #000000; } .elzCLSuName.link:not([data-elz-fn]):hover,        .elzCLSuName.link:not([data-elz-fn]):active        { color: #000000; text-shadow: 0 0 5px rgba(0,   0,   0, 0.5); }
+.elzCLSuName:not([data-elz-fn]).male   { color: #4262c0; } .elzCLSuName.link:not([data-elz-fn]).male:hover,   .elzCLSuName.link:not([data-elz-fn]).male:active   { color: #16348b; text-shadow: 0 0 5px rgba(22, 52, 139, 0.5); }
+.elzCLSuName:not([data-elz-fn]).female { color: #e044c4; } .elzCLSuName.link:not([data-elz-fn]).female:hover, .elzCLSuName.link:not([data-elz-fn]).female:active { color: #9b009b; text-shadow: 0 0 5px rgba(155, 0, 155, 0.5); }
+
+/* end */

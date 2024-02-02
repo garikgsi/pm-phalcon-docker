@@ -1,0 +1,356 @@
+/* Main settings */
+
+.winCSSNunit.app-iceditor,
+.winCSSNunit.app-texeditor,
+.winCSSNunit.app-mapeditor {
+    width:  1040px;
+    height:  720px;
+    min-width:  1040px;
+    min-height:  720px;
+}
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Left menu */
+
+.winCSSNunit.app-iceditor    .markMenuR,
+.winCSSNunit.app-texeditor   .markMenuR,
+.winCSSNunit.app-mapeditor   .markMenuR,
+.winCSSNunit.app-iseditor    .markMenuR,
+.winCSSNunit.app-ramapeditor .markMenuR,
+.winCSSNunit.app-ramapeditor .markPanelR,
+.winCSSNunit.app-texteditor  .markMenuR,
+.winCSSNunit.app-iceditoradm .markMenuR,
+.winCSSNunit.app-roadeditor  .markMenuR {
+    position: relative;
+    border-left: 1px solid;
+    margin-left: -1px;
+}
+
+
+
+.winCSSNunit.app-iceditor    .markMenuL,
+.winCSSNunit.app-iseditor    .markMenuL,
+.winCSSNunit.app-texeditor   .markMenuL,
+.winCSSNunit.app-texteditor  .markMenuL,
+.winCSSNunit.app-iceditoradm .markMenuL,
+.winCSSNunit.app-roadeditor  .markMenuL {
+    position: relative;
+    border-right: 1px solid;
+    margin-right: -1px;
+}
+
+
+
+.winCSSNunit.app-mapeditor   .markMenuR,
+.winCSSNunit.app-ramapeditor .markMenuR { width: 337px; }
+
+
+
+/* Texture editor */
+.winCSSNunit.app-texeditor  .markMenuR,
+.winCSSNunit.app-texeditor  .markMenuL,
+
+/* Text editor */
+.winCSSNunit.app-texteditor .markMenuL,
+.winCSSNunit.app-texteditor .markMenuR,
+
+/* Local asset editor */
+.winCSSNunit.app-iseditor   .markMenuL,
+.winCSSNunit.app-iseditor   .markMenuR,
+
+/* Icon editor */
+.winCSSNunit.app-iceditor   .markMenuL,
+.winCSSNunit.app-iceditor   .markMenuR,
+
+/* Icon editor admin */
+.winCSSNunit.app-iceditoradm .markMenuL,
+.winCSSNunit.app-iceditoradm .markMenuR,
+
+/* Road editor */
+.winCSSNunit.app-roadeditor  .markMenuL,
+.winCSSNunit.app-roadeditor  .markMenuR { width: 361px; }
+
+
+
+/* Icon editor */
+.winCSSNunit.app-iceditor    .markMenuL,
+.winCSSNunit.app-iceditor    .markMenuR,
+
+/* Texture editor */
+.winCSSNunit.app-texeditor   .markMenuL,
+.winCSSNunit.app-texeditor   .markMenuR,
+
+/* Local asset editor */
+.winCSSNunit.app-iseditor    .markMenuL,
+.winCSSNunit.app-iseditor    .markMenuR,
+
+/* Text editor */
+.winCSSNunit.app-texteditor  .markMenuL,
+.winCSSNunit.app-texteditor  .markMenuR,
+
+/* Hex map editor */
+.winCSSNunit.app-mapeditor   .markMenuR,
+
+/* Local map editor */
+.winCSSNunit.app-ramapeditor .markMenuR,
+.winCSSNunit.app-ramapeditor .markPanelR,
+
+/* Icon editor admin */
+.winCSSNunit.app-iceditoradm .markMenuL,
+.winCSSNunit.app-iceditoradm .markMenuR,
+
+/* Road editor */
+.winCSSNunit.app-roadeditor  .markMenuL,
+.winCSSNunit.app-roadeditor  .markMenuR
+{
+    background-clip: padding-box;
+    border-color: rgba(0, 0, 0, 0.15);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Local map editor panel settings */
+
+.winCSSNunit.app-ramapeditor .rpButtonsAbove { max-width: 336px; }
+
+.winCSSNunit.app-ramapeditor .winControls ~ .contentCenter .rpButtonsAbove { max-width: 272px; }
+
+.winCSSNunit.app-ramapeditor.state-save .winHeader .tbWrap.contentCenter { max-width: 640px; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Local map color panel settings */
+
+.winCSSNunit.app-ramapeditor .markPanelR.x1 { width:  65px; }
+.winCSSNunit.app-ramapeditor .markPanelR.x2 { width:  98px; }
+.winCSSNunit.app-ramapeditor .markPanelR.x3 { width: 146px; }
+.winCSSNunit.app-ramapeditor .markPanelR.x4 { width: 194px; }
+.winCSSNunit.app-ramapeditor .markPanelR.x5 { width: 242px; }
+.winCSSNunit.app-ramapeditor .markPanelR.x6 { width: 290px; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Local icons editor right panel buttons above (ISEDITOR) */
+
+.winCSSNunit.app-iseditor .rpButtonsAbove { max-width: 360px; }
+
+.winCSSNunit.app-iseditor .winControls ~ .contentCenter .rpButtonsAbove { max-width: 312px; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Texture editor */
+
+.winCSSNunit.app-texeditor .elzCLSenginePanel.winHeader .contentCenter { max-width: 480px; }
+
+
+.winCSSNunit.app-texeditor .markMenuR.disabled { pointer-events: none; }
+.winCSSNunit.app-texeditor .markMenuR.disabled:before {
+    content: "";
+    position: absolute;
+    top:    0;
+    right:  0;
+    bottom: 0;
+    left:   0;
+    background-color: inherit;
+    opacity: 0.5;
+    z-index: 20;
+}
+
+.winCSSNunit.app-texeditor .elzTxShapeLayers {
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 100px;
+    margin-bottom: -100px;
+}
+
+.winCSSNunit.app-texeditor .elzTxShapeLayers .hxdLayers {
+    z-index: 5;
+}
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Local map editor panel settings */
+
+.winCSSNunit.app-texeditor .shapesMode,
+.winCSSNunit.app-texeditor .shapeMapMode,
+.winCSSNunit.app-iceditor  .colorSchemeMode { width: 360px; }
+
+.winCSSNunit.app-texeditor .winControls .winClose ~ .shapesMode,
+.winCSSNunit.app-iceditor  .winControls .winClose ~ .colorSchemeMode { width: 312px; }
+
+/* end */
+
+
+
+
+
+
+
+
+/* Icon editor */
+
+.winCSSNunit.app-iceditor .elzCLSenginePanel.winHeader .contentCenter { max-width: 480px; }
+
+/* Icon editor admin */
+.winCSSNunit.app-iceditor.state-admin .markMenuL,
+.winCSSNunit.app-iceditor.state-admin .markMenuR { z-index: 2; }
+
+.winCSSNunit.app-iceditor.state-admin .strCLSitem.ui-sortable-helper { z-index: 1 !important; }
+
+.winCSSNunit.app-iceditor .tplDisabledWrap { color: #444444; z-index: 10; }
+.winCSSNunit.app-iceditor .tplDisabledWrap:before { color: #444444; opacity: 0.95; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+
+/*
+@media (max-width: 959px) {
+    .winCSSNunit.app-settings .markMenuL {
+        transition: margin-right 0.2s, width 0.2s;
+        width: 48px;
+        z-index: 20;
+    }
+
+    .winCSSNunit.app-settings .markMenuL:hover {
+        width: 240px;
+        margin-right: -192px;
+    }
+*/
+    /* Touch screen detection */
+/*
+    @media (pointer: coarse), (-moz-touch-enabled) {
+        .winCSSNunit.app-settings .markMenuL > .content:before {
+            content: "";
+            position: absolute;
+            top:    0;
+            right:  0;
+            bottom: 0;
+            left:   0;
+            transition: 0.1s;
+            z-index: 1;
+        }
+
+        .winCSSNunit.app-settings .markMenuL:hover > .content:before { visibility: hidden; }
+    }
+
+    .winCSSNunit.app-settings .markMenuL:not(:hover) .tplCLSmenu .menuItem.title,
+    .winCSSNunit.app-settings .markMenuL:not(:hover) .tplCLSmenu .menuItem.default .text,
+    .winCSSNunit.app-settings .markMenuL:not(:hover) .tplCLSmenu .menuItem.default.category > .itemInner > .itemExpander { display: none; }
+}
+
+@media (max-width: 577px) { .winCSSNunit.app-settings .markMenuL { display: none; } }
+*/
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Media */
+/*
+@media (max-width: 467px) { .winCSSNunit.app-settings.focus { z-index: var(--elzWinAbove9); } }
+@media (max-width: 427px) { .winCSSNunit.app-settings.focus { z-index: var(--elzWinAbove8); } }
+@media (max-width: 387px) { .winCSSNunit.app-settings.focus { z-index: var(--elzWinAbove7); } }
+@media (max-width: 347px) { .winCSSNunit.app-settings.focus { z-index: var(--elzWinAbove6); } }
+@media (max-width: 307px) { .winCSSNunit.app-settings.focus { z-index: var(--elzWinAbove5); } }
+*/
+/*
+@media (max-width: 100px) { .winCSSNunit.app-settings.focus { z-index: var(--elzWinAbove4); } }
+@media (max-width: 100px) { .winCSSNunit.app-settings.focus { z-index: var(--elzWinAbove3); } }
+@media (max-width: 100px) { .winCSSNunit.app-settings.focus { z-index: var(--elzWinAbove2); } }
+@media (max-width: 100px) { .winCSSNunit.app-settings.focus { z-index: var(--elzWinAbove1); } }
+*/
+/*
+@media (max-width: 515px) { .winCSSNunit.app-settings .winControls .tbTool.sep:first-child { display: none; } }
+*/
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* App Disabler */
+
+.hxdAppDisable .hxdDisabled,
+.hxdAppDisable .hxdEvNone {
+    pointer-events: none !important;
+}
+
+.hxdAppDisable .hxdDisabled { opacity: 0.5; }
+
+/*  */

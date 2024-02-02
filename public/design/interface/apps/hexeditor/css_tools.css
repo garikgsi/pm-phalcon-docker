@@ -1,0 +1,297 @@
+.hxdToolGridSize {
+    position: relative;
+    display: block;
+    width:  33px;
+    height: 33px;
+}
+
+.hxdToolGridSize .grid,
+.hxdToolGridSize .grid:before,
+.hxdToolGridSize .grid:after {
+    position: absolute;
+    display: block;
+    overflow: hidden;
+    top:    0;
+    right:  0;
+    bottom: 0;
+    left:   0;
+}
+
+.hxdToolGridSize .grid.selection:before { bottom: auto; }
+
+.hxdToolGridSize .grid.selection.sh1:before { height:  5px; }
+.hxdToolGridSize .grid.selection.sh2:before { height:  9px; }
+.hxdToolGridSize .grid.selection.sh3:before { height: 13px; }
+.hxdToolGridSize .grid.selection.sh4:before { height: 17px; }
+
+.hxdToolGridSize.noSight .grid:after { display: none; }
+
+.hxdToolGridSize .grid:before,
+.hxdToolGridSize .grid:after {
+    content: "";
+    background-clip: padding-box;
+}
+
+.hxdToolGridSize.noborder .grid:before,
+.hxdToolGridSize.noborder .grid:after { border: 1px solid transparent; }
+
+.hxdToolGridSize .grid:before { background-size: 4px 4px; }
+
+.hxdToolGridSize.noborder .grid:before { background-position: -1px -1px !important; }
+
+.hxdToolGridSize .grid:after {
+    background-size: 24px 24px;
+    background-position: -8px -8px;
+}
+
+.hxdToolGridSize.noborder .grid:after { background-position: -9px -9px !important; }
+
+.hxdToolGridSize .grid.rot45:after {
+    transform: rotate(45deg);
+    background-size: 29px 29px;
+    top:    -5px;
+    right:  -5px;
+    bottom: -5px;
+    left:   -5px;
+}
+
+.hxdToolGridSize .grid.rot60:after {
+    transform: rotate(45deg) skew(-15deg, -15deg);
+    background-size: 26px 26px;
+    top:    -2px;
+    right:  -2px;
+    bottom: -2px;
+    left:   -2px;
+}
+
+/* Colors */
+
+.hxdToolGridSize .grid:before,
+.elzCLStoolbar.dark .toolInner      .hxdToolGridSize .grid:before,
+.elzCLStoolbar      .toolInner.dark .hxdToolGridSize .grid:before { opacity: 0.15; background-image: linear-gradient(rgba(0, 0, 0, 1) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 0, 0 ,1) 1px, transparent 1px); }
+
+.hxdToolGridSize .grid.blueGrid:before { opacity: 1; background-image: linear-gradient(rgba(61, 71, 205, 1) 1px, transparent 1px), linear-gradient(90deg, rgba(61, 71, 205, 1) 1px, transparent 1px); }
+
+.elzCLStoolbar.light .toolInner       .hxdToolGridSize .grid:before,
+.elzCLStoolbar       .toolInner.light .hxdToolGridSize .grid:before { opacity: 0.15; background-image: linear-gradient(rgba(255, 255, 255, 1) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255 ,1) 1px, transparent 1px); }
+
+
+
+.hxdToolGridSize .grid:after,
+.elzCLStoolbar.dark .toolInner      .hxdToolGridSize .grid:after,
+.elzCLStoolbar      .toolInner.dark .hxdToolGridSize .grid:after  { opacity: 0.2; background-image: linear-gradient(rgba(0, 0, 0, 1) 1px, transparent 1px) , linear-gradient(90deg, rgba(0, 0, 0 ,1) 1px, transparent 1px); }
+
+.elzCLStoolbar.light .toolInner       .hxdToolGridSize .grid:after,
+.elzCLStoolbar       .toolInner.light .hxdToolGridSize .grid:after { opacity: 0.75; background-image: linear-gradient(rgba(255, 255, 255, 1) 1px, transparent 1px) , linear-gradient(90deg, rgba(255, 255, 255 ,1) 1px, transparent 1px); }
+
+.hxdToolGridSize .grid.redSight:after,
+.elzCLStoolbar.dark .toolInner      .hxdToolGridSize .grid.redSight:after,
+.elzCLStoolbar      .toolInner.dark .hxdToolGridSize .grid.redSight:after { opacity: 1; background-image: linear-gradient(rgba(255, 0, 0, 1) 1px, transparent 1px) , linear-gradient(90deg, rgba(255, 0, 0 ,1) 1px, transparent 1px); }
+
+.elzCLStoolbar.light .toolInner       .hxdToolGridSize .grid.redSight:after,
+.elzCLStoolbar       .toolInner.light .hxdToolGridSize .grid.redSight:after { opacity: 1; background-image: linear-gradient(rgba(255, 72, 72, 1) 1px, transparent 1px) , linear-gradient(90deg, rgba(255, 72, 72 ,1) 1px, transparent 1px); }
+
+
+/* end */
+
+
+
+
+
+
+
+
+/* Size small */
+
+.hxdToolGridSize.small .grid:before {
+    top:    4px;
+    right:  4px;
+    bottom: 4px;
+    left:   4px;
+}
+
+.hxdToolGridSize.small .grid:after {
+    top:    8px;
+    right:  8px;
+    bottom: 8px;
+    left:   8px;
+    background-position: -16px -16px;
+}
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Figure */
+
+.hxdToolGridSize .fig {
+    position: absolute;
+    display: block;
+    background-color: #5aafdd;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    opacity: 0.75;
+}
+
+.active .hxdToolGridSize .fig { background-color: #40bd7e; }
+
+.hxdToolGridSize.circle .fig {
+    -webkit-border-radius: 100%;
+    -moz-border-radius:    100%;
+    border-radius:         100%;
+}
+
+.hxdToolGridSize.rhombus .fig {
+    -webkit-transform: rotate(45deg);
+    -moz-transform:    rotate(45deg);
+    -ms-transform:     rotate(45deg);
+    -o-transform:      rotate(45deg);
+    transform:         rotate(45deg);
+}
+
+.hxdToolGridSize.circle[data-size="1"] .fig { width:  3px; height:  3px; top: 14px; left: 14px; }
+.hxdToolGridSize.circle[data-size="2"] .fig { width:  7px; height:  7px; top: 12px; left: 12px; }
+.hxdToolGridSize.circle[data-size="3"] .fig { width: 15px; height: 15px; top:  8px; left:  8px; }
+.hxdToolGridSize.circle[data-size="4"] .fig { width: 23px; height: 23px; top:  4px; left:  4px; }
+.hxdToolGridSize.circle[data-size="5"] .fig { width: 31px; height: 31px; top:    0; left:    0; }
+
+.hxdToolGridSize.rhombus[data-size="1"] .fig { width:  1px; height:  1px; top: 15px; left: 15px; }
+.hxdToolGridSize.rhombus[data-size="2"] .fig { width:  5px; height:  5px; top: 13px; left: 13px; }
+.hxdToolGridSize.rhombus[data-size="3"] .fig { width:  9px;  height: 9px; top: 11px; left: 11px; }
+.hxdToolGridSize.rhombus[data-size="4"] .fig { width: 15px; height: 15px; top:  8px; left:  8px; }
+.hxdToolGridSize.rhombus[data-size="5"] .fig { width: 21px; height: 21px; top:  5px; left:  5px; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Figcaption */
+
+.hxdToolGridSize:after {
+    content: attr(data-size);
+    position: absolute;
+    display: block;
+    right: 2px;
+    bottom:  0;
+    height:      12px;
+    line-height: 12px;
+    text-align: right;
+    font-size: 6pt;
+    font-weight: bold;
+    font-family: Verdana, Arial, sans-serif;
+}
+
+.hxdToolGridSize:after,
+.elzCLStoolbar.dark .toolInner      .hxdToolGridSize:after,
+.elzCLStoolbar      .toolInner.dark .hxdToolGridSize:after {
+    color: #000000;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 1);
+}
+
+.elzCLStoolbar.light .toolInner       .hxdToolGridSize:after,
+.elzCLStoolbar       .toolInner.light .hxdToolGridSize:after {
+    color: #ffffff;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 1);
+}
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Middle value */
+
+.hxdToolGridSize .mValue {
+    position: relative;
+    display: block;
+    height: 11px;
+    top:    12px;
+    line-height: 12px;
+    margin-left:  9px;
+    margin-right: 9px;
+    text-align: center;
+    color: #3d47cd;
+    font-size: 6pt;
+    font-weight: bold;
+    text-shadow: 0 0 1px #ffffff, 0 0 1px #ffffff, 0 0 2px #ffffff, 0 0 2px #ffffff, 0 0 5px #ffffff, 0 0 5px #ffffff;
+    z-index: 1;
+}
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* size selector */
+
+.elzMPEbrSelector {
+    position: relative;
+    display: block;
+    overflow: hidden;
+}
+
+.elzMPEbrSelector .itemsList {
+    display: -webkit-flex;
+    display:         flex;
+    margin-left:   -5px;
+    margin-bottom: -5px;
+}
+
+.elzMPEbrSelector .item {
+    position: relative;
+    display: block;
+    width:  33px;
+    height: 33px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    margin-left:   5px;
+    margin-bottom: 5px;
+    -webkit-background-clip: padding-box;
+    background-clip:         padding-box;
+}
+
+.elzMPEbrSelector .item + .item { margin-left: 5px; }
+.elzMPEbrSelector .itemsList + .itemsList { margin-top: 5px; }
+
+.elzMPEbrSelector .item .elzIc {
+    position: absolute;
+    display: none;
+    top:  9px;
+    left: 8px;
+    font-size: 12pt;
+    color: #555555;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
+}
+
+.elzMPEbrSelector .item.active .elzIc { display: block; }
+
+.elzMPEbrSelector .item:hover,
+.elzMPEbrSelector .item:active { background-color: rgba(0, 0, 0, 0.075); }
+.elzMPEbrSelector .item.active { border-color: rgba(0, 0, 0, 0.15); }
+
+/* end */

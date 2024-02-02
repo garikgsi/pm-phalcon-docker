@@ -1,0 +1,124 @@
+/* Map preview */
+
+.hxdMapPreview,
+.hxdImagePreview {
+    position: relative;
+    background-color: #ffffff;
+}
+
+.hxdMapPreview { display: block; }
+
+.hxdMapPreview:before,
+.hxdMapPreview:after,
+.hxdImagePreview:before {
+    content: "";
+    display: block;
+}
+
+.hxdMapPreview:after,
+.hxdMapPreview .previewWrap,
+.hxdImagePreview:before,
+.hxdMapPreview .prevLink {
+    position: absolute;
+    top:    0;
+    right:  0;
+    bottom: 0;
+    left:   0;
+}
+
+.hxdMapPreview:before { padding-top: 75%; }
+
+.hxdMapPreview:after,
+.hxdImagePreview:before {
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.hxdMapPreview .previewWrap,
+.hxdMapPreview .prevLink {
+    display: flex;
+    align-items:     center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.hxdMapPreview .previewWrap { background-color: #ffffff; }
+
+.hxdMapPreview .previewWrap .imageWrap {
+    position: relative;
+    display: block;
+}
+
+.hxdMapPreview .previewWrap .imageWrap img {
+    display: block;
+    width:  auto;
+    height: auto;
+}
+
+.hxdMapPreview .prevLink {
+    opacity: 0;
+    visibility: hidden;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.2s opacity, 0.2s visibility;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 1);
+}
+
+.hxdMapPreview:hover  .prevLink,
+.hxdMapPreview:active .prevLink {
+    opacity: 1;
+    visibility: visible;
+}
+
+.hxdMapPreview .prevLink:active { opacity: 0.7; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Icon preview */
+
+.hxdImagePreview {
+    display: inline-block;
+    vertical-align: bottom;
+}
+
+.hxdImagePreview .image {
+    display: block;
+    margin: auto;
+    width:  auto;
+    height: auto;
+    max-width: 100%;
+}
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Hotkeys for localmap */
+
+.app-ramapeditor .localMapHotkeys .elzCLSoverDescr {
+    right: 6px;
+    margin-top: 8px;
+    min-width: 200px;
+}
+
+/* end */

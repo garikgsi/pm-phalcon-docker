@@ -1,0 +1,44 @@
+<div class="elz setSection row active">
+    <div class="elz setSection cell title">
+        <p class="bb p fn-8 bold">{{title}}</p>
+    </div>
+
+    <div class="elz setSection cell forEdit content editor">
+
+        <div class="elz strCLSitem flexible middle">
+            <div class="elz strCLSitem flexible middle grow w0">
+                <div class="elz strCLSitem">
+                    {{#icon}}
+                    <div class="elz elzIcon larger rad elzPLT" data-bg="{{icon.bg}}">
+                        <i class="elz main smallest elzIc {{icon.ic}} elzPLT shD" data-fn="{{icon.fn}}"></i>
+                    </div>
+                    {{/icon}}
+                    {{#avatar}}
+                    <div class="elz elzIcon larger circle elzPLT" data-bg="purple 300">
+                        <div class="elz main image fill">
+                            <img class="elz img" alt="{{avatar.title}}" src="{{avatar.src}}">
+                        </div>
+                    </div>
+                    {{/avatar}}
+                </div>
+                <div class="elz strCLSitem marLMedium grow w0">
+                    {{#state.active}}
+                        <div class="elz strCLSitem bold">{{state.title}}</div>
+                    {{/state.active}}
+                    {{^state.active}}
+                        <div class="elz strCLSitem elzPLT" data-fn="grey 600">{{state.title}}</div>
+                    {{/state.active}}
+                </div>
+            </div>
+            <div class="elz strCLSitem">
+                {{#state.active}}
+                    <div class="elz elzCLSlabel small bold elzPLT" data-bg="green" data-fn="white" title="{{state.button_title}}">{{state.button_text}}</div>
+                {{/state.active}}
+                {{^state.active}}
+                    <a class="elz elzCLSlabel small bold link elzPLT" data-bg="blue" data-fn="white" href="{{state.button_href}}" title="{{state.button_title}}">{{state.button_text}}</a>
+                {{/state.active}}
+            </div>
+        </div>
+
+    </div>
+</div>

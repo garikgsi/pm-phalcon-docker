@@ -1,0 +1,123 @@
+<?$memberRow = $this->view->getVar('memberRow')?>
+
+<div id="ipRcpEditMemberId" data-id="<?=$memberRow['member_id']?>" class="elz strCLSitem wrap flexible padBMedium padRMedium">
+    <?$this->view->partial('partials/forms/forms_section', [
+        'title'  => $t->_('member_edit_meta_title1'),
+        'formId' => 'ipRcpEditMemberEdit',
+        'formAction' => '/members/api/meta_edit?member_id='.$memberRow['member_id'],
+        'formData'   => 'data-id="'.$memberRow['member_id'].'"',
+        'submitTitle' => $t->_('member_edit_save'),
+        'fieldList' => [
+            [
+                'field'  => 'input',
+                'ftitle' => $t->_('member_edit_meta_nick'),
+                'fdescr' => $t->_('member_edit_meta_nick_d'),
+                'wtitle' => 'wmn280',
+                'type'   => 'text',
+                'placeholder' => $t->_('member_edit_meta_nick_p'),
+                'value' => $memberRow['member_nick'],
+                'name'  => 'nick'
+            ],
+            [
+                'field'  => 'select',
+                'ftitle' => $t->_('member_edit_meta_gender'),
+                'wtitle' => 'wmn280',
+                'type'   => 'text',
+                'value' => $memberRow['member_gender'],
+                'optionList' => [['male', 'Мужчина'], ['female', 'Женщина']],
+                'name'  => 'gender'
+            ]
+        ]
+    ])?>
+
+    <div class="elz strCLSitem marLMedium marTMedium w400 grow flexible">
+        <div class="elz admCLSwrap flexible shadowed">
+
+            <div class="elz admHeader admWBordered">
+                <div class="elz admCaption">
+                    <h2 class="elz admTitle">Информация о пользователе</h2>
+                </div>
+            </div>
+
+            <div class="elz admBody">
+
+                <div class="elz strCLSitem">
+                    <div class="elz elzCLStableWrap padTSmaller">
+                        <table class="elz elzCLStable striped">
+                            <tbody class="elz tbody">
+                            <tr>
+                                <td class="pad padVSmaller padHMedium elzCbox h36 wmn200">
+                                    <div class="elz elzText nowrap"><b class="bb strong">Дата регистрации</b></div>
+                                </td>
+                                <td class="pad padVSmaller padHMedium elzCbox h36  elz al-right"><?=$memberRow['member_date_register']?></td>
+                            </tr>
+                            <tr>
+                                <td class="pad padVSmaller padHMedium elzCbox h36 wmn200">
+                                    <div class="elz elzText nowrap"><b class="bb strong">Дата активности</b></div>
+                                </td>
+                                <td class="pad padVSmaller padHMedium elzCbox h36  elz al-right"><?=$memberRow['member_date_activity']?></td>
+                            </tr>
+                            <tr>
+                                <td class="pad padVSmaller padHMedium elzCbox h36 wmn200">
+                                    <div class="elz elzText nowrap"><b class="bb strong">Дата рождения</b></div>
+                                </td>
+                                <td class="pad padVSmaller padHMedium elzCbox h36  elz al-right"><?=$memberRow['member_date_birth']?></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div data-id="<?=$memberRow['member_id']?>" class="elz strCLSitem wrap flexible padBMedium padRMedium">
+    <?$this->view->partial('partials/forms/forms_section', [
+        'title'  => $t->_('member_edit_change_title'),
+        'formId' => 'ipRcpEditMemberEditEmailPass',
+        'formAction' => '/members/api/member_change_email_password?member_id='.$memberRow['member_id'],
+        'formData'   => 'data-id="'.$memberRow['member_id'].'"',
+        'submitTitle' => $t->_('member_edit_change_submit'),
+        'fieldList' => [
+            [
+                'field'  => 'input',
+                'ftitle' => $t->_('member_edit_change_mail1'),
+                'wtitle' => 'wmn280',
+                'type'   => 'text',
+                'placeholder' => $t->_('member_edit_change_mail1_p'),
+                'value' => $memberRow['member_email'],
+                'name'  => 'mail1'
+            ],
+            [
+                'field'  => 'input',
+                'ftitle' => $t->_('member_edit_change_mail2'),
+                'wtitle' => 'wmn280',
+                'type'   => 'text',
+                'placeholder' => $t->_('member_edit_change_mail2_p'),
+                'value' => $memberRow['member_email'],
+                'name'  => 'mail2'
+            ],
+            [
+                'field'  => 'input',
+                'ftitle' => $t->_('member_edit_change_pass1'),
+                'wtitle' => 'wmn280',
+                'type'   => 'password',
+                'placeholder' => $t->_('member_edit_change_pass1_p'),
+                'value' => '',
+                'name'  => 'pass1'
+            ],
+            [
+                'field'  => 'input',
+                'ftitle' => $t->_('member_edit_change_pass2'),
+                'wtitle' => 'wmn280',
+                'type'   => 'password',
+                'placeholder' => $t->_('member_edit_change_pass2_p'),
+                'value' => '',
+                'name'  => 'pass2'
+            ]
+        ]
+    ])?>
+</div>

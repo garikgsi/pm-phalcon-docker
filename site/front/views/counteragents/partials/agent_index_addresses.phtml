@@ -1,0 +1,31 @@
+<?php $addressTypes = $this->view->getVar('counterAgentAddresses')?>
+<?php $isOpened = (int)$this->user->getSetting('counteragent_show_addresses')?>
+<?php $expandContClass = $isOpened ? '' : ' hide'?>
+<div class="pmContentExpandWrap elz d-block growX r3 w100p bg bg-primary bgL5 bsh-default1" data-id="7" data-name="counteragent_show_addresses" data-val="<?=$isOpened?>">
+    <div class="elz d-flex dir-y p16 fn12 lh15">
+
+        <div class="pmContentExpandBorder elz d-flex a-H gap8 fn16 br-primary brL-10 brLInvD <?if($isOpened):?> pB8<?endif;?>">
+            <div class="elz d-block grow">Адреса</div>
+            <div class="pmContentExpandToggle elz d-flex a-X mV-8 s32 noShrink rCircle cur-pointer opAct07 bgHov bgHov-primary bgHovL-5 bgHovLF5 bgHovFD bgLInvD">
+                <div class="mskIcon elz p-rel d-block mskBef s12 cFillBef bgBef-CC<?if(!$isOpened):?> deg180<?endif;?>" style="--elzMsk: url('/design/icons/arrow2.svg');"></div>
+            </div>
+        </div>
+<?php for($a = 0, $len = sizeof($addressTypes); $a < $len; $a++):?>
+    <?php $addressType = $addressTypes[$a]?>
+        <div class="pmContentExpandContainer<?=$expandContClass?> formWrap elz d-flex a-H f-wrap gapH16 gapV8 pV16 borT1 br br-primary brL-10 brLInvD showSelOut hideSelOut invSelOut showHovOut" data-name="title">
+            <div class="elz d-block fb180 bold"><?=$addressType['type_title']?>:</div>
+            <div class="elz p-rel d-flex dir-y a-V fb320 grow hmn18">
+
+                <div title="Редактировать" class="elizaRightPanelTrigger elz p-abs p-R d-flex a-X cur-pointer opAct07 s36 rRound bgHov bgHov-primary bgHovL-5 hideSelIn showHovIn" data-panel="address" data-widget="change" data-node="<?=$addressType['address_node_id']?>" data-type="<?=$addressType['address_type_id']?>">
+                    <div class="mskIcon elz d-block p-rel noShrink mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/pencil.svg');"></div>
+                </div>
+    <?php if(!$addressType['address_id']):?>
+                <div class="elizaPMAddressText formResult elz d-block pR40 fn fn-error fnLF20 fnFD" data-node="<?=$addressType['address_node_id']?>" data-type="<?=$addressType['address_type_id']?>">Нет данных</div>
+    <?else:?>
+                <div class="elizaPMAddressText formResult elz d-block pR40" data-node="<?=$addressType['address_node_id']?>" data-type="<?=$addressType['address_type_id']?>"><?=$addressType['address_full']?></div>
+    <?endif;?>
+            </div>
+        </div>
+<?endfor;?>
+    </div>
+</div>

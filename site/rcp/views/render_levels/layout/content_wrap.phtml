@@ -1,0 +1,58 @@
+<div class="elz admCLSheader">
+
+    <div class="elz admCLSwrap admMainHeader">
+
+        <div class="elz admBreads">
+            <ul class="elz list">
+                <li class="elz item home"><a class="elz itemLink elizaHApi" title="" href="/" data-level="4"><i class="elz elzIcon smallest"><i class="elz elzIc main smallest ic-home"></i></i></a></li>
+                <?=$this->breadcrumbs->getHtml()?>
+            </ul>
+        </div>
+
+        <div class="elz strCLSitem flexible wrap padRMedium padBMedium middle">
+            <div class="elz strCLSitem marTMedium marLMedium grow">
+                <h1 class="admCaption"><?=$this->view->getVar('content_wrap_title')?></h1>
+            </div>
+
+<?$titleButtons = $this->view->getVar('content_wrap_title_buttons')?>
+<?if(is_array($titleButtons) && sizeof($titleButtons)):?>
+    <div class="elz strCLSitem marTMedium marLMedium">
+
+        <div class="elz strCLSitem flexible wrap mar-TMedium mar-LMedium">
+    <?for($i = 0, $len = sizeof($titleButtons); $i < $len; $i++):?>
+        <?$button = $titleButtons[$i]?>
+            <div class="elz strCLSitem marTMedium marLMedium">
+                <?=\Core\Builder\MustacheForms::buttonLink(
+                    $button['text'],  $button['href'], $button['variant'], $button['title'],
+                    $button['icon'],  $button['id'],   $button['classes'], $button['data'], isset($button['tag']) ? $button['tag'] : 'a'
+                )?>
+            </div>
+    <?endfor;?>
+        </div>
+
+    </div>
+<?endif;?>
+        </div>
+<?$bookMarks = $this->view->getVar('bookMarks')?>
+<?$bookLen   = sizeof($bookMarks)?>
+<?if($bookLen):?>
+        <div class="elz elzCLSbookmarks brDark left large dark bordered top">
+            <div class="elz elzScroll macosx dark nopad">
+                <div class="elz bookmarksWrap">
+    <?foreach($bookMarks as $index => $book):?>
+                    <a class="elz bookmarkItem link light<?=$book['res_classes']?>" href="<?=$book['href']?>" title="<?=$book['title']?>" data-level="<?=$book['level']?>" <?=$book['attrs']?>>
+                        <div class="elz itemInner">
+                            <span class="elz text"><?=$book['title']?></span>
+                        </div>
+                    </a>
+    <?endforeach;?>
+                </div>
+            </div>
+        </div>
+<?endif;?>
+    </div>
+
+</div>
+<div class="elz admCLSbody" id="<?=$this->hapi->genRenderContainerId('before')?>">
+    <?=$this->getContent()?>
+</div>

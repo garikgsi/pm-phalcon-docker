@@ -1,0 +1,96 @@
+<div class="elz elzCLSupCrop upload">
+
+
+    <div class="elz elzCLSuploader rad">
+
+        <div class="elz uploaderDrop padLarge link elzPLT" data-bg="dark 50">
+            <div class="elz dropInner">
+
+                <div class="elz icon larger">
+                    <div class="elz elzIcon">
+                        <i class="elz elzIc main ic-image"></i>
+                    </div>
+                </div>
+
+                <div class="elz description">
+                    <p class="bb p al-center">
+                        Вы можете загрузить изображение в формате <b class="bold">JPG</b>, <b class="bold">GIF</b> или <b class="bold">PNG</b>.<br>Оригинал изображения не должен превышать <b class="bold">5 mb</b>.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="elz awaitingCont">
+            {{> common/loading_circle}}
+        </div>
+
+    </div>
+
+
+
+
+    <div class="elz elzCLScropWrap">
+        <div class="elz wrapOuter">
+
+
+
+            <div class="elz wrapItem">
+
+                <div class="elz elzCLScropbox overCNTRLhover">
+                    <div class="elz boxInner elzPLT" data-tx="ps-opacity-dark">
+                        <img class="elz image" width="660" height="330" alt="Picture" src="http://lelouch.ru/dev/elz/images/pic/avcrop.jpg">
+                    </div>
+
+                    <ul class="elz elzCLSoverControls hidden horizontal top">
+{{#}}
+
+                        <li class="elz cntrlItem right link" title="Удалить">
+                            <div class="elz elzIcon small smallest">
+                                <i class="elz main smallest elzIc ic-cross"></i>
+                            </div>
+                        </li>
+{{/}}
+                        <li class="elz cntrlItem right link" title="Загрузить новое">
+                            <div class="elz elzIcon smallest">
+                                <i class="elz main smallest elzIc ic-upload"></i>
+                            </div>
+                        </li>
+
+                        <li class="elz cntrlItem right link" title="Повернуть по часовой стрелке">
+                            <div class="elz elzIcon smallest">
+                                <i class="elz main smallest elzIc ic-rotateclockcw scH"></i>
+                            </div>
+                        </li>
+
+                        <li class="elz cntrlItem right link" title="Повернуть против часовой стрелки">
+                            <div class="elz elzIcon smallest">
+                                <i class="elz main smallest elzIc ic-rotateclockcw"></i>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+
+
+            <div class="elz wrapItem">
+
+                <div class="elz elzCLScropRes">
+                    <ul class="elz resList">
+                        <li class="elz resItem rad x200" data-elz-tx="ps-opacity-dark"></li>
+                        <li class="elz resItem rad x90" data-elz-tx="ps-opacity-dark"></li>
+                        <li class="elz resItem rad x50" data-elz-tx="ps-opacity-dark"></li>
+                    </ul>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+</div>

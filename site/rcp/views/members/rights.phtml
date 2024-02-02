@@ -1,0 +1,9 @@
+<?$rightsList = $this->view->getVar('rightsList')?>
+
+<input id="ipRcpMemberEditId" type="hidden" value="<?=$memberRow['member_id']?>" />
+
+<?$this->view->partial('rights/rights_set_widget', [
+    'rightsList' => $rightsList,
+    'rightsWidgetGetParam' => '',
+    'rightsWidgetId' => 'ipRcpEditMembersRights'
+])?>

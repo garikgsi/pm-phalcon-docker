@@ -1,0 +1,15 @@
+<tr class="rcpDomainContainer" data-domain="<?=$domain['domain_name']?>" data-site="<?=$domain['site_id']?>">
+    <td class="wmn200"><div class="elz elzText nowrap"><b class="bb strong"><?=$domain['domain_name']?></b></div></td>
+    <td class="compressed">
+        <?=\Core\Builder\MustacheForms::checkbox('', 'Сквозная авторизация', 'rcpDomainCross', '', (int)$domain['domain_cross'])?>
+    </td>
+    <td class="wmn100">
+        <?=\Core\Builder\MustacheForms::select($domain['lang_id'], $langList, '', '', '', 'rcpDomainLang')?>
+    </td>
+    <td class="compressed">
+        <i class="elz elzIcon large link rcpDomainDelete" data-domain="<?=$domain['domain_name']?>">
+            <i class="elz elzIc main smallest ic-cross elzPLT" data-fn="grey 700"></i>
+            <i class="elz elzIc main smallest ic-cross elzPLT" data-fn="black"></i>
+        </i>
+    </td>
+</tr>

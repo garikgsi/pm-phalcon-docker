@@ -1,0 +1,138 @@
+<?$contactsList = $this->view->getVar('contactsList')?>
+<?if(sizeof($contactsList)):?>
+    <div class="elz d-flex dir-y gap8 w100p">
+        <div class="elz d-flex a-H hmn48">
+            <div class="elz d-block growX borB1 br br-primary brL-10 brLInvD"></div>
+            <div class="elz d-block fn16 lh12 pH16">Контакты</div>
+            <div class="elz d-block growX borB1 br br-primary brL-10 brLInvD"></div>
+        </div>
+        <style>
+            @media (max-width: 1711px) {
+                .pmContactsListMode { display: none; }
+
+                .pmContactsList {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
+                    grid-auto-flow: row;
+                }
+
+                .pmContactsList .pmContactItem {
+                    justify-content: center;
+                    padding: 16px;
+                    flex-direction: column;
+                }
+
+                .pmContactsList .pmContactLine { width: 100%; order: 1; }
+
+                .pmContactsList .pmContactLine.header {
+                    flex-direction: column;
+                    text-align: center;
+                    line-height: 1.2;
+                    margin: -16px -16px 0 -16px;
+                    padding: 16px;
+                    border-bottom-width: 1px;
+                    flex-grow: 0;
+                }
+
+                .pmContactsList .pmContactAvatar {
+                    width:  120px;
+                    height: 120px;
+                }
+
+                .pmContactsList .pmContactLine { flex-basis: auto; }
+
+                .pmContactsList .pmContactLine.body { gap: 16px; align-content: flex-start; }
+
+                .pmContactsList .pmContactLabel.comment { order: 2; }
+
+                .pmContactsList .pmContactName {
+                    font-weight: normal;
+                    color: inherit;
+                    font-size: 16px;
+                    min-height: 40px;
+                    order: 1;
+                }
+
+                .pmContactsList .pmContactRole { font-weight: bold; }
+
+                .pmContactsList .pmPinContact {
+                    position: absolute;
+                    margin: 16px;
+                }
+
+                .pmContactsList .pmContactLine.footer { justify-content: center; }
+            }
+
+            @media (min-width: 1712px) and (max-width: 1920px) {
+                .pmContactLine.footer { flex-basis: 88px; }
+                .pmContactsList .pmContactLabel.comment { min-width: 0; }
+                .pmContactsList .pmCommentText { display: none; }
+            }
+
+
+
+
+
+
+
+
+            .pmContactsList.modeGrid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
+                grid-auto-flow: row;
+            }
+
+            .pmContactsList.modeGrid .pmContactItem {
+                justify-content: center;
+                padding: 16px;
+                flex-direction: column;
+            }
+
+            .pmContactsList.modeGrid .pmContactLine { width: 100%; order: 1; }
+
+            .pmContactsList.modeGrid .pmContactLine.header {
+                flex-direction: column;
+                text-align: center;
+                line-height: 1.2;
+                margin: -16px -16px 0 -16px;
+                padding: 16px;
+                border-bottom-width: 1px;
+                flex-grow: 0;
+            }
+
+            .pmContactsList.modeGrid .pmContactAvatar {
+                width:  120px;
+                height: 120px;
+            }
+
+            .pmContactsList.modeGrid .pmContactLine { flex-basis: auto; }
+
+            .pmContactsList.modeGrid .pmContactLine.body { gap: 16px; align-content: flex-start; }
+
+            .pmContactsList.modeGrid .pmContactLabel.comment { order: 2; }
+
+            .pmContactsList.modeGrid .pmContactName {
+                font-weight: normal;
+                color: inherit;
+                font-size: 16px;
+                min-height: 40px;
+                order: 1;
+            }
+
+            .pmContactsList.modeGrid .pmContactRole { font-weight: bold; }
+
+            .pmContactsList.modeGrid .pmPinContact {
+                position: absolute;
+                margin: 16px;
+            }
+
+            .pmContactsList.modeGrid .pmContactLine.footer { justify-content: center; }
+
+        </style>
+        <div class="pmContactsList elz d-flex grow w100p dir-y gap8 lh15">
+            <?for($a = 0, $len = sizeof($contactsList); $a < $len; $a++):?>
+                <?$this->view->partial('contacts/partials/contact_item', $contactsList[$a])?>
+            <?endfor;?>
+        </div>
+    </div>
+<?endif;?>

@@ -1,0 +1,9 @@
+<?php $title = $title ?? 'УКАЖИ ТАЙТЛ';?>
+<?php $widthTitle = $widthTitle ?? 150;?>
+    <div class="elz d-block fb<?=$widthTitle?> grow lh15">
+        <div class="elz d-block bold"><?=$title?>:</div>
+        <?if(isset($description)):?>
+            <div class="elz d-block oH ellipsis fn11"><?=$description?></div>
+        <?endif;?>
+    </div>
+    <?$this->view->partial('forms/select_base', $select)?>

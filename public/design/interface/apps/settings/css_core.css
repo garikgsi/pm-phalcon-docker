@@ -1,0 +1,90 @@
+/* Main settings */
+
+.winCSSNunit.app-settings {
+    width:  1040px;
+    height:  720px;
+    min-width:  1040px;
+    min-height:  720px;
+}
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Left menu */
+
+.winCSSNunit.app-settings .markMenuL { width: 240px; }
+
+@media (max-width: 959px) {
+    .winCSSNunit.app-settings .markMenuL {
+        transition: margin-right 0.2s, width 0.2s;
+        width: 48px;
+        z-index: 20;
+    }
+
+    .winCSSNunit.app-settings .markMenuL:hover {
+        width: 240px;
+        margin-right: -192px;
+    }
+
+    /* Touch screen detection */
+
+    @media (pointer: coarse), (-moz-touch-enabled) {
+        .winCSSNunit.app-settings .markMenuL > .content:before {
+            content: "";
+            position: absolute;
+            top:    0;
+            right:  0;
+            bottom: 0;
+            left:   0;
+            transition: 0.1s;
+            z-index: 1;
+        }
+
+        .winCSSNunit.app-settings .markMenuL:hover > .content:before { visibility: hidden; }
+    }
+
+    .winCSSNunit.app-settings .markMenuL:not(:hover) .tplCLSmenu .menuItem.title,
+    .winCSSNunit.app-settings .markMenuL:not(:hover) .tplCLSmenu .menuItem.default .text,
+    .winCSSNunit.app-settings .markMenuL:not(:hover) .tplCLSmenu .menuItem.default.category > .itemInner > .itemExpander { display: none; }
+
+    .winCSSNunit.app-settings .markMenuL:not(:hover) .tplCLSmenu > .menuList:before { left: 8px; right: 8px; }
+}
+
+@media (max-width: 577px) { .winCSSNunit.app-settings .markMenuL { display: none; } }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Media */
+
+@media (max-width: 467px) { .winCSSNunit.app-settings.focus { z-index: var(--elzWinAbove9); } }
+@media (max-width: 427px) { .winCSSNunit.app-settings.focus { z-index: var(--elzWinAbove8); } }
+@media (max-width: 387px) { .winCSSNunit.app-settings.focus { z-index: var(--elzWinAbove7); } }
+@media (max-width: 347px) { .winCSSNunit.app-settings.focus { z-index: var(--elzWinAbove6); } }
+@media (max-width: 307px) { .winCSSNunit.app-settings.focus { z-index: var(--elzWinAbove5); } }
+/*
+@media (max-width: 100px) { .winCSSNunit.app-settings.focus { z-index: var(--elzWinAbove4); } }
+@media (max-width: 100px) { .winCSSNunit.app-settings.focus { z-index: var(--elzWinAbove3); } }
+@media (max-width: 100px) { .winCSSNunit.app-settings.focus { z-index: var(--elzWinAbove2); } }
+@media (max-width: 100px) { .winCSSNunit.app-settings.focus { z-index: var(--elzWinAbove1); } }
+*/
+
+@media (max-width: 515px) { .winCSSNunit.app-settings .winControls .tbTool.sep:first-child { display: none; } }
+
+/* end */

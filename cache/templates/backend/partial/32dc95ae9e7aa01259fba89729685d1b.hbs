@@ -1,0 +1,11 @@
+<div class="elizaIForm elz elzF wrap">
+    <div class="elz elzF item parent{{#file}} upload{{/file}}{{#select}} select{{/select}}">
+        <div class="elz elzF wrap compiled flexible fixed">
+            {{#input_base}}{{> forms/base_input}}{{/input_base}}
+            {{#input_right}}<div class="elz elzF wrap auto">{{> forms/common_f_input}}</div>{{/input_right}}
+        </div>
+        {{#file}}<input{{#id}} id="{{id}}"{{/id}} name="{{name}}" type="file" class="elz elzF-fake elizaIFormFile" data-type="{{type}}">{{/file}}
+        {{#select}}<select {{{sl_attr}}} class="elzF elzF-fake {{sl_class}}">{{{html}}}</select>{{/select}}
+    </div>
+    {{#hint}}{{> forms/hint}}{{/hint}}
+</div>

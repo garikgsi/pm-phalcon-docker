@@ -1,0 +1,97 @@
+/* Main */
+
+.bb.inlink {
+    position: relative;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    cursor: pointer;
+}
+
+.bb.inlink .lT {
+    position: relative;
+    display: inline-block;
+    top: 0.095em;
+    margin-right: 0.2em;
+    width:  1em;
+    height: 1em;
+    background-repeat: no-repeat;
+    background-position: center center;
+    -webkit-background-size: contain;
+    -moz-background-size:    contain;
+    background-size:         contain;
+}
+
+.bb.inlink:active      { opacity: 0.7; }
+
+.bb.inlink.info:active { opacity:   1; }
+.bb.inlink.info        { cursor: help; }
+
+.bb.inlink.user   { font-weight: bold; }
+
+/* Colors */
+
+.bb.inlink        { color: #1565c0; } .bb.inlink:hover,        .bb.inlink:active        { color: #0d47a1; text-shadow: 0 0 5px rgba(13,  71, 161, 0.5); }
+.bb.inlink.safe   { color: #43a047; } .bb.inlink.safe:hover,   .bb.inlink.safe:active   { color: #2e7d32; text-shadow: 0 0 5px rgba(46, 125,  50, 0.5); }
+.bb.inlink.unsafe { color: #ff5722; } .bb.inlink.unsafe:hover, .bb.inlink.unsafe:active { color: #d84315; text-shadow: 0 0 5px rgba(255, 87,  34, 0.5); }
+.bb.inlink.danger { color: #f44336; } .bb.inlink.danger:hover, .bb.inlink.danger:active { color: #b71c1c; text-shadow: 0 0 5px rgba(183, 28,  28, 0.5); }
+.bb.inlink.info   { color: #1e43af; } .bb.inlink.info:hover,   .bb.inlink.info:active   { color: #16348b; text-shadow: 0 0 5px rgba(22,  52, 139, 0.5); }
+
+.bb.inlink.user        { color: #000000; } .bb.inlink.user:hover,        .bb.inlink.user:active        { color: #000000; text-shadow: 0 0 5px rgba(0,   0,   0, 0.5); }
+.bb.inlink.user.male   { color: #4262c0; } .bb.inlink.user.male:hover,   .bb.inlink.user.male:active   { color: #16348b; text-shadow: 0 0 5px rgba(22, 52, 139, 0.5); }
+.bb.inlink.user.female { color: #e044c4; } .bb.inlink.user.female:hover, .bb.inlink.user.female:active { color: #9b009b; text-shadow: 0 0 5px rgba(155, 0, 155, 0.5); }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Imaged links */
+
+.bb.inlink.mailto      > .lT { background-image: url('icons/gmail.svg'); }
+.bb.inlink.picture     > .lT { background-image: url('icons/picture.svg'); }
+.bb.inlink.picture-pic > .lT { background-image: url('icons/picture-pic.svg'); }
+.bb.inlink.album       > .lT { background-image: url('icons/album.svg'); }
+.bb.inlink.folder      > .lT { background-image: url('icons/folder.svg'); }
+.bb.inlink.video       > .lT { background-image: url('icons/video.svg'); }
+.bb.inlink.audio       > .lT { background-image: url('icons/speaker.svg'); }
+.bb.inlink.file        > .lT { background-image: url('icons/file.svg'); }
+.bb.inlink.doc         > .lT { background-image: url('icons/document.svg'); }
+
+.bb.inlink.thing       > .lT { background-image: url('icons/sword.svg'); }
+.bb.inlink.spell       > .lT { background-image: url('icons/wand.svg'); }
+.bb.inlink.character   > .lT { background-image: url('icons/character.svg'); }
+.bb.inlink.creature    > .lT { background-image: url('icons/creature.svg'); }
+.bb.inlink.attribute   > .lT { background-image: url('icons/attribute.svg'); }
+.bb.inlink.building    > .lT { background-image: url('icons/house.svg'); }
+.bb.inlink.location    > .lT { background-image: url('icons/location.svg'); }
+
+.bb.inlink.fb         > .lT { background-image: url('icons/soc-fb.svg'); }
+.bb.inlink.twitter    > .lT { background-image: url('icons/soc-twitter.svg'); }
+.bb.inlink.instagram  > .lT { background-image: url('icons/soc-instagram.svg'); }
+.bb.inlink.gplus      > .lT { background-image: url('icons/soc-gplus.svg'); }
+.bb.inlink.youtube    > .lT { background-image: url('icons/soc-youtube.svg'); }
+.bb.inlink.twitch     > .lT { background-image: url('icons/soc-twitch.svg'); }
+.bb.inlink.linkedin   > .lT { background-image: url('icons/soc-linkedin.svg'); }
+.bb.inlink.pinterest  > .lT { background-image: url('icons/soc-pinterest.svg'); }
+.bb.inlink.github     > .lT { background-image: url('icons/soc-github.svg'); }
+.bb.inlink.vk         > .lT { background-image: url('icons/soc-vk.svg'); }
+.bb.inlink.ok         > .lT { background-image: url('icons/soc-ok.svg'); }
+.bb.inlink.mailru     > .lT { background-image: url('icons/soc-mailru.svg'); }
+.bb.inlink.tumblr     > .lT { background-image: url('icons/soc-tumblr.svg'); }
+.bb.inlink.behance    > .lT { background-image: url('icons/soc-behance.svg'); }
+.bb.inlink.soundcloud > .lT { background-image: url('icons/soc-soundcloud.svg'); }
+.bb.inlink.dribbble   > .lT { background-image: url('icons/soc-dribbble.svg'); }
+.bb.inlink.flickr     > .lT { background-image: url('icons/soc-flickr.svg'); }
+.bb.inlink.swarm      > .lT { background-image: url('icons/soc-swarm.svg'); }
+.bb.inlink.badoo      > .lT { background-image: url('icons/soc-badoo.svg'); }
+.bb.inlink.deviantart > .lT { background-image: url('icons/soc-deviantart.svg'); }
+.bb.inlink.lastfm     > .lT { background-image: url('icons/soc-lastfm.svg'); }
+.bb.inlink.steam      > .lT { background-image: url('icons/soc-steam.svg'); }
+
+/* end */

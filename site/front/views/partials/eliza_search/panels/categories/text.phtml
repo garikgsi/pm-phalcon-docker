@@ -1,0 +1,23 @@
+<li class="elz d-block">
+    <div class="extendCategory elz d-flex hmn32 bgHov bgSel bgHov-primary bgHovL-5 bgHovLF-5 bgFInvD bgLInvD bgSel-secondary fnSel fnSel-secondary-t cSelOut<?if($active ?? 0):?> sel<?endif;?>" title="<?=$descr?>" data-value="<?=$value?>">
+<?if($selectable ?? 0):?>
+        <label class="elz p-rel d-flex a-X s40 cur-pointer">
+            <input type="checkbox" class="extendCategorySelect elz elzCheck checkbox p-rel d-flex cur-inh s16 r3 p2
+                        cLInvD bg bg-primary bgL10 bgSelIn-secondary
+                        fn fn-primary-t fnHovL-5 fnSelIn-secondary-t
+                        bshLD bshHov-default2"<?if($selected ?? 0):?> checked="checked"<?endif;?>>
+        </label>
+<?endif;?>
+        <div class="extendCategoryActive elz advMenuLink d-flex growX a-H opAct07 cur-pointer">
+            <div class="elz d-block growX pV8"><?=$title?></div>
+<?php $counts = $counts ?? []?>
+<?for($a = 0, $len = sizeof($counts); $a < $len; $a++):?>
+    <?$count = $counts[$a]?>
+    <div class="elz p-rel d-block pH6 pV4 mH8 fn11 cur-help" title="<?=$count['title'].$count['count']?>">
+        <div class="elz p-abs p-F d-block op02 opSelIn10 r2 bg-CC"></div>
+        <div class="elz p-rel d-block"><?=$count['count']?></div>
+    </div>
+<?endfor;?>
+        </div>
+    </div>
+</li>

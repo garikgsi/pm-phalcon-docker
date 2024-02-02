@@ -1,0 +1,6 @@
+<div id="provideTechnologiesList" class="elz d-flex grow dir-y gap8">
+    <?php $typesMap = $this->view->getVar('technologyTypesMap') ?? []?>
+    <?foreach($typesMap as $typeId => $typeDate):?>
+        <?$this->view->partial('provide_technologies/partials/tech_category', $typeDate)?>
+    <?endforeach;?>
+</div>

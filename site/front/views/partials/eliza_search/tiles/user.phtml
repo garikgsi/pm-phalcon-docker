@@ -1,0 +1,27 @@
+<div class="extendTile elz d-flex a-X gap8 hmn40 cur-pointer pL8 pR12 bgHov bgHov-primary bgHovL-5 bgHovLF5 bgHovFD bgLInvD bgSel bgSel-secondary fnSel fnSel-secondary-t opHovOut cSelOut<?if($selected ?? 0):?> sel<?endif;?>" title="<?=$descr?>" data-value="<?=$value?>">
+    <div class="elz d-flex a-X w24">
+        <div class="elz uAvatar p-rel d-block s24 noShrink">
+            <div class="elz avCutMask p-abs p-F rCircle">
+                <div class="elz avWrap d-block s100p rInh oH">
+                    <?if($version):?>
+                        <img class="elz d-block s100p rCircle" alt="<?=$nick?>" src="/uploads/avatars/user_<?=$value?>_<?=$version?>_32.png"/>
+                    <?else:?>
+                        <div class="elz d-flex a-X s100p rCircle fn10 bold bg bg-<?=$gender?> fn fn-white"><?=htmlspecialchars($nick2)?></div>
+                    <?endif;?>
+                </div>
+            </div>
+            <div class="elz avCutStatus p-abs p-F hide">
+                <div class="elz p-abs d-flex a-X p-EC s0">
+                    <div class="elz p-abs d-block statusItem bg bg-green"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="elz d-block growX ellipsis oH nowrap bold fn fn-<?=$gender?>"><?=$nick?></div>
+<?$counts = $counts ?? []?>
+<?for($a = 0, $len = sizeof($counts); $a < $len; $a++):?>
+    <?$count = $counts[$a]?>
+    <div class="elz p-rel d-flex a-X pH4 h20 wmn20 fn10 r2 al-center bold bg bg-primary bgSelIn-secondary bgL-15 bgLInvD fnSelIn-secondary-t" title="<?=$count['title'].$count['count']?>"><?=$count['count']?></div>
+<?endfor;?>
+    <div class="elz p-rel d-block mskBef s16 cFillBef bgBef-CC op01 opHovIn10" style="--elzMsk: url('/design/icons/cross1.svg');"></div>
+</div>

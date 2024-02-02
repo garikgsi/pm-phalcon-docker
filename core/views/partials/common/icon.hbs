@@ -1,0 +1,37 @@
+<{{icn_tag}} class="elz elzIcon {{icn_class}}" {{{icn_data}}}>
+    {{#icn_image}}
+        <div class="elz main {{im_class}}">
+            <img class="elz img" alt="{{im_alt}}" src="{{im_src}}" />
+        </div>
+    {{/icn_image}}
+    {{^icn_image}}
+        {{#icn_icons}}
+            {{> common/icon_main}}
+        {{/icn_icons}}
+    {{/icn_image}}
+    {{#noty}}
+    <div class="elz elzCLScount {{noty_class}}" {{{noty_data}}}>
+        <i class="elz elzIc {{noty_icon}}">{{noty_html}}</i>
+    </div>
+    {{/noty}}
+</{{icn_tag}}>
+
+<!--<div class="elz elzCLScount elzPLT shD shL shN right bottom rotate" data-bg="purple" data-fn="white">
+    <i class="elz elzIc ic-bell"></i>
+</div>
+
+    size = empty|smallest|smaller|small|medium(default)|large|larger|largest
+    cornerStyle = empty|rad(default)|circle
+
+
+
+
+
+
+
+
+<div class="elz elzIcon larger rad elzPLT" data-bg="red" style="margin: 64px;">
+    <i class="elz main smallest elzIc ic-cog2 elzPLT shD" data-fn="white">
+        <i class="elz gspot elzIc ic-plus elzPLT shD" data-bg="blue" data-fn="white"></i>
+    </i>
+</div>-->

@@ -1,0 +1,371 @@
+/********************************/
+/* OVERLAY MENU SETTINGS        */
+/********************************/
+
+.elzCSSNmenu {
+	position: fixed;
+	display: block;
+	overflow: hidden;
+	top:    0;
+	left:   0;
+	bottom: 0;
+	width: 288px;
+	box-shadow:  0 0 20px rgba(0, 0, 0, 0.2);
+	transform: translateX(-100%);
+	transition:  0.4s;
+	box-sizing: border-box;
+
+	visibility: hidden;
+	opacity: 0;
+	z-index: 800;
+}
+
+.elzCSSNmenu.active {
+	transform: translateX(0);
+	visibility: visible;
+	opacity: 1;
+}
+
+.elzCSSNmenu,
+.elzCSSNmenu .menuList { background-color: #f8f8f8; }
+
+.elzCSSNmenu > .menuCont {
+	display: block;
+	overflow: auto;
+	height: 100%;
+}
+
+.elzCSSNmenu .menuList {
+	position: relative;
+	display: block;
+	list-style: none;
+	top:  0;
+	left: 0;
+	width: 100%;
+	min-height: 100%;
+	z-index: 2;
+	transition: 0.4s;
+}
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Menu item *********************/
+
+.elzCSSNmenu .menuItem { display: block; }
+
+.elzCSSNmenu .itemInner {
+	position: relative;
+	display: block;
+	overflow: hidden;
+	transition-property: height;
+}
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Timers settings *********************/
+
+.elzCSSNmenu .menuList.active .itemInner,
+.elzCSSNmenu .menuItem:not(.active) > .menuList .itemInner{	transition-delay: 0.4s; }
+
+.elzCSSNmenu .itemInner,
+.elzCSSNmenu .menuItem.active > .menuList .itemInner { transition-delay: 0s; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Inner lists settings *********************/
+
+.elzCSSNmenu .menuList .menuList {
+	position: absolute;
+	opacity: 0;
+	visibility: hidden;
+	transform: translateX(-100%);
+}
+
+.elzCSSNmenu .menuItem.active > .menuList {
+	opacity: 1;
+	visibility: visible;
+	transform: translateX(0);
+}
+
+.elzCSSNmenu .menuList:not(.active) .menuList .itemInner,
+.elzCSSNmenu .menuList.active > .menuItem > .itemInner { height: 0 !important; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Item Title settings *********************/
+
+.elzCSSNmenu .menuList:not(.active) > .menuItem .itemInner.title { height: 32px; }
+
+.elzCSSNmenu .itemInner.title {
+	display: block;
+    font-size: 0.8em;
+	line-height: 33px;
+	padding: 0 12px;
+	font-weight: bold;
+	text-transform: uppercase;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	color: #666666;
+	background-color: rgba(0, 0, 0, 0.08);
+}
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Item default settings *********************/
+
+.elzCSSNmenu .menuList:not(.active) > .menuItem .itemInner.default { height: 48px; }
+
+.elzCSSNmenu .itemInner.default:hover,
+.elzCSSNmenu .itemInner.default:active { box-shadow: inset 0 0 0 1024px rgba(0, 0, 0, 0.04); }
+
+.elzCSSNmenu .itemInner.default .itemLink {
+	position: relative;
+    display: flex;
+    align-items: center;
+	text-decoration: none;
+	overflow: hidden;
+	height: 100%;
+}
+
+.elzCSSNmenu .itemInner.default .itemLink:active { opacity: 0.7; }
+
+.elzCSSNmenu .itemInner.default .itemLink .text {
+	position: relative;
+	display: block;
+    flex-grow: 1;
+	order: 2;
+	overflow: hidden;
+	width: 0;
+    padding: 0 16px;
+}
+
+.elzCSSNmenu .itemInner.default .itemLink .elzIcon + .text { margin-left: -16px; }
+
+.elzCSSNmenu .itemInner.default .itemLink .text .inner {
+	display: block;
+	/*white-space: nowrap;*/
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.elzCSSNmenu .itemInner.default .itemLink .text .inner.title {
+	font-size: 10.5pt;
+	/*height:      18px;*/
+	line-height: 18px;
+	color: #444444;
+}
+
+.elzCSSNmenu .itemInner.default .itemLink .text .inner.description {
+	font-size:    8pt;
+	/*height:      14px;*/
+	line-height: 14px;
+	color: #777777;
+}
+
+.elzCSSNmenu .itemInner.default .itemLink:hover  .text .inner.title,
+.elzCSSNmenu .itemInner.default .itemLink:active .text .inner.title       { color: #000000; }
+.elzCSSNmenu .itemInner.default .itemLink:hover  .text .inner.description,
+.elzCSSNmenu .itemInner.default .itemLink:active .text .inner.description { color: #444444; }
+
+
+
+/* Back settings */
+
+.elzCSSNmenu .itemInner.back { background-color: rgba(92, 105, 130, 0.15); }
+
+.elzCSSNmenu .itemInner.back .itemLink .text { text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5); }
+
+.elzCSSNmenu .itemInner.back .itemLink .text .title { font-weight: bold; }
+
+.elzCSSNmenu .itemInner.back .itemLink        .text .description + .description,
+.elzCSSNmenu .itemInner.back .itemLink:hover  .text .description,
+.elzCSSNmenu .itemInner.back .itemLink:active .text .description { display: none; }
+
+.elzCSSNmenu .itemInner.back .itemLink:hover  .text .description + .description,
+.elzCSSNmenu .itemInner.back .itemLink:active .text .description + .description { display: block; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Item next settings */
+
+.elzCSSNmenu .itemInner.default .itemNext {
+	position: absolute;
+	display: block;
+	width: 48px;
+	height: 100%;
+	font-size: 10pt;
+	top:   0;
+	right: 0;
+	text-align: center;
+	color: #bbbbbb;
+	transition: color 0.2s;
+}
+
+.elzCSSNmenu .itemInner.default .itemNext:hover,
+.elzCSSNmenu .itemInner.default .itemNext:active { color: #444444; }
+
+.elzCSSNmenu .itemInner.default .itemNext > .elzIc {
+    position: absolute;
+    display: block;
+	font-size: 12px;
+    top:  50%;
+    right: 16px;
+    margin-top:  -0.5em;
+}
+
+.elzCSSNmenu .itemInner.default .itemNext:before {
+    content: "";
+    position: absolute;
+    display: block;
+    left: 0;
+    height: 24px;
+    top: 50%;
+    margin-top: -12px;
+    border-left: 1px solid #000000;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.2s;
+}
+
+.elzCSSNmenu .itemInner.default:hover .itemNext:before,
+.elzCSSNmenu .itemInner.default:active .itemNext:before {
+    visibility: visible;
+    opacity: 0.15;
+}
+
+.elzCSSNmenu .itemInner.default .itemNext:hover:before,
+.elzCSSNmenu .itemInner.default .itemNext:active:before { opacity: 0.5; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Icon link settings *********************/
+
+.elzCSSNmenu .itemInner.default .itemLink .elzIcon        { color: #777777; }
+.elzCSSNmenu .itemInner.default .itemLink:hover  .elzIcon,
+.elzCSSNmenu .itemInner.default .itemLink:active .elzIcon { color: #444444; }
+
+.elzCSSNmenu .itemInner.default .itemLink .elzIcon.smallest { margin-left: 16px; margin-right: 16px; }
+.elzCSSNmenu .itemInner.default .itemLink .elzIcon.medium   { margin-left: 12px; margin-right: 12px; }
+.elzCSSNmenu .itemInner.default .itemLink .elzIcon.larger   { margin-left:  8px; margin-right:  8px; }
+.elzCSSNmenu .itemInner.default .itemLink .elzIcon.largest  { margin-left:  6px; margin-right:  6px; }
+
+.elzCSSNmenu .itemInner.default .itemLink .elzIcon[data-bg]:before { background-color: #000000; }
+
+.elzCSSNmenu .itemInner.default .itemLink:hover  .elzIcon[data-bg]:before,
+.elzCSSNmenu .itemInner.default .itemLink:active .elzIcon[data-bg]:before,
+.elzCSSNmenu .itemInner.default .itemLink.active .elzIcon[data-bg]:before { display: block; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Patreon image */
+
+.uniPatreonLink {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border-radius: 2px;
+	background-color: #ff424d;
+	color: #ffffff;
+	text-decoration: none;
+	cursor: pointer;
+	text-align: center;
+	padding: 8px 16px;
+	flex-grow: 1;
+	line-height: 1;
+	box-sizing: border-box;
+}
+
+.uniPatreonLink:hover,
+.uniPatreonLink:active {
+	background-color: #ff616a;
+}
+
+.uniPatreonLink:active { opacity: 0.7; }
+
+.uniPatreonLink .uPatrTitle {
+	font-size: 24px;
+	letter-spacing: 0.2em;
+	font-weight: bold;
+}
+
+.uniPatreonLink .uPatrDescriotion {
+	font-size: 12px;
+	margin-top: 4px;
+}
+
+/* end */

@@ -1,0 +1,43 @@
+<?php $name = $name ?? '';?>
+<?php $layout = $layout ?? 'columns_1';?>
+<?php $width = $width ?? 'w960';?>
+<?php $height = $height ?? 'h640';?>
+<?php $search = $search ?? 'defaultSearchName';?>
+<?php $icon = $icon ?? 'search';?>
+<?php $placeHolder = $placeholder ?? 'set: placeholder'; ?>
+<?php $inputId = \Core\Builder\MustacheForms::getNextId();?>
+
+<?$iconExpl = explode(' ', $icon)?>
+<?$iconSvg = $iconExpl[0]?>
+<?$iconSize = $iconExpl[1] ?? 's16'?>
+
+<div class="elizaSearchPanelExtend elz pmAdvSec           p-fixed d-flex dir-y r3 w960 h640 fn12 z5 bsh-default3 fn fn-primary-t bg bg-primary bgL5 hide" data-engine="<?=$search?>"  data-name="<?=$name?>" data-type="search">
+    <div class="elz d-flex a-R hEP pL8 borB1 br br-primary brLF10 brFD brLInvD brHovL-10 brFow brFow-focus">
+        <form action="" method="post" name="search" class="elizaSearchPanelSearch elz d-grid grTH01 grPos growX fn16">
+            <label for="<?=$inputId?>" class="elz p-rel d-flex evNone grPin grP1 grPW1 grPH1">
+                <span class="elz p-rel d-flex a-X gap8">
+                    <span class="elz p-rel d-flex a-X s40">
+                        <span class="elz p-rel d-block mskBef <?=$iconSize?> cFillBef bgBef-CC mskBef-contain" style="--elzMsk: url('/design/icons/<?=$iconSvg?>.svg');"></span>
+                    </span>
+                </span>
+            </label>
+            <div class="elz d-block h100p grPin grP1 grPW2 grPH1">
+                <input id="<?=$inputId?>" name="search" type="text" class="elz d-block s100p pL40 ellipsis" placeholder="<?=$placeHolder?>" />
+            </div>
+            <input type="submit" class="elz hide"/>
+        </form>
+        <div class="elz d-flex gap8 pH8 or3 noShrink">
+            <div class="elz p-rel d-flex">
+                <div class="elizaSearchPanelClose elz p-rel d-flex a-X gap8 cur-pointer opAct07">
+                    <div class="elz p-rel d-flex a-X s40 rCircle bgSelIn bgSelIn-ok fnHov fnHovL-10 fnHovLInvD">
+                        <div class="elz p-rel d-block mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/cross1.svg');"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="elz d-flex growY">
+        <?$this->view->partial('partials/eliza_search/panels/layouts/'.$layout)?>
+    </div>
+</div>

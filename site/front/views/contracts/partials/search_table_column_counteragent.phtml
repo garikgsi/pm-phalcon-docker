@@ -1,0 +1,19 @@
+<?$counteragent = json_decode($row['agent_map'], true)[$column['sql'] == 'customer' ? 2 : 1]?>
+<td class="td">
+    <div class="elz d-flex dir-y gap4">
+        <a href="/counteragents/<?=$counteragent['counteragent_id']?>"
+           class="elz d-flex a-H gap8 bold cur-pointer opAct07 underlineHov"
+           target="_blank">
+            <div class="elz p-rel d-block mskBef s16 noShrink cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/users.svg');"></div>
+            <div class="elz d-block"><?=$counteragent['counteragent_title']?></div>
+        </a>
+
+<?if($counteragent['contact_id']):?>
+        <div class="elizaRightPanelTrigger elz d-flex a-H gap8 cur-pointer opAct07 underlineHov fn11 fn fn-male" data-panel="contact" data-widget="card" data-node="<?=$counteragent['contact_node_id']?>" data-id="<?=$counteragent['contact_id']?>" data-active="0">
+            <div class="elz d-block"><?=$counteragent['contact_nickname']?></div>
+        </div>
+<?else:?>
+        <div class="elz d-block fn11 fn fn-error fnLF20 fnFD">Подписант не указан</div>
+<?endif;?>
+    </div>
+</td>

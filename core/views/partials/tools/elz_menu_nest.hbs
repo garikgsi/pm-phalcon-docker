@@ -1,0 +1,20 @@
+<ul class="elz menuList" data-name="{{nest_name}}">
+    <li class="elz menuItem">
+        <div class="elz itemInner default back">
+            <div class="elz itemLink prev link icHover cur-pointer" title="{{nest_description}}" data-func="prev">
+                <div class="elz elzIcon larger rad elzPLT hov"{{#nest_bg}} data-bg="{{nest_bg}}"{{/nest_bg}} {{#nest_fn}} data-fn="{{nest_fn}}"{{/nest_fn}}>
+                    <i class="elz main small elzIc {{nest_icon}} elzPLT"></i>
+                    <i class="elz main small elzIc ic-arrow3 deg270 elzPLT"></i>
+                </div>
+                <div class="elz text">
+                    <span class="elz inner title">{{nest_title}}</span>
+                    <span class="elz inner description">{{item_descr}}</span>
+                    <span class="elz inner description">{{nest_back}}</span>
+                </div>
+            </div>
+        </div>
+    </li>
+    {{#nest_list}}
+        {{> tools/elz_menu_item}}
+    {{/nest_list}}
+</ul>

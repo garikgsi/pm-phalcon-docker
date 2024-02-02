@@ -1,0 +1,57 @@
+<?php $itemId = $service_dict_item_id ?? 0?>
+<form action="<?if($itemId):?>?act=item_update<?else:?>?act=item_create<?endif;?>" method="post"
+      class="itemItem elz d-flex a-H gap8 pV4 pH8 f-wrap <?if($itemId):?> bgHov bgHov-primary bgHovL10<?endif;?>" data-id="<?=$itemId?>">
+<?if($itemId):?>
+    <input value="<?=$itemId?>" type="hidden" name="item_id"/>
+<?else:?>
+    <input value="<?=$service_dict_id?>" type="hidden" name="dict_id"/>
+<?endif;?>
+    <div class="elz p-rel d-flex a-H f-wrap growMax">
+        <div class="elz d-flex a-X s32">
+            <div class="mskIcon elz d-block p-rel noShrink mskBef s16 cFillBef bgBef-CC showSelIn5" style="--elzMsk: url('/design/icons/books.svg'); width: 18px;"></div>
+        </div>
+    <?if($itemId):?>
+        <div class="itemTitle elz d-block grow"><?=$item_title?></div>
+        <div class="itemUpdateForm elz p-abs p-H d-grid grPos grTV010 fn fn-primary-t fnL20 fnLInvD fnHovL10 fnFow-focus fnFowL0 hide">
+            <input type="text"
+                   name="title"
+                   value="<?=$item_title?>"
+                   placeholder="Введине название записи"
+                   class="elz elzInput d-block grPin grY2 w100p bor1 r3 h40 pL40 pR16 fn12 ellipsis trns2 invPssSib
+                          bg bg-primary bgL10 bgLInvD
+                          br brLInvD br-primary brL-10 brHovL-20 brFoc-focus brFocL0
+                          fn fn-primary-t">
+            <span class="elz d-flex a-H grPin grY2 bor1 pH7 z6 evNone">
+                <span class="elz p-rel d-flex a-X s24 trns2">
+                    <span class="elz p-rel d-block mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/font.svg');"></span>
+                </span>
+                <span class="elz p-rel growX d-flex a-PR">
+                    <button type="submit" class="elz p-rel d-flex a-H cur-pointer opAct07">
+                        <span class="elz p-rel d-flex a-X s24 r2 evAuto">
+                            <span class="elz p-rel d-block mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/save.svg');"></span>
+                        </span>
+                    </button>
+                </span>
+            </span>
+        </div>
+    <?else:?>
+        <?$this->view->partial('forms/input_base', ['name' => 'title', 'widthInput' => '', 'inputClass' => 'pL16 r3', 'placeholder' => 'Введите название записи'])?>
+    <?endif;?>
+    </div>
+    <?php $this->view->partial('services/partials/status_select', ['select_class' => 'itemStatusChange'.(!$itemId ? ' uDisabled' : ''), 'service_status_id' => $service_status_id, 'linked_count' => $linked_count ?? 0])?>
+    <div class="elz d-flex f-wrap gap8">
+        <?if($itemId):?>
+            <div title="Редактировать" class="itemEdit elz d-flex a-X cur-pointer opAct07 s36 rRound bgHov bgHov-primary bgHovL-5 fnSel fnSel-ok-t bgSel bgSel-ok">
+                <div class="mskIcon evNone elz d-block p-rel noShrink mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/pencil.svg');"></div>
+            </div>
+            <div title="Удалить" class="itemDelete elz d-flex a-X cur-pointer opAct07 s36 rRound bgHov bgHov-primary bgHovL-5">
+                <div class="mskIcon elz d-block p-rel noShrink mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/cross1.svg');"></div>
+            </div>
+        <?else:?>
+            <div class="elz d-flex a-X s36"></div>
+            <button type="submit"  title="Добавить" class="elz d-flex a-X cur-pointer opAct07 s36 rRound bgHov bgHov-primary bgHovL-5">
+                <span class="mskIcon elz d-block p-rel noShrink mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/plus2.svg');"></span>
+            </button>
+        <?endif;?>
+    </div>
+</form>

@@ -1,0 +1,82 @@
+/* Icons main settings */
+
+.elzF-icon {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    min-width:   24px;
+    height:      24px;
+    line-height: 24px;
+    box-sizing: border-box;
+    pointer-events: none;
+    cursor: help;
+    z-index: 9;
+    transition: background-color 0.4s;
+}
+
+.elzF.wrap .elzF-icon.colorPick { transition: none; }
+
+.elzF-icon:not(:hover) .text { color: transparent; }
+
+.elzF-icon.status,
+.elzF-icon.link { pointer-events: auto; }
+
+.elzF-icon.link:active { opacity: 0.7; }
+
+.elzF-icon.rad    { border-radius:  2px; }
+.elzF-icon.circle { border-radius: 36px; }
+
+.elzF-icon.hide:not(.colorPick) { display: none; }
+.elzF-icon.link { cursor: pointer; }
+
+.elzF-icon .elzIcon { flex-shrink: 0; }
+.elzF-icon.right .elzIcon { order: 1; }
+
+.elzF-icon.shD:hover, .elzF-icon.shD:active { text-shadow: 1px 1px 2px rgba(0,     0,   0, 0.4); }
+.elzF-icon.shL:hover, .elzF-icon.shL:active { text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.4); }
+
+.elzF-icon:not(:hover):not(:active),
+.elzF-icon:hover  > .elzIcon,
+.elzF-icon:active > .elzIcon { background-color: transparent; }
+
+.elzF-icon:hover  > .elzIcon .main,
+.elzF-icon:active > .elzIcon .main { color: inherit; text-shadow: inherit; }
+
+.elzF-icon .text { transition: max-width 0.4s; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Text settings */
+
+.elzF-icon > .text {
+    position: relative;
+    display: block;
+    max-width: 0;
+    padding:   0;
+    height:      inherit;
+    line-height: inherit;
+    text-shadow: inherit;
+    font-weight: bold;
+    font-size: 8pt;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.elzF-icon.left:hover  > .text { padding: 0 8px 0 4px; }
+.elzF-icon.right:hover > .text { padding: 0 4px 0 8px; }
+
+.elzF-icon > .text:empty { display: none; }
+
+.elzF-icon:hover  > .text { max-width: 320px; }
+
+/* end */

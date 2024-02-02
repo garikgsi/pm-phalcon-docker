@@ -1,0 +1,45 @@
+<?$size = isset($size) ? $size : 'large'?>
+<?$icns = isset($icns) ? $icns : 'smallest'?>
+
+<?$menuList = isset($list) ? $list : []?>
+<?$menuLen  = sizeof($menuList)?>
+<?$active   = $this->view->getVar('rcpMainMenuActiveItem')?>
+
+<ul class="elz menuList">
+    <?for($a = 0; $a < $menuLen; $a++):?>
+        <?$item = $menuList[$a]?>
+        <?if($item['type'] == 'title'):?>
+            <li class="elz menuItem title"><?=$item['text']?></li>
+        <?elseif($item['type'] == 'link'):?>
+            <li <?if( $item['name']):?>id="<?=$item['name']?>" <?endif;?>class="elz menuItem default <?=$size?> bordered elzPLT rcpMainMenuLi<?if($active == $item['name']):?> active<?endif;?>" data-br="<?=$item['color']?>">
+                <div class="elz itemInner">
+                    <a class="elz itemLink link elizaHApi" href="<?=$item['href']?>" title="<?=$item['text']?>" data-level="<?=$item['level']?>">
+                        <div class="elz elzIcon medium rad">
+                            <i class="elz main <?=$icns?> elzIc <?=$item['icon']?>"></i>
+                        </div>
+                        <div class="elz text">
+                            <span class="elz title"><?=$item['text']?></span>
+                        </div>
+                    </a>
+                </div>
+            </li>
+        <?elseif($item['type'] == 'category'):?>
+            <li class="elz menuItem default <?=$size?> bordered elzPLT category<?if($item['opened']):?> expanded<?endif;?>" data-br="<?=$item['color']?>">
+                <div class="elz itemInner<?if($item['opened']):?> actDisabled<?endif;?>">
+                    <div class="elz itemLink" title="<?=$item['text']?>">
+                        <div class="elz elzIcon medium rad">
+                            <i class="elz main <?=$icns?> elzIc <?=$item['icon']?>"></i>
+                        </div>
+                        <div class="elz text"><?=$item['text']?></div>
+                    </div>
+                    <div class="elz itemExpander" <?if(!$item['opened']):?>title="Раскрыть список"<?endif;?>></div>
+                </div>
+                <?$this->view->partial('partials/main_menu', [
+                    'size' => 'small',
+                    'icns' => 'xsmallest',
+                    'list' => $item['list']
+                ])?>
+            </li>
+        <?endif;?>
+    <?endfor;?>
+</ul>

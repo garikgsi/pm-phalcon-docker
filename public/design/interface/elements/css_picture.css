@@ -1,0 +1,72 @@
+.elzPicPrev {
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+    border-width: 0;
+}
+
+.elzPicPrev.borBelow:before,
+.elzPicPrev.borAbove:after,
+.elzPicPrev .prevIn {
+    position: absolute;
+    top:    0;
+    right:  0;
+    bottom: 0;
+    left:   0;
+}
+
+.elzPicPrev.borBelow:before,
+.elzPicPrev.borAbove:after {
+    content: "";
+    display: block;
+    border-width: 1px;
+    border-style: solid;
+    border-color: inherit;
+}
+
+.elzPicPrev.borAbove:after { z-index: 1; }
+
+.elzPicPrev.fill {
+    width:  100%;
+    height: 100%;
+}
+
+.elzPicPrev .prevIn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    overflow: hidden;
+
+}
+
+.elzPicPrev .prevIn > img,
+.elzPicPrev .prevIn > svg {
+    position: relative;
+    display: block;
+    width:  auto;
+    height: auto;
+    max-width:  100%;
+    max-height: 100%;
+}
+
+.elzPicPrev .prevIn > svg:not([width])  { width:  100%; }
+.elzPicPrev .prevIn > svg:not([height]) { width:  100%; }
+
+.elzPicPrev .prevIn:empty:before,
+.elzPicPrev .prevIn:empty:after {
+    display: block;
+    line-height: 1.6;
+    font-size: 8pt;
+    color: #777777;
+    text-align: center;
+}
+
+.elzPicPrev .prevIn:empty:before {
+    content: attr(data-title);
+}
+
+.elzPicPrev .prevIn:empty:after {
+    content: attr(data-subtitle);
+    font-weight: bold;
+}

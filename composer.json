@@ -1,0 +1,17 @@
+{
+  "config": {
+    "vendor-dir": "core/vendor/",
+    "optimize-autoloader": true
+  },
+  "require": {
+    "mustache/mustache":   ">=2.11.1",
+    "phpmailer/phpmailer": ">=6.0.3",
+    "emuravjev/mdash": ">=0.2.1",
+    "bitverse/identicon": ">=1.1.1",
+    "mobiledetect/mobiledetectlib": ">=2.8.25",
+    "enshrined/svg-sanitize": ">=0.8.2",
+    "voku/html-min": ">=3.0.2",
+    "mrclay/minify": ">=3.0.3",
+    "hflabs/dadata": ">=22.3.0"
+  }
+}

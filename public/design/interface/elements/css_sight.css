@@ -1,0 +1,48 @@
+.elzSight {
+    display: none;
+    pointer-events: none;
+    border-radius: inherit;
+}
+
+.elzSight,
+.elzSight > .sH,
+.elzSight > .sH:before {
+    position: absolute;
+    box-sizing: border-box;
+}
+
+.elzSight > .sH,
+.elzSight > .sH:before,
+.elzSightHover:hover  .elzSight,
+.elzSightHover:active .elzSight,
+.elzSightShow         .elzSight { display: block; }
+
+.elzSight > .sH { color: #000000; }
+
+.elzSight > .sH:before {
+    width:  100%;
+    height: 100%;
+    color: #ffffff;
+}
+
+.elzSight.doubleColor > .sH:before { content: ""; }
+
+.elzSight > .sH.tr, .elzSight > .sH.tl { top:    0; }
+.elzSight > .sH.tr, .elzSight > .sH.br { right:  0; }
+.elzSight > .sH.br, .elzSight > .sH.bl { bottom: 0; }
+.elzSight > .sH.tl, .elzSight > .sH.bl { left:   0; }
+
+.elzSight > .sH.tr, .elzSight > .sH.tl { top:    0; }
+.elzSight > .sH.tr, .elzSight > .sH.br { right:  0; }
+.elzSight > .sH.br, .elzSight > .sH.bl { bottom: 0; }
+.elzSight > .sH.tl, .elzSight > .sH.bl { left:   0; }
+
+.elzSight > .sH.tr, .elzSight > .sH.tr:before, .elzSight > .sH.tl, .elzSight > .sH.tl:before { border-top:    1px solid currentColor; }
+.elzSight > .sH.tr, .elzSight > .sH.tr:before, .elzSight > .sH.br, .elzSight > .sH.br:before { border-right:  1px solid currentColor; }
+.elzSight > .sH.br, .elzSight > .sH.br:before, .elzSight > .sH.bl, .elzSight > .sH.bl:before { border-bottom: 1px solid currentColor; }
+.elzSight > .sH.tl, .elzSight > .sH.tl:before, .elzSight > .sH.bl, .elzSight > .sH.bl:before { border-left:   1px solid currentColor; }
+
+.elzSight > .sH.tr, .elzSight > .sH.tr:before { border-top-right-radius:    inherit; }
+.elzSight > .sH.tl, .elzSight > .sH.tl:before { border-top-left-radius:     inherit; }
+.elzSight > .sH.br, .elzSight > .sH.br:before { border-bottom-right-radius: inherit; }
+.elzSight > .sH.bl, .elzSight > .sH.bl:before { border-bottom-left-radius:  inherit; }

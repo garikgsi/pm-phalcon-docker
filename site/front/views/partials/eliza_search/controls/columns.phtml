@@ -1,0 +1,59 @@
+<?php $name = $name ?? '';?>
+<?php $title = $title ?? '';?>
+<?php $search = $search ?? 'defaultSearchName';?>
+<?php $update = $update ?? 0;?>
+<?php $delay = $delay ?? 0;?>
+
+<?php $list = $list ?? [];?>
+<?php $listLen = sizeof($list);?>
+<?php
+$active = 0;
+for($a = 0; $a < $listLen; $a++)
+    $active += $list[$a]['active'];
+?>
+
+<div class="elizaSearchControlSection elz d-block grow fb320 pVVar r3 bg bg-primary bgL5 bgHovL10 bgSelL5 bsh-default1 showSelOut hideSelOut" data-engine="<?=$search?>" data-name="<?=$name?>" data-type="columns" data-update="<?=(int)$update?>" data-delay="<?=(int)$delay?>">
+    <div class="elizaSearchControlSectionToggle elz d-flex a-X fn16 pV8 hmn36 cur-pointer" title="Показать / скрыть меню сортировки">
+        <div class="elz d-flex a-X grow mV-8 pV8">
+            <div class="elz p-rel d-flex a-X w40 noShrink">
+                <div class="elz p-abs d-block mskBef s8 cFillBef bgBef-CC deg180 hideSelIn" style="--elzMsk: url('/design/icons/arrow1.svg');"></div>
+                <div class="elz p-abs d-block mskBef s8 cFillBef bgBef-CC showSelIn" style="--elzMsk: url('/design/icons/arrow1.svg');"></div>
+            </div>
+            <div class="elz d-block growX"><?=$title?></div>
+            <div class="elizaSearchControlSectionCount elz p-rel d-flex a-X pH4 h20 wmn20 fn10 r2 al-center bold bg bg-ok fn fn-ok-t mR8<?if(!$active):?> hide<?endif;?>" title="Столбцов отображено: <?=$active?>"><?=$active?></div>
+        </div>
+        <div class="elz p-rel d-flex a-X w40 noShrink hide">
+            <div class="elz d-flex a-X p8 m-8 rRound cur-pointer opAct07 bgHov bgHov-primary bgHovL-5 bgHovLF5 bgHovFD bgLInvD bgSel bgSel-success fnSel fnSel-success-t" title="Запомнить настройки фильтров">
+                <div class="elz p-rel d-block mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/brain.svg');"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="elizaSearchControlSectionList elz d-block uniSortableY lh12 mT8 borT1 br br-primary brL-10 brLInvD showSelIn">
+<?php for($a = 0; $a < $listLen; $a++):?>
+    <?php $item = $list[$a]?>
+        <div class="elizaSearchControlSectionItem elz d-flex cur-pointer bgHov bgHov-primary bgHovL-5 bgHovLF5 bgHovFD bgLInvD">
+            <label class="elz d-flex a-H grow pV8 hmn36 cur-inh">
+                <span class="elz d-flex a-X w40">
+                    <input type="checkbox"
+                           <?if($item['active']):?>checked="checked"<?endif;?>
+                           class="elz elzCheck checkbox p-rel d-flex cur-inh bor1 s18 r2 p2
+                                  cLInvD bg bg-primary bgL10
+                                  br br-primary brL-15 brHovL-20
+                                  fn fn-primary-t fnHovL-5
+                                  bshAct-inset1" data-name="<?=$item['name']?>"/>
+                </span>
+                <span class="elz d-block growX"><?=$item['title']?></span>
+            </label>
+            <div class="elz p-rel d-flex a-X w40 h36 noShrink cur-move uniSortHandle ui-sortable-handle">
+                <div class="elz p-abs d-block mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/move-v.svg');"></div>
+            </div>
+        </div>
+<?endfor;?>
+
+    </div>
+</div>
+
+
+
+

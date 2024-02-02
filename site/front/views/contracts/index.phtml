@@ -1,0 +1,56 @@
+<?php $tableSticky = (int)$this->user->getSetting('contract_search_sticky')?>
+<div class="elz d-flex hmn100p dir-y gapVar pVar">
+
+
+
+
+
+    <div class="elz d-block pVar r3 bg bg-primary bgL5 bsh-default1">
+        <div class="elz d-flex a-H f-wrap gapH16 gapV8 hmn36">
+            <div class="elz d-flex a-H growMax fn20 lh12">
+
+                <div class="elz d-flex a-H growMax fn20 lh12">
+
+                    <a href="/" class="elz p-rel d-flex a-X w40 mL-Var">
+                        <div class="elz p-rel p8 m-8 rCircle cur-pointer opAct07 bgHov bgHov-primary bgHovL-5 bgHovLF5 bgHovFD bgLInvD" title="На главную">
+                            <div class="elz p-rel d-flex a-X s16">
+                                <div class="elz p-abs d-block mskBef s16 cFillBef bgBef-CC deg270" style="--elzMsk: url('/design/icons/arrow4.svg');"></div>
+                                <!--
+                                <div class="elz p-abs d-block rRound p2 mEA12 bg bg-ok fn fn-ok-t">
+                                    <div class="elz p-rel d-block mskBef s8 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/search.svg');"></div>
+                                </div>
+                                -->
+                            </div>
+                        </div>
+                    </a>
+
+                    <div class="elz d-flex grow">Список контрактов</div>
+                </div>
+            </div>
+            <div class="elz d-flex f-wrap grow a-H gap8">
+                <div class="elz d-block">
+                    <input id="pmContractsSearchSticky" class="elz hide cLblSib" type="checkbox"<?if($tableSticky):?> checked="checked"<?endif;?> data-id="8" data-name="contract_search_sticky" >
+                    <label for="pmContractsSearchSticky"
+                           class="elz elzButton d-flex a-X r3 bor1 s36 wmx100p fn12 cur-pointer trnsStyle trns
+                                  bg bg-primary bgL0 bgHovL3 bgActL-10 bgLblLingL-10
+                                  br br-primary brL-10 brHovL-15 brLblLingL-15
+                                  fn fn-primary-t fnLInvD fnHovL-10 fnLblLingL-10
+                                  bsh bsh-btn bshHov-btnhov bshAct-inset bshLblLing-inset" title="Закрепить заголовок таблицы">
+                        <span class="elz p-abs d-block mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/pushpin.svg');"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="elz d-flex p-rel grow">
+        <div id="pmContractsSearchStickyContainer" class="<?if($tableSticky):?> p-abs<?endif;?> elz uniScroll scrollSimple d-grid p-F r3 oH bg bg-primary bgL5 bsh-default1 grow">
+            <div class="elizaSearchContentContainer elz uniScrollIn oAuto d-block scrollHideFine" data-engine="defaultSearchName">
+<!--                <div class=" elz d-block growX r3 oAuto hmn480 bg bg-primary bgL5 bsh-default1">-->
+                    <?php $this->view->partial('contracts/partials/search_table')?>
+<!--                </div>-->
+            </div>
+        </div>
+    </div>
+    <?$this->view->partial('partials/eliza_search/pagination', ['paginationData' => $this->view->getVar('searchEnginePagination')])?>
+</div>

@@ -1,0 +1,92 @@
+<?$commentTypes = [
+    ['commerce',  'Ком.'],
+    ['technical', 'Тех.']
+]?>
+<?php $isOpened = (int)$this->user->getSetting('counteragent_show_more')?>
+<?php $expandContClass = $isOpened ? '' : ' hide'?>
+<div class="pmContentExpandWrap elz d-block growX r3 w100p bg bg-primary bgL5 bsh-default1" data-id="3" data-name="counteragent_show_more" data-val="<?=$isOpened?>">
+    <div class="elz d-flex dir-y p16 fn12 lh15">
+        <div class="pmContentExpandBorder elz d-flex a-H gap8<?if($isOpened):?> pB8<?endif;?> fn16">
+            <div class="elz d-block grow">Дополнительно</div>
+            <div class="pmContentExpandToggle elz d-flex a-X mV-8 s32 noShrink rCircle cur-pointer opAct07 bgHov bgHov-primary bgHovL-5 bgHovLF5 bgHovFD bgLInvD">
+                <div class="mskIcon elz p-rel d-block mskBef s12 cFillBef bgBef-CC<?if(!$isOpened):?> deg180<?endif;?>" style="--elzMsk: url('/design/icons/arrow2.svg');"></div>
+            </div>
+        </div>
+
+        <?for($a = 0, $len = sizeof($commentTypes); $a < $len; $a++):?>
+            <?list($commentType, $commentShort) = $commentTypes[$a]?>
+            <div class="pmContentExpandContainer<?=$expandContClass?> formWrap elz d-flex a-H f-wrap gapH16 gapV8 pV16 borT1 br br-primary brL-10 brLInvD showSelOut hideSelOut invSelOut showHovOut" data-name="comment">
+                <div class="elz d-block fb120 bold s-T"><?=$commentShort?> комментарий:</div>
+
+                <div class="elz p-rel d-flex dir-y a-V fb320 grow hmn18">
+                    <div title="Редактировать" class="formToggle elz p-abs p-R d-flex a-X cur-pointer opAct07 s36 rRound bgHov bgHov-primary bgHovL-5 hideSelIn showHovIn">
+                        <div class="mskIcon elz d-block p-rel noShrink mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/pencil.svg');"></div>
+                    </div>
+
+                    <div class="elz p-abs p-AT hmn100p d-flex dir-y a-V mV-8 showSelIn z1">
+                        <form method="post" action="?act=agent_edit_comment&type=<?=$commentType?>" class="adaptTxtWrap p-abs p-AT elz d-grid grTV010 grPos fn fn-primary-t fnL20 w100p hmn100p fnLInvD fnHovL10 fnFow-focus fnFowL0">
+                                <textarea type="text"
+                                          rows="1"
+                                          name="comment"
+                                          placeholder="Ведите комментарий"
+                                          class="elz elzInput res-none d-block res-y grPin grY2 w100p hmn100p bor1 pL16 pV8 pR40 r3 fn12 oAuto trns2 trnsStyle invPssSib
+                                                 bg bg-primary bgL10 bgLInvD
+                                                 br brLInvD br-primary brL-10 brHovL-20 brFoc-focus brFocL0
+                                                 fn fn-primary-t"><?=$counterAgentRow['counteragent_comment_'.$commentType]?></textarea>
+                            <div class="adaptReplication elz elzInput d-block grPin grY2  bor1 pL16 pV8  w100p hmn100p pR40 r3 fn12 prewrap evNone invisible"></div>
+                            <span class="elz d-flex grPin grY2 a-H bor1 pH7 z6 evNone">
+
+                                    <span class="elz p-rel growX d-flex a-PR s-T mT6">
+                                        <button type="submit" class="elz p-rel d-flex a-H cur-pointer opAct07">
+                                            <span class="elz p-rel d-flex a-X s24 r2 evAuto">
+                                                <span class="elz p-rel d-block mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/save.svg');"></span>
+                                            </span>
+                                        </button>
+                                    </span>
+                                </span>
+
+                        </form>
+
+                    </div>
+
+
+
+                    <div class="formResult elz d-block invSelIn pR40"><?=$counterAgentRow['counteragent_comment_'.$commentType] ? nl2br(htmlspecialchars($counterAgentRow['counteragent_comment_'.$commentType])) : 'Комментарий отсутствует'?></div>
+                </div>
+            </div>
+        <?endfor;?>
+        <div class="pmContentExpandContainer<?=$expandContClass?> elz d-flex a-H f-wrap gapH16 gapV8 pV16 borT1 br br-primary brL-10 brLInvD">
+            <div class="elz d-block fb120 bold">Создал:</div>
+            <div class="elz p-rel d-flex dir-y a-V fb320 grow hmn18">
+                <div class="elz d-flex f-wrap gap8 a-H">
+                    <div class="elz d-flex a-H grow">
+                        <div class="elz d-flex a-H grow gap8 opAct07 fn fn-male">
+                            <div class="elz p-rel d-block mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/user.svg');"></div>
+                            <div class="elz d-block"><?=$counterAgentRow['create_member_nick']?></div>
+                        </div>
+                    </div>
+                    <div class="elz d-block"><?=implode(' в ', explode(' ', $counterAgentRow['counteragent_create_date']))?></div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="pmContentExpandContainer<?=$expandContClass?> elz d-flex a-H f-wrap gapH16 gapV8 pV16 borT1 br br-primary brL-10 brLInvD">
+            <div class="elz d-block fb120 bold">Обновил:</div>
+            <div class="elz p-rel d-flex dir-y a-V fb320 grow hmn18">
+                <div class="elz d-flex f-wrap gap8 a-H">
+                    <div class="elz d-flex a-H grow">
+                        <div class="elz d-flex a-H grow gap8 opAct07 fn fn-male">
+                            <div class="elz p-rel d-block mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/user.svg');"></div>
+                            <div id="counterAgentMetaUpdateNick" class="elz d-block"><?=$counterAgentRow['update_member_nick']?></div>
+                        </div>
+                    </div>
+                    <div id="counterAgentMetaUpdateTime" class="elz d-block"><?=implode(' в ', explode(' ', $counterAgentRow['counteragent_update_date']))?></div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>

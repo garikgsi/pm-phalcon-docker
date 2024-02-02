@@ -1,0 +1,30 @@
+<?$langs = ['1' => 'ru', '2' => '<b>en</b>']?>
+
+<tr class="rcpAppEditMemberContainer">
+    <td class="compressed"><b><?=$member_id?></b></td>
+    <td class="pad padVSmaller padHMedium elzCbox h24 wmn240 compressed">
+        <a class="elz strCLSitem flexible middle elzCLSuName <?=$member_gender?> link" title="Редактирвоать пользователя" href="/members/edit/<?=$member_id?>">
+            <div class="elz strCLSitem">
+                <div class="elz elzIcon smallest rad">
+                    <i class="elz main smallest elzIc ic-user"></i>
+                </div>
+            </div>
+            <div class="elz strCLSitem marLSmaller grow w0"><?=$member_nick?></div>
+        </a>
+    </td>
+    <td class="w120"><?=$member_email?></td>
+    <td class="elz al-center"><?=$langs[$member_lang]?></td>
+    <td class="pad padVSmaller padHMedium elzCbox h24 wmn160">
+        <a class="elz strCLSitem flexible middle elzCLSuName link" title="Редактирвоать группу" href="/groups/edit/<?=$group_id?>" target="_blank">
+            <div class="elz strCLSitem">
+                <div class="elz elzIcon smallest rad">
+                    <i class="elz main smallest elzIc ic-users"></i>
+                </div>
+            </div>
+            <div class="elz strCLSitem marLSmaller grow w0"><?=$group_title?></div>
+        </a>
+    </td>
+    <td><?=$member_date_register?></td>
+<!--    <td>--><?//=$member_date_activity?><!--</td>-->
+<!--    <td>--><?//=$member_date_birth?><!--</td>-->
+</tr>

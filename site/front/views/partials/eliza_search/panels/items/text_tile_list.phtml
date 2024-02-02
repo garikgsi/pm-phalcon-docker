@@ -1,0 +1,6 @@
+<?$list = $list ?? []?>
+<div class="elz d-grid grH200 p8 gap8">
+    <?for($a = 0, $len = sizeof($list); $a < $len; $a++):?>
+        <?$this->view->partial('partials/eliza_search/panels/items/text_tile', $list[$a])?>
+    <?endfor;?>
+</div>

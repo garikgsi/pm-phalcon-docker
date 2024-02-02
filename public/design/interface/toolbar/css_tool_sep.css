@@ -1,0 +1,13 @@
+/* Tool settings */
+
+.elzCLStoolbar .tbTool.sep { min-width: 48px; }
+
+.elzCLStoolbar .tbGroupOut.active .tbTool.sep {
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.elzCLStoolbar .tbGroup.active > .tbGroupIn > .tbTool.sep:first-child,
+.elzCLStoolbar .tbGroup.active > .tbGroupIn > .tbTool.sep:last-child { display: none; }
+
+/* end */

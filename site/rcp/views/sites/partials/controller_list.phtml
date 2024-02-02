@@ -1,0 +1,26 @@
+<div class="controllerList <?=$controllersType?> elz strCLSitem wrap flexible padBMedium padRMedium" data-site="<?=$controllerSiteId?>">
+
+    <div class="elz strCLSitem marLMedium marTMedium grow flexible">
+        <div class="elz admCLSwrap flexible shadowed">
+
+            <div class="elz admHeader admWBordered">
+                <div class="elz admCaption">
+                    <h2 class="elz admTitle"><?=$controllersListTitle?></h2>
+                </div>
+            </div>
+
+            <div class="elz admBody">
+
+                <div class="admControllersList">
+                    <?foreach($controllersList as $controllerRow):?>
+                        <?$this->view->partial('sites/partials/controller_item', $controllerRow);//TODO: TEMPLATE SCOPE?>
+                    <?endforeach;?>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>

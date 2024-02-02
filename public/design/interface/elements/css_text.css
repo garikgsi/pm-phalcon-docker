@@ -1,0 +1,89 @@
+.elzText {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.6;
+    flex-shrink: 1;
+    box-sizing: border-box;
+}
+
+.elzText.grow { flex-grow: 1; }
+
+.elzText.formBased, .elzText.formTBased { padding-top:    9px; }
+.elzText.formBased, .elzText.formBBased { padding-bottom: 8px; }
+
+.elzText:not([data-fn]),
+.elzIcotext:not([data-fn]) { color: inherit; }
+
+.elzText.description { opacity: 0.7; }
+
+.elzText,      .elzIcotext { text-decoration: none; }
+.elzText.link, .elzIcotext.link { cursor: pointer; }
+
+.elzText:not(.bold)   { font-weight: normal; }
+.elzText:not(.italic) { font-style:  normal; }
+
+.elzText.shadowed.link:hover,
+.elzText.shadowed.link:active { text-shadow: 0 0 5px rgba(0, 0, 0, 0.25); }
+
+.elzText:not(.link)[title],
+.elzText:not(.link)[data-title] { cursor: help; }
+
+.elzText.link:active,
+.elzIcotext.link:active { opacity: 0.7; }
+
+.elzText.link:before,
+.elzIcotext.link .elzText:before {
+    content: "";
+    position: absolute;
+    display: none;
+    bottom: 0;
+    left:   0;
+    right:  0;
+    border-bottom: 1px solid currentColor;
+    opacity: 0.25;
+}
+
+.elzIcotext.link:hover  .elzText:before, .elzText.link:hover:before,
+.elzIcotext.link:active .elzText:before, .elzText.link:active:before { display: block; }
+
+/* Touch screen detection */
+
+@media (pointer: coarse), (-moz-touch-enabled) {
+    .elzText.ov,
+    .elzText.ov-x,
+    .elzText.ov-y { text-overflow: clip; }
+
+    .elzText.ov   { overflow:   auto; }
+    .elzText.ov-x { overflow-x: auto; overflow-y: hidden; }
+    .elzText.ov-y { overflow-y: auto; overflow-x: hidden; }
+}
+
+
+
+
+
+
+
+
+
+
+/* Text with icon */
+
+.elzIcotext {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.elzIcotext > .elzIcon.middle, .elzIcotext > .elzText.middle { align-self:     center; }
+.elzIcotext > .elzIcon.top,    .elzIcotext > .elzText.top    { align-self: flex-start; }
+.elzIcotext > .elzIcon.bottom, .elzIcotext > .elzText.bottom { align-self:   flex-end; }
+
+.elzIcotext > .elzIcon { order: 1; }
+
+.elzIcotext > .elzText.right { order: 2; }
+.elzIcotext > .elzText.left  { order: 0; text-align: right; }
+
+/* end */

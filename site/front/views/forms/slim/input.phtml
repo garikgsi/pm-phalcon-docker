@@ -1,0 +1,30 @@
+<?php $id = $id ?? \Core\Builder\MustacheForms::getNextId();?>
+<?php $name = $name ?? 'SET THE NAME';?>
+<?php $type = $type ?? 'text';?>
+<?php $title = $title ?? 'SET THE TITLE';?>
+<?php $value = $value ?? '';?>
+<?php $placeholder = $placeholder ?? '';?>
+<?php $leftIcon = $leftIcon ?? false;?>
+<label class="elizaIForm2 elz d-grid grPos fn fnLInvD fn-primary-t fnL20 fnHovL10 fnFow-focus fnFowL0">
+
+    <input id="<?=$id?>" type="<?=$type?>" value="<?=$value?>" name="<?=$name?>" placeholder="<?=$placeholder?>" class="elz d-block grPin grY2 w100p borB2 h48 pH32 ellipsis trns2 invPssSib
+                                                                                br brLInvD br-primary brL-10 brHovL-20 brFoc-focus brFocL0
+                                                                                fn fn-primary-t" />
+    <span class="elz d-flex grPin grY2 a-X borB2 evNone">
+<?if($leftIcon):?>
+        <span class="elz p-rel d-flex a-X s24 trns2">
+            <span class="elz p-rel d-block mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/<?=$leftIcon?>.svg');"></span>
+        </span>
+<?endif;?>
+
+        <span class="elizaIFormIconRWrap elz p-rel growZ d-flex a-PR invisible">
+            <span class="elizaIFormIconRStatus elz p-rel d-flex a-X r2 trns2 cur-help opHovOut bgHov bgHov-error fn fn-error fnHov-error-t">
+                <span class="elizaIFormIconRText elz fn-8 bold al-right pH8 op0 opHovIn10 trns2 trnsVis oH ellipsis"></span>
+                <span class="elz p-rel d-flex a-X s24 r2 evAuto">
+                    <span class="elizaIFormIconR elz p-rel d-block mskBef s16 cFillBef bgBef-CC" style=""></span>
+                </span>
+            </span>
+        </span>
+    </span>
+    <span class="elz d-block fn-8 trns2 invPssLing"><?=$title?></span>
+</label>

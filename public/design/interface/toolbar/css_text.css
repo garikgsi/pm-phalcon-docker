@@ -1,0 +1,90 @@
+/* text settings */
+
+.elzCLSenginePanel .tbText {
+    position: relative;
+	min-height: 1.25em;
+	max-height: 2.5em;
+	line-height: 1.25;
+	overflow: hidden;
+    text-overflow: ellipsis;
+    flex-grow: 1;
+    /*margin-top: 0.2em;*/
+}
+
+.elzCLSenginePanel .tbText,
+.elzCLSenginePanel .tbText:empty { display: none; }
+
+.elzCLSenginePanel .tbTool.txt .tbText { display: block; }
+
+.elzCLSenginePanel .tbText.left  { order: 0; }
+.elzCLSenginePanel .tbText.right { order: 2; }
+
+.elzCLSenginePanel .tbText .txtWrap {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    line-height: inherit;
+}
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Structured */
+/*
+.elzCLStoolbar .tool .toolInner .text.structured {
+
+}
+
+.elzCLStoolbar .tool .toolInner .text.structured .item {
+    display: inline-block;
+    min-height:  inherit;
+    line-height: inherit;
+    -webkit-border-radius: 2px;
+    -moz-border-radius:    2px;
+    border-radius:         2px;
+}
+
+.elzCLStoolbar .tool .toolInner .text.structured .item.value {
+    font-size: 0.9em;
+    font-weight: bold;
+}
+*/
+/* editable */
+/*
+.elzCLStoolbar .tool .toolInner .text.structured .item[contenteditable="true"] {
+    padding-left:  3px;
+    padding-right: 3px;
+    min-width: 1em;
+    cursor: text;
+    white-space: nowrap;
+    text-align: center;
+    word-break: break-all;
+    -webkit-transition: 0.2s background-color, 0.2s color;
+    -moz-transition:    0.2s background-color, 0.2s color;
+    -o-transition:      0.2s background-color, 0.2s color;
+    transition:         0.2s background-color, 0.2s color;
+}
+
+.elzCLStoolbar .tool .toolInner .text.structured .item[contenteditable="true"]:first-child { margin-left:  -3px; }
+.elzCLStoolbar .tool .toolInner .text.structured .item[contenteditable="true"]:last-child  { margin-right: -3px; }
+
+.elzCLStoolbar.light .tool:hover  .toolInner .text.structured .item[contenteditable="true"],
+.elzCLStoolbar.light .tool:active .toolInner .text.structured .item[contenteditable="true"],
+.elzCLStoolbar.light .tool .toolInner .text.structured .item[contenteditable="true"]:hover { background-color: #cccccc; color: #444444; }
+.elzCLStoolbar.light .tool .toolInner .text.structured .item[contenteditable="true"]:focus { background-color: #ffffff; color: #000000; }
+
+.elzCLStoolbar.dark .tool:hover  .toolInner .text.structured .item[contenteditable="true"],
+.elzCLStoolbar.dark .tool:active .toolInner .text.structured .item[contenteditable="true"],
+.elzCLStoolbar.dark .tool .toolInner .text.structured .item[contenteditable="true"]:hover { background-color: #444444; color: #cccccc; }
+.elzCLStoolbar.dark .tool .toolInner .text.structured .item[contenteditable="true"]:focus { background-color: #000000; color: #ffffff; }
+*/
+/* end */

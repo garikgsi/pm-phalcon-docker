@@ -1,0 +1,237 @@
+.hxdTxGrid {
+    position: relative;
+    display: block;
+}
+
+
+
+
+
+
+
+
+
+
+/* Subcaption */
+
+.hxdTxGrid .gridSubcaption {
+    display: block;
+    padding: 8px 16px;
+    line-height: 1.25;
+    font-size: 8pt;
+    font-weight: bold;
+    color: #777777;
+}
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* List */
+
+.hxdTxGrid .gridList {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    list-style: none;
+    padding: 1px 0 0 1px;
+}
+
+.hxdTxGrid .gridList .listItem {
+    display: flex;
+    flex-direction: column;
+}
+
+.hxdTxGrid .gridList.x1  .listItem { width:           100%; }
+.hxdTxGrid .gridList.x2  .listItem { width:            50%; }
+.hxdTxGrid .gridList.x3  .listItem { width: 33.3333333333%; }
+.hxdTxGrid .gridList.x4  .listItem { width:            25%; }
+.hxdTxGrid .gridList.x5  .listItem { width:            20%; }
+.hxdTxGrid .gridList.x6  .listItem { width: 16.6666666666%; }
+.hxdTxGrid .gridList.x7  .listItem { width: 14.2857142857%; }
+.hxdTxGrid .gridList.x8  .listItem { width:          12.5%; }
+.hxdTxGrid .gridList.x9  .listItem { width: 11.1111111111%; }
+.hxdTxGrid .gridList.x10 .listItem { width:            10%; }
+
+.hxdTxGrid .gridList .itemWrap,
+.hxdTxGrid .gridList .itemItself {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+}
+
+.hxdTxGrid .gridList .itemWrap {
+    position: relative;
+    margin: -1px 0 0 -1px;
+}
+
+.hxdTxGrid .gridList .itemItself.link { cursor: pointer; }
+
+.hxdTxGrid .gridList .itemInner {
+    position: relative;
+    display: block;
+    flex-grow: 1;
+    border: 1px solid #cccccc;
+    background-color: #eeeeee;
+    box-sizing: border-box;
+}
+
+.hxdTxGrid .gridList .itemWrap:hover  .itemInner,
+.hxdTxGrid .gridList .itemWrap:active .itemInner,
+.hxdTxGrid .gridList .itemWrap.hover  .itemInner {
+    border-color: #777777;
+    z-index: 1;
+}
+
+.hxdTxGrid .gridList .itemWrap.selected .itemInner {
+    border-color: #0080c0;
+    background-color: #ffffff;
+    z-index: 2;
+}
+
+.hxdTxGrid .gridList .itemWrap .hxdGridActivator {
+    position: absolute;
+    font-size: 12pt;
+    top:  50%;
+    left: 50%;
+    margin-top:  -0.5em;
+    margin-left: -0.5em;
+    color: #ffffff;
+    text-shadow: 0 0 12px #000000, 0 0 12px #000000, 0 0 12px #000000, 0 0 12px #000000;
+}
+
+.hxdTxGrid .gridList .itemWrap .hxdGridActivator { display: none; }
+
+.hxdTxGrid .gridList .itemWrap.sight .elzSight,
+.hxdTxGrid .gridList .itemWrap.check .hxdGridActivator { display: block; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+/* Inner grid cont */
+
+.hxdTxGridCont,
+.hxdTxGridCont > .contOut {
+    position: relative;
+    display: block;
+}
+
+.hxdTxGridCont > .contOut.main:before {
+    content: "";
+    display: block;
+    padding-top: 100%;
+    pointer-events: none;
+}
+
+.hxdTxGridCont > .contOut.main > .contIn {
+    position: absolute;
+    display: flex;
+    align-items:     center;
+    justify-content: center;
+    top:    0;
+    right:  0;
+    bottom: 0;
+    left:   0;
+}
+
+.hxdTxGridCont > .contOut.descr > .contIn {
+    font-size: 8pt;
+    text-align: center;
+    font-weight: bold;
+    color: #555555;
+    line-height: 1.5;
+}
+
+.hxdTxGridCont > .contOut.descr > .contIn:empty { display: none; }
+
+.hxdTxGridCont .elzSight > .sH {
+    width:  25%;
+    height: 25%;
+}
+
+.hxdTxGridCont > .contOut.main img,
+.hxdTxGridCont > .contOut.main canvas {
+    display: block;
+    width:  auto;
+    height: auto;
+    max-width:  100%;
+    max-height: 100%;
+}
+
+.hxdTxGridCont > .contOut.main svg {
+    display: block;
+    width:  100%;
+    height: 100%;
+}
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Texture type */
+
+.hxdTxGridCont.texture > .contOut > .contIn { margin: 2px; }
+
+.hxdTxBGInherit .hxdTxGridCont.texture > .contOut > .contIn { background-color: currentColor; }
+
+.hxdTxGridCont.texture .elzSight {
+    top:    10%;
+    right:  10%;
+    bottom: 10%;
+    left:   10%;
+}
+
+.hxdTxGridCont.texture > .contOut > .contIn.cover {
+    background-position: center center;
+    background-size: cover;
+}
+
+/* end */
+
+
+
+
+
+/* Image */
+
+.hxdTxGridCont.image > .contOut.main > .contIn { margin: 8px; }
+
+.hxdTxGridCont.image > .contOut > .contIn {
+    margin-top:   -4px;
+    margin-bottom: 2px;
+}
+
+.hxdTxGridCont.image .elzSight {
+    top:    6px;
+    right:  6px;
+    bottom: 6px;
+    left:   6px;
+}
+
+.hxdTxGridCont.image.fill > .contOut > .contIn { margin-top: 4px; }
+
+.hxdTxGridCont.image.fill > .contOut.main > .contIn { margin: 0; }
+
+/* end */

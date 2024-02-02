@@ -1,0 +1,182 @@
+.elzCLSbookmarks,
+.elzCLSbookmarks > .elzScroll {
+    position: relative;
+    display: block;
+}
+
+.elzCLSbookmarks > .elzScroll .scroll-element { width: 1px; height: 1px; }
+
+.elzCLSbookmarks .bookmarksWrap {
+    position: relative;
+    display: flex;
+}
+
+.elzCLSbookmarks.smaller .bookmarksWrap { height: 24px; }
+.elzCLSbookmarks.small   .bookmarksWrap { height: 28px; }
+.elzCLSbookmarks.medium  .bookmarksWrap { height: 36px; }
+.elzCLSbookmarks.large   .bookmarksWrap { height: 48px; }
+
+.elzCLSbookmarks .bookmarksWrap:before,
+.elzCLSbookmarks .bookmarksWrap:after,
+.elzCLSbookmarks .bookmarkItem:before {
+    content: "";
+    display: block;
+    border: 0 solid currentColor;
+    pointer-events: none;
+}
+
+.elzCLSbookmarks .bookmarksWrap:before,
+.elzCLSbookmarks .bookmarksWrap:after {
+    position: relative;
+    width: 0;
+    flex-grow: 1;
+}
+
+.elzCLSbookmarks .bookmarkItem:before {
+    position: absolute;
+    top:    0;
+    right:  0;
+    bottom: 0;
+    left:   0;
+    z-index: 1;
+}
+
+.elzCLSbookmarks.left  .bookmarksWrap:before,
+.elzCLSbookmarks.grow  .bookmarksWrap:before,
+.elzCLSbookmarks.right .bookmarksWrap:after,
+.elzCLSbookmarks.grow  .bookmarksWrap:after { display: none; }
+
+.elzCLSbookmarks.bordered .bookmarksWrap:before,
+.elzCLSbookmarks.bordered .bookmarksWrap:after,
+.elzCLSbookmarks.bordered .bookmarkItem:before { border-width: 1px 0; }
+
+.elzCLSbookmarks.bordered.top .bookmarksWrap:before,
+.elzCLSbookmarks.bordered.top .bookmarksWrap:after,
+.elzCLSbookmarks.bordered.top .bookmarkItem:before,
+.elzCLSbookmarks.actBottom    .bookmarkItem.active:before { border-bottom-width: 0; }
+
+.elzCLSbookmarks.bordered.bottom .bookmarksWrap:before,
+.elzCLSbookmarks.bordered.bottom .bookmarksWrap:after,
+.elzCLSbookmarks.bordered.bottom .bookmarkItem:before,
+.elzCLSbookmarks.actTop          .bookmarkItem.active:before { border-top-width: 0; }
+
+.elzCLSbookmarks.grow .bookmarkItem { flex-grow: 1; }
+
+.elzCLSbookmarks .bookmarkItem {
+    position: relative;
+    display: block;
+    cursor: pointer;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.elzCLSbookmarks .bookmarkItem:active { opacity: 0.7; }
+
+.elzCLSbookmarks .bookmarkItem.active {
+    opacity: 1 !important;
+    cursor: default !important;
+    box-shadow: none !important;
+}
+
+.elzCLSbookmarks .bookmarkItem .itemInner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 0 16px;
+}
+
+.elzCLSbookmarks.hide,
+.elzCLSbookmarks .bookmarkItem.hide { display: none; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Colors settings */
+
+.elzCLSbookmarks .bookmarkItem:not(.active) {
+    background: none;
+    color: inherit;
+}
+
+.elzCLSbookmarks.dark { color: #555555; }
+
+.elzCLSbookmarks.dark .bookmarkItem:not(.active):hover,
+.elzCLSbookmarks.dark .bookmarkItem:not(.active):active,
+.elzCLSbookmarks.dark .bookmarkItem.active:not([data-fn]) { color: #000000; }
+
+.elzCLSbookmarks.hovDark .bookmarkItem:hover,
+.elzCLSbookmarks.hovDark .bookmarkItem:active   { box-shadow: inset 0 0 0 1024px rgba(0, 0, 0, 0.1); }
+.elzCLSbookmarks.dark    .bookmarkItem.active:not([data-bg]) { background-color: rgba(0, 0, 0, 0.1); }
+
+.elzCLSbookmarks.bordered.brDark .bookmarksWrap:before,
+.elzCLSbookmarks.bordered.brDark .bookmarksWrap:after,
+.elzCLSbookmarks.bordered.brDark .bookmarkItem:before { color: rgba(0, 0, 0, 0.1); }
+
+.elzCLSbookmarks.light { color: #d2d2d2; }
+
+.elzCLSbookmarks.light .bookmarkItem:not(.active):hover,
+.elzCLSbookmarks.light .bookmarkItem:not(.active):active,
+.elzCLSbookmarks.light .bookmarkItem.active:not([data-fn]) { color: #ffffff; }
+
+.elzCLSbookmarks.hovLight .bookmarkItem:hover,
+.elzCLSbookmarks.hovLight .bookmarkItem:active   { box-shadow: inset 0 0 0 1024px rgba(255, 255, 255, 0.25); }
+.elzCLSbookmarks.light    .bookmarkItem.active:not([data-bg]) { background-color: rgba(255, 255, 255, 0.25); }
+
+.elzCLSbookmarks.bordered.brLight .bookmarksWrap:before,
+.elzCLSbookmarks.bordered.brLight .bookmarksWrap:after,
+.elzCLSbookmarks.bordered.brLight .bookmarkItem:before { color: rgba(255, 255, 255, 0.1); }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Text */
+
+.elzCLSbookmarks .bookmarkItem .text,
+.elzCLSbookmarks .bookmarkItem .num {
+    position: relative;
+    display: block;
+    line-height: 1.1;
+    text-align: center;
+}
+
+.elzCLSbookmarks .bookmarkItem .num {
+    margin-left: 5px;
+    padding: 0 0.25em;
+    min-width: 1em;
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+    box-sizing: border-box;
+}
+
+.elzCLSbookmarks .bookmarkItem .num .numin {
+    display: inline;
+    font-size: 0.75em;
+    vertical-align: middle;
+}
+
+.elzCLSbookmarks .bookmarkItem .num:empty { display: none; }
+
+.elzCLSbookmarks.dark  .bookmarkItem .num { background-color: rgba(0,     0,   0,  0.1); }
+.elzCLSbookmarks.light .bookmarkItem .num { background-color: rgba(255, 255, 255, 0.25); }
+
+.elzCLSbookmarks .bookmarkItem.active .num { background: rgba(0, 0, 0, 0.25); }
+
+/* end */

@@ -1,0 +1,129 @@
+<?$site = $this->view->getVar('site')?>
+<?$langList = [[1, 'RU'], [2, 'EN']]?>
+<?$t = $this->view->t?>
+
+<div id="ipRcpEditSiteId" data-id="<?=$this->view->getVar('rcp_edit_site_id')?>" class="elz strCLSitem wrap flexible padBMedium padRMedium">
+
+
+
+
+    <form id="rcpSiteNameChange" class="elz strCLSitem marLMedium marTMedium w640 grow flexible" method="post" action="/sites/api/site_change?sid=<?=$site['site_id']?>">
+        <div class="elz admCLSwrap flexible shadowed">
+
+            <div class="elz admHeader admWBordered">
+                <div class="elz admCaption">
+                    <h2 class="elz admTitle"><?=$t->_('rcp_sites_site_label1')?></h2>
+                </div>
+            </div>
+
+            <div class="elz admBody">
+
+                <div class="elz strCLSitem flexible wrap padRMedium">
+
+                    <div class="strCLSitem flexible wrap marTMedium marLMedium grow">
+                        <div class="strCLSitem flexible wrap mar-LMedium mar-BSmaller grow w0">
+
+                            <div class="strCLSitem marLMedium marBSmaller s-middle grow wmn120">
+                                <div class="elz elzText bold"><?=$t->_('rcp_sites_site_name')?></div>
+                                <div class="elz elzText fn-8 elzPLT" data-fn="grey 600"><?=$t->_('rcp_sites_site_name_d')?></div>
+                            </div>
+
+                            <div class="strCLSitem marLMedium marBSmaller s-middle growmax w300">
+                                <?=\Core\Builder\MustacheForms::input('text', $t->_('rcp_sites_site_name_p'),'', '', '', 'name', $site['site_name'])?>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="elz strCLSitem marTLarge">
+<?$checkList = $this->view->getVar('checkList');?>
+<?for($i = 0, $len = sizeof($checkList); $i < $len; $i++):?>
+    <?$item = $checkList[$i]?>
+    <?if(is_array($item)):?>
+                    <div class="elz strCLSitem flexible wrap middle padHMedium padVSmall hovering">
+                        <div class="elz strCLSitem grow w0">
+                            <p class="bb p elzPLT" data-fn="<?=$item[1][1]?>"><b class="bb strong"><?=$item[0]?></b></p>
+                        </div>
+                        <div class="elz strCLSitem marLMedium">
+                            <i class="elz elzIcon medium circle elzPLT" data-bg="<?=$item[1][1]?>">
+                                <i class="elz elzIc main smallest <?=$item[1][0]?> elzPLT shD" data-fn="white"></i>
+                            </i>
+                        </div>
+                    </div>
+    <?else:?>
+                    <div class="elz strCLSitem flexible wrap middle padHMedium padBSmall padTLarge">
+                        <p class="bb p fn-12"><?=$item?>:</p>
+                    </div>
+    <?endif;?>
+<?endfor?>
+
+                </div>
+
+            </div>
+
+            <div class="admFooter admWBordered">
+                <div class="elz strCLSitem flexible center">
+                    <div class="elz strCLSitem marMedium">
+                        <?=\Core\Builder\MustacheForms::submit('', $t->_('rcp_sites_site_name_c'))?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+
+
+
+    <div class="elz strCLSitem marLMedium marTMedium w640 grow flexible">
+        <div class="elz admCLSwrap flexible shadowed top">
+
+            <div class="elz admHeader admWBordered">
+                <div class="elz admCaption">
+                    <h2 class="elz admTitle"><?=$t->_('rcp_sites_site_label2')?></h2>
+                </div>
+            </div>
+
+            <div class="elz admBody">
+
+
+                <div class="elz strCLSitem">
+                    <div class="elz elzCLStableWrap">
+                        <table class="elz elzCLStable spMedium">
+                            <tbody class="elz tbody" id="rcpDomainList">
+<?$domainList = $this->view->getVar('domainList')?>
+<?for($i = 0, $len = sizeof($domainList); $i < $len; $i++):?>
+    <?=$this->view->partial('sites/edit_domain', ['domain' => $domainList[$i], 'langList' => $langList])?>
+<?endfor?>
+                            <tr>
+                                <td class="wmn200">
+                                    <?=\Core\Builder\MustacheForms::input('text', $t->_('rcp_sites_site_domain'), '', '', 'rcpDomainAddAddr')?>
+                                </td>
+                                <td class="compressed">
+                                    <?=\Core\Builder\MustacheForms::checkbox('rcpDomainAddCross', $t->_('rcp_sites_site_cross'))?>
+                                </td>
+                                <td class="wmn100">
+                                    <?=\Core\Builder\MustacheForms::select(1, $langList, 'rcpDomainAddLang')?>
+                                </td>
+                                <td class="compressed">
+                                    <i class="elz elzIcon large link" id="rcpDomainAddSend" data-site="<?=$site['site_id']?>">
+                                        <i class="elz elzIc main smallest ic-plus2 elzPLT" data-fn="grey 700"></i>
+                                        <i class="elz elzIc main smallest ic-plus2 elzPLT" data-fn="black"></i>
+                                    </i>
+                                </td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+</div>

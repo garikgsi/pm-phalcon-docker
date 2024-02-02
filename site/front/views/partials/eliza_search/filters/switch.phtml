@@ -1,0 +1,14 @@
+<?php $checked = $checked ?? 0;?>
+<?php $title = $title ?? '';?>
+<?php $name = $name ?? '';?>
+<?php $search = $search ?? 'defaultSearchName';?>
+<?php $update = $update ?? 0;?>
+<?php $delay = $delay ?? 0;?>
+<label class="elizaSearchFilterItem elz d-flex grow fb320 pV16 pH12 r3 a-H cur-pointer bg bg-primary bgL5 bgHovL10 bsh-default1 selNone" data-engine="<?=$search?>" data-name="<?=$name?>" data-type="switch" data-update="<?=(int)$update?>" data-delay="<?=(int)$delay?>">
+    <input type="checkbox"
+           class="elz elzSwitch swOut p-rel d-block p4 w36 h18 rRound cur-pointer borAft2
+                  fn fn-primary fnLF5 fnFL
+                  bgBef bg-primary bgL-20 bgLInvD bgChk-ok bgChkL0
+                  brAft br-primary brL-20 brLInvD brChk-ok brChk-ok brChkL0"<?php if($checked):?> checked="checked"<?php endif;?> />
+    <span class="elz d-block growX mL8 fn14 lh10"><?=$title?></span>
+</label>

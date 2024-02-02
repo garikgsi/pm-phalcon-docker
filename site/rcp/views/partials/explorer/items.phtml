@@ -1,0 +1,8 @@
+<?if(isset($list) && sizeof($list)):?>
+    <ul class="elz expList rootExplorerUL"<?=@$data?>>
+        <?for($a = 0, $len = sizeof($list); $a < $len; $a++):?>
+            <?$item = $list[''.$a]?>
+            <?$this->view->partial('partials/explorer/item_'.$item['type'], $item);?>
+        <?endfor;?>
+    </ul>
+<?endif;?>

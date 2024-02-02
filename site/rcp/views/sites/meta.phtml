@@ -1,0 +1,126 @@
+<?$site = $this->view->getVar('site')?>
+<?$t = $this->view->t?>
+<div id="ipRcpEditSiteId" data-id="<?=$this->view->getVar('rcp_edit_site_id')?>" class="elz strCLSitem wrap flexible padBMedium padRMedium">
+    <?$counters = $this->view->getVar('metaCounter');?>
+    <?$meta     = $this->view->getVar('metaData');?>
+    <?$imageAction = '/sites/api/meta_icon?site='.$site['site_id'].'&size=';?>
+
+    <?$this->view->partial('partials/forms/forms_section', [
+        'title'  => $t->_('rcp_sites_meta_label1'),
+        'isFake' => 1,
+        'formId' => 'rcpSiteMetaEdit',
+        'formAction' => '/sites/api/meta_edit?site='.$site['site_id'],
+        'formData'   => 'data-site="'.$site['site_id'].'"',
+        'submitTitle' => $t->_('rcp_sites_save'),
+        'langed' => ['list' => [[1, 'RU'], [2, 'EN']], 'id' => 'rcpSiteMetaEditLang', 'name' => 'lang', 'class' => ''],
+        'fieldList' => [
+            [
+                'field'  => 'input',
+                'ftitle' => $t->_('rcp_sites_meta_seo_title'),
+                'fdescr' => $t->_('rcp_sites_meta_seo_title_d'),
+                'wtitle' => 'wmn240',
+                'type'   => 'text',
+                'placeholder' => $t->_('rcp_sites_meta_seo_title_p'),
+                'value' => $meta['title'],
+                'name'  => 'title'
+            ],
+            [
+                'field'  => 'input',
+                'ftitle' => $t->_('rcp_sites_meta_seo_keys'),
+                'fdescr' => $t->_('rcp_sites_meta_seo_keys_d'),
+                'wtitle' => 'wmn240',
+                'type'   => 'text',
+                'placeholder' => $t->_('rcp_sites_meta_seo_keys_p'),
+                'value' => $meta['keywords'],
+                'name'  => 'keywords'
+            ],
+            [
+                'field'  => 'input',
+                'ftitle' => $t->_('rcp_sites_meta_seo_descr'),
+                'fdescr' => $t->_('rcp_sites_meta_seo_descr_d'),
+                'wtitle' => 'wmn240',
+                'type'   => 'text',
+                'placeholder' => $t->_('rcp_sites_meta_seo_descr_p'),
+                'value' => $meta['description'],
+                'name'  => 'description'
+            ],
+            [
+                'field'  => 'input',
+                'ftitle' => $t->_('rcp_sites_meta_email_name'),
+                'fdescr' => $t->_('rcp_sites_meta_email_name_d'),
+                'wtitle' => 'wmn240',
+                'type'   => 'text',
+                'placeholder' => $t->_('rcp_sites_meta_email_name_p'),
+                'value' => $meta['email_name'],
+                'name'  => 'email_name'
+            ],
+            [
+                'field'  => 'input',
+                'ftitle' => $t->_('rcp_sites_meta_email_signature'),
+                'fdescr' => $t->_('rcp_sites_meta_email_signature_d'),
+                'wtitle' => 'wmn240',
+                'type'   => 'text',
+                'placeholder' => $t->_('rcp_sites_meta_email_signature_p'),
+                'value' => $meta['email_signature'],
+                'name'  => 'email_signature'
+            ],
+            [
+                'ftitle' => $t->_('rcp_sites_meta_icon'),
+                'fdescr' => $t->_('rcp_sites_meta_icon_d'),
+                'wtitle' => 'wmn240',
+                'contClass' => ' desktop',
+                'images' => $this->view->getVar('metaIcons')
+            ]
+        ]
+    ])?>
+
+    <?$this->view->partial('partials/forms/forms_section', [
+        'title'  => $t->_('rcp_sites_meta_label2'),
+        'formId' => 'rcpSiteCounterEdit',
+        'formAction'  => '/sites/api/counter_edit?site='.$site['site_id'],
+        'submitTitle' => $t->_('rcp_sites_save'),
+        'fieldList' => [
+            [
+                'field'  => 'input',
+                'ftitle' => $t->_('rcp_sites_meta_mailru'),
+                'fdescr' => $t->_('rcp_sites_meta_mailru_d'),
+                'wtitle' => 'wmn280',
+                'type'   => 'text',
+                'placeholder' => $t->_('rcp_sites_meta_mailru_p'),
+                'value' => $counters['site_mailru_counter'],
+                'name'  => 'mailru_counter'
+            ],
+            [
+                'field'  => 'input',
+                'ftitle' => $t->_('rcp_sites_meta_master'),
+                'fdescr' => $t->_('rcp_sites_meta_master_d'),
+                'wtitle' => 'wmn280',
+                'type'   => 'text',
+                'placeholder' => $t->_('rcp_sites_meta_master_p'),
+                'value' => $counters['site_yandex_master'],
+                'name'  => 'yandex_master'
+            ],
+            [
+                'field'  => 'input',
+                'ftitle' => $t->_('rcp_sites_meta_analytics'),
+                'fdescr' => $t->_('rcp_sites_meta_analytics_d'),
+                'wtitle' => 'wmn280',
+                'type'   => 'text',
+                'placeholder' => $t->_('rcp_sites_meta_analytics_p'),
+                'value' => $counters['site_google_analytics'],
+                'name'  => 'google_analytics'
+            ],
+            [
+                'field'  => 'input',
+                'ftitle' => $t->_('rcp_sites_meta_gplus'),
+                'fdescr' => $t->_('rcp_sites_meta_gplus_d'),
+                'wtitle' => 'wmn280',
+                'type'   => 'text',
+                'placeholder' => $t->_('rcp_sites_meta_gplus_p'),
+                'value' => $counters['site_google_publisher'],
+                'name'  => 'google_publisher'
+            ]
+        ]
+    ])?>
+
+</div>

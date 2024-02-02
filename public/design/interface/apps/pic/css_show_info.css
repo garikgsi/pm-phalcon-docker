@@ -1,0 +1,185 @@
+/* Metadata info settings */
+
+.picCLSmetadata { display: block; }
+
+.picCLSmetadata .card {
+    position: relative;
+    display: block;
+    display: -webkit-flex;
+    display:         flex;
+    -webkit-align-items: center;
+    align-items:         center;
+}
+
+/* Avatar */
+
+.picCLSmetadata .avatar {
+    position: relative;
+    display: block;
+    margin-right: 10px;
+}
+/* end */
+
+
+
+
+
+/* Info */
+
+.picCLSmetadata .info {
+    display: block;
+    width: 0;
+    -webkit-flex-grow: 1;
+    flex-grow:         1;
+}
+
+.picCLSmetadata .info .elzCLSuName {
+    display: block;
+    height:      18px;
+    line-height: 18px;
+    font-weight: bold;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.picCLSmetadata .info .private,
+.picCLSmetadata .info .data {
+    height:      17px;
+    line-height: 17px;
+}
+
+.picCLSmetadata .info .data {
+    font-size: 0.9em;
+    color: #555555;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.picCLSmetadata .info .data .link {
+    color: inherit;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.picCLSmetadata .info .data .link:hover,
+.picCLSmetadata .info .data .link:active { color: #000000; }
+
+.picCLSmetadata .info .data .link:active { opacity: 0.7; }
+
+.picCLSmetadata .description {
+    padding-top: 10px;
+    text-align: left;
+}
+
+.picCLSmetadata .description:empty { display: none; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+
+
+/* PEGI */
+
+.picCLSmetadata .info .private {
+    display: block;
+    font-size: 0.9em;
+}
+
+.picCLSmetadata .info .private .inner {
+    display: block;
+    float: left;
+    height: 100%;
+    line-height: inherit;
+    cursor: help;
+}
+
+.picCLSmetadata .info .private .inner + .inner { margin-left: 10px; }
+
+.picCLSmetadata .info .private .inner.pegi { font-weight: bold; }
+
+.picCLSmetadata .info .private .inner.pegi.p0,
+.picCLSmetadata .info .private .inner.pegi.p6,
+.picCLSmetadata .info .private .inner.pegi.p12 { color: #2e7d32; }
+
+.picCLSmetadata .info .private .inner.pegi.p16,
+.picCLSmetadata .info .private .inner.pegi.p18 { color: #d50000; }
+
+@media (min-width: 480px) and (max-width: 889px) {
+
+    .picCLSmetadata .info .private .inner.pegi {
+        position: absolute;
+        right: 0;
+        top:   0;
+        width: 52px;
+        line-height: 52px;
+        font-size: 1.4em;
+        text-align: center;
+        background-color: rgba(0, 0, 0, 0.075);
+        -webkit-border-radius: 3px;
+        -moz-border-radius:    3px;
+        border-radius:         3px;
+    }
+
+    .picCLSmetadata .info .private .inner.pegi.p6,
+    .picCLSmetadata .info .private .inner.pegi.p12 { background-color: #2e7d32; color: #ffffff; }
+
+    .picCLSmetadata .info .private .inner.pegi.p16,
+    .picCLSmetadata .info .private .inner.pegi.p18 { background-color: #d50000; color: #ffffff; }
+}
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Content information settings ******************/
+
+.picCLSinfo {
+    display: block;
+    padding: 10px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing:    border-box;
+    box-sizing:         border-box;
+}
+
+.picCLSinfo .infoList {
+    display: table;
+    list-style: none;
+    border-collapse: separate;
+    width: 100%;
+}
+
+.picCLSinfo .infoList .item {
+    display: table-row;
+    overflow: hidden;
+    height:      40px;
+    line-height: 41px;
+}
+
+.picCLSinfo .infoList .item .cell { display: table-cell; }
+.picCLSinfo .infoList .item .cell.title { color: #777777; padding-left: 5px; }
+.picCLSinfo .infoList .item .cell.value { padding-left: 20px; }
+
+.picCLSinfo .fastLinks .elzF.item.input {
+    font-size: 8pt;
+    line-height: 19px;
+}
+
+@media (min-width: 640px) and (max-width: 900px) { .picCLSinfo { float: left; width: 50%; } }
+
+/* end */

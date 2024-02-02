@@ -1,0 +1,34 @@
+<div class="elz elzF wrap">
+{{#isbutton}}
+        <input id="{{id}}" {{{input_attr}}} class="elz elzFT {{input_class}}"/>
+        <label class="elz elzF {{item_class}}" {{{item_attr}}} for="{{id}}">{{text}}</label>
+{{/isbutton}}
+{{^isbutton}}
+    <label class="elz elzF item check {{align}}" for="{{id}}">
+        <input id="{{id}}" {{{input_attr}}} class="elz elzFT {{input_class}}"/>
+        <span class="elz checker {{item_class}}" {{{item_attr}}}>
+            {{#isradio}}
+                <span class="elz inner">
+                    {{#icon}}<i class="elz elzIc {{icon.first}}"></i>{{/icon}}
+                    <i class="elz selector"></i>
+                    {{#icon}}<i class="elz elzIc {{icon.second}}"></i>{{/icon}}
+                </span>
+            {{/isradio}}
+            {{^isradio}}
+                {{#isbox}}
+                    <i class="elz elzIc ic-check2"></i>
+                {{/isbox}}
+                {{^isbox}}
+                    <span class="elz inner">
+                        {{#icon}}<i class="elz elzIc {{icon.first}}"></i>{{/icon}}
+                        <i class="elz selector"></i>
+                        {{#icon}}<i class="elz elzIc {{icon.second}}"></i>{{/icon}}
+                    </span>
+                {{/isbox}}
+            {{/isradio}}
+        </span>
+        {{#text}}<span class="elz text nowrap{{tx_class}}">{{text}}</span>{{/text}}
+    </label>
+{{/isbutton}}
+    {{#title}}<span class="elz elzFA elzF-text title">{{title}}</span>{{/title}}
+</div>

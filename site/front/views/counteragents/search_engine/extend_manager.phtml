@@ -1,0 +1,27 @@
+<div class="extendItem elz d-flex a-H gap8 p8 r3 bor1 br br-primary brL-10 brHovL-15 brSelL-20 brLInvD bg bg-primary bgSelL-15 bgSelLInvL cur-pointer opAct07<?if($selected):?> sel<?endif;?>" title="<?=$nick?>" data-value="<?=$value?>">
+    <div class="elz uAvatar p-rel d-block s40 noShrink">
+        <div class="elz avCutMask p-abs p-F rCircle">
+            <div class="elz avWrap d-block s100p rInh oH">
+                <?if($version):?>
+                    <img class="elz d-block s100p rCircle" alt="<?=$nick?>" src="/uploads/avatars/user_<?=$value?>_<?=$version?>_32.png"/>
+                <?else:?>
+                    <div class="elz d-flex a-X s100p rCircle fn11 bold bg bg-<?=$gender?> fn fn-white"><?=htmlspecialchars($nick2)?></div>
+                <?endif;?>
+            </div>
+        </div>
+        <div class="elz avCutStatus p-abs p-F hide">
+            <div class="elz p-abs d-flex a-X p-EC s0">
+                <div class="elz p-abs d-block statusItem bg bg-green"></div>
+            </div>
+        </div>
+    </div>
+    <div class="elz d-block growX">
+        <div class="elz d-block grow pH8 pV4 nowrap oH ellipsis bold oH ellipsis nowrap fn fn-<?=$gender?> fnSelIn-secondary-t"><?=$nick?></div>
+        <div class="elz d-flex f-wrap mT4">
+            <div class="elz d-flex a-H pL8">
+                <div class="elz d-block p-rel mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/users.svg');"></div>
+                <div class="elz d-block pH8"><?=$counteragent_count?></div>
+            </div>
+        </div>
+    </div>
+</div>

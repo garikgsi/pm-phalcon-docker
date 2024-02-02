@@ -1,0 +1,58 @@
+<?php
+$groupNodeId = $group_node_id;
+$groupsList = $groups_list;
+
+?>
+<?if(isset($groupsList[$groupNodeId]) && is_array($groupsList[$groupNodeId])):?>
+    <?$nodeList = $groupsList[$groupNodeId]?>
+    <?for($a = 0, $len = sizeof($nodeList); $a < $len; $a++):?>
+        <?$node = $nodeList[$a]?>
+        <?$hasChild = isset($groupsList[$node['group_id']]) && is_array($groupsList[$node['group_id']]) && sizeof($groupsList[$node['group_id']])?>
+        <?$title = trim($node['group_title'])?>
+
+<li class="elz expItem">
+    <div class="elz expInner elzPLT">
+        <div class="elz expSTR icon left">
+            <i class="elz elzIcon medium rad elzPLT" data-fn="grey 600">
+                <i class="elz elzIc main smallest ic-users">
+                    <i class="elz elzIc gspot shD elzPLT ic-plus<?if(!$hasChild):?> elzHide<?endif;?>" data-bg="blue" data-fn="white"></i>
+                </i>
+            </i>
+        </div>
+        <a class="elz expSTR grow link" href="/groups/edit/<?=$node['group_id']?>">
+            <span class="elz elzText nowrap"><b class="bb strong"><?=$title?></b></span>
+        </a>
+
+        <?if(isset($node['group_linked'])):?>
+            <?$activeClass = ''?>
+            <?$activeAttrs = 'data-fn="black" data-bg="grey 200"'?>
+
+            <?if((int)$node['group_linked'] > 0):?>
+                <?$activeClass = ' linked'?>
+                <?$activeAttrs = 'data-fn="white" data-bg="green"'?>
+            <?endif;?>
+
+            <div class="elz expSTR right marRSmall">
+                <div class="elz strCLSitem">
+                    <div class="elz elzCLSlabel small link groupLink<?=$activeClass?> elzPLT"<?=$activeAttrs?> title="Присвоить группу" data-id="<?=$node['group_id']?>">
+                        <i class="elz elzIc ic-check"></i>
+                    </div>
+                </div>
+            </div>
+
+        <?endif;?>
+    </div>
+    <?$hideOpener = $hasChild ? '' : ' elzHide'?>
+
+    <input class="elz expNodeChecker<?=$hideOpener?>" type="checkbox" title="Развернуть">
+    <div class="elz expNode<?=$hideOpener?>"></div>
+
+    <ul class="elz expList" data-right="<?=$node['right_id'] ?? ''?>">
+        <?$this->view->partial('groups/partials/groups_explorer_li', [
+            'group_node_id' => $node['group_id'],
+            'groups_list' => $groupsList
+        ])?>
+    </ul>
+</li>
+    <?endfor;?>
+<?endif;?>

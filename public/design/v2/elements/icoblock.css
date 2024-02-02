@@ -1,0 +1,74 @@
+/* Decorations */
+
+.uIcoBlock:before,
+.uIcoBlock:after {
+    content: "";
+    position: absolute;
+    display: block;
+    top:  0;
+    left: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.uIcoBlock:before {
+    right:  0;
+    bottom: 0;
+    border-style: solid;
+    border-radius: inherit;
+    border-left-width: 4px !important;
+}
+
+
+.uIcoBlock:before {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 0 18px, 6px 18px, 6px 0, 0 0);
+    clip-path:         polygon(0 0, 100% 0, 100% 100%, 0 100%, 0 18px, 6px 18px, 6px 0, 0 0);
+}
+
+.uIcoBlock.spoiler:before {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 0 15px, 4px 11px, 6px 11px, 6px 0, 0 0);
+    clip-path:         polygon(0 0, 100% 0, 100% 100%, 0 100%, 0 15px, 4px 11px, 6px 11px, 6px 0, 0 0);
+}
+
+.uIcoBlock.blockquote:before {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 0 11px, 4px 15px, 9px 15px, 9px 0, 0 0);
+    clip-path:         polygon(0 0, 100% 0, 100% 100%, 0 100%, 0 11px, 4px 15px, 9px 15px, 9px 0, 0 0);
+}
+
+.uIcoBlock:after {
+    width:   4px;
+    height: 16px;
+    background-color: currentColor;
+}
+
+.uIcoBlock.info:after,
+.uIcoBlock.success:after {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 4px, 0 4px, 0 6px, 100% 6px, 100% 100%, 0 100%);
+    clip-path:         polygon(0 0, 100% 0, 100% 4px, 0 4px, 0 6px, 100% 6px, 100% 100%, 0 100%);
+}
+
+.uIcoBlock.warning:after,
+.uIcoBlock.error:after {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 10px, 0 10px, 0 12px, 100% 12px, 100% 100%, 0 100%);
+    clip-path:         polygon(0 0, 100% 0, 100% 10px, 0 10px, 0 12px, 100% 12px, 100% 100%, 0 100%);
+}
+
+.uIcoBlock.code:after {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 4px, 0 4px, 0 6px, 100% 6px, 100% 10px, 0 10px, 0 12px, 100% 12px, 100% 12px, 100% 100%, 0 100%);
+    clip-path:         polygon(0 0, 100% 0, 100% 4px, 0 4px, 0 6px, 100% 6px, 100% 10px, 0 10px, 0 12px, 100% 12px, 100% 12px, 100% 100%, 0 100%);
+}
+
+.uIcoBlock.blockquote:after {
+    width:   7px;
+    height: 13px;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 4px, 4px 7px, 4px 100%, 0 9px);
+    clip-path:         polygon(0 0, 100% 0, 100% 4px, 4px 7px, 4px 100%, 0 9px);
+}
+
+.uIcoBlock.spoiler:after {
+    height: 13px;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 9px, 0 100%, 0 0);
+    clip-path:         polygon(0 0, 100% 0, 100% 9px, 0 100%, 0 0);
+}
+
+/* end */

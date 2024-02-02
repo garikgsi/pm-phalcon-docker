@@ -1,0 +1,42 @@
+<?php $title = $title ?? 'УКАЖИ ТАЙТЛ';?>
+<?php $id = $id ?? \Core\Builder\MustacheForms::getNextId();?>
+<?php $name = $name ?? 'SET THE NAME';?>
+<?php $type = $type ?? 'text';?>
+<?php $value = $value ?? '';?>
+<?php $placeholder = $placeholder ?? '';?>
+<?php $widthTitle = $widthTitle ?? 150;?>
+<?php $widthInput = $widthInput ?? 280;?>
+<div class="elz p-rel d-block fb<?=$widthTitle?> grow lh15 showHovOut<?if(isset($description_over)):?> cur-help<?endif;?>">
+    <div class="elz d-flex a-H gap8">
+        <?if(isset($description_over)):?><span class="elz d-block p-rel noShrink mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/question.svg');"></span><?endif;?>
+        <div class="elz d-block bold"><?=$title?>:</div>
+    </div>
+<?if(isset($description)):?>
+    <div class="elz d-block oH ellipsis fn11"><?=$description?></div>
+<?endif;?>
+<?if(isset($description_over)):?>
+    <div class="elz p-abs d-flex dir-y z10 showHovIn mL-8 pT4">
+        <div class="elz elzTriangle bordered pad1 tr-T p-rel w0 mL8 borBef8 borAft8 brBef br-black brA10 fn fn-primary fnL10 fnLF5 fnFD"></div>
+        <div class="elz d-block w280 r5 bg bg-primary bgL10 bgLF5 bgFD bor1 br br-black brA10 bgp bsh-default">
+            <div class="elz d-block p16"><?=$description_over?></div>
+        </div>
+    </div>
+<?endif;?>
+</div>
+<label class="elizaIForm2 elz d-grid fb<?=$widthInput?> growMax grPos fn fn-primary-t fnL20 fnLInvD fnHovL10 fnFow-focus fnFowL0" for="<?=$id?>">
+    <input id="<?=$id?>" type="<?=$type?>" name="<?=$name?>" value="<?=$value?>" placeholder="<?=$placeholder?>" class="elizaIFormInput elz elzInput d-block grPin grY2 w100p bor1 r3 h40 pH16 fn12 ellipsis trns2 invPssSib
+                                                                                    bg bg-primary bgL10 bgLInvD
+                                                                                    br brLInvD br-primary brL-10 brHovL-20 brFoc-focus brFocL0
+                                                                                    fn fn-primary-t">
+
+    <span class="elz d-flex grPin grY2 a-X pH8 evNone z5">
+        <span class="elizaIFormIconRWrap elz p-rel growZ d-flex a-PR invisible">
+            <span class="elizaIFormIconRStatus elz p-rel d-flex a-X r2 trns2 cur-help opHovOut bgHov bgHov-error fn fn-error fnHov-error-t">
+                <span class="elizaIFormIconRText elz fn11 bold al-right pH8 op0 opHovIn10 trns2 trnsVis oH ellipsis"></span>
+                <span class="elz p-rel d-flex a-X s24 r2 evAuto">
+                    <span class="elizaIFormIconR elz p-rel d-block mskBef s16 cFillBef bgBef-CC" style=""></span>
+                </span>
+            </span>
+        </span>
+    </span>
+</label>

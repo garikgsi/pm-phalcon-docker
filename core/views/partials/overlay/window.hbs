@@ -1,0 +1,16 @@
+<div {{#id}}id="{{id}}"{{/id}} class="elz winCSSNunit elzHide {{sett_class}}" {{{data}}} {{{style}}}>
+    <div class="elz tplGrid tplGrItem wrap cells">
+        <div class="elz tplGrItem outerMain wrap rows grow">
+        {{#win_list}}
+            <div class="elz tplGrItem section {{win_type}}{{win_class}}" {{{win_data}}}>
+                {{#mcont_list}}{{> overlay/window_mcont}}{{/mcont_list}}
+                {{^mcont_list}}
+                    {{#win_html}}{{{win_html}}}{{/win_html}}
+                    {{^win_html}}<!%{{win_name}}%!>{{/win_html}}
+                {{/mcont_list}}
+            </div>
+        {{/win_list}}
+        </div>
+        {{#right_panel}}{{> overlay/window_mcont}}{{/right_panel}}
+    </div>
+</div>

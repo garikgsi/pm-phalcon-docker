@@ -1,0 +1,48 @@
+
+<div class="elz strCLSitem wrap flexible padBMedium padRMedium">
+    
+
+    <div class="elz strCLSitem marLMedium marTMedium grow flexible">
+        <div class="elz admCLSwrap flexible shadowed admWBordered headBordered">
+            <div class="elz admBody">
+
+                <div class="elz elzCLStableWrap">
+                    <table class="elz elzCLStable">
+                        <thead class="thead pad padHMedium br-h">
+                        <tr class="elz fn-12 al-left elzPLT">
+                            <th class="h48 w220 compressed"><?=$this->view->t->_('app_list_name')?></th>
+                            <th class="w100 compressed"></th>
+                            <th class="w100 compressed"></th>
+                            <th class="w100 compressed"></th>
+                            <th class="w100 compressed"></th>
+                            <th class="compressed" colspan="2">
+                                <div class="elz strCLSitem marLAuto padLMedium w200 fn-9">
+                                    <form class="elz elzF wrap compiled flexible" method="post" action="/apps/api/app_add">
+                                        <?=\Core\Builder\MustacheForms::input('text', 'Введите название', '', '', 'rcpAppsAddName', 'name')?>
+
+                                        <?=\Core\Builder\MustacheForms::button('rcpAppsAdd', '', 'ic-plus2', 'default', 0, 1, ' auto')?>
+
+                                    </form>
+                                </div>
+                            </th
+                        </tr>
+                        </thead>
+                        <tbody id="rcpAppsIndexList" class="tbody striped hovering pad padHMedium padVSmall">
+                        <?$appsList = $this->view->getVar('appsList')?>
+                        <?for($i = 0, $len = sizeof($appsList); $i < $len; $i++):?>
+                            <?$this->view->partial('apps/app_tr', $appsList[$i])?>
+                        <?endfor;?>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+</div>
+
+

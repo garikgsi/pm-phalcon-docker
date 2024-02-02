@@ -1,0 +1,311 @@
+/********************************/
+/* ICONS SETTINGS               */
+/********************************/
+
+.elzIcon {
+    display: -webkit-flex;
+    display:         flex;
+    -webkit-flex-shrink: 0;
+    flex-shrink:         0;
+    -webkit-justify-content: center;
+    justify-content:         center;
+    -webkit-align-items:     center;
+    align-items:             center;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing:    border-box;
+    box-sizing:         border-box;
+    text-decoration: none;
+}
+
+.elzIcon.rad {
+    -webkit-border-radius: 2px;
+    -moz-border-radius:    2px;
+    border-radius:         2px;
+}
+
+.elzIcon.circle {
+    -webkit-border-radius: 100%;
+    -moz-border-radius:    100%;
+    border-radius:         100%;
+}
+
+.elzIcon[title],
+.elzIcon[data-elz-title] { cursor:    help; }
+.elzIcon.link            { cursor: pointer; }
+
+.elzIcon .elzIc {
+    display: block;
+    width:  1em;
+    height: 1em;
+    z-index:  1;
+}
+
+
+
+.elzIcon:after,
+.elzIcon .image,
+.elzIcon .image:not(.fill) img {
+    -webkit-border-radius: inherit;
+    -moz-border-radius:    inherit;
+    border-radius:         inherit;
+}
+
+.elzIcon:after {
+    content: "";
+    position: absolute;
+    display: none;
+    top:     0;
+    right:   0;
+    bottom:  0;
+    left:    0;
+    background-color: #ffffff;
+    opacity: 0.2;
+}
+
+.elzIcon.link:hover:after,
+.elzIcon.link:active:after,
+.elzIcon.link.active:after { display: block; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Inner image */
+
+.elzIcon .image {
+    position: relative;
+    display: block;
+    width:  100%;
+    height: 100%;
+    text-align: center;
+    font-size: 0;
+}
+
+.elzIcon .image:before {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    width:     0;
+    height: 100%;
+}
+
+.elzIcon .image img {
+    display: inline-block;
+    vertical-align: middle;
+    width:  auto;
+    height: auto;
+    max-width:  100%;
+    max-height: 100%;
+}
+
+/* fill */
+
+.elzIcon .image.fill { overflow: hidden; }
+
+.elzIcon .image.fill:before { display: none; }
+
+.elzIcon .image.fill img {
+    display:   block;
+    width:      100%;
+    min-height: 100%;
+    max-height: none;
+}
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Colors */
+
+.elzIcon:not([data-elz-bg]):not([data-elz-fn]) { color: inherit; }
+.elzIcon[data-elz-bg]:not([data-elz-fn])       { color: #ffffff; }
+
+.elzIcon[data-elz-bg] { text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4); }
+.elzIcon[data-elz-bg][data-elz-fn] { text-shadow: none; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Size default */
+
+.elzIcon.small {
+    font-size: 12pt;
+    width:  16px;
+    height: 16px;
+}
+
+.elzIcon.small[data-elz-bg] {
+    width:  24px;
+    height: 24px;
+}
+
+.elzIcon.small[data-elz-bg]:not(.nom) { margin: -4px; }
+
+/* Size app */
+
+.elzIcon.medium {
+    font-size: 18pt;
+    width:  32px;
+    height: 32px;
+}
+
+.elzIcon.medium[data-elz-bg] { font-size: 12pt; }
+
+
+.elzIcon.large {
+    font-size: 24pt;
+    width:  48px;
+    height: 48px;
+}
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Icons combination ***************************/
+
+.elzIc.icg {
+    position: relative;
+    display: block;
+    width:  1em;
+    height: 1em;
+}
+
+/* GSPOT */
+
+.elzIcon .elzIc.gspot {
+	position: absolute;
+	display: block;
+	text-align: center;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+	font-size: 0.5em;
+    width: auto;
+	min-width:  1em;
+    min-height: 1em;
+	padding: 0.25em;
+    color: #ffffff;
+	-webkit-border-radius: 100%;
+	-moz-border-radius:    100%;
+	border-radius:         100%;
+    right:  -0.3333333333em;
+    bottom: -0.3333333333em;
+}
+
+.elzIcon .elzIc.gspot:not([data-elz-bg]) { display: none; }
+
+.elzIcon .elzIc.gspot[title]    { cursor:    help; }
+.elzIcon .elzIc.gspot[title=""] { cursor: inherit; }
+
+.elzIcon .elzIc.gspot:not(:empty) {
+    font-weight: bold;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: auto;
+	line-height: 1;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.75);
+    font-family: Tahoma, Geneva, sans-serif !important;
+    -webkit-border-radius: 3px;
+    -moz-border-radius:    3px;
+    border-radius:         3px;
+}
+
+.elzIcon .elzIc.gspot:not(:empty):before { display: none; }
+
+.elzIcon .elzIc.gspot.hover {
+	opacity: 0;
+	visibility: hidden;
+	-webkit-transition: 0.2s;
+	-moz-transition:    0.2s;
+	-o-transition:      0.2s;
+	transition:         0.2s;
+}
+
+.elzIcon:hover  .elzIc.gspot.hover,
+.elzIcon:active .elzIc.gspot.hover,
+.icgHover:hover  .elzIcon .elzIc.gspot.hover,
+.icgHover:active .elzIcon .elzIc.gspot.hover {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* firefox fix */
+
+body:not(:-moz-handler-blocked) .elzIc.icg .elzIc.gspot:not(:empty) { line-height: 0.99em; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Icons hover ***************************/
+
+.elzIcon .elzIc.ich > .hover,
+.elzIcon:hover .elzIc.ich > .elzIc.hover + .elzIc,
+.icHover:hover .elzIcon .elzIc.ich > .elzIc.hover + .elzIc { display: none; }
+
+.elzIcon .elzIc.ich > .elzIc:only-child,
+.elzIcon:hover .elzIc.ich > .elzIc.hover,
+.icHover:hover .elzIcon .elzIc.ich > .elzIc.hover { display: block; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Icons animation ***************************/
+
+.elzIcon.loader,
+.elzIc.loader {
+	-webkit-animation: elzIcLoader 0.8s infinite linear;
+	-moz-animation:    elzIcLoader 0.8s infinite linear;
+	-o-animation:      elzIcLoader 0.8s infinite linear;
+	animation:         elzIcLoader 0.8s infinite linear;
+}
+
+@-webkit-keyframes elzIcLoader { to { -webkit-transform: rotate(360deg); } }
+@-moz-keyframes    elzIcLoader { to { -moz-transform:    rotate(360deg); } }
+@-ms-keyframes     elzIcLoader { to { -ms-transform:     rotate(360deg); } }
+@-o-keyframes      elzIcLoader { to { -o-transform:      rotate(360deg); } }
+@keyframes         elzIcLoader { to { transform:         rotate(360deg); } }

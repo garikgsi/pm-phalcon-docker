@@ -1,0 +1,107 @@
+<?$ogtcLang = $this->view->getVar('ogtcLang');?>
+<?$ogtcData = $this->view->getVar('ogtcData');?>
+<?$t = $this->view->t?>
+
+<?$site = $this->view->getVar('ogtcSite')?>
+
+<div id="ipRcpEditSiteId" data-id="<?=$site['site_id']?>" class="elz strCLSitem wrap flexible padBMedium padRMedium">
+    <?$this->view->partial('partials/forms/forms_section', [
+        'secWidth' => 'w640',
+        'title'    => $t->_('rcp_sites_ogtc_label1'),
+        'formId' => 'rcpSiteOGTCDataEdit',
+        'formAction' => '/sites/api/ogtc_edit?site='.$site['site_id'],
+        'formData'   => 'data-site="'.$site['site_id'].'"',
+        'submitTitle' => $t->_('rcp_sites_save'),
+        'fieldList' => [
+            [
+                'field' => 'input',
+                'ftitle' => $t->_('rcp_sites_ogtc_sett_site'),
+                'fdescr' => $t->_('rcp_sites_ogtc_sett_site_d'),
+                'wtitle' => $t->_('wmn180'),
+                'type' => 'text',
+                'placeholder' => $t->_('rcp_sites_ogtc_sett_site_p'),
+                'value' => $ogtcData['ogtc_og_site'],
+                'name' => 'og_site'
+            ],
+            [
+                'field' => 'input',
+                'ftitle' => $t->_('rcp_sites_ogtc_sett_acc'),
+                'fdescr' => $t->_('rcp_sites_ogtc_sett_acc_d'),
+                'wtitle' => $t->_('wmn180'),
+                'type' => 'text',
+                'placeholder' => $t->_('rcp_sites_ogtc_sett_acc_p'),
+                'value' => $ogtcData['ogtc_twitter_account'],
+                'name' => 'tc_account'
+            ],
+            [
+                'field' => 'select',
+                'ftitle' => $t->_('rcp_sites_ogtc_sett_mode'),
+                'fdescr' => $t->_('rcp_sites_ogtc_sett_mode_d'),
+                'wtitle' => $t->_('wmn180'),
+                'value' => (int)$ogtcData['ogtc_twitter_mode'],
+                'name' => 'tc_mode',
+                'optionList' => [[0, 'Small'], [1, 'Large']]
+            ],
+
+        ]
+    ])?>
+    <?$this->view->partial('partials/forms/forms_section', [
+        'secWidth' => 'w640',
+        'title'    => $t->_('rcp_sites_ogtc_label2'),
+        'formId' => 'rcpSiteOGTCMetaEdit',
+        'formAction' => '/sites/api/ogtc_meta?site='.$site['site_id'],
+        'formData'   => 'data-site="'.$site['site_id'].'"',
+        'submitTitle' => $t->_('rcp_sites_save'),
+        'langed' => ['list' => [[1, 'RU'], [2, 'EN']], 'id' => 'rcpSiteOGTCEditLang', 'name' => 'lang', 'class' => ''],
+        'fieldList' => [
+            [
+                'field'  => 'input',
+                'ftitle' => $t->_('rcp_sites_ogtc_meta_title'),
+                'fdescr' => $t->_('rcp_sites_ogtc_meta_title_d'),
+                'type' => 'text',
+                'placeholder' => $t->_('rcp_sites_ogtc_meta_title_p'),
+                'value' => $ogtcLang['title'],
+                'name' => 'title'
+            ],
+            [
+                'field'  => 'input',
+                'ftitle' => $t->_('rcp_sites_ogtc_meta_descr'),
+                'fdescr' => $t->_('rcp_sites_ogtc_meta_descr_d'),
+                'type' => 'text',
+                'placeholder' => $t->_('rcp_sites_ogtc_meta_descr_p'),
+                'value' => $ogtcLang['description'],
+                'name' => 'description'
+            ]
+        ]
+    ])?>
+
+    <?$demoList = $this->view->getVar('ogtcDemo');?>
+
+    <?for($i = 0, $len = sizeof($demoList); $i < $len; $i++):?>
+        <?$demo = $demoList[$i]?>
+
+        <?=$this->view->partial('partials/forms/forms_section', [
+            'secWidth' => 'w640',
+            'isFake'   => 1,
+            'title'    => $demo[2],
+            'formId' => 'rcpSiteOGTCDemo'.$demo[0].$demo[1],
+            'formAction' => '/sites/api/ogtc_demo?site='.$site['site_id'].'&size='.strtolower($demo[1]).'&type='.strtolower($demo[0]),
+            'formData'   => 'data-site="'.$site['site_id'].'"',
+            'submitTitle' => $t->_('rcp_sites_save'),
+            'clsClasses'  => 'padMedium',
+            'beforeTemplate' => [
+                'name' =>'sites/partials/ogtc_demo',
+                'data' => [
+                    'classes' => strtolower($demo[0]).' '.strtolower($demo[1]),
+                    'title' => $ogtcLang['title'],
+                    'description' => $ogtcLang['description'],
+                    'site' => 'yoursite.com',
+                    'icon' => $demo[3]
+                ]
+            ],
+            'fieldList' => []
+        ])?>
+    <?endfor;?>
+
+
+</div>

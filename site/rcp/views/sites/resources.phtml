@@ -1,0 +1,9 @@
+<?$packagesList = $this->view->getVar('packagesList')?>
+<?$packagesList = is_array($packagesList) ? $packagesList : []?>
+
+
+<div class="elz strCLSitem padMedium">
+    <div class="elz elzCLSexplorer nodeLight sortable">
+        <?$this->view->partial('partials/explorer/items', ['list' => $packagesList])?>
+    </div>
+</div>

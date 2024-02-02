@@ -1,0 +1,18 @@
+/* Wrap cont settings */
+
+.elzCLSwinslider,
+.elzCLSwinslider.hide { display:  none; }
+.elzCLSwinslider.show { display: block; }
+
+.elzCLSwinslider .sliderWrap,
+.elzCLSwinslider .sliderWrap > .elzScroll {
+    position: relative;
+    display: block;
+}
+
+.elzCLSwinslider .sliderWrap > .elzScroll {
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+/* end */

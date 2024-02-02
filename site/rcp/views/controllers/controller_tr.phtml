@@ -1,0 +1,37 @@
+<tr>
+    <td>
+        <a class="elz elzIcotext link elizaHApi" title="<?=$this->view->t->_('ctrl_controllers_list_edit')?>" href="/controllers/edit/<?=$controller_id?>" data-level="3">
+            <i class="elz elzIcon medium rad elzPLT" data-bg="blue">
+                <i class="elz elzIc main smallest ic-cog shD elzPLT" data-fn="white"></i>
+            </i>
+            <div class="elz elzText right marLSmaller nowrap"><?=$controller_name?></div>
+        </a>
+    </td>
+    <td>
+        <div class="elz elzIcotext">
+            <i class="elz elzIcon medium circle elzPLT" data-bg="blue">
+                <i class="elz elzIc main smallest ic-earth shD elzPLT" data-fn="white"></i>
+            </i>
+            <div class="elz elzText right marLSmaller nowrap"><?=$sites_count?></div>
+        </div>
+    </td>
+    <td>
+        <div class="elz elzText right marLSmaller bold nowrap"><?=$controller_title?></div>
+    </td>
+    <td>
+        <div class="elz right strCLSitem flexible mar-LMedium">
+            <?if($controller_locked == 1):?>
+                <div class="elz strCLSitem marLMedium">
+                    <div class="elz elzCLSlabel small shD elzPLT link elizaHApi" data-fn="red 600" title="<?=$this->view->t->_('ctrl_controllers_list_locked')?>">
+                        <i class="elz elzIc ic-lock"></i>
+                    </div>
+                </div>
+            <?endif;?>
+            <div class="elz strCLSitem marLMedium">
+                <a class="elz elzCLSlabel small shD elzPLT link elizaHApi" data-fn="white" data-bg="blue" title="<?=$this->view->t->_('ctrl_controllers_list_edit')?>" href="/controllers/edit/<?=$controller_id?>" data-level="3">
+                    <i class="elz elzIc ic-pencil"></i>
+                </a>
+            </div>
+        </div>
+    </td>
+</tr>

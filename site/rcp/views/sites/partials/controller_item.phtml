@@ -1,0 +1,71 @@
+<?$controllerPlugs = [
+    ['ic-plus2', $this->view->t->_('rcp_sites_controller_plugin')],
+    ['ic-cross', $this->view->t->_('rcp_sites_controller_unplug')]
+]?>
+
+<?$controllerPlug = $controllerPlugs[(int)isset($controller_active)]?>
+
+<?$active = isset($controller_active) ? ' isActive' : ''?>
+<div class="admController<?=$active?>" data-id="<?=$controller_id?>">
+    <div class="controllerMain">
+        <div class="elz strCLSitem flexible">
+
+            <div class="controllerToggleButton elz strCLSitem padVMedium marLMedium s-middle" title="<?=$controllerPlug[1]?>">
+                <i class="elz elzIcon large link elzPLT circle icLink hovDark elzPLT" data-bg="dark 100">
+                    <i class="elz elzIc main smallest <?=$controllerPlug[0]?> elzPLT" data-fn="grey 700"></i>
+                    <i class="elz elzIc main smallest <?=$controllerPlug[0]?> elzPLT" data-fn="black"></i>
+                </i>
+            </div>
+
+            <div class="elz strCLSitem padVSmaller padRMedium grow w0 flexible wrap middle controllerExpand">
+                <div class="elz strCLSitem padVSmaller marLMedium grow w300">
+                    <div><p class="bb p bold"><?=$controller_name?> - <?=$controller_title?></p></div>
+                    <div><p class="bb p"><?=$controller_description?></p></div>
+                </div>
+<?if($active != ''):?>
+                <div class="elz strCLSitem padVSmaller marLMedium">
+                    <div class="elz strCLSitem mar-LSmaller mar-TSmaller flexible wrap">
+    <?foreach($status_list as $statusInfo):?>
+        <?if(sizeof($statusInfo)):?>
+                        <div class="elz strCLSitem marLSmaller marTSmaller">
+                            <i class="elz elzIcon large link elzPLT circle elzPLT" data-bg="<?=$statusInfo[1]?>" title="<?=$statusInfo[2]?>">
+                                <i class="elz elzIc main smallest <?=$statusInfo[0]?> elzPLT" data-fn="white"></i>
+                            </i>
+                        </div>
+        <?endif;?>
+    <?endforeach;?>
+                    </div>
+                </div>
+<?endif;?>
+            </div>
+
+        </div>
+    </div>
+<?if($active != ''):?>
+    <div class="controllerDetails">
+
+        <div class="elz strCLSitem">
+
+            <div class="elz strCLSitem flexible wrap middle padHMedium padBSmall padTLarge">
+                <p class="bb p fn-12"><?=$this->view->t->_('rcp_sites_controller_check_list')?>:</p>
+            </div>
+
+<?foreach($check_list as $checkItem):?>
+            <div class="elz strCLSitem flexible wrap middle padHMedium padVSmall hovering">
+                <div class="elz strCLSitem grow w0">
+                    <p class="bb p elzPLT" data-fn="<?=$checkItem[2][1]?>"><?=$checkItem[0]?><b class="bb strong"><?=$checkItem[1]?></b></p>
+                </div>
+                <div class="elz strCLSitem marLMedium">
+                    <i class="elz elzIcon medium circle elzPLT" data-bg="<?=$checkItem[2][1]?>">
+                        <i class="elz elzIc main smallest <?=$checkItem[2][0]?> elzPLT shD" data-fn="white"></i>
+                    </i>
+                </div>
+            </div>
+<?endforeach;?>
+
+        </div>
+
+    </div>
+<?endif;?>
+    <i class="cStatus elzPLT" data-bg="<?=@$controller_status?>"></i>
+</div>

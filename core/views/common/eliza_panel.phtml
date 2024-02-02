@@ -1,0 +1,57 @@
+<?use Core\Engine\Mustache;?>
+<div class="elz elzCSSNui <?if($this->view->getVar('notStandAlone')):?><?else:?>standalone<?endif;?><?if(!$this->user->getId()):?> guest<?endif;?>">
+    <?=Mustache::renderWithBinds('common/engine_panel', [
+        'html_tray' => Mustache::renderWithBinds('common/engine_panel_tray', [
+            'id_tray'    => 'elizaInterfaceTray',
+            'id_menu'    => 'elizaInterfaceTrayMenu',
+            'id_text'    => 'elizaInterfaceTrayText',
+            'id_tools'   => 'elizaInterfaceTrayTools',
+            'avatar_ver' => $this->user->getAvatar(),
+            'user_id'    => $this->user->getId(),
+            'user_name'  => $this->user->getId() ? $this->user->getNick() : $this->view->t->_('st_user_guest'),
+            'user_text'  => $this->user->getId() ? ( $this->user->isActive() ? $this->view->t->_('st_user_status_activated') : $this->view->t->_('st_user_status_need_activation')) : $this->view->t->_('st_user_status_need_login')
+        ]),
+        'html_center' => (\Core\Builder\MustacheBuilders::guestSocialsPanel($this->user, [
+                'name'  => $this->view->t->_('st_user_patreon_name'),
+                'title' => $this->view->t->_('st_user_patreon_title')
+            ])).(\Core\Builder\MustacheBuilders::userPanelContentCenter(
+            $this->user,
+            $this->view->t->_('st_user_authorization'),
+            $this->view->t->_('st_user_registration')
+        )).($this->view->getVar('hub_mobile_menu_enable') ? '
+            <div class="elz tbIt tbTool right default large link">
+                <div class="elz hubMenuTrigger p-rel d-flex a-X hideSelOut showSelOut sel">
+                    <div class="elz d-flex a-X s40 rCircle oH cur-pointer opAct07 fnHov fnHovL15">
+                        <div class="elz d-block hideSelIn p-abs mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url(\'/uploads/icons/cross1.svg\');"></div>
+                        <div class="elz p-rel showSelIn d-grid gap6 a-X">
+                            <div class="elz d-block bg bg-white w20 h2 r2"></div>
+                            <div class="elz d-block bg bg-white w20 h2 r2"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        ' : '')
+    ])?>
+
+    <div id="elizaINTMenu" class="elz elzCSSNmenu" style="display:none;">
+        <div id="elizaINTMenuScroll" class="elz menuCont elzScroll abs macosx nopad dark"></div>
+    </div>
+
+    <div id="elizaINTNotify" class="elz elzCLSWarningPanel elzPLT shD abs hide" data-bg="green 600" data-fn="white"></div>
+    <div class="elz elzCLSinSection elzCSSNdesktop"></div>
+    <div class="elz elzCLSinSection elzCSSNdialogue"></div>
+    <div class="elz elzCLSinSection elzCSSNoverlay"></div>
+
+    <div class="elz elzCSSNerrorStatus"></div>
+
+    <div class="elzCSSNcbPaster" contenteditable="true"></div>
+    <div id="elizaINTLoadingBar" class="elz elzCSSNloadingBar" style="width: 0%;"></div>
+</div>
+<div id="elizaINTScreenLoading" class="elz elzCSSNoverScreenLoading<?if(!$this->view->getVar('elzShowScreenLoader')):?> elzHide<?endif;?>">
+    <div class="elz overScreenWrap">
+        <div class="elz elzIcon rad">
+            <i class="elz main elzIc ic-spinner loader"></i>
+        </div>
+        <div class="elz overScreenText"><?=$this->view->t->_('st_eliza_please_wait')?></div>
+    </div>
+</div>

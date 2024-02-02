@@ -1,0 +1,154 @@
+<?php $counterAgentRow = $this->view->getVar('counterAgentRow')?>
+<?php $isOpened = (int)$this->user->getSetting('counteragent_show_about')?>
+<?php $expandContClass = $isOpened ? '' : ' hide'?>
+<div class="pmContentExpandWrap elz d-block growX r3 w100p bg bg-primary bgL5 bsh-default1" data-id="1" data-name="counteragent_show_about" data-val="<?=$isOpened?>">
+    <div class="elz d-flex dir-y p16 fn12 lh15">
+
+        <div class="pmContentExpandBorder elz d-flex a-H gap8 fn16 br-primary brL-10 brLInvD <?if($isOpened):?> pB8<?endif;?>">
+            <div class="elz d-block grow">О контрагенте</div>
+            <div class="pmContentExpandToggle elz d-flex a-X mV-8 s32 noShrink rCircle cur-pointer opAct07 bgHov bgHov-primary bgHovL-5 bgHovLF5 bgHovFD bgLInvD">
+                <div class="mskIcon elz p-rel d-block mskBef s12 cFillBef bgBef-CC<?if(!$isOpened):?> deg180<?endif;?>" style="--elzMsk: url('/design/icons/arrow2.svg');"></div>
+            </div>
+        </div>
+
+        <div class="pmContentExpandContainer<?=$expandContClass?> formWrap elz d-flex a-H f-wrap gapH16 gapV8 pV16 borT1 br br-primary brL-10 brLInvD showSelOut hideSelOut invSelOut showHovOut" data-name="title">
+            <div class="elz d-block fb120 bold">Псевдоним:</div>
+            <div class="elz p-rel d-flex dir-y a-V fb320 grow hmn18">
+
+
+
+                <div title="Редактировать" class="formToggle elz p-abs p-R d-flex a-X cur-pointer opAct07 s36 rRound bgHov bgHov-primary bgHovL-5 hideSelIn showHovIn">
+                    <div class="mskIcon elz d-block p-rel noShrink mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/pencil.svg');"></div>
+                </div>
+
+
+
+                <div class="elz p-abs p-F d-flex dir-y a-V mV-10 showSelIn z1">
+
+                    <form method="post" action="?act=agent_edit_title" class="elz d-grid grTV010 grPos fn fn-primary-t fnL20 s100p fnLInvD fnHovL10 fnFow-focus fnFowL0">
+                        <input type="text" name="title" value="<?=htmlspecialchars($counterAgentRow['counteragent_title'])?>" class="elz elzInput d-block grPin grY2 s100p bor1 pL16 pR40 r3 fn12 ellipsis trns2 invPssSib
+                                                                          bg bg-primary bgL10 bgLInvD
+                                                                          br brLInvD br-primary brL-10 brHovL-20 brFoc-focus brFocL0
+                                                                          fn fn-primary-t">
+                        <span class="elz d-flex grPin grY2 a-H bor1 pH7 z6 evNone">
+                                    <span class="elz p-rel growX d-flex a-PR">
+                                        <button type="submit" class="elz p-rel d-flex a-H cur-pointer opAct07">
+                                            <span class="elz p-rel d-flex a-X s24 r2 evAuto">
+                                                <span class="elz p-rel d-block mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/save.svg');"></span>
+                                            </span>
+                                        </button>
+                                    </span>
+                                </span>
+
+                    </form>
+
+                </div>
+
+
+
+                <div class="formResult elz d-block invSelIn pR40"><?=htmlspecialchars($counterAgentRow['counteragent_title'])?></div>
+            </div>
+        </div>
+
+        <div class="pmContentExpandContainer<?=$expandContClass?> formWrap elz d-flex a-H f-wrap gapH16 gapV8 pV16 borT1 br br-primary brL-10 brLInvD showSelOut hideSelOut invSelOut showHovOut">
+            <div class="elz d-block fb120 bold">Налогообложение:</div>
+            <div class="elz p-rel d-flex dir-y a-V fb320 grow hmn18">
+                <div title="Редактировать" class="formToggle elz p-abs p-R d-flex a-X cur-pointer opAct07 s36 rRound bgHov bgHov-primary bgHovL-5 hideSelIn showHovIn">
+                    <div class="mskIcon elz d-block p-rel noShrink mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/pencil.svg');"></div>
+                </div>
+                <form method="post" action="?act=agent_edit_tax" class="elz p-abs p-F d-flex dir-y a-V mV-10 showSelIn z1">
+                    <?$this->view->partial('forms/select_base', [
+                        'name' => 'tax_type',
+                        'options' => $this->view->getVar('taxesOptions'),
+                        'value' => $counterAgentRow['tax_type_id'],
+                        'inputClass' => 'r3 h36'
+                    ])?>
+                </form>
+                <div class="formResult elz d-block invSelIn pR40"><?=htmlspecialchars($counterAgentRow['tax_title'])?></div>
+            </div>
+        </div>
+
+        <div class="pmContentExpandContainer<?=$expandContClass?> formWrap elz d-flex a-H f-wrap gapH16 gapV8 pV16 borT1 br br-primary brL-10 brLInvD showSelOut hideSelOut invSelOut showHovOut">
+            <div class="elz d-block fb120 bold">Наличие печати:</div>
+            <div class="elz p-rel d-flex dir-y a-V fb320 grow hmn18">
+                <div title="Редактировать" class="formToggle elz p-abs p-R d-flex a-X cur-pointer opAct07 s36 rRound bgHov bgHov-primary bgHovL-5 hideSelIn showHovIn">
+                    <div class="mskIcon elz d-block p-rel noShrink mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/pencil.svg');"></div>
+                </div>
+                <form method="post" action="?act=agent_edit_stamp" class="elz p-abs p-F d-flex dir-y a-V mV-10 showSelIn z1" enctype="multipart/form-data">
+                    <div class="elz d-flex a-H">
+                        <?$this->view->partial('forms/select_base', [
+                            'name' => 'counteragent_stamp',
+                            'options' => $this->view->getVar('stampsOptions'),
+                            'value' => $counterAgentRow['counteragent_stamp_id'],
+                            'inputClass' => 'r3 h36'
+                        ])?>
+<?if($counterAgentRow['counteragent_stamp_id'] == 1):?>
+                        <label id="gcpCounteragentStampFileLabel" for="gcpCounteragentStampFile"
+                               class="elz elzButton d-flex a-X rR3 al-center fb150 noShrink bor1 h36 pH16 mL-1 fn12 cur-pointer trnsStyle trns
+                                      bg bg-secondary bgHovL3 bgActL-10 bgSelL-10
+                                      br br-secondary brFD brLF-10 brL-10 brHovL-15 brSelL-15
+                                      fn fn-secondary-t fnHovL10 fnSelL10
+                                      bsh bsh-btn bshHov-btnhov bshAct-inset bshSel-inset hide">
+                            Нет основания
+                        </label>
+<?else:?>
+                        <label id="gcpCounteragentStampFileLabel" for="gcpCounteragentStampFile"
+                               class="elz elzButton d-flex a-X rR3 al-center fb150 noShrink bor1 h36 pH16 mL-1 fn12 cur-pointer trnsStyle trns
+                                                          bg bg-success bgHovL3 bgActL-10 bgSelL-10
+                                                          br br-success brFD brLF-10 brL-10 brHovL-15 brSelL-15
+                                                          fn fn-success-t fnHovL10 fnSelL10
+                                                          bsh bsh-btn bshHov-btnhov bshAct-inset bshSel-inset">
+                            Файл приложен
+                        </label>
+<?endif;?>
+                        <input id="gcpCounteragentStampFile" name="counteragent_stamp_file" type="file" class="hide"/>
+                    </div>
+                </form>
+                <div class="formResult elz d-block invSelIn pR40"><?=htmlspecialchars($counterAgentRow['stamp_title'])?></div>
+            </div>
+        </div>
+
+        <div class="pmContentExpandContainer<?=$expandContClass?> elz d-flex a-H f-wrap gapH16 gapV8 pV16 borT1 br br-primary brL-10 brLInvD">
+            <div class="elz d-block fb120 bold">Роли:</div>
+            <div class="elz p-rel d-flex dir-y a-V fb320 grow hmn18">
+                <div class="elz d-flex a-H lh10 f-wrap gap8 fn11">
+                    <div class="elz d-block pV5 pH8 r3 cur-pointer opAct07 bg bg-error bgHovL5 fn fn-error-t">Роли отсутствуют</div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="pmContentExpandContainer<?=$expandContClass?> elz d-flex a-H f-wrap gapH16 gapV8 pV16 borT1 br br-primary brL-10 brLInvD">
+            <div class="elz d-block fb120 bold">Резидент РФ:</div>
+            <div class="elz p-rel d-flex dir-y a-V fb320 grow hmn18">
+                <div class="elz d-flex a-H lh10 f-wrap gap8 fn11">
+                    <div class="elz d-block pV5 pH8 r3 cur-pointer opAct07 bg bg-success bgHovL5 fn fn-ok-t">Да</div>
+                </div>
+            </div>
+        </div>
+
+        <?$this->view->partial(
+            'forms/entity_edit/content_line_autocomplete',
+            [
+                'name' => 'manager',
+                'title' => 'Менеджер',
+                'expandContClass' => $expandContClass,
+                'action' => '?act=agent_edit_manager',
+                'content' => [
+                    'id' => $counterAgentRow['manager_member_id'],
+                    'title' => $counterAgentRow['manager_member_nick'],
+                ]
+            ]
+        )?>
+        <?if($counterAgentRow['sd_customer_id']):?>
+            <div class="pmContentExpandContainer<?=$expandContClass?> elz d-flex a-H f-wrap gapH16 gapV8 pV16 borT1 br br-primary brL-10 brLInvD">
+                <div class="elz d-block fb120 bold">Клиент в SDN:</div>
+                <div class="elz p-rel d-flex dir-y a-V fb320 grow hmn18">
+                    <a class="elz d-flex a-H lh10 f-wrap gap8 fn11" href="http://sdn.naukanet.ru/customers/customer/<?=$counterAgentRow['sd_customer_id']?>" target="_blank">
+                        <div class="elz d-block pV5 pH8 r3 cur-pointer opAct07 bg bg-ok bgHovL5 fn fn-ok-t">перейти на страницу в SDN</div>
+                    </a>
+                </div>
+            </div>
+        <?endif;?>
+    </div>
+</div>

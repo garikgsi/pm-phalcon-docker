@@ -1,0 +1,177 @@
+/*************************************/
+/* LOADING CIRCLE SETTINGS           */
+/*************************************/
+
+.elzCLSloadingCircle {
+    position: relative;
+    display: block;
+}
+
+.elzCLSloadingCircle.center {
+    position: absolute;
+    top:  50%;
+    left: 50%;
+}
+
+.elzCLSloadingCircle.hide { display:  none; }
+
+.elzCLSloadingCircle .circle {
+    display: block;
+    overflow: visible;
+    width:  100%;
+    height: 100%;
+    transform: rotate(270deg);
+}
+
+.elzCLSloadingCircle .txt {
+    position: absolute;
+    display: block;
+    top:  0;
+    left: 0;
+    width:  100%;
+    height: 100%;
+    text-align: center;
+    line-height: inherit;
+    transition: 0.2s color;
+}
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* SVG style */
+
+.elzCLSloadingCircle .bg,
+.elzCLSloadingCircle .bar {
+    fill: none;
+    stroke-width: 5px;
+    transition: 0.2s stroke;
+}
+
+.elzCLSloadingCircle .bg  { stroke: rgba(0, 0, 0, 0.075); }
+.elzCLSloadingCircle .bar { stroke: currentColor; }
+
+.elzCLSloadingCircle.thinnest .bg, .elzCLSloadingCircle.thinnest .bar { stroke-width: 2px; }
+.elzCLSloadingCircle.thinner  .bg, .elzCLSloadingCircle.thinner  .bar { stroke-width: 3px; }
+.elzCLSloadingCircle.thin     .bg, .elzCLSloadingCircle.thin     .bar { stroke-width: 4px; }
+
+.elzCLSloadingCircle.thick   .bg, .elzCLSloadingCircle.thick    .bar { stroke-width:  6px; }
+.elzCLSloadingCircle.thicker .bg, .elzCLSloadingCircle.thicker  .bar { stroke-width:  8px; }
+.elzCLSloadingCircle.thickes .bg, .elzCLSloadingCircle.thickest .bar { stroke-width: 10px; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Sizes */
+
+.elzCLSloadingCircle.smaller { width:  48px; height:  48px; line-height:  49px; font-size:  8pt; } /* Radius: 19; */
+.elzCLSloadingCircle.small   { width:  72px; height:  72px; line-height:  73px; font-size:  9pt; } /* Radius: 31; */
+.elzCLSloadingCircle.medium  { width:  96px; height:  96px; line-height:  97px; font-size: 12pt; } /* Radius: 43; */
+.elzCLSloadingCircle.large   { width: 120px; height: 120px; line-height: 121px; font-size: 14pt; } /* Radius: 55; */
+.elzCLSloadingCircle.larger  { width: 144px; height: 144px; line-height: 145px; font-size: 16pt; } /* Radius: 67; */
+
+.elzCLSloadingCircle.smaller.center { margin-top: -24px; margin-left: -24px; }
+.elzCLSloadingCircle.small.center   { margin-top: -36px; margin-left: -36px; }
+.elzCLSloadingCircle.medium.center  { margin-top: -48px; margin-left: -48px; }
+.elzCLSloadingCircle.large.center   { margin-top: -60px; margin-left: -60px; }
+.elzCLSloadingCircle.larger.center  { margin-top: -72px; margin-left: -72px; }
+
+.elzCLSloadingCircle.smaller .bar { stroke-dasharray: 119.3805208; }
+.elzCLSloadingCircle.small   .bar { stroke-dasharray: 194.7787445; }
+.elzCLSloadingCircle.medium  .bar { stroke-dasharray: 270.1769682; }
+.elzCLSloadingCircle.large   .bar { stroke-dasharray: 345.5751919; }
+.elzCLSloadingCircle.larger  .bar { stroke-dasharray: 420.9734156; }
+
+/* X1 */
+
+.elzCLSloadingCircle.smaller.x1 .bar { stroke-dasharray: 59.69026042; }
+.elzCLSloadingCircle.small.x1   .bar { stroke-dasharray: 97.38937226; }
+.elzCLSloadingCircle.medium.x1  .bar { stroke-dasharray: 135.0884841; }
+.elzCLSloadingCircle.large.x1   .bar { stroke-dasharray: 172.7875959; }
+.elzCLSloadingCircle.larger.x1  .bar { stroke-dasharray: 210.4867078; }
+
+/* X2 dash */
+
+.elzCLSloadingCircle.smaller.x2 .bar { stroke-dasharray: 29.84513021; }
+.elzCLSloadingCircle.small.x2   .bar { stroke-dasharray: 48.69468613; }
+.elzCLSloadingCircle.medium.x2  .bar { stroke-dasharray: 67.54424205; }
+.elzCLSloadingCircle.large.x2   .bar { stroke-dasharray: 86.39379797; }
+.elzCLSloadingCircle.larger.x2  .bar { stroke-dasharray: 105.2433539; }
+
+/* X3 dash */
+
+.elzCLSloadingCircle.smaller.x3 .bar { stroke-dasharray: 19.89675347; }
+.elzCLSloadingCircle.small.x3   .bar { stroke-dasharray: 32.46312409; }
+.elzCLSloadingCircle.medium.x3  .bar { stroke-dasharray: 45.02949470; }
+.elzCLSloadingCircle.large.x3   .bar { stroke-dasharray: 57.59586532; }
+.elzCLSloadingCircle.larger.x3  .bar { stroke-dasharray: 70.16223593; }
+
+/* X4 dash */
+
+.elzCLSloadingCircle.smaller.x4 .bar { stroke-dasharray: 14.92256510; }
+.elzCLSloadingCircle.small.x4   .bar { stroke-dasharray: 24.34734307; }
+.elzCLSloadingCircle.medium.x4  .bar { stroke-dasharray: 33.77212103; }
+.elzCLSloadingCircle.large.x4   .bar { stroke-dasharray: 43.19689899; }
+.elzCLSloadingCircle.larger.x4  .bar { stroke-dasharray: 52.62167695; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Colors */
+
+.elzCLSloadingCircle.red    { color: #f44336; }
+.elzCLSloadingCircle.pink   { color: #e91e63; }
+.elzCLSloadingCircle.purple { color: #9c27b0; }
+.elzCLSloadingCircle.blue   { color: #64b5f6; }
+.elzCLSloadingCircle.green  { color: #4caf50; }
+.elzCLSloadingCircle.orange { color: #fb8c00; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Animation */
+
+.elzCLSloadingCircle.loading        .circle { animation: elzCLSldP 1.5s infinite linear;}
+.elzCLSloadingCircle.loading.slow   .circle { animation-duration: 3s;}
+.elzCLSloadingCircle.loading.slower .circle { animation-duration: 5s;}
+
+.elzCLSloadingCircle.loading.stretch .circle .bar {
+    stroke-dashoffset: -170%;
+    animation: elzCCLSldST 3s infinite ease-in-out;
+}
+
+@keyframes elzCLSldP   { to { transform: rotate(630deg); } }
+@keyframes elzCCLSldST { 0% { stroke-dashoffset: -170%; } 50% { stroke-dashoffset: -220%; } 100% { stroke-dashoffset: -170%; } }
+
+/* end */

@@ -1,0 +1,21 @@
+<div class="elz strCLSitem marLMedium marRMedium marTMedium marBMedium wmn760 grow flexible" id="<?=$groupsWidgetId?>">
+    <div class="elz admCLSwrap flexible shadowed">
+
+        <div class="elz admHeader admWBordered">
+            <div class="elz admCaption">
+                <h2 class="elz admTitle"><?=$widgetTitle?></h2>
+            </div>
+            <?=$header_html ?? ''?>
+        </div>
+
+        <div class="elz admBody">
+            <div style="padding: 16px;">
+                <?$this->view->partial('groups/partials/groups_explorer', [
+                    'groupsList' => $groupsList,
+                    'groupsListId' => $groupsWidgetId.'List',
+                    'startNodeId' => $startNodeId ?? 0
+                ])?>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,110 @@
+/* Main */
+
+.bb.caption {
+    position: relative;
+    display: block;
+    font-weight: normal;
+    text-align: left;
+    padding-right: 24px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: inherit;
+}
+
+.bb.caption.al-right {
+    padding-left: 24px;
+    padding-right:   0;
+}
+
+.bb.caption.al-center {
+    padding-left: 24px;
+}
+
+.bb.caption .bb.inlink .lT { display: none; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Border styles */
+
+.bb.caption.bordered          { padding-bottom: 1px; }
+.bb.caption.bordered.b-double { padding-bottom: 3px; }
+
+.bb.caption.bordered:before {
+    content: "";
+    position: absolute;
+    display: block;
+    left:   0;
+    right:  0;
+    bottom: 0;
+    border-bottom: 1px solid;
+    opacity: 0.1;
+}
+
+.bb.caption.bordered.b-double:before {
+    height: 1px;
+    border-top: 1px solid;
+}
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+/* Anchor */
+
+.bb.caption .capanchor {
+    position: absolute;
+    display: block;
+    top:   0;
+    right: 0;
+    height: 1.6em;
+    max-height: 100%;
+    width: 16px;
+    padding-left: 8px;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    opacity: 0;
+
+    -webkit-transition: 0.2s visibility, 0.2s opacity;
+    -moz-transition:    0.2s visibility, 0.2s opacity;
+    -o-transition:      0.2s visibility, 0.2s opacity;
+    transition:         0.2s visibility, 0.2s opacity;
+}
+
+.bb.caption .capanchor:before {
+    position: absolute;
+    display: block;
+    font-size: 16px;
+    top: 50%;
+    margin-top: -0.5em;
+}
+
+.bb.caption.al-right .capanchor {
+    top:    0;
+    left:   0;
+    right: auto;
+    padding-left:    0;
+    padding-right: 8px;
+}
+
+.bb.caption:hover .capanchor  { opacity: 0.5; }
+.bb.caption .capanchor:hover  { opacity:   1; }
+.bb.caption .capanchor:active { opacity: 0.7; }
+
+/* end */

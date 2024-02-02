@@ -1,0 +1,145 @@
+.hxdTxExpand {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.hxdTxExpand > .expandCheck:not(:checked) ~ .expandWrap { display: none; }
+
+.hxdTxExpand > .expandCheck,
+.hxdTxExpand > .expandCaption,
+.hxdTxExpand > .expandWrap {
+    position: relative;
+    width: 100%;
+}
+
+.hxdTxExpand > .expandCheck {
+    display: block;
+    margin-right: -100%;
+    -webkit-appearance: none;
+    -moz-appearance:    none;
+    appearance:         none;
+    opacity: 0;
+    z-index: 4;
+    cursor: pointer;
+}
+
+.hxdTxExpand.expandSmall > .expandCheck {
+    width:         36px;
+    margin-right: -36px;
+}
+
+.hxdTxExpand > .expandCaption {
+    display: flex;
+    align-items: center;
+    background-color: #cccccc;
+    color: #444444;
+    line-height: 1.5;
+    min-height: 36px;
+    box-sizing: border-box;
+}
+
+.hxdTxExpand > .expandCaption.link { cursor: pointer; }
+
+.hxdTxExpand > .expandCaption.link:active { opacity: 0.7; }
+
+.hxdTxExpand > .expandCaption.layer {
+    background-color: transparent;
+    color: #777777;
+    border-width: 1px 0;
+    border-style: solid;
+    border-color: #cccccc;
+    line-height: 1.25;
+    font-size: 8pt;
+    font-weight: bold;
+    min-height: 0;
+}
+
+.hxdTxExpand .expandCaption > .title {
+    display: block;
+    padding: 8px 8px 8px 16px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    flex-grow: 1;
+    width: 0;
+}
+
+.hxdTxExpand .expandCheck + .expandCaption > .title { padding-left: 36px; }
+
+.hxdTxExpand .expandCaption .value {
+    display: block;
+    height:      20px;
+    line-height: 20px;
+    font-size: 8pt;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+    padding: 0 8px;
+    margin:  0 8px;
+    font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+
+
+.hxdTxExpand .expandCheck + .expandCaption:before {
+    content: "";
+    position: absolute;
+    display: block;
+    width:  0;
+    height: 0;
+    border-style: solid;
+    border-width: 4px 0 4px 4px;
+    border-color: transparent transparent transparent currentColor;
+    top: 50%;
+    left: 16px;
+    margin-top: -4px;
+}
+
+.hxdTxExpand .expandCheck:checked + .expandCaption:before {
+    border-width: 4px 4px 0 4px;
+    border-color: currentColor transparent transparent transparent;
+    left: 14px;
+    margin-top: -2px;
+}
+
+.hxdTxExpand .expandCaption.active,
+.hxdTxExpand .expandCaption.link:hover,
+.hxdTxExpand .expandCaption.link:active,
+.hxdTxExpand:not(.expandSmall) .expandCheck:hover  + .expandCaption,
+.hxdTxExpand:not(.expandSmall) .expandCheck:active + .expandCaption {
+    background-color: #555555;
+    color: #ffffff;
+}
+
+.hxdTxExpand .expandCaption.selected {
+    background-color: #2196f3;
+    color: #ffffff;
+}
+
+.hxdTxExpand .expandCaption .captItem {
+    position: relative;
+    display: flex;
+    align-self: stretch;
+    justify-content: center;
+    align-items: center;
+    min-width: 36px;
+    line-height: 1;
+}
+
+.hxdTxExpand .expandCaption .captItem { z-index: 4; }
+
+.hxdTxExpand .expandCaption .captItem:hover { color: #000000; }
+
+.hxdTxExpand .expandCaption .captItem:hover,
+.hxdTxExpand .expandCaption .captItem:active { z-index: 5; }
+
+.hxdTxExpand .expandCaption .captItem .elzCLSoverDescr { margin-top: 0; }
+
+/* end */

@@ -1,0 +1,48 @@
+<?php $name = $name ?? '';?>
+<?php $title = $title ?? '';?>
+<?php $search = $search ?? 'defaultSearchName';?>
+<?php $update = $update ?? 0;?>
+<?php $delay = $delay ?? 0;?>
+
+<?php $list = $list ?? [];?>
+<?php $listLen = sizeof($list);?>
+
+<?php
+$selected = 0;
+for($a = 0; $a < $listLen; $a++)
+    $selected += $list[$a]['selected'];
+?>
+
+<div class="elizaSearchControlSection elz d-block grow fb320 pVVar r3 bg bg-primary bgL5 bgHovL10 bgSelL5 bsh-default1 showSelOut hideSelOut" data-engine="<?=$search?>" data-name="<?=$name?>" data-type="orders" data-update="<?=(int)$update?>" data-delay="<?=(int)$delay?>">
+    <div class="elizaSearchControlSectionToggle elz d-flex a-X fn16 pV8 hmn36 cur-pointer" title="Показать / скрыть меню сортировки">
+        <div class="elz d-flex a-X grow mV-8 pV8">
+            <div class="elz p-rel d-flex a-X w40 noShrink">
+                <div class="elz p-abs d-block mskBef s8 cFillBef bgBef-CC deg180 hideSelIn" style="--elzMsk: url('/design/icons/arrow1.svg');"></div>
+                <div class="elz p-abs d-block mskBef s8 cFillBef bgBef-CC showSelIn" style="--elzMsk: url('/design/icons/arrow1.svg');"></div>
+            </div>
+            <div class="elz d-block growX"><?=$title?></div>
+            <div class="elizaSearchControlSectionCount elz p-rel d-flex a-X pH4 h20 wmn20 fn10 r2 al-center bold bg bg-ok fn fn-ok-t mR8<?if(!$selected):?> hide<?endif;?>" title="Сортировок применено: <?=$selected?>"><?=$selected?></div>
+        </div>
+        <div class="elz p-rel d-flex a-X w40 noShrink hide">
+            <div class="elz d-flex a-X p8 m-8 rRound cur-pointer opAct07 bgHov bgHov-primary bgHovL-5 bgHovLF5 bgHovFD bgLInvD bgSel bgSel-success fnSel fnSel-success-t" title="Запомнить настройки фильтров">
+                <div class="elz p-rel d-block mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/brain.svg');"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="elizaSearchControlSectionList elz d-block uniSortableY lh12 mT8 borT1 br br-primary brL-10 brLInvD showSelIn">
+<?php for($a = 0; $a < $listLen; $a++):?>
+    <?php $item = $list[$a]?>
+        <div class="elizaSearchControlSectionItem elz d-flex a-X hmn36 cur-pointer bgHov bgHov-primary bgHovL-5 bgHovLF5 bgHovFD bgLInvD bgSel bgSel-secondary fnSel fnSel-secondary-t<?if($item['selected']):?> sel<?endif;?>" data-name="<?=$item['name']?>" data-mode="<?=$item['mode']?>" <?if($item['default'] ?? 0):?> data-default="1"<?endif;?>>
+            <div class="elz p-rel d-flex a-X w40 h36 noShrink">
+                <div class="elz p-abs d-block mskBef s16 cFillBef bgBef-CC op02" style="--elzMsk: url('/design/icons/sort.svg');"></div>
+                <div class="elizaSearchControlSectionItemIcon elz p-abs d-block mskBef s16 cFillBef bgBef-CC<?if(!$item['selected']):?> hide<?endif;?>" style="--elzMsk: url('/design/icons/sort-<?if($item['mode'] == 'desc'):?>de<?else:?>in<?endif;?>crease.svg');"></div>
+            </div>
+            <div class="elz d-block grow"><?=$item['title']?></div>
+            <div class="elz p-rel d-flex a-X w40 h36 noShrink cur-move uniSortHandle">
+                <div class="elz p-abs d-block mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/move-v.svg');"></div>
+            </div>
+        </div>
+<?php endfor;?>
+    </div>
+</div>

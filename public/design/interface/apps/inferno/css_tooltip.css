@@ -1,0 +1,111 @@
+.infTooltipWrap {
+    position: fixed;
+    display: block;
+    z-index: 1000;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #eeeeee;
+}
+
+.infTooltipWrap .infTooltipCloser {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top:   0;
+    right: 0;
+    width:  48px;
+    height: 48px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.infTooltipWrap .infTooltips,
+.infTooltipItem,
+.infTooltipItem .tooltipRarity,
+.infTooltipItem .tooltipOut,
+.infTooltipItem .tooltipIn,
+.infTooltipItem .tooltipScroll {
+    position: relative;
+    display: block;
+}
+
+.infTooltipWrap.right .infTooltipItem.equipped { order: 20; }
+.infTooltipWrap.left  .infTooltipItem.equipped { order:  0; }
+
+.infTooltipItem .tooltipDec    { z-index: 0; }
+.infTooltipItem .tooltipRarity { z-index: 1; }
+
+.infTooltipItem .tooltipDec {
+    position: absolute;
+    display: block;
+    top:    0;
+    right:  0;
+    bottom: 0;
+    left:   0;
+    background-color: #222222;
+    border-radius: 2px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.infTooltipItem.equipped .tooltipOut:before {
+    content: "";
+    position: absolute;
+    display: block;
+    top:    0;
+    left:   0;
+    width:  0;
+    height: 0;
+    border-style: solid;
+    border-width: 16px 16px 0 0;
+    border-color: transparent;
+    border-top-color: inherit;
+    z-index: 1;
+}
+
+.infTooltipItem .tooltipScroll { overflow: auto; }
+
+.infTooltipItem .tooltipIn { padding: 16px; }
+
+@media (min-width: 901px) {
+    .infTooltipWrap .infTooltips {
+        display: flex;
+        align-items: flex-start;
+        margin-left: -8px;
+        margin-top:  -8px;
+    }
+
+    .infTooltipItem {
+        min-width: 240px;
+        max-width: 320px;
+        margin-top:  8px;
+        margin-left: 8px;
+        order: 10;
+    }
+
+    .infTooltipWrap .infTooltipCloser { display: none; }
+
+}
+
+
+@media (max-width: 900px) {
+    .infTooltipWrap {
+        top:    0 !important;
+        left:   0 !important;
+        right:  0 !important;
+        bottom: 0 !important;
+        background-color: #222222;
+        overflow: auto;
+    }
+
+
+    .infTooltipItem .tooltipDec { display: none; }
+
+    .infTooltipItem.selected .tooltipHead  {
+        padding-left:  32px;
+        padding-right: 32px;
+    }
+
+    .infTooltipWrap .infTooltipItem + .infTooltipItem { border-top: 1px solid rgba(255, 255, 255, 0.25); }
+
+    .infTooltipWrap .infTooltipItem:nth-child(even) { background-color: rgba(255, 255, 255, 0.025); }
+}

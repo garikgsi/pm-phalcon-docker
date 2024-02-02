@@ -1,0 +1,26 @@
+<div class="elz d-flex grow">
+
+
+    <div class="elz d-block growX r3 bg bg-primary bgL5 bsh-default1">
+
+
+        <div class="elz uExplorer br br-primary brL-20 brLInvD">
+            <ul id="internationalSegmentList" class="elz uExpList root">
+                <?$segmentsMap = $this->view->getVar('internationalSegmentsMap') ?? []?>
+                <?$rootList = $segmentsMap[0] ?? []?>
+                <?for($a = 0, $len = sizeof($rootList); $a < $len; $a++):?>
+                    <?$segment = $rootList[$a]?>
+                    <?$segment['list'] = $segmentsMap[$segment['international_segment_id']] ?? []?>
+                    <?$segment['map'] = $segmentsMap?>
+                    <?$this->view->partial('international_segments/partials/segment_item', $segment)?>
+                <?endfor;?>
+            </ul>
+        </div>
+
+
+    </div>
+
+
+
+
+</div>

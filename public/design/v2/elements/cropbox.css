@@ -1,0 +1,88 @@
+.elzCropUpload {
+    --cropboxGap: 8px;
+    --cropboxPrevL: 240px;
+    --cropboxPrevM: 152px;
+    --cropboxPrevS:  80px;
+    --cropboxPrevXS: 48px;
+    justify-content: center;
+    align-items: center;
+}
+
+.elzCropUpload.x160 { --cropboxPrevL: 160px; --cropboxPrevM: 102px; --cropboxPrevS:  50px; --cropboxPrevXS: 32px; }
+.elzCropUpload.x200 { --cropboxPrevL: 200px; --cropboxPrevM: 128px; --cropboxPrevS:  64px; --cropboxPrevXS: 32px; }
+.elzCropUpload.x240 { --cropboxPrevL: 240px; --cropboxPrevM: 152px; --cropboxPrevS:  80px; --cropboxPrevXS: 48px; }
+
+.elzCropPreview.sizeL  { width: var(--cropboxPrevL);  height: var(--cropboxPrevL); }
+.elzCropPreview.sizeM  { width: var(--cropboxPrevM);  height: var(--cropboxPrevM); }
+.elzCropPreview.sizeS  { width: var(--cropboxPrevS);  height: var(--cropboxPrevS); }
+.elzCropPreview.sizeXS { width: var(--cropboxPrevXS); height: var(--cropboxPrevXS); }
+
+.elzCropPreview {
+    align-items:     center;
+    justify-content: center;
+}
+
+.elzCropUpload.upload .elzCropPreviewPicture,
+.elzCropUpload.crop   .elzCropPreviewUploader { visibility: hidden; }
+
+.elzCropPreviewPicture,
+.elzCropPreviewUploader,
+.elzCropPreviewIn {
+    position: absolute;
+    display: block;
+    top:    0;
+    right:  0;
+    bottom: 0;
+    left:   0;
+}
+
+.elzCropUpload,
+.elzCropPreviewGroup,
+.elzCropPreview {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--cropboxGap);
+}
+
+.elzCropPreviewWrap,
+.elzCropPreviewGroup.first {
+    width:  var(--cropboxPrevM);
+    height: var(--cropboxPrevL);
+    overflow: hidden;
+}
+
+.elzCropPreviewWrap {
+    display: block;
+    transition-property: width, height, margin;
+    transition-duration: 0.2s;
+}
+
+.elzCropUpload:not(.preview) .elzCropPreviewWrap {
+    margin-left: calc(var(--cropboxGap) * -1);
+    width: 0;
+}
+
+.elzCropPreviewGroup.first { flex-direction: column; }
+
+/* На MEDIA переключить, если не вмещаются */
+/*
+@media (max-width: 1920px) {
+    .elzCropPreviewWrap,
+    .elzCropPreviewGroup.first {
+        width:  var(--cropboxPrevL);
+        height: var(--cropboxPrevM);
+    }
+
+    .elzCropUpload:not(.preview) .elzCropPreviewWrap {
+        margin-left: 0;
+        margin-top: calc(var(--cropboxGap) * -1);
+        width:  var(--cropboxPrevL);
+        height: 0;
+    }
+
+    .elzCropPreviewGroup.first  { flex-direction:    row; }
+    .elzCropUpload.preview,
+    .elzCropPreviewGroup.second { flex-direction: column; }
+}
+*/

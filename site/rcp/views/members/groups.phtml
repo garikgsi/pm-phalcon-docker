@@ -1,0 +1,18 @@
+<?$memberRow = $this->view->getVar('memberRow')?>
+
+<input id="ipRcpMemberEditId" type="hidden" value="<?=$memberRow['member_id']?>" />
+
+<?$this->view->partial('groups/groups_widget', [
+    'groupsList' => $this->view->getVar('groupsList'),
+    'groupsWidgetId' => 'ipRcpMemberEditGroupsList',
+    'widgetTitle' => 'Полный список групп',
+    'startNodeId' => 0,
+    'header_html' => '    
+        <form class="elz strCLSitem marRMedium w280" method="post" action="/members/api/set_primary_group?member_id'.$memberRow['member_id'].'">
+            <div class="elz elzF wrap compiled flexible">'.
+        \Core\Builder\MustacheForms::select((int)$memberRow['member_group'], $this->view->getVar('primaryGroupsList'), 'ipRcpMemberEditGroupsPrimary')
+    .'    
+            </div>
+        </form>    
+    '
+])?>

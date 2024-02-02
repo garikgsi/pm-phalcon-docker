@@ -1,0 +1,8 @@
+<?$siteRow = $this->view->getVar('site')?>
+<?$rightsList = $this->view->getVar('rightsList')?>
+
+<?$this->view->partial('rights/rights_widget', [
+    'rightsList' => $rightsList,
+    'rightsWidgetGetParam' => 'site_id='.$siteRow['site_id'],
+    'rightsWidgetId' => 'ipRcpEditSitesRights'
+])?>

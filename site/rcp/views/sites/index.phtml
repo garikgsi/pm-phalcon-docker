@@ -1,0 +1,93 @@
+
+        <div class="elz strCLSitem wrap flexible padBMedium padRMedium">
+
+
+
+
+            <div class="elz strCLSitem marLMedium marTMedium grow flexible">
+                <div class="elz admCLSwrap flexible shadowed admWBordered headBordered">
+                    <div class="elz admBody">
+
+                        <div class="elz elzCLStableWrap">
+                            <table class="elz elzCLStable">
+                                <thead class="thead pad padHMedium br-h">
+                                <tr class="elz fn-12 al-left elzPLT">
+                                    <th class="h48"><?=$this->view->t->_('rcp_sites_list_name')?></th>
+                                    <th><?=$this->view->t->_('rcp_sites_list_domain')?></th>
+                                    <th class="wmn200"><?=$this->view->t->_('rcp_sites_list_controller')?></th>
+                                    <th class="wmn200"><?=$this->view->t->_('rcp_sites_list_design')?></th>
+                                    <th class="compressed"></th>
+                                </tr>
+                                </thead>
+                                <tbody class="tbody striped hovering pad padHMedium padVSmall">
+<?$sitesList = $this->view->getVar('sitesList')?>
+<?$compresses = [
+    ['grey 600', 'grey 200', $this->view->t->_('rcp_sites_min_compress_0')],
+    ['white', 'blue-grey 600', $this->view->t->_('rcp_sites_min_compress_1')]
+]?>
+<?for($i = 0, $len = sizeof($sitesList); $i < $len; $i++):?>
+    <?$item = $sitesList[$i]?>
+    <?$compress = $compresses[$item['compress']]?>
+                                <tr>
+                                    <td>
+                                        <a class="elz elzIcotext link elizaHApi" title="Редактирование" href="/sites/edit/<?=$item['id']?>" data-level="3">
+                                            <i class="elz elzIcon medium rad elzPLT" data-bg="blue">
+                                                <i class="elz elzIc main smallest ic-home shD elzPLT" data-fn="white"></i>
+                                            </i>
+                                            <div class="elz elzText right marLSmaller nowrap"><?=$item['name']?></div>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <div class="elz elzIcotext">
+                                            <i class="elz elzIcon medium circle elzPLT" data-bg="blue">
+                                                <i class="elz elzIc main smallest ic-earth shD elzPLT" data-fn="white"></i>
+                                            </i>
+                                            <div class="elz elzText right marLSmaller nowrap"><?=$item['domains']?></div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="elz elzIcotext">
+                                            <i class="elz elzIcon medium rad elzPLT" data-bg="blue">
+                                                <i class="elz elzIc main smallest ic-folder shD elzPLT" data-fn="white"> </i>
+                                            </i>
+                                            <div class="elz elzText right marLSmaller bold nowrap"><?=$item['dir']?></div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="elz elzIcotext">
+                                            <i class="elz elzIcon medium rad elzPLT" data-bg="blue">
+                                                <i class="elz elzIc main smallest ic-folder shD elzPLT" data-fn="white"> </i>
+                                            </i>
+                                            <div class="elz elzText right marLSmaller bold nowrap"><?=$item['design']?></div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="elz strCLSitem flexible mar-LMedium">
+                                            <div class="elz strCLSitem marLMedium">
+                                                <div class="elz elzCLSlabel small elzPLT" data-fn="<?=$compress[0]?>" data-bg="<?=$compress[1]?>" title="<?=$compress[2]?>">
+                                                    <i class="elz elzIc ic-contract"></i>
+                                                </div>
+                                            </div>
+                                            <div class="elz strCLSitem marLMedium">
+                                                <a class="elz elzCLSlabel small shD elzPLT link elizaHApi" data-fn="white" data-bg="blue" title="<?=$this->view->t->_('rcp_sites_list_edit')?>" href="/sites/edit/<?=$item['id']?>" data-level="3">
+                                                    <i class="elz elzIc ic-pencil"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+<?endfor;?>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        </div>
+
+

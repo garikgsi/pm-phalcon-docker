@@ -1,0 +1,80 @@
+.elzF.item.text {
+    color: #000000;
+    cursor: text;
+    width: 100%;
+}
+
+.elzF.item.text.input {
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.elzF.item.text.textarea {
+    overflow: auto;
+    resize: vertical;
+}
+
+.elzF.item.text.code { font-family: "Courier New", Courier, monospace; }
+
+
+
+
+
+
+
+
+
+
+/* Placeholder */
+
+.elzF.item.text::-webkit-input-placeholder { color: #a0a0a0; opacity: 1; }
+.elzF.item.text:-moz-placeholder           { color: #a0a0a0; opacity: 1; }
+.elzF.item.text::-moz-placeholder          { color: #a0a0a0; opacity: 1; }
+.elzF.item.text:-ms-input-placeholder      { color: #a0a0a0; opacity: 1; }
+
+/* end */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Icon colors **********************************************/
+
+.elzF.item.text ~ .elzF-icon:not(:hover)                 { color: #777777; }
+.elzF.item.text ~ .elzF-icon.status:not([data-fn]):hover { color: #ffffff; }
+
+.elzF.item.text ~ .elzF-icon.status:not([data-bg]):hover { background-color: #888888; }
+
+
+
+.elzF.item.text ~ .elzF-icon:not([data-fn]):hover,
+.elzF.item.text ~ .elzF-icon:not([data-fn]):active,
+
+.elzF.item.text:hover ~ .elzF-icon:not(:hover),
+.elzF.item.text.hover ~ .elzF-icon:not(:hover),
+
+.elzF.parent:hover .elzF.item.text ~ .elzF-icon:not(:hover),
+.elzF.parent.hover .elzF.item.text ~ .elzF-icon:not(:hover) { color: #555555; }
+
+
+
+.elzF.parent:focus .elzF.item.text ~ .elzF-icon.left, .elzF.parent .elzF.item.text:focus ~ .elzF-icon.left, .elzF.item.text:focus ~ .elzF-icon.left,
+.elzF.parent.focus .elzF.item.text ~ .elzF-icon.left, .elzF.parent .elzF.item.text.focus ~ .elzF-icon.left, .elzF.item.text.focus ~ .elzF-icon.left { color: #3080fe; }
+
+.elzF.parent.valid   .elzF.item.text ~ .elzF-icon.left, .elzF.parent .elzF.item.text.valid   ~ .elzF-icon.left, .elzF.item.text.valid   ~ .elzF-icon.left { color: #4caf50; }
+.elzF.parent.invalid .elzF.item.text ~ .elzF-icon.left, .elzF.parent .elzF.item.text.invalid ~ .elzF-icon.left, .elzF.item.text.invalid ~ .elzF-icon.left { color: #ff1800; }
+
+/* end **********************************************/

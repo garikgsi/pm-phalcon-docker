@@ -1,0 +1,11 @@
+{
+  "src/VueBuilder/builder.js": {
+    "file": "vue-builder-1681291328.js.umd.js",
+    "isEntry": true,
+    "src": "src/VueBuilder/builder.js"
+  },
+  "style.css": {
+    "file": "style.css",
+    "src": "style.css"
+  }
+}

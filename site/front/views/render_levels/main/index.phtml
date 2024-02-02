@@ -1,0 +1,219 @@
+<?$this->view->partial('render_levels/partials/body_start')?>
+<?$mainMenuData = $this->view->getVar('mainMenuData')?>
+<?$menuActive = $mainMenuData['active'] ?? ''?>
+<?$menuOverlay = $mainMenuData['overlay'] ?? 0?>
+<?$menuIcon = $mainMenuData['icon'] ?? ''?>
+<?$menuIconSize = $mainMenuData['icon_size'] ?? ''?>
+<?$menuTitle = $mainMenuData['title'] ?? ''?>
+
+    <div class="elz uApiWrap fn12">
+        <div class="elz pmUniGrid d-grid grPos hmn100p">
+            <div class="elz pmTpl d-grid grPin grP1 grPS1">
+                <div id="pmMainMenu" class="elz pmTplSide <?if(!$menuOverlay):?> menuStatic<?else:?> menuOver<?endif;?> uniScroll scrollSimple p-sticky p-TEP d-grid hmx100hEP lh12 bg bg-primary">
+                    <div class="elz uniScrollIn oAuto scrollHideFine">
+
+                        <div class="elz d-flex f-wrap a-T gapVar pVar">
+<?$menuData = require_once(DIR_CACHE_SITES.'5_main_menu_ru.php')?>
+<?for($a = 0, $lenA = sizeof($menuData); $a < $lenA; $a++):?>
+    <?$category = $menuData[$a]?>
+                            <div class="elz d-block grow fb320 pVVar r3 bg bg-primary bgL5 bsh-default1">
+                                <h2 class="elz d-flex a-X gap8 fn16 pV8 pL16 hmn36">
+                                    <span class="elz d-block growX"><?=$category['text']?></span>
+    <?if($a == 0 && $menuOverlay):?>
+                                    <span id="pmMainMenuCloserDesktop" class="elz d-flex a-X w40 noShrink cur-pointer opAct07 fnHov fnHov-primary-t fnHovL-10 fnHovLInvD" title="Закрыть меню">
+                                        <span class="elz p-rel d-block mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/cross1.svg');"></span>
+                                    </span>
+    <?endif;?>
+                                </h2>
+                                <ul class="elz d-block">
+    <?for($b = 0, $lenB = sizeof($category['list']); $b < $lenB; $b++):?>
+        <?$item = $category['list'][$b]?>
+                                    <li class="elz d-block">
+                                        <a href="<?=$item['href']?>" title="<?=$item['text']?>" class="elz d-flex a-H cur-pointer pV8 hmn36 bgHov bgSel bgHov-primary bgHovL-10 bgLInvD opAct07 bgSel-secondary fnSel fnSel-secondary-t<?if($menuActive == $item['name']):?> sel<?endif;?>">
+                                            <div class="elz d-flex a-X w40">
+                                                <div class="elz d-block p-rel mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/<?=$item['icon']?>');<?=($item['icon_size'] ?? '')?>"></div>
+                                            </div>
+                                            <div class="elz d-block growX"><?=$item['text']?></div>
+                                        </a>
+                                    </li>
+    <?endfor;?>
+
+                                </ul>
+                            </div>
+<?endfor;?>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+<?if($menuOverlay):?>
+            <div class="elz pmTpl d-grid grPin grP1 grPS1">
+
+                <div class="elz pmTplSide menuStatic uniScroll scrollSimple p-sticky p-TEP d-grid hmx100hEP lh12 bg bg-primary<?if(!$menuOverlay):?> hide<?endif;?>">
+                    <div class="elz uniScrollIn oAuto scrollHideFine">
+                        <div class="elz d-flex f-wrap a-T gapVar pVar">
+                            <!-- STICKY BACKER -->
+                            <div class="elz d-flex f-wrap gapVar p-sticky grow fb320 m-Var pVar z10 p-T bg bg-primary">
+                                <div id="pmMainMenuToggle" class="pmOverMenuTriggerDesktop elz p-rel d-block grow r3 pVVar fn16 cur-pointer opAct07 selNone bg bg-primary bgL5 bgHovL10 bsh-default1" title="Открыть меню">
+                                    <div class="elz d-flex a-X hmn36 pV8">
+                                        <div class="elz p-rel d-flex a-X w40 noShrink">
+                                            <div class="elz p-abs d-block mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/<?=$menuIcon?>');<?=$menuIconSize?>"></div>
+    <?if(isset($mainMenuData['icon_sub'])):?>
+                                            <div class="elz p-abs d-block rRound p2 mEA12 bg bg-ok fn fn-ok-t">
+                                                <div class="elz p-rel d-block mskBef s8 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/<?=$mainMenuData['icon_sub']?>');"></div>
+                                            </div>
+    <?endif;?>
+                                        </div>
+                                        <div class="elz d-block growX"><?=$menuTitle?></div>
+                                        <div class="elz d-flex a-X w40 noShrink">
+                                            <div class="elz p-rel d-block mskBef s16 cFillBef bgBef-CC scH" style="--elzMsk: url('/design/icons/rpanel.svg');"></div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <?if($mainMenuData['template_sticky'] ?? false):?>
+                                    <?$this->view->partial($mainMenuData['template_sticky']) ?>
+                                <?endif;?>
+                            </div>
+                            <?if($mainMenuData['template'] ?? false):?>
+                                <?$this->view->partial($mainMenuData['template']) ?>
+                            <?endif;?>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="elz pmTplContent mL-Var">
+                    <?=$this->getContent()?>
+                </div>
+                <div class="elz pmTplContentOvPanels p-abs s0">
+                <?if($mainMenuData['template_panels'] ?? false):?>
+                    <?$this->view->partial($mainMenuData['template_panels']) ?>
+                <?endif;?>
+                </div>
+            </div>
+<?endif;?>
+        </div>
+    </div>
+
+    <div id="elizaRightPanelsContainer" class="elz p-fixed d-block p-F z200 oH evNone fn12"></div>
+    <div class="elz elizeUI p-fixed p-T w100p hEP fn12 fn-roboto fn fn-primary-t">
+        <div class="elz elizeEP p-rel d-flex h56 bg bg-EP fn fn-EP-t visHovOut5">
+            <div class="elz d-flex gap8 pH8 or2 grow"></div>
+            <div class="elz elizeTaskbar d-flex gap8 pH8 or1 noShrink">
+
+                <div class="elz elizeAction p-rel d-flex">
+                    <div id="elizaInterfaceTrayMenu" class="elz elizeOverMenuToggler p-rel d-flex a-X gap8 cur-pointer opAct07">
+                        <div class="elz p-rel d-flex a-X s40">
+<!--                                <div class="elz d-block s100p oH rCircle">-->
+<!--                                    <img class="elz d-block s100p obj-cover obj-T obj-C" alt="" src="images/photo_dragushin_512.jpg" />-->
+<!--                                </div>-->
+                            <div class="elz d-flex a-X s100p rCircle fn11 bold bg bg-male fn fn-white"><?=\Core\Handler\User::shortNick($this->user->getNick())?></div>
+                            <div class="elz p-abs d-flex dir-y a-X gap4 p-F trns visHovIn5">
+                                <div class="elz d-block bg bg-white w20 h2 r2 bshD bsh-itext1"></div>
+                                <div class="elz d-block bg bg-white w20 h2 r2 bshD bsh-itext1"></div>
+                                <div class="elz d-block bg bg-white w20 h2 r2 bshD bsh-itext1"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+<!--                    <div class="elz p-rel d-flex borB3 pT3 br br-blue">-->
+<!--                        <div class="elz p-rel d-flex a-X gap8 cur-pointer opAct07">-->
+<!--                            <div class="elz p-rel d-flex a-X s40 rCircle bg bg-blue fn fn-white">-->
+<!--                                <div class="elz p-rel d-block mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/notification.svg');"></div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+
+            </div>
+            <div class="elz d-flex gap8 pH8 or3 noShrink">
+
+                <div class="elz p-rel d-flex">
+                    <div class="elz pmMenuTriggerMobile TEST_pmOverMenuToggleMobile1 p-rel d-flex a-X gap8 cur-pointer opAct07 hideSelOut showSelOut">
+                        <div class="elz p-rel d-flex a-X s40 rCircle cur-pointer opAct07 fn fn-EP-t fnHovL15">
+                            <div class="elz p-rel d-block mskBef s16 cFillBef bgBef-CC showSelIn" style="--elzMsk: url('/design/icons/cross1.svg');"></div>
+                            <div class="elz p-rel d-flex dir-y gap6 a-X hideSelIn">
+                                <div class="elz d-block bg-CC w20 h2 r2"></div>
+                                <div class="elz d-block bg-CC w20 h2 r2"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+
+
+
+
+        <div id="elizaINTNotify" class="elz d-block p12 lh12 al-center trns2 trnsVis tsh-itext1 bg bg-success fn fn-success-t op0 invisible v2"></div>
+
+
+        <div id="elizaOverlayAppContainer" class="elz p-abs d-block p-EA s0">
+        </div>
+
+
+
+        <div id="elizaINTMenu" class="elz elizeOverMenu p-fixed">
+
+            <div class="elz elizeOverMenuOverlay elizeOverMenuToggler p-fixed d-block p-F cur-alias bg bg-black bgA50 trns4"></div>
+
+            <div class="elz elizeMenu uniScroll scrollSimple d-grid p-fixed h100p p-V pi-R bg bg-primary fn fn-primary-t" data-watchtime="450">
+                <div id="elizaINTMenuScroll" class="elz uniScrollIn oAuto p-rel d-flex dir-y h100p scrollHide"><!-- class .scrollHide чтобы скрыть скроллбар -->
+
+                    <div class="elz elizeProfileWrap p-sticky d-block p-T noShrink opHovOut bg bg-primary z2">
+                        <div class="elz p-rel d-block uAspect x21y9">
+                            <div class="elz p-abs d-flex p-F a-EB avHeadCutMask l120 bg bg-primary bgL-10 bgLInvD"></div>
+                            <div class="elz p-abs p-EB d-flex a-X smn56 op025 opHovIn10 trns z5">
+                                <div class="elz elizeOverMenuToggler d-flex a-X s32 cur-pointer rCircle bg bg-black bgA50 bgHovA80 fn fn-white fnL-10 fnHovL0 opAct07 trns trnsStyle" title="Закрыть">
+                                    <div class="elz d-block p-rel mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/cross1.svg');"></div>
+                                </div>
+                            </div>
+                            <div class="p-abs d-flex a-ED p-F pH16">
+                                <div class="p-rel d-flex a-H pH4">
+
+                                    <div class="elz uAvatar d-block p-abs s120">
+                                        <div class="elz avCutMask p-abs p-F rCircle">
+                                            <div class="elz avWrap d-block s100p rInh oH">
+                                                <div class="elz d-flex a-X s100p rCircle fn42 bold bg bg-male fn fn-white"><?=\Core\Handler\User::shortNick($this->user->getNick())?></div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="elz p-abs p-AB d-block lh12">
+                                <div class="elz p-abs p-AB d-block pL128 fn16">
+                                    <div class="elz d-block pL24 pAR16"><?=$this->user->getNick()?></div>
+                                </div>
+                                <div class="elz p-abs p-AT d-block pL128 fn11">
+                                    <div class="elz d-block pL24 pAR16 bold">Аккаунт активирован</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="elizaINTMenuContent" class="elz elizeMenuWrap p-rel d-block grow">
+
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+
+    </div>
+
+<!--        <div class="elz elizeChangeTheme p-fixed d-flex a-X m16 p-EC rCircle cur-pointer bg bg-secondary fn fn-secondary-t s56 bsh-default2" style="z-index: 5000;">-->
+<!--            <div class="elz d-block p-rel mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/brightnesshalf.svg');"></div>-->
+<!--        </div>-->
+
+<?$this->view->partial('render_levels/partials/body_end')?>

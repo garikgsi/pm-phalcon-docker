@@ -1,0 +1,31 @@
+<?php $contractRow = $this->view->getVar('contractRow')?>
+<div class="elz d-flex hmn100p dir-y gapVar pVar">
+    <div class="elz d-block pVar r3 bg bg-primary bgL5 bsh-default1 p-rel">
+        <div class="elz d-flex a-H f-wrap gapH16 gapV8 hmn36">
+            <div class="elz d-flex a-H growMax fn20 lh12">
+                <a href="/contracts" class="elz p-rel d-flex a-X w40 mL-Var">
+                    <div class="elz p-rel p8 m-8 rCircle cur-pointer opAct07 bgHov bgHov-primary bgHovL-5 bgHovLF5 bgHovFD bgLInvD" title="К поиску контрактов">
+                        <div class="elz p-rel d-flex a-X s16">
+                            <div class="elz p-abs d-block mskBef s16 cFillBef bgBef-CC deg270" style="--elzMsk: url('/design/icons/arrow4.svg');"></div>
+                            <!--
+                            <div class="elz p-abs d-block rRound p2 mEA12 bg bg-ok fn fn-ok-t">
+                                <div class="elz p-rel d-block mskBef s8 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/search.svg');"></div>
+                            </div>
+                            -->
+                        </div>
+                    </div>
+                </a>
+                <div id="contractHeaderTitle" class="elz d-flex grow f-wrap a-H gapH8">
+                    <b class="elz d-block pH8 pV2 r3 bg bg-primary bgLF-5 bgFL cur-help" title="Номер договора: <?=$contractRow['contract_number']?>"><?=$contractRow['contract_number']?></b>
+                    <span class="elz d-block"><?=$contractRow['contract_title']?></span>
+                </div>
+            </div>
+<?php $rightPanel = $this->view->getVar('mainSectionHeaderRightTemplate')?>
+<?if($rightPanel):?>
+            <?$this->view->partial($rightPanel)?>
+<?endif;?>
+        </div>
+    </div>
+
+    <?=$this->getContent()?>
+</div>

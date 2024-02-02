@@ -1,0 +1,69 @@
+<div class="elz winCSSNunit app-admin fullscreen standalone">
+    <div class="elz tplGrid tplGrItem wrap cells">
+
+        <div class="elz tplGrItem outerMain wrap rows grow">
+            <div class="elz tplGrItem section header">
+
+
+                <div class="elz elzCLSenginePanel light float winHeader">
+                    <div class="elz epBF elzCLStoolbar elzPLT" data-bg="grey 900">
+
+
+
+
+                        <div class="elz tbIt tbWrap contentCenter">
+                            <div class="elz epBF tbIt tbWrapFlex">
+                                <div class="elz epBF tbIt tbWrapIn epGrow">
+
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="elz tplGrItem wrap rowWrap rows grow">
+                <div class="elz tplGrItem section content wrap cells grow">
+                    <div class="elz tplGrItem markMenuL wrap rows">
+                        <div class="elz tplGrItem section content grow rel elzPLT" data-bg="grey 800">
+                            <div class="elz tplContent elzScroll macosx light abs">
+
+                                <div class="elz tplCLSmenu left light" id="rcpMainMenuContainer">
+                                    <?$this->view->partial('partials/main_menu', [
+                                        'size' => 'large',
+                                        'icns' => 'smallest',
+                                        'list' => require_once(DIR_CACHE_SITES.'1_main_menu_ru.php')
+                                    ])?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="elz tplGrItem markContent wrap rows grow">
+                        <div class="elz tplGrItem section header"></div>
+                        <div class="elz tplGrItem section subheader"></div>
+                        <div class="elz tplGrItem section adheader"></div>
+                        <div class="elz tplGrItem section content grow rel">
+                            <div class="elz tplContent elzScroll macosx dark abs" id="<?=$this->hapi->genRenderContainerId('layout')?>">
+                                <?=$this->getContent()?>
+                            </div>
+                        </div>
+                        <div class="elz tplGrItem section adfooter"></div>
+                        <div class="elz tplGrItem section subfooter"></div>
+                        <div class="elz tplGrItem section footer"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+

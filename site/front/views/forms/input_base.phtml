@@ -1,0 +1,25 @@
+<?php $id = $id ?? \Core\Builder\MustacheForms::getNextId();?>
+<?php $name = $name ?? 'SET THE NAME';?>
+<?php $type = $type ?? 'text';?>
+<?php $value = $value ?? '';?>
+<?php $placeholder = $placeholder ?? '';?>
+<?php $grow = $grow ?? 'growMax';?>
+<?php $widthInput = $widthInput ?? 280;?>
+<?php $inputClass = $inputClass ?? 'r3 pL56';?>
+<?php $labelClass = $labelClass ?? '';?>
+<label class="elizaIForm2 elz d-grid <?if($widthInput > 0):?>fb<?=$widthInput?><?endif;?> <?=$grow?> grPos fn fn-primary-t fnL20 fnLInvD fnHovL10 fnFow-focus fnFowL0 <?=$labelClass?>">
+    <input id="<?=$id?>" type="<?=$type?>" value="<?=$value?>" name="<?=$name?>" placeholder="<?=$placeholder?>" class="elizaIFormInput needToClean elz elzInput d-block grPin grY2 w100p bor1 h36 pR16 <?=$inputClass?> fn12 ellipsis trns2 invPssSib
+                                                                                      bg bg-primary bgL10 bgLInvD
+                                                                                      br brLInvD br-primary brL-10 brHovL-20 brFoc-focus brFocL0
+                                                                                      fn fn-primary-t">
+    <span class="elz d-flex grPin grY2 a-X pH8 evNone z5">
+        <span class="elizaIFormIconRWrap elz p-rel growZ d-flex a-PR invisible">
+            <span class="elizaIFormIconRStatus elz p-rel d-flex a-X r2 trns2 cur-help opHovOut bgHov bgHov-error fn fn-error fnHov-error-t">
+                <span class="elizaIFormIconRText elz fn11 bold al-right pH8 op0 opHovIn10 trns2 trnsVis oH ellipsis"></span>
+                <span class="elz p-rel d-flex a-X s24 r2 evAuto">
+                    <span class="elizaIFormIconR elz p-rel d-block mskBef s16 cFillBef bgBef-CC" style=""></span>
+                </span>
+            </span>
+        </span>
+    </span>
+</label>

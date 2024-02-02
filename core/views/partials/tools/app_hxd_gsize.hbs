@@ -1,0 +1,27 @@
+<div class="elz tbIt tbTool left button link large {{{tool_class}}}" {{{tool_data}}}>
+    <div class="elz toolInner default dark elzPLT" data-bg="grey 200">
+        {{#button_html}}{{{button_html}}}{{/button_html}}
+        {{#button_data}}
+            {{> tools/app_hxd_gsize_button}}
+        {{/button_data}}
+    </div>
+
+    <div class="elz elzTTwrap dtb dtc">
+        <div class="elz elzTooltip nowrap">{{button_title}}</div>
+    </div>
+
+</div>
+{{#button_show}}
+<div {{#over_id}}id="{{over_id}}"{{/over_id}} class="elz elzCLSoverDescr top left vertical padMedium hxdGridSizeListOver">
+    <ul class="elz hxdGridSizeList selecting x{{button_size}}">
+    {{#button_list}}
+        <li class="elz listItem link {{size_link}}" {{{size_link_data}}}>
+            {{> tools/app_hxd_gsize_button}}
+        </li>
+    {{/button_list}}
+    </ul>
+</div>
+{{/button_show}}
+{{#button_popup_html}}
+    {{{button_popup_html}}}
+{{/button_popup_html}}

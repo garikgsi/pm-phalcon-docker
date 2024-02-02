@@ -1,0 +1,15 @@
+<div class="elizaRightPanelTrigger roleEmptyPlaceholder elz d-flex a-H gap8 grow cur-pointer opAct07 br br-primary brL-10 brLInvD underlineHovOut invSelIn" data-panel="contact" data-widget="card" data-node="<?=$contact_node_id?>" data-id="<?=$contact_id?>" data-active="0">
+    <div class="elz d-block noShrink">
+        <div class="elz uAvatar d-block p-rel s40 mAuto">
+            <div class="elz avCutMask p-abs p-F oH rCircle">
+                <div class="elz avWrap d-block s100p rInh oH">
+                    <div class="elz d-flex a-X s100p fn11 bold bg bg-ok fn fn-ok-t"><?=\Core\Handler\User::shortNick($contact_nickname)?></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="elz d-flex dir-y gap4 lh12">
+        <div class="elz d-block cur-pointer bold underlineHovIn fn fn-male"><?=$contact_nickname?></div>
+        <div class="elz d-block fn11"><?=$contact_role_title?></div>
+    </div>
+</div>

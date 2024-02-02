@@ -1,0 +1,51 @@
+<?$this->view->partial('render_levels/partials/body_start')?>
+
+<div class="elz uApiWrap">
+
+    <div class="elz authWrap">
+        <svg class="elz authCircle d-block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+            <polygon class="letter fn fn-brand" points="80,404 80,293.13 136,325.27 336,209.99 256,163.8 136,233.08 0,154.56 0,450" opacity="0">
+                <animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="0.25s" fill="freeze"/>
+            </polygon>
+            <polygon class="letter fn fn-brand" points="0,16 0,108.38 136,186.9 216,140.71" opacity="0">
+                <animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="0.75s" fill="freeze"/>
+            </polygon>
+            <polygon class="letter" points="512,16 296,140.71 376,186.9 512,108.38" opacity="0">
+                <animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="0.5s" fill="freeze"/>
+            </polygon>
+            <polygon class="letter" points="432,404 512,450 512,154.56 176,348.55 256,394.74 432,293.13" opacity="0">
+                <animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="1s" fill="freeze"/>
+            </polygon>
+        </svg>
+
+        <form id="pmAuthForm" class="authFormWrap" action="/api/session/session/login" method="post">
+
+            <div class="elz authFormShow d-block h80">
+                <?$this->view->partial('forms/slim/input', [
+                    'name' => 'login',
+                    'type' => 'text',
+                    'title' => 'Ваш логин',
+                    'placeholder' => 'Ваш логин',
+                    'leftIcon' => 'user'
+                ])?>
+            </div>
+
+            <div class="elz authFormShow d-block h80">
+                <?$this->view->partial('forms/slim/input', [
+                    'name' => 'pass',
+                    'type' => 'password',
+                    'title' => 'Ваш пароль',
+                    'placeholder' => 'Ваш пароль',
+                    'leftIcon' => 'key'
+                ])?>
+
+            </div>
+
+            <div class="elz authFormShow d-block h48">
+                <button type="submit" class="mV16 elz buttonTest d-flex a-X r3 h48 w100p fn-11 cur-pointer opAct07 bg bg-ok bgHovL5 fn fn-ok-t fnHovL10 trnsStyle trns">Авторизация</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<?$this->view->partial('render_levels/partials/body_end')?>

@@ -1,0 +1,55 @@
+.picCLSmediaViewer {
+    position: absolute;
+    display: block;
+    top:    0;
+    right:  0;
+    bottom: 0;
+    left:   0;
+}
+
+.picCLSmediaViewer .pictureShow {
+    position: relative;
+    display: block;
+    width:  100%;
+    height: 100%;
+    font-size: 0;
+    text-align: center;
+}
+
+.picCLSmediaViewer .pictureShow:before {
+    content: "";
+    position: static;
+    display: inline-block;
+    vertical-align: middle;
+    width:  0;
+    height: 100%;
+}
+
+.picCLSmediaViewer .pictureShow > .image {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    max-width:  100%;
+    max-height: 100%;
+    width:  auto;
+    height: auto;
+}
+
+.picCLSmediaViewer .pictureShow.crop:before,
+.picCLSmediaViewer .pictureShow.hide { display: none; }
+
+
+
+
+
+
+
+
+
+
+/* Default */
+
+.picCLSmediaViewer .pictureShow.default          { pointer-events: none; }
+.picCLSmediaViewer .pictureShow.default > .image { pointer-events: auto; }
+
+/* end */

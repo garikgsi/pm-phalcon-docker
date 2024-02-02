@@ -1,0 +1,34 @@
+<?$routesList = $this->view->getVar('routesList')?>
+<?$site = $this->view->getVar('site')?>
+
+<div id="rcpRoutesSiteId" class="elz strCLSitem marLMedium marRMedium marTMedium wmn760 grow flexible" data-id="<?=$site['site_id']?>">
+    <div class="elz admCLSwrap flexible shadowed">
+
+    <div class="elz admHeader admWBordered">
+        <div class="elz admCaption">
+            <h2 class="elz admTitle">Список маршрутов</h2>
+        </div>
+        <div class="elz strCLSitem marRMedium marLMedium">
+            <?=\Core\Builder\MustacheForms::checkbox('rcpRoutersSwitchDefault', 'Маршрутизация по умолчанию', '', '', (int)$site['site_routing_default'], '', 'left')?>
+        </div>
+    </div>
+    <div class="elz admBody">
+        <div class="elz elzCLStableWrap">
+            <table class="elz elzCLStable">
+                <tbody id="rcpRoutesList" class="tbody striped hovering pad padHMedium padVSmallest">
+<?for($a = 0, $len = sizeof($routesList); $a < $len; $a++):?>
+                    <?$this->view->partial('sites/partials/route_tr', $routesList[$a])?>
+<?endfor;?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="admFooter admWBordered">
+        <div class="elz strCLSitem flexible center">
+            <div class="elz strCLSitem marMedium">
+                <?=\Core\Builder\MustacheForms::submit('rcpRoutersAdd', 'Добавить маршрут')?>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>

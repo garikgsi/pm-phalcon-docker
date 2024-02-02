@@ -1,0 +1,8 @@
+{{^wcancel}}<div class="elizaIForm elz elzF wrap {{wclass}}">{{/wcancel}}
+    {{#input}}{{> forms/common_f_input}}{{/input}}
+    {{{label}}}
+    {{#title}}<label class="elz elzFA elzF-text title" for="{{input.id}}">{{title}}</label>{{/title}}
+    {{#icon_left}}{{> forms/common_f_icon}}{{/icon_left}}
+    {{#icon_right}}{{> forms/common_f_icon}}{{/icon_right}}
+    {{#hint}}{{> forms/hint}}{{/hint}}
+{{^wcancel}}</div>{{/wcancel}}

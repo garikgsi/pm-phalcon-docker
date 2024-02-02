@@ -1,0 +1,28 @@
+<div class="linkItem elz d-flex a-X hmn48 pL8 pV12 mT-1 borT1 bgHov bgHov-primary bgHovL-5 bgHovLInvD bgHovLF5 bgFD br br-primary brL-10 brLInvD" data-id="<?=$link['link_id']?>">
+    <div class="elz d-flex a-X w40">
+        <div class="elz p-rel d-block mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/link.svg');"></div>
+    </div>
+    <div class="elz d-flex dir-y gap8 growX lh12">
+        <a class="elz d-block bold underlineHov opAct07" title="<?=htmlspecialchars($link['link_title'])?>" href="<?=$link['link_uri']?>"><?=htmlspecialchars($link['link_title'])?></a>
+        <span class="elz d-block fn11 bold opAct07 fn fn-male s-T" title="<?=$link['member_nick']?>"><?=$link['member_nick']?></span>
+    </div>
+<?if($mode == 'private'):?>
+    <div class="elz d-flex gap8 pH8">
+        <div class="linkItemModeSwitch elz p-rel d-flex a-X gap8 cur-pointer opAct07 cSelOut<?if($link['link_public']):?> sel<?endif;?>" data-public="1" title="Публичный фильтр">
+            <div class="elz p-rel d-flex a-X s40 rCircle fnHov fnHovL-10 fnHovLInvD fnHovLInvD bgHov bgHov-primary bgHovL5 bgHovLInvD bgSelIn bgSelIn-ok fnSelIn fnSelIn-ok-t">
+                <div class="elz p-rel d-block mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/eye.svg');"></div>
+            </div>
+        </div>
+        <div class="linkItemModeSwitch elz p-rel d-flex a-X gap8 cur-pointer opAct07 cSelOut<?if(!$link['link_public']):?> sel<?endif;?>" data-public="0" title="Персональный фильтр">
+            <div class="elz p-rel d-flex a-X s40 rCircle fnHov fnHovL-10 fnHovLInvD fnHovLInvD bgHov bgHov-primary bgHovL5 bgHovLInvD bgSelIn bgSelIn-warning fnSelIn fnSelIn-warning-t">
+                <div class="elz p-rel d-block mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/eye-blocked.svg');"></div>
+            </div>
+        </div>
+        <div class="linkItemDelete elz p-rel d-flex a-X gap8 cur-pointer opAct07 cSelOut">
+            <div class="elz p-rel d-flex a-X s40 rCircle fnHov fnHovL-10 fnHovLInvD fnHovLInvD bgHov bgHov-primary bgHovL5 bgHovLInvD bgSelIn bgSelIn-error fnSelIn fnSelIn-error-t">
+                <div class="mskIcon elz p-rel d-block mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/cross1.svg');"></div>
+            </div>
+        </div>
+    </div>
+<?endif;?>
+</div>

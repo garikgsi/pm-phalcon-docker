@@ -1,0 +1,52 @@
+<div class="elz d-flex hmn100p dir-y gapVar pVar">
+
+
+    <div class="elz d-block pVar r3 bg bg-primary bgL5 bsh-default1">
+        <div class="elz d-flex a-H f-wrap gapH16 gapV8 hmn36">
+            <div class="elz d-flex a-H growMax fn20 lh12">
+
+                <div class="elz d-flex a-H growMax fn20 lh12">
+
+                    <a href="/" class="elz p-rel d-flex a-X w40 mL-Var">
+                        <div class="elz p-rel p8 m-8 rCircle cur-pointer opAct07 bgHov bgHov-primary bgHovL-5 bgHovLF5 bgHovFD bgLInvD" title="На главную">
+                            <div class="elz p-rel d-flex a-X s16">
+                                <div class="elz p-abs d-block mskBef s16 cFillBef bgBef-CC deg270" style="--elzMsk: url('/design/icons/arrow4.svg');"></div>
+                            </div>
+                        </div>
+                    </a>
+
+                    <div class="elz d-flex grow">Справочник организационно-правовых форм</div>
+                </div>
+            </div>
+            <div class="elz d-flex f-wrap grow a-H gap8">
+                <div class="elz d-flex a-H gap8 h36 r3 pH8 bg bg-ok fn fn-ok-t">
+                    <div class="elz p-rel d-block mskBef s16 cFillBef bgBef-CC" style="--elzMsk: url('/design/icons/info.svg');"></div>
+                    <div class="elz d-block bold">Заполняется автоматически</div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="elz d-flex grow">
+        <div class="elz d-block growX r3 oAuto hmn480 bg bg-primary bgL5 bsh-default1">
+            <table class="elz elzTable w100p lh12 va-M">
+                <thead class="tbody pad p16 bold nowrap">
+                <tr class="tr bor borB1 br br-secondary brL-10 bg bg-secondary fn fn-secondary-t">
+                    <th class="td w1">Код</th>
+                    <th class="td">Тип</th>
+                    <th class="td">Акроним</th>
+                    <th class="td  wmn240">Название</th>
+                    <th class="td">Контрагентов</th>
+                </tr>
+                </thead>
+                <tbody class="tbody pad pV10 pH16 uStrip stripEven strip005 stripHover">
+<?php $opfList = $this->view->getVar('opfList')?>
+<?for($a = 0, $len = sizeof($opfList); $a < $len; $a++):?>
+                    <?$this->view->partial('opf/partials/opf_item', $opfList[$a])?>
+
+<?endfor;?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

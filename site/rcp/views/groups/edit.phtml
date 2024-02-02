@@ -1,0 +1,105 @@
+<?$groupRow = $this->view->getVar('groupRow')?>
+
+<div id="ipRcpEditGroupId" data-id="<?=$groupRow['group_id']?>" class="elz strCLSitem wrap flexible padBMedium padRMedium">
+    <?$this->view->partial('partials/forms/forms_section', [
+        'title'  => $t->_('rcp_groups_meta_label1'),
+        'formId' => 'rcpGroupMetaEdit',
+        'formAction' => '/groups/api/meta_edit?group='.$groupRow['group_id'],
+        'formData'   => 'data-group="'.$groupRow['group_id'].'"',
+        'submitTitle' => $t->_('rcp_groups_add'),
+        'langed' => ['list' => [[1, 'RU'], [2, 'EN']], 'id' => 'rcpGroupMetaEditLang', 'name' => 'lang', 'class' => ''],
+        'fieldList' => [
+            [
+                'field'  => 'input',
+                'ftitle' => $t->_('rcp_groups_meta_name'),
+                'fdescr' => $t->_('rcp_groups_meta_name_d'),
+                'wtitle' => 'wmn280',
+                'type'   => 'text',
+                'placeholder' => $t->_('rcp_groups_meta_name_p'),
+                'value' => $groupRow['group_name'],
+                'name'  => 'name',
+                'readonly' => $groupRow['group_system']
+            ],
+            [
+                'field'  => 'select',
+                'ftitle' => $t->_('rcp_groups_meta_parent'),
+                'fdescr' => $t->_('rcp_groups_meta_parent_d'),
+                'wtitle' => 'wmn280',
+                'type'   => 'text',
+                'value' => (int)$groupRow['group_parent_id'],
+                'optionList' => $this->view->getVar('selectList'),
+                'name'  => 'parent'
+            ],
+            [
+                'field'  => 'input',
+                'ftitle' => $t->_('rcp_groups_meta_title'),
+                'fdescr' => $t->_('rcp_groups_meta_title_d'),
+                'wtitle' => 'wmn280',
+                'type'   => 'text',
+                'placeholder' => $t->_('rcp_groups_meta_title_p'),
+                'value' => $groupRow['group_title'],
+                'name'  => 'title'
+            ]
+        ]
+    ])?>
+
+    <div class="elz strCLSitem marLMedium marTMedium w400 grow flexible">
+        <div class="elz admCLSwrap flexible shadowed">
+
+            <div class="elz admHeader admWBordered">
+                <div class="elz admCaption">
+                    <h2 class="elz admTitle">Информация по группе</h2>
+                </div>
+            </div>
+
+            <div class="elz admBody">
+
+                <div class="elz strCLSitem">
+                    <div class="elz elzCLStableWrap padTSmaller">
+                        <table class="elz elzCLStable striped">
+                            <tbody class="elz tbody">
+                                <tr>
+                                    <td class="pad padVSmaller padHMedium elzCbox h36 wmn200">
+                                        <div class="elz elzText nowrap"><b class="bb strong">Статус</b></div>
+                                    </td>
+                                    <td class="pad padVSmaller padHMedium elzCbox h36 compressed"><?if($groupRow['group_system']):?><b class="elz elzPLT" data-fn="green">системная</b><?else:?>обычная<?endif;?></td>
+                                </tr>
+                                <tr>
+                                    <td class="pad padVSmaller padHMedium elzCbox h36 wmn200">
+                                        <div class="elz elzText nowrap"><b class="bb strong">Пользователей</b></div>
+                                    </td>
+                                    <td class="pad padVSmaller padHMedium elzCbox h36 compressed elz al-right"><?=number_format($this->view->getVar('group_members'))?></td>
+                                </tr>
+                                <tr>
+                                    <td class="pad padVSmaller padHMedium elzCbox h36 wmn200">
+                                        <div class="elz elzText nowrap"><b class="bb strong">Групп</b></div>
+                                    </td>
+                                    <td class="pad padVSmaller padHMedium elzCbox h36 compressed elz al-right"><?=number_format($this->view->getVar('group_groups'))?></td>
+                                </tr>
+                                <tr>
+                                    <td class="pad padVSmaller padHMedium elzCbox h36 wmn200">
+                                        <div class="elz elzText nowrap"><b class="bb strong">Прав</b></div>
+                                    </td>
+                                    <td class="pad padVSmaller padHMedium elzCbox h36 compressed elz al-right"><?=number_format($this->view->getVar('group_rights'))?></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<?$groupsList = $this->view->getVar('groupsList')?>
+
+<?if(isset($groupsList[$groupRow['group_id']]) && sizeof($groupsList[$groupRow['group_id']])):?>
+    <?$this->view->partial('groups/groups_widget', [
+        'groupsList' => $this->view->getVar('groupsList'),
+        'groupsWidgetId' => 'ipRcpEditGroupsList',
+        'startNodeId' => $groupRow['group_id'],
+        'widgetTitle' => 'Список дочерних групп'
+    ])?>
+<?endif;?>

@@ -1,0 +1,50 @@
+<?$isFake = isset($isFake) ? 1 : 0?>
+
+<?$formTagStart = $isFake ? 'div' : 'form method="post" action="'.$formAction.'"'?>
+<?$formTagEnd   = $isFake ? 'div' : 'form'?>
+
+<div class="elz strCLSitem marLMedium marTMedium <?if(isset($secWidth)):?><?=$secWidth?><?else:?>w640<?endif;?> grow flexible">
+    <<?=$formTagStart?> id="<?=$formId?>" class="elz admCLSwrap flexible shadowed"<?if(isset($formData)):?> <?=$formData?><?endif;?>  data-method="post" data-action="<?=$formAction?>">
+
+        <div class="elz admHeader admWBordered">
+            <div class="elz admCaption">
+                <h2 class="elz admTitle"><?=$title?></h2>
+            </div>
+            <?=($headLeftHtml ?? '')?>
+<?if(isset($langed)):?>
+            <div class="elz admLangChange w64 marLMedium marRMedium">
+                <?=\Core\Builder\MustacheForms::select(1, $langed['list'], $langed['id'], $langed['name'], '', $langed['class'])?>
+            </div>
+<?endif;?>
+        </div>
+        <div class="elz admBody">
+    <?if(isset($sectionList) && is_array($sectionList)):?>
+        <?for($a = 0, $len = sizeof($sectionList); $a < $len; $a++):?>
+            <?$sec = $sectionList[$a]?>
+            <?if(isset($sec['title'])):?>
+            <div class="strCLSitem padMedium mar-T borB1"><p class="bb fn-12"><?=$sec['title']?></p></div>
+            <?endif;?>
+            <div class="elz strCLSitem flexible wrap padRMedium">
+                <?$this->view->partial('partials/forms/forms_adm_body_1_column', ['fieldList' => $sec['list'], 'unwrapped' => 1, 'wrapped' => 1])?>
+            </div>
+        <?endfor;?>
+    <?endif;?>
+            <div class="elz strCLSitem <?if(isset($clsClasses)):?><?=$clsClasses?><?else:?>padRMedium padBMedium<?endif;?><?if(isset($clsAlign)):?> <?=$clsAlign?><?endif;?>">
+    <?if(isset($beforeTemplate)):?>
+        <?$this->view->partial($beforeTemplate['name'], $beforeTemplate['data'])?>
+    <?endif;?>
+    <?if(isset($beforeHtml)):?><?=$beforeHtml?><?endif;?>
+
+    <?$this->view->partial('partials/forms/forms_adm_body_1_column', ['fieldList' => $fieldList ?? [], 'wrapped' => 0])?>
+    <?if(isset($afterHtml)):?><?=$afterHtml?><?endif;?>
+            </div>
+        </div>
+        <div class="admFooter admWBordered">
+            <div class="elz strCLSitem flexible center">
+                <div class="elz strCLSitem marMedium">
+                    <?=\Core\Builder\MustacheForms::submit('', $submitTitle)?>
+                </div>
+            </div>
+        </div>
+    </<?=$formTagEnd?>>
+</div>

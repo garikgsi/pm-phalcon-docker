@@ -1,0 +1,39 @@
+.setTplSide {
+    width: 320px;
+}
+
+@media (min-width: 976px) {
+    .elzApp-settings .setStateToggler { display: none; }
+}
+
+@media (max-width: 975px) {
+    .elzApp-settings.state-menu .setTplContent,
+    .elzApp-settings.state-content .setTplSide,
+    .elzApp-settings.state-menu .setStateToggler { display: none; }
+    .elzApp-settings .setTplContent { margin-left: 0; }
+}
+
+@media (max-width: 480px) {
+    .setBlockEditIcon { display: none; }
+    .setTplPadder {
+        padding-left:  0;
+        padding-right: 0;
+    }
+
+    .elzApp-settings .elzCropPreviewWrap,
+    .elzApp-settings .elzCropPreviewGroup.first {
+        width:  var(--cropboxPrevL);
+        height: var(--cropboxPrevM);
+    }
+
+    .elzApp-settings .elzCropUpload:not(.preview) .elzCropPreviewWrap {
+        margin-left: 0;
+        margin-top: calc(var(--cropboxGap) * -1);
+        width:  var(--cropboxPrevL);
+        height: 0;
+    }
+
+    .elzApp-settings .elzCropPreviewGroup.first  { flex-direction:    row; }
+    .elzApp-settings .elzCropUpload.preview,
+    .elzApp-settings .elzCropPreviewGroup.second { flex-direction: column; }
+}

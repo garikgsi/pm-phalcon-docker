@@ -1,0 +1,21 @@
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+<rect x="32.821" fill="#003638" width="446.359" height="512"/>
+<g fill="#FFFFFF">
+	<rect x="164.103" y="275.692" width="183.795" height="196.923"/>
+	<rect x="164.103" y="39.385" width="183.795" height="196.923"/>
+</g>
+<g fill="#FFFFFF">
+	<rect x="72.205" y="39.385" width="52.513" height="39.385"/>
+	<rect x="72.205" y="118.154" width="52.513" height="39.385"/>
+	<rect x="72.205" y="196.923" width="52.513" height="39.385"/>
+	<rect x="72.205" y="275.692" width="52.513" height="39.385"/>
+	<rect x="72.205" y="354.462" width="52.513" height="39.385"/>
+	<rect x="72.205" y="433.231" width="52.513" height="39.385"/>
+	<rect x="387.282" y="354.462" width="52.513" height="39.385"/>
+	<rect x="387.282" y="433.231" width="52.513" height="39.385"/>
+	<rect x="387.282" y="275.692" width="52.513" height="39.385"/>
+	<rect x="387.282" y="196.923" width="52.513" height="39.385"/>
+	<rect x="387.282" y="118.154" width="52.513" height="39.385"/>
+	<rect x="387.282" y="39.385" width="52.513" height="39.385"/>
+</g>
+</svg>

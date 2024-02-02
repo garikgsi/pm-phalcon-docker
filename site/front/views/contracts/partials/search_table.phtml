@@ -1,0 +1,57 @@
+<?$counteragentsList = $this->view->getVar('searchEngineContent') ?? []?>
+<?$columnsList = $this->view->getVar('searchEngineColumns') ?? []?>
+<?$sortingMap = $this->view->getVar('searchEngineSorting') ?? []?>
+
+<?$counteragentsLen = sizeof($counteragentsList)?>
+<?php $columnsMapClass = [
+    'id' => 'w64',
+    'number' => '',
+    'status' => 'w150',
+    'prolongation' => 'w150',
+    'customer' => 'w360',
+    'executor' => 'w360',
+    'finish' => 'w100',
+    'responsible' => 'w240',
+    'author' => 'w240'
+]?>
+
+<?php
+$sortedColumns = [];
+for($a = 0, $len = sizeof($columnsList); $a < $len; $a++) {
+    $column = $columnsList[$a];
+
+    if(!$column['active'] || !$sortingMap[$column['name']]['selected']) {
+        continue;
+    }
+
+    $sortedColumns[] = 'stripSelCol'.($a + 1);
+} ?>
+
+
+<table class="elz elzTable w100p<?if(!$counteragentsLen):?> h100p<?endif;?> lh12 va-M<?if(sizeof($sortedColumns)):?> <?=implode(' ', $sortedColumns)?><?endif;?>">
+    <thead class="tbody p-sticky p-T pad p16 bold nowrap z1 uStrip">
+        <tr class="tr bor borB1 br br-secondary brL-10 bg bg-secondary fn fn-secondary-t">
+<?for($a = 0, $len = sizeof($columnsList); $a < $len; $a++):?>
+    <?php $column = $columnsList[$a]?>
+    <?php if(!$column['active']) {continue;}?>
+    <?$order = $sortingMap[$column['name']]['order']?>
+    <?$order = $order > 99 ? $order - 100 : $order?>
+            <th class="td <?=$columnsMapClass[$column['name']]?>">
+                <div class="elizaSearchControlSectionItemClicker  elz d-flex a-H gap8 underlineHov cur-pointer opAct07 visSelOut <?if($sortingMap[$column['name']]['selected']):?> sel<?endif;?>" data-section="sorting" data-item="<?=$column['name']?>">
+                    <div class="elz d-block"><?=$column['title']?></div>
+                    <div class="elz p-rel d-flex a-X visSelIn">
+                        <div class="elz p-rel d-block mskBef s8 cFillBef bgBef-CC<?if($sortingMap[$column['name']]['mode'] == 'desc'):?> deg180<?endif;?>" style="--elzMsk: url('/design/icons/arrow1.svg');"></div>
+                        <div class="elz p-rel d-flex a-X mL8 al-center lh13">
+                            <div class="elz p-rel d-block r2 pH3 fn10 bold bg bg-secondary-t fn fn-secondary cur-help wmn12" title="Порядок сортировки: <?=$order?>"><?=$order?></div>
+                            <div class="elz elzTriangle pad1 tr-L p-abs p-L mL-3 borBef3 borAft3 brBef br-secondary-t"></div>
+                        </div>
+                    </div>
+                </div>
+            </th>
+<?endfor;?>
+        </tr>
+    </thead>
+    <tbody class="tbody pad pV10 pH16 uStrip stripEven strip005 stripHover">
+<?php $this->view->partial('contracts/partials/search_table_content')?>
+    </tbody>
+</table>

@@ -1,0 +1,68 @@
+<?$wrapped = $wrapped ?? 0?>
+
+<?$wrapStart = ''?>
+<?$wrapEnd   = ''?>
+
+<?if($wrapped):?>
+    <?$wrapStart = '<div class="strCLSitem flexible marTMedium marLMedium grow w320">'?>
+    <?$wrapEnd   = '</div>'?>
+<?endif;?>
+
+<?$unwrap = isset($unwrapped)?>
+
+<?if(isset($fieldList) && is_array($fieldList)):?>
+    <?for($ix = 0, $lenx = sizeof($fieldList); $ix < $lenx; $ix++):?>
+        <?$field = $fieldList[$ix]?>
+
+
+        <?if(!$field):?>
+            <?continue;?>
+        <?endif;?>
+
+        <?if(isset($field['separate'])):?>
+            <div class="elz strCLSitem w100p"></div>
+            <?continue;?>
+        <?endif;?>
+        <?=$wrapStart?>
+
+        <?if(!$unwrap):?><div class="elz strCLSitem flexible wrap marTMedium marLMedium<?=(isset($field['wclass']) ? ' '.$field['wclass'] : '')?>"><?endif;?>
+
+            <div class="strCLSitem flexible wrap mar-LMedium mar-BSmaller grow w0">
+        <?if(isset($field['ftitle'])):?>
+            <?$titleWidth = isset($field['wtitle']) ? $field['wtitle'] : 'wmn120'?>
+                <div class="strCLSitem marLMedium marBSmaller s-middle grow <?=$titleWidth?>">
+                    <div class="elz elzText bold"><?=$field['ftitle']?>:</div>
+                <?if(isset($field['fdescr'])):?>
+                    <div class="elz elzText fn-8 elzPLT" data-fn="grey 600"><?=$field['fdescr']?></div>
+                <?endif;?>
+                </div>
+        <?endif;?>
+        <?$contWidth = isset($field['wcont']) ? $field['wcont'] : 'w300'?>
+                <div class="strCLSitem marLMedium marBSmaller s-middle growmax <?=$contWidth?>">
+        <?if(isset($field['images'])):?>
+                    <div class="elz admManiIcons<?=@$field['contClass']?>">
+                        <div class="elz iconsOuter">
+                    <?for($a = 0, $images = sizeof($field['images']); $a < $images; $a++):?>
+                        <?if(!isset($field['images'][$a]['name'])):?>
+                            <div class="elz icgroup">
+                            <?for($b = 0, $lenB = sizeof($field['images'][$a]); $b < $lenB; $b++):?>
+                                <?$this->view->partial('partials/widget_uploader_image', $field['images'][$a][$b])?>
+                            <?endfor;?>
+                            </div>
+                        <?else:?>
+                            <?$this->view->partial('partials/widget_uploader_image', $field['images'][$a])?>
+                        <?endif;?>
+                    <?endfor;?>
+                        </div>
+                    </div>
+        <?else:?>
+                    <?=\Core\Builder\MustacheForms::buildFromArray($field)?>
+        <?endif;?>
+                </div>
+
+            </div>
+
+        <?if(!$unwrap):?></div><?endif;?>
+        <?=$wrapEnd?>
+    <?endfor?>
+<?endif;?>
